@@ -10,7 +10,7 @@ import Store.*;
 import Utils.*;
 
 /**
- *
+ * Classe per il Login
  */
 public class Login extends HttpServlet {
 
