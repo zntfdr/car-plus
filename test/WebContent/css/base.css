@@ -1,0 +1,531 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+p {
+	font-size: 12px;
+}
+
+h1 {
+	font-size: 25px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 17px;
+}
+
+/*******************************************/
+/*******************HEADER******************/
+/*******************************************/
+div#header {
+	width: 100%;
+	background-color: rgba(245,243,243,1);
+	background-image: url(../img/header_bg.png);
+	background-repeat: repeat-x;
+	height: 80px;
+	box-shadow: 0px 3px 5px rgba(129,129,129, 0.75);
+	margin-bottom: 5px;
+	z-index: 99999;
+}
+
+div#header > ul {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+    padding: 0;
+	list-style: none;
+	width: 960px;
+    height: 100%;
+}
+
+div#header > ul li {
+	float:left;
+}
+
+
+div#header > ul li:not(:first-child):hover {
+	background-color: rgb(52, 81, 0);
+	box-shadow: 0px 0px 20px rgba(0,0,0, 0.75) inset;
+	cursor: pointer;
+}
+div#header > ul li:not(:first-child):hover:after{
+	background-image:none;
+}
+div#header > ul li:not(:first-child):hover:before {
+	background-image: none;
+}
+div#header > ul li a {
+	color: #FFFFFF;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	text-shadow: 1px 1px 3px rgba(0,0,0, 0.75) ;
+}
+
+div#header > ul li:first-child{
+	margin-right: 0px;
+}
+div#header > ul li:not(:first-child) {
+    padding-top: 31px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+
+div#header > ul li:first-child:after {
+	content:'';
+	height: 80px;
+	width: 1px;
+	background-image: url(../img/light_separator.png);
+	float: right;
+}
+
+div#header > ul li:not(:first-child):before {
+	content:'';
+	height: 80px;
+	width: 1px;
+	background-image: url(../img/dark_separator.png);
+	float: left;
+	margin-top: -31px;
+	margin-left: -20px;
+}
+
+div#header > ul li:not(:first-child):after {
+	content:'';
+	height: 80px;
+	width: 1px;
+	background-image: url(../img/light_separator.png);
+	float: right;
+	margin-top: -31px;
+	margin-right: -20px;
+}
+div#header > ul li img{
+	margin:0;
+	padding:0;
+}
+
+/*******************************************/
+/*******************CONTENT*****************/
+/*******************************************/
+
+div#content {
+	width: 100%;
+	background-color: rgba(245,243,243,1);
+	border-bottom: 1px solid #A1A1A1;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+div.wrapper {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+	height: 100%;
+}
+
+div#content div#announce {
+	width: 100%;
+	height: 330px;
+	padding:0;
+	background-image: url(../img/announce.png);
+	background-repeat:no-repeat;
+}
+
+div#content div#actions {
+	width: 100%;
+	margin-top: 35px;
+	padding-left: 150px;
+	padding-right: 150px;
+	display: 
+}
+
+div#content div#search {
+	width: 295px;
+	height: 223px;
+	background-image: url(../img/search.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	float: left;
+	margin-right: 35px;
+}
+
+div#content div#insert {
+	width: 295px;
+	height: 223px;
+	background-image: url(../img/insert.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	float:left;
+	margin-left: 35px;
+}
+
+div#content div#insert:hover, div#content div#search:hover {
+	background-position: 0px -223px;
+	cursor: pointer;
+}
+
+/*******************************************/
+/*******************FOOTER******************/
+/*******************************************/
+
+div#footer {
+	width: 100%;
+	background-color: #FFFFFF;
+	height: 100px;
+	background: url(../img/content_box_shadow.png) center top no-repeat;
+}
+
+/*******************************************/
+/*****************SEARCH FORM***************/
+/*******************************************/
+
+form#search ul {
+	list-style: none;
+	background-color: rgb(255, 255, 250);
+	width: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-left: -20px;
+	border-radius: 20px;
+	padding-bottom: 20px;
+	border: 1px solid #ECECEC;
+}
+
+form#search ul li {
+	margin: 10px 0px;
+	padding: 0;
+}
+
+form#search ul li:not(:first-child) {
+	margin: 20px 0px;
+	padding: 0;
+}
+
+form#search ul li:first-child {
+	margin-bottom: 80px;
+	border-bottom: 1px inset #7dc500;
+	padding-bottom: 25px;
+	padding-left: 20px;
+	padding-right: 40px;
+	padding-top: 25px;
+	border-radius: 20px 20px 0px 0px;
+	margin-left: -20px;
+	margin-right: -20px;
+	margin-top: 0px;
+	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
+	color: #FFFFFF;
+	box-shadow: 0px 3px 0px rgba(255, 255, 255, .25) inset;
+	text-shadow: 1px 1px 2px #333;
+}
+
+form#search ul li#change > img {
+	position: relative;
+	left: 900px;
+}
+
+form#search ul li#change > img:hover {
+	cursor: pointer;
+}
+
+form#search ul li#change {
+	display: block;
+	margin-bottom: -105px;
+}
+
+form#search ul li > input:focus {
+	outline: none;
+	box-shadow:  0px 0px 10px #7dc500;
+}
+
+form#search ul li > label {
+	display: inline-block;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	margin-right: 15px;
+	width: 75px;
+	text-align: right;
+	font-weight: bold;
+}
+
+form#search ul li > input[type = text] {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	padding: 10px;
+	width: 80%;
+	height: auto;
+	margin: 0;
+	border-radius: 10px;
+	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
+}
+
+form#search ul li > input[type = checkbox] {
+	margin: 0px 0px 0px 20px;
+	padding: 0;
+	width: 20px;
+	height: 20px;
+	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
+}
+
+form#search ul li > input#date {
+	width:11%;
+}
+
+form#search ul li > input#people {
+	width:5%;
+	text-align: center;
+}
+
+form#search ul li > button#submit {
+	padding: 15px;
+	font-size: 15px;
+	border-radius: 10px;
+	margin-left: 90px;
+	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
+	border: 1px solid #466e00;
+	box-shadow: 0px 2px 0px #c3ff5a inset;
+	text-shadow: 1px 1px 2px #333;
+	cursor: pointer;
+	color: #FFFFFF;
+	
+}
+
+form#search ul li > button#submit:hover {
+	opacity: .85;
+}
+
+form#search ul li > button#submit:active {
+	box-shadow: 2px 2px 2px #466e00 inset;
+	background-color: #304c00;
+}
+
+/*******************************************/
+/**************TABLE TRIP LIST**************/
+/*******************************************/
+
+table#trip_list {
+	width: 100%;
+	margin-top: 30px;
+	border-radius: 5px;
+	border-collapse: 1px;;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin-top: 30px;
+}
+
+table#trip_list tr:first-child {
+	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
+	background-color: #619801;
+}
+
+table#trip_list tr:not(:first-child) {
+	font-size: 14px;
+	text-align: center;
+}
+
+table#trip_list tr:not(:first-child):nth-child(even) {
+	background-color: #FFFFFF;
+}
+
+table#trip_list tr:not(:first-child):nth-child(odd) {
+	background-color: #E1E1E1;
+}
+
+table#trip_list tr:not(:first-child):hover {
+	background-color: #e3ffb2;
+}
+
+table#trip_list td {
+	padding: 10px;
+}
+
+table#trip_list th {
+	font-size: 16px;
+	padding: 10px;
+	font-weight:bold;
+}
+
+table#trip_list tr > th:first-child,  table#trip_list tr > td:first-child{
+	width: 10%;
+}
+
+table#trip_list tr > th.from, table#trip_list tr > th.to, table#trip_list tr > td.from, table#trip_list tr > td.to {
+	width: 35%;
+}
+
+table#trip_list tr > th.date, table#trip_list tr > td.date {
+	width: 15%;
+}
+
+table#trip_list tr > th.free, table#trip_list tr > td.free {
+	width: 5%;
+}
+
+/*******************************************/
+/******************LOGIN FORM***************/
+/*******************************************/
+
+form#login ul {
+	list-style: none;
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+	border-radius: 5px;
+	padding: 0;
+}
+
+form#login ul li {
+	padding: 10px;
+}
+
+form#login ul li:not(:first-child) {
+	padding: 20px 20px;
+}
+
+form#login ul li:first-child {
+	margin-bottom: 20px;
+	background:none;
+	border-bottom: 1px solid #6E6E6E;
+	text-shadow: 1px 1px 2px #333;
+	color: #333;
+}
+
+form#login ul li > input:focus {
+	outline: none;
+	box-shadow:  0px 0px 10px #7dc500;
+}
+
+form#login ul li > input[type = text], form#login ul li > input[type = password] {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	padding: 10px;
+	width: 95%;
+	height: auto;
+	margin: 0;
+	border-radius: 10px;
+	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
+}
+
+
+form#login ul li > button#submit {
+	padding: 15px;
+	font-size: 15px;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
+	border: 1px solid #466e00;
+	box-shadow: 0px 2px 0px #c3ff5a inset;
+	text-shadow: 1px 1px 2px #333;
+	cursor: pointer;
+	color: #FFFFFF;
+}
+
+form#login ul li > button#submit:hover {
+	opacity: .85;
+}
+
+form#login ul li > button#submit:active {
+	box-shadow: 2px 2px 2px #466e00 inset;
+	background-color: #304c00;
+}
+
+/*******************************************/
+/*************REGISTRATION FORM*************/
+/*******************************************/
+
+form#register ul {
+	list-style: none;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	border-radius: 5px;
+	padding: 0;
+}
+
+form#register ul li {
+	padding: 10px;
+}
+
+form#register ul li:not(:first-child) {
+	padding: 10px 10px;
+}
+
+form#register ul li:first-child {
+	margin-bottom: 20px;
+	background:none;
+	border-bottom: 1px solid #6E6E6E;
+	text-shadow: 1px 1px 2px #E5E5E5;
+	color: #333;
+}
+
+form#register ul li > input:focus {
+	outline: none;
+	box-shadow:  0px 0px 10px #7dc500;
+}
+
+form#register ul li > input[type = text], form#register ul li > input[type = password] {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	padding: 10px;
+	width: 95%;
+	height: auto;
+	margin: 0;
+	border-radius: 10px;
+	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
+}
+
+form#register ul li > input[type = radio] {
+	padding: 10px;
+	margin-left: 20px;
+	margin-right: 5px;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 20px;
+}
+
+form#register ul li > button#submit {
+	padding: 15px;
+	font-size: 15px;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
+	border: 1px solid #466e00;
+	box-shadow: 0px 2px 0px #c3ff5a inset;
+	text-shadow: 1px 1px 2px #333;
+	cursor: pointer;
+	color: #FFFFFF;
+}
+
+form#register ul li > button#submit:hover {
+	opacity: .85;
+}
+
+form#register ul li > button#submit:active {
+	box-shadow: 2px 2px 2px #466e00 inset;
+	background-color: #304c00;
+}
