@@ -5,24 +5,28 @@ public class Tragitto_CP {
     public boolean fumatori;
     public int num_posti;
     public String note;
-    public int id_localita_partenza;
-    public int id_localita_arrivo;
+    public String citta_arrivo;
+    public String provincia_arrivo;
+    public String citta_partenza;
+    public String provincia_partenza;
     public String localita_partenza;
     public String localita_arrivo;
-    public int cu_utente;
+    public String email_utente;
     public String targa_CP;
     public Timestamp tempo_partenza;
     public Timestamp tempo_arrivo;
 
     //constructor
-    public Tragitto_CP(int newid, boolean newfumatori, int newnum_posti, String newnote, int newid_localita_partenza, int newid_localita_arrivo, int newcu_utente, String newtarga_CP, Timestamp newtempo_partenza, Timestamp newtempo_arrivo) {
+    public Tragitto_CP(int newid, boolean newfumatori, int newnum_posti, String newnote, String newcitta_partenza, String newprovincia_partenza, String newcitta_arrivo, String newprovincia_arrivo, String newemail_utente, String newtarga_CP, Timestamp newtempo_partenza, Timestamp newtempo_arrivo) {
      id = newid;
      fumatori = newfumatori;
      num_posti = newnum_posti;
      note = newnote;
-     id_localita_partenza = newid_localita_partenza;
-     id_localita_arrivo = newid_localita_arrivo;
-     cu_utente = newcu_utente;
+     citta_partenza = newcitta_partenza;
+     provincia_partenza = newprovincia_partenza;
+     citta_arrivo = newcitta_arrivo;
+     citta_arrivo = newprovincia_arrivo;
+     email_utente = newemail_utente;
      targa_CP = newtarga_CP;
      tempo_partenza = newtempo_partenza;
      tempo_arrivo = newtempo_arrivo;
@@ -44,13 +48,22 @@ public class Tragitto_CP {
         note = newValue;
     }
 
-    public void setId_localita_partenza(int newValue) {
-        id_localita_partenza = newValue;
+    public void setCitta_partenza(String newValue) {
+        citta_partenza = newValue;
+    }
+    
+    public void setProvincia_partenza(String newValue) {
+        provincia_partenza = newValue;
     }
 
-    public void setId_localita_arrivo(int newValue) {
-        id_localita_arrivo = newValue;
+    public void setCitta_arrivo(String newValue) {
+        citta_arrivo = newValue;
     }
+    
+    public void setProvincia_arrivo(String newValue) {
+        provincia_arrivo = newValue;
+    }
+    
     public void setLocalita_partenza(String newValue) {
         localita_partenza = newValue;
     }
@@ -59,8 +72,8 @@ public class Tragitto_CP {
         localita_arrivo = newValue;
     }
 
-    public void setCu_utente(int newValue) {
-        cu_utente = newValue;
+    public void setemail_utente(String newValue) {
+        email_utente = newValue;
     }
     
     public void setTarga_CP(String newValue) {
@@ -91,14 +104,22 @@ public class Tragitto_CP {
         return note;
     }
 
-    public int getId_localita_partenza() {
-        return id_localita_partenza;
+    public String getCitta_partenza() {
+        return citta_partenza;
     }
 
-    public int getId_localita_arrivo() {
-        return id_localita_arrivo;
+    public String getProvincia_partenza() {
+        return provincia_partenza;
+    }
+    
+    public String getCitta_arrivo() {
+        return citta_arrivo;
     }
 
+    public String getProvincia_arrivo() {
+        return provincia_arrivo;
+    }
+    
     public String getLocalita_partenza() {
         return localita_partenza;
     }
@@ -107,8 +128,8 @@ public class Tragitto_CP {
         return localita_arrivo;
     }
 
-    public int getCu_utente() {
-        return cu_utente;
+    public String getemail_utente() {
+        return email_utente;
     }
     
     public String getTarga_CP() {
