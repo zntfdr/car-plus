@@ -1,7 +1,6 @@
 package Entita;
 
 public class Utente {
-    public int codice_utente;
     public String nome;
     public String cognome;
     public String sesso;
@@ -14,8 +13,7 @@ public class Utente {
     public boolean account_sospeso;
     
     //constructor
-    public Utente(int newcodice_utente, String newnome, String newcognome, String newsesso, String newindirizzo, int newid_localita, String newpassword, String newemail, String newtelefono, boolean newsetAccount_verificato, boolean newaccount_sospeso) {
-      codice_utente = newcodice_utente;
+    public Utente(String newnome, String newcognome, String newsesso, String newindirizzo, int newid_localita, String newpassword, String newemail, String newtelefono, boolean newsetAccount_verificato, boolean newaccount_sospeso) {
       nome = newnome;
       cognome = newcognome;
       sesso = newsesso;
@@ -26,10 +24,6 @@ public class Utente {
       telefono = newtelefono;
       account_verificato = newaccount_sospeso;
       account_sospeso = newaccount_sospeso;
-    }
-    
-    public int getCodice_utente() {
-        return codice_utente;
     }
 
     public String getNome() {
@@ -70,10 +64,6 @@ public class Utente {
 
     public boolean getAccount_sospeso() {
         return account_sospeso;
-    }
-
-    public void setCodice_utente(int newValue) {
-        codice_utente = newValue;
     }
 
     public void setNome(String newValue) {
