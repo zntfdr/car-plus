@@ -1,3 +1,5 @@
+package Entita;
+
 public class Stazione_CS {
 	public String citta;
     public String provincia;
