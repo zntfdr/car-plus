@@ -5,7 +5,7 @@ import Utils.*;
 
 public class StoreLocalita{
 	public static Localita insertLocalita(Localita loc){
-		String sql = "INSERT INTO localita(regione, provincia, citta) VALUES('regione', '" + loc.getProvincia() + "', '" + loc.getCitta() + "')";
+		String sql = "INSERT INTO localita(provincia, citta) VALUES('" + loc.getProvincia() + "', '" + loc.getCitta() + "')";
 
 		Query.doQuery(sql);
 		return readLocalita(loc.getProvincia(), loc.getCitta());
@@ -17,7 +17,7 @@ public class StoreLocalita{
 		if(rs != null){
 			try {
 				while(rs.next()){
-					return new Localita(rs.getInt("id"), rs.getString("regione"), rs.getString("provincia"), rs.getString("citta"));
+					return new Localita(rs.getString("citta"),rs.getString("provincia"));
 				}
 			}catch (SQLException e){
 			}
