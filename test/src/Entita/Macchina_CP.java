@@ -9,19 +9,19 @@ public class Macchina_CP {
         modello_macchina = newmodello_macchina;
     }
 
-    public void setTarga(int newValue) {
+    public void setTarga(String newValue) {
        targa = newValue;
     }
 
-    public void setModello_macchina(String newValue) {
+    public void setModello_macchina(int newValue) {
        modello_macchina = newValue;
     }
 
-    public int getTarga() {
+    public String getTarga() {
        return targa;
     }
 
-    public String getModello_macchina() {
+    public int getModello_macchina() {
        return modello_macchina;
     }
 }
