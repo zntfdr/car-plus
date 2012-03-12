@@ -5,7 +5,7 @@ public class Localita {
     public String citta;
 
     //constructor
-    public Localita(String newprovincia, String newcitta) {
+    public Localita(String newcitta, String newprovincia) {
         provincia = newprovincia;
         citta = newcitta;
     } 
