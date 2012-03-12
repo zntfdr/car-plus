@@ -1,5 +1,5 @@
 package Entita;
-
+import java.sql.Timestamp;
 public class Messaggio_privato {
 	public int id;
 	public String email_mittente;
@@ -8,7 +8,7 @@ public class Messaggio_privato {
 	public String titolo;
 	public String testo;
 
-	public Messaggio_privato(String newemail_mittente, String newemail_destinatario, Timestamp newdata, String newtitolo, String newtest)
+	public Messaggio_privato(String newemail_mittente, String newemail_destinatario, Timestamp newdata, String newtitolo, String newtesto)
 	{
 		email_mittente = newemail_mittente;
 		email_destinatario = newemail_destinatario;

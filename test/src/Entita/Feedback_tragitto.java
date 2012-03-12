@@ -1,15 +1,17 @@
 package Entita;
+import java.sql.Timestamp;
+
 public class Feedback_tragitto {
     public int tragitto_id;
     public String email_valutante;
     public String email_valutato;
-    public TimeStamp data;
+    public Timestamp data;
     public String titolo;
     public String commento;
     public int valutazione;
 
     //constructor
-    public Localita(int newtragitto_id, String newemail_valutante, String newemail_valutato, TimeStamp newdata, String newtitolo, String newcommento, int newvalutazione) {
+    public Feedback_tragitto(int newtragitto_id, String newemail_valutante, String newemail_valutato, Timestamp newdata, String newtitolo, String newcommento, int newvalutazione) {
         tragitto_id = newtragitto_id;
         email_valutante = newemail_valutante;
         email_valutato = newemail_valutato;
@@ -31,7 +33,7 @@ public class Feedback_tragitto {
         email_valutato = newValue;
     }
 
-    public void setData(TimeStamp newValue) {
+    public void setData(Timestamp newValue) {
         data = newValue;
     }
 
@@ -59,7 +61,7 @@ public class Feedback_tragitto {
         return email_valutante;
     }
 
-    public TimeStamp getData() {
+    public Timestamp getData() {
         return data;
     }
 

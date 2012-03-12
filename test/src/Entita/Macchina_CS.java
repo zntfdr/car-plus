@@ -1,4 +1,6 @@
 package Entita;
+import java.sql.Timestamp;
+
 public class Macchina_CS {    
     public String targa;
     public int id_modello;
@@ -8,7 +10,7 @@ public class Macchina_CS {
     public int anno_acquisto;
     public Timestamp scad_bollo;
     public Timestamp scad_assicurazione;
-    public TimeStamp scad_revisione;
+    public Timestamp scad_revisione;
     public int km_totali;
     public Boolean prenotabile;
 
@@ -52,15 +54,15 @@ public class Macchina_CS {
     	anno_acquisto = newValue;
     }
     
-    public void setScad_bollo(TimeStamp newValue) {
+    public void setScad_bollo(Timestamp newValue) {
     	scad_bollo= newValue;
     }
     
-    public void setScad_assicurazione(TimeStamp newValue) {
+    public void setScad_assicurazione(Timestamp newValue) {
     	scad_assicurazione = newValue;
     }
     
-    public void setScad_revisione(TimeStamp newValue) {
+    public void setScad_revisione(Timestamp newValue) {
     	scad_revisione = newValue;
     }
     
@@ -72,7 +74,7 @@ public class Macchina_CS {
     	prenotabile = newValue;
     }
     
-    public int getTarga() {
+    public String getTarga() {
        return targa;
     }
     

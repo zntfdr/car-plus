@@ -1,4 +1,5 @@
 package Entita;
+import java.sql.Timestamp;
 
 public class Contratto {
 	public int id;
@@ -7,7 +8,7 @@ public class Contratto {
     public String email_cliente;
     public String nome_abbonamento;
 
-	public Contratto(Timestamp newdata_stipula, Timestamp newdata_scadenza, String newemail_cliente, String new_nome_abbonamento)
+	public Contratto(Timestamp newdata_stipula, Timestamp newdata_scadenza, String newemail_cliente, String newnome_abbonamento)
 	{
 		data_stipula = newdata_stipula;
 		data_scadenza = newdata_scadenza;
