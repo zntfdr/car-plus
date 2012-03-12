@@ -1,18 +1,18 @@
 package Entita;
 public class Feedback_tragitto {
     public int tragitto_id;
-    public int cu_valutante;
-    public int cu_valutato;
+    public String email_valutante;
+    public String email_valutato;
     public TimeStamp data;
     public String titolo;
     public String commento;
     public int valutazione;
 
     //constructor
-    public Localita(int newtragitto_id, int newcu_valutante, int newcu_valutato, TimeStamp newdata, String newtitolo, String newcommento, int newvalutazione) {
+    public Localita(int newtragitto_id, String newemail_valutante, String newemail_valutato, TimeStamp newdata, String newtitolo, String newcommento, int newvalutazione) {
         tragitto_id = newtragitto_id;
-        cu_valutante = newcu_valutante;
-        cu_valutato = newcu_valutato;
+        email_valutante = newemail_valutante;
+        email_valutato = newemail_valutato;
         data = newdata;
         titolo = newtitolo;
         commento = newcommento;
@@ -23,12 +23,12 @@ public class Feedback_tragitto {
         tragitto_id = newValue;
     }
 
-    public void setCu_valutante(int newValue) {
-        cu_valutato = newValue;
+    public void setEmail_valutante(String newValue) {
+        email_valutato = newValue;
     }
 
-    public void setCu_valutante(int newValue) {
-        cu_valutante = newValue;
+    public void setEmail_valutato(String newValue) {
+        email_valutato = newValue;
     }
 
     public void setData(TimeStamp newValue) {
@@ -47,16 +47,16 @@ public class Feedback_tragitto {
         valutazione = newValue;
     }
 
-        public int getTragitto_id() {
+    public int getTragitto_id() {
         return tragitto_id;
     }
 
-    public int getCu_valutante() {
-        return cu_valutato;
+    public String getEmail_valutato() {
+        return email_valutato;
     }
 
-    public int getCu_valutante() {
-        return cu_valutante;
+    public String getEmail_valutante() {
+        return email_valutante;
     }
 
     public TimeStamp getData() {
