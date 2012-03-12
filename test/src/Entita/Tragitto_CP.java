@@ -17,7 +17,7 @@ public class Tragitto_CP {
     public Timestamp tempo_arrivo;
 
     //constructor
-    public Tragitto_CP(int newid, boolean newfumatori, int newnum_posti, String newnote, String newcitta_partenza, String newprovincia_partenza, String newcitta_arrivo, String newprovincia_arrivo, String newemail_utente, String newtarga_CP, Timestamp newtempo_partenza, Timestamp newtempo_arrivo) {
+    public Tragitto_CP(int newid, boolean newfumatori, int newnum_posti, String newnote, String newcitta_partenza, String newprovincia_partenza, String newcitta_arrivo, String newprovincia_arrivo, String newlocalita_partenza, String newlocalita_arrivo, String newemail_utente, String newtarga_CP, Timestamp newtempo_partenza, Timestamp newtempo_arrivo) {
      id = newid;
      fumatori = newfumatori;
      num_posti = newnum_posti;
@@ -25,7 +25,9 @@ public class Tragitto_CP {
      citta_partenza = newcitta_partenza;
      provincia_partenza = newprovincia_partenza;
      citta_arrivo = newcitta_arrivo;
-     citta_arrivo = newprovincia_arrivo;
+     provincia_arrivo = newprovincia_arrivo;
+     localita_arrivo = newlocalita_arrivo;
+     localita_partenza = newlocalita_partenza;
      email_utente = newemail_utente;
      targa_CP = newtarga_CP;
      tempo_partenza = newtempo_partenza;
