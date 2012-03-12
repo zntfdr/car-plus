@@ -5,7 +5,8 @@ public class Utente {
     public String cognome;
     public String sesso;
     public String indirizzo;
-    public int id_localita;
+    public String citta;
+    public String provincia;
     public String password; /* la criptazione della password viene effettuata esternamente da questa classe */
     public String email;
     public String telefono;
@@ -13,12 +14,13 @@ public class Utente {
     public boolean account_sospeso;
     
     //constructor
-    public Utente(String newnome, String newcognome, String newsesso, String newindirizzo, int newid_localita, String newpassword, String newemail, String newtelefono, boolean newsetAccount_verificato, boolean newaccount_sospeso) {
+    public Utente(String newnome, String newcognome, String newsesso, String newindirizzo, String newcitta, String newprovincia, String newpassword, String newemail, String newtelefono, boolean newsetAccount_verificato, boolean newaccount_sospeso) {
       nome = newnome;
       cognome = newcognome;
       sesso = newsesso;
       indirizzo = newindirizzo;
-      id_localita = newid_localita;
+      citta = newcitta;
+      provincia = newprovincia;
       password = newpassword;
       email = newemail;
       telefono = newtelefono;
@@ -42,10 +44,14 @@ public class Utente {
         return indirizzo;
     }
 
-    public int getId_localita() {
-        return id_localita;    
+    public String getCitta() {
+        return citta;    
     }
 
+    public String getProvincia() {
+        return provincia;    
+    }
+    
     public String getPassword() {
         return password;
     }
@@ -82,10 +88,14 @@ public class Utente {
         indirizzo = newValue;
     }
 
-    public void setId_localita(int newValue) {
-        id_localita = newValue;
+    public void setCitta(String newValue) {
+        citta = newValue;
     }
 
+    public void setProvincia(String newValue) {
+        provincia = newValue;
+    }
+    
     public void setPassword(String newValue) {
         password = newValue;
     }

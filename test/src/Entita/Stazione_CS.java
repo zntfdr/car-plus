@@ -1,19 +1,25 @@
 public class Stazione_CS {
-    public int id_localita;
+	public String citta;
+    public String provincia;
     public String nome;
     public String indirizzo;
     public int num_posti;
 
     //constructor
-    public Stazione_CS(int newid_localita, String newnome, String newindirizzo, int newnum_posti) {
-        id_localita = newid_localita;
+    public Stazione_CS(String newcitta, String newprovincia, String newnome, String newindirizzo, int newnum_posti) {
+    	citta = newcitta;
+        provincia = newprovincia;
         nome = newnome;
         indirizzo = newindirizzo;
         num_posti = newnum_posti;
     } 
 
-    public int getId_localita() {
-       return id_localita;
+    public String getCitta() {
+        return citta;    
+    }
+
+    public String getProvincia() {
+        return provincia;    
     }
 
     public String getNome() {
@@ -28,8 +34,12 @@ public class Stazione_CS {
        return num_posti;
     }
 
-    public void setId_localita(int newValue) {
-       id_localita = newValue;
+    public void setCitta(String newValue) {
+        citta = newValue;
+    }
+
+    public void setProvincia(String newValue) {
+        provincia = newValue;
     }
 
     public void setNome(String newValue) {
