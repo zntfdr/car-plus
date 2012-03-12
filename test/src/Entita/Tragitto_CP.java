@@ -72,7 +72,7 @@ public class Tragitto_CP {
         localita_arrivo = newValue;
     }
 
-    public void setemail_utente(String newValue) {
+    public void setEmail_utente(String newValue) {
         email_utente = newValue;
     }
     
@@ -128,7 +128,7 @@ public class Tragitto_CP {
         return localita_arrivo;
     }
 
-    public String getemail_utente() {
+    public String getEmail_utente() {
         return email_utente;
     }
     
