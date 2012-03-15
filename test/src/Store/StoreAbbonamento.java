@@ -5,10 +5,10 @@ import Utils.*;
 
 public class StoreAbbonamento{
 	public static Abbonamento insertAbbonamento(Abbonamento abb){
-		String sql = "INSERT INTO abbonamento(nome, descrizione, tariffa_magg_100km, tariffa_min_100km, tariffa_notturna, tariffa_diurna, costo_mensile, num_max_tessere, num_min_tessere) VALUES('" + abb.getNome() + "', '" + abb.getDescrizione() + "', '" + abb.getTariffa_magg_100km() + "', '" + abb.getTariffa_min_100km()  + "', '" + abb.getTarriffa_notturna()  + "', '" + abb.getTariffa_diurna() +  "', '" + abb.getCosto_mensile()  + "', '" + abb.getNum_max_tessere()  + "', '" + abb.getNum_min_tessere() +"')";
+		String sql = "INSERT INTO abbonamento(nome, descrizione, tariffa_magg_100km, tariffa_min_100km, tariffa_notturna, tariffa_diurna, costo_mensile, num_max_tessere, num_min_tessere) VALUES('" + abb.getNome() + "', '" + abb.getDescrizione() + "', '" + abb.getTariffa_magg_100km() + "', '" + abb.getTariffa_min_100km()  + "', '" + abb.getTariffa_notturna()  + "', '" + abb.getTariffa_diurna() +  "', '" + abb.getCosto_mensile()  + "', '" + abb.getNum_max_tessere()  + "', '" + abb.getNum_min_tessere() +"')";
 	    
 		Query.doQuery(sql);
-		return readAbbonamento(abb.getNome(),abb.getDescrizione(),abb.getTariffa_magg_100km(),abb.getTariffa_min_100km(),abb.getTarriffa_notturna(),abb.getTariffa_diurna(),abb.getCosto_mensile(),abb.getNum_max_tessere(),abb.getNum_min_tessere());
+		return readAbbonamento(abb.getNome(),abb.getDescrizione(),abb.getTariffa_magg_100km(),abb.getTariffa_min_100km(),abb.getTariffa_notturna(),abb.getTariffa_diurna(),abb.getCosto_mensile(),abb.getNum_max_tessere(),abb.getNum_min_tessere());
 	}
 
 	public static Abbonamento readAbbonamento(String nome, String descrizione, double tariffa_magg_100km, double tariffa_min_100km, double tariffa_notturna, double tariffa_diurna, double costo_mensile, int num_max_tessere, int num_min_tessere){
