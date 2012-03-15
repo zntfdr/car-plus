@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nuova Macchina di Car Sharing | Car+</title>
+<link href="../css/base.css" rel="stylesheet" type="text/css">
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
+<script>
+    $(document).ready(function(){
+        $("#purchase_year, #tot_km").keypress(function(e){
+            if(e.keyCode < 48 || e.keyCode > 57) return false;
+            return true;
+        });
+
+        $("#scadenza_bollo, #scadenza_assicurazione, #scadenza_revisione").datepicker({ dateFormat: 'dd/mm/yy' });
+        $("#scadenza_bollo, #scadenza_assicurazione, #scadenza_revisione").datepicker("option", $.datepicker.regional[ "it" ] );
+    });
+</script>
+</head>
+
+<body>
+	<div id="header">
+        <ul>
+            <li><a href="file:///Macintosh HD/Users/Gianmarco/Sites"><img src="../img/logo.png" alt="Logo"/></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Azienda</a></li>
+            <li><a href="#">Servizi</a></li>
+            <li><a href="#">Contattaci</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div class="wrapper">
+        <form method="post" action="#" id="new_cs_car">
+            <ul>
+                <li><h1>Nuova Stazione di Car Sharing</h1></li>
+                <li><input name="targa" type="text" id="targa" placeholder="Targa"/></li>
+                <li>
+                    <!-- Questo va generato dinamicamente: nel campo value si mette l'id del modello mentre all'internno si mette la descrizione-->
+                    <select name="model">
+                        <option value="1">Fiat Panda</option>
+                        <option value="2">Fiat 500</option>
+                        <option value="3">Fiat Punto</option>
+                    </select>
+                </li>
+                <li><input name="city" type="text" id="city" placeholder="Città"/></li>
+                <li>
+                    <select name="province">
+                        <option value="VE">Venezia</option>
+                        <option value="PD">Padova</option>
+                        <option value="MI">Milano</option>
+                    </select>
+                </li>
+                <li><input name="purchase_year" type="text" id="purchase_year" placeholder="Anno di Acquisto"/></li>
+                <li><input name="scadenza_bollo" type="text" id="scadenza_bollo" placeholder="Data di Scadenza Bollo"/></li>
+                <li><input name="scadenza_assicurazione" type="text" id="scadenza_assicurazione" placeholder="Data di Scadenza Assicurazione"/></li>
+                <li><input name="scadenza_revisione" type="text" id="scadenza_revisione" placeholder="Data di Scadenza Revisione"/></li>
+
+                <li><input name="tot_km" type="text" id="tot_km" placeholder="Km Totali"/></li>
+
+                <li><button name="submit" type="submit" id="submit">Inserisci</button></li>
+            </ul>
+        </form>
+        
+        <div style="clear: both;"></div>
+    	
+        </div>
+    </div>
+    <div id="footer">
+    	<div class="wrapper">
+        </div>
+    </div>
+</body>
+</html>
