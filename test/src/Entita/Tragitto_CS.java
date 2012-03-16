@@ -64,7 +64,7 @@ public class Tragitto_CS {
         return id;
     }
     
-    public int GetId_tessera() {
+    public int getId_tessera() {
         return id_tessera;
     }
     
