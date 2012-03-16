@@ -8,8 +8,9 @@ public class Contratto {
     public String email_cliente;
     public String nome_abbonamento;
 
-	public Contratto(Timestamp newdata_stipula, Timestamp newdata_scadenza, String newemail_cliente, String newnome_abbonamento)
+	public Contratto(int newid, Timestamp newdata_stipula, Timestamp newdata_scadenza, String newemail_cliente, String newnome_abbonamento)
 	{
+		id = newid;
 		data_stipula = newdata_stipula;
 		data_scadenza = newdata_scadenza;
 		email_cliente = newemail_cliente;
