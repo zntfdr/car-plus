@@ -8,8 +8,9 @@ public class Messaggio_privato {
 	public String titolo;
 	public String testo;
 
-	public Messaggio_privato(String newemail_mittente, String newemail_destinatario, Timestamp newdata, String newtitolo, String newtesto)
+	public Messaggio_privato(int newid,String newemail_mittente, String newemail_destinatario, Timestamp newdata, String newtitolo, String newtesto)
 	{
+		id = newid;
 		email_mittente = newemail_mittente;
 		email_destinatario = newemail_destinatario;
 		data = newdata;
