@@ -32,7 +32,7 @@ public class Stazione_CS {
        return indirizzo;
     }
 
-    public int getNewnum_posti() {
+    public int getNum_posti() {
        return num_posti;
     }
 
