@@ -114,7 +114,7 @@ public class Macchina_CS {
         return km_totali;
     }
     
-    public Boolean get_Prenotabile() {
+    public Boolean getPrenotabile() {
         return prenotabile;
     }
     
