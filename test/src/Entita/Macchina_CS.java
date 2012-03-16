@@ -82,15 +82,15 @@ public class Macchina_CS {
         return id_modello;
     }
 
-    public String GetCitta() {
+    public String getCitta() {
     	return citta;
     }
     
-    public String GetProvincia() {
+    public String getProvincia() {
     	return provincia;
     }
     
-    public String GetNome_stazione_CS() {
+    public String getNome_stazione_CS() {
     	return nome_stazione_CS;
     }
     
