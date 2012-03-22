@@ -1,1 +1,0 @@
-res.sendRedirect("html/index.html")
