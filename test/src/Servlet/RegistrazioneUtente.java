@@ -29,21 +29,7 @@ public class RegistrazioneUtente extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 
-		Localita loc = new Localita(0, null, req.getParameter("provincia"), req.getParameter("citta"));
-		String sql = "SELECT id  FROM localita WHERE citta = '" + loc.getCitta() +"' AND provincia = '" + loc.getProvincia() + "'";
-		ResultSet rs = Query.doQueryRS(sql);
-		try {       
-			if(rs.getRow() != 0){
-				while(rs.next()){
-					loc.setId(rs.getInt("id"));
-				}
-			}
-			else {
-				loc = StoreLocalita.insertLocalita(loc);
-			}
-		}catch (SQLException e){
-		}
-		Utente ut = new Utente(0, req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), loc.getId(), MD5.encrypt(req.getParameter("password")), req.getParameter("mail"), req.getParameter("phone"), false, false);
+		Utente ut = new Utente(req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), req.getParameter("citta"), req.getParameter("provincia"), MD5.encrypt(req.getParameter("password")), req.getParameter("mail"), req.getParameter("phone"), false, false);
 
 		// l'interrogazione da effettuare
 		ut = StoreUtente.insertUtente(ut);
