@@ -35,8 +35,8 @@ public class Login extends HttpServlet {
 		else{
 			page = "/html/login.html";	
 		}            
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-		dispatcher.forward(req, res);
+		res.sendRedirect("/html/login.html");
+		//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
+		//dispatcher.forward(req, res);
 	}
 }
