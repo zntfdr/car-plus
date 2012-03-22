@@ -13,7 +13,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
-		<url-pattern>/Login</url-pattern>
+		<url-pattern>/html/login.html</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>RicercaTragitto_CP</servlet-name>
