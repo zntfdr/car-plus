@@ -6,7 +6,7 @@ import Utils.*;
 
 public class StoreStazione_CS{
 	public static Stazione_CS insertStazione_CS(Stazione_CS Value){
-		String sql = "INSERT INTO stazione_CS(citta, provincia, nome, indirizzo, num_posti) VALUES('" + Value.getCitta() + ", " + Value.getProvincia() + ", " + Value.getNome() + ", " + Value.getIndirizzo() + ", " + Value.getNum_posti()+ "')";
+		String sql = "INSERT INTO stazione_CS(citta, provincia, nome, indirizzo, num_posti) VALUES('" + Value.getCitta() + "', '" + Value.getProvincia() + "', '" + Value.getNome() + "', '" + Value.getIndirizzo() + "', " + Value.getNum_posti()+ ")";
 	    
 		Query.doQuery(sql);
 		return readStazione_CS(Value.getCitta(),Value.getProvincia(),Value.getNome());

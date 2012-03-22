@@ -6,7 +6,7 @@ import Utils.*;
 
 public class StoreMacchina_CS{
 	public static Macchina_CS insertMacchina_CS(Macchina_CS Value){
-		String sql = "INSERT INTO macchina_CS(targa,id_modello,citta,provincia,nome_stazione_CS,anno_acquisto,scad_bollo,scad_assicurazione,scad_revisione,km_totali,prenotabile) VALUES('" + Value.getTarga() + ", " + Value.getId_modello() + ", " + Value.getCitta() + ", " + Value.getProvincia() + ", " + Value.getNome_stazione_CS() + ", " + Value.getAnno_acquisto() + ", " + Value.getScad_bollo() + ", " + Value.getScad_assicurazione() + ", " + Value.getScad_revisione() + ", " + Value.getKm_totali() + ", " + Value.getPrenotabile() + "')";
+		String sql = "INSERT INTO macchina_CS(targa,id_modello,citta,provincia,nome_stazione_CS,anno_acquisto,scad_bollo,scad_assicurazione,scad_revisione,km_totali,prenotabile) VALUES('" + Value.getTarga() + "', " + Value.getId_modello() + ", '" + Value.getCitta() + "', '" + Value.getProvincia() + "', '" + Value.getNome_stazione_CS() + "', " + Value.getAnno_acquisto() + ", " + Value.getScad_bollo() + ", " + Value.getScad_assicurazione() + ", " + Value.getScad_revisione() + ", " + Value.getKm_totali() + ", TRUE)";
 	    
 		Query.doQuery(sql);
 		return readMacchina_CS(Value.getTarga());
