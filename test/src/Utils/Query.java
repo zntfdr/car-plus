@@ -39,13 +39,13 @@ public class Query {
 		String driver = "org.postgresql.Driver";
 
 		// Il database a cui connettersi
-		String database = "localhost";
+		String database = "dbstud.dei.unipd.it";
 
 		// l'utente da utilizzare
-		String user = "postgres";
+		String user = "EcoGuys";
 
 		// la password per quell'utente
-		String password = "postgres";
+		String password = "vuiciexa";
 
 		try {
 			// Registra il driver per accedere al database
@@ -122,13 +122,13 @@ public static ResultSet doQueryRS(String sql)
 		String driver = "org.postgresql.Driver";
 
 		// Il database a cui connettersi
-		String database = "localhost";
+		String database = "dbstud.dei.unipd.it";
 
 		// l'utente da utilizzare
-		String user = "postgres";
+		String user = "EcoGuys";
 
 		// la password per quell'utente
-		String password = "postgres";
+		String password = "vuiciexa";
 
 		try {
 			// Registra il driver per accedere al database
