@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
 		HttpSession session = req.getSession();
 		
 		if(login == null){
-			page = "/html/login.html";
+			page = "/WEB-INF/html/login.html";
 		}
 		else if(login.getPassword().compareTo(password) == 0) {
 			session.setAttribute("utente",login);
