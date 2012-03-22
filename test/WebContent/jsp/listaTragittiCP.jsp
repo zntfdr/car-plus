@@ -20,7 +20,7 @@
       <tr>
         <td> <%= T.getLocalita_partenza() %></td>
         <td> <%= T.getLocalita_arrivo() %></td>
-        <td> <%= T.getCu_utente() %></td>
+        <td> <%= T.getEmail_utente() %></td>
         <td> <%= T.getNum_posti() %></td>
         <td> <%= T.getTarga_CP() %></td>
       </tr>

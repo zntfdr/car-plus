@@ -38,7 +38,7 @@
             <% Utente ut = null;
             ut = (Utente) session.getAttribute("utente"); %>
              <tr>
-             <td> <%= ut.getId_localita() %></td>
+             <td> <%= ut.getCitta() %></td> 
              <td> <%= ut.getCognome() %></td>
            <td> <%= ut.getEmail() %></td>
             <td> <%= ut.getPassword() %></td>

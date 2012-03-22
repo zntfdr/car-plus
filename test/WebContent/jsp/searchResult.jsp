@@ -43,7 +43,7 @@
             <tr>
                 <td class="from"> <%= T.getLocalita_partenza() %></td>
                 <td class="to"> <%= T.getLocalita_arrivo() %></td>
-                <td class="date"> <%= T.getCu_utente() %></td>
+                <td class="date"> <%= T.getEmail_utente() %></td>
                 <td class="free"> <%= T.getNum_posti() %></td>
                 <td><a href="#"><img src="../img/lens.png" width="18" height="18"/></a></td>
             </tr>
