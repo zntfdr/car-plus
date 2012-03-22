@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nuovo Abbonamento | Car+</title>
+<link href="../css/base.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#tariffa_magg_100km, #tariffa_min_100km, #tariffa_notturna, #tariffa_diurna, #costo_mensile").keypress(function(e){
+            if((e.keyCode >= 48 && e.keyCode <= 57) || e.keyCode == 190) return true;
+            return false;
+        });
+        $("#num_max_tessere, #num_min_tessere").keypress(function(e){
+        	if(e.keyCode < 48 || e.keyCode > 57) return false;
+            return true;
+        });
+    });
+</script>
+</head>
+
+<body>
+	<div id="header">
+        <ul>
+            <li><a href="file:///Macintosh HD/Users/Gianmarco/Sites"><img src="../img/logo.png" alt="Logo"/></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Azienda</a></li>
+            <li><a href="#">Servizi</a></li>
+            <li><a href="#">Contattaci</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div class="wrapper">
+        <form method="post" action="#" id="new_subscription">
+            <ul>
+                <li><h1>Nuova Stazione di Car Sharing</h1></li>
+                <li><input name="nome" type="text" id="nome" placeholder="Nome" maxlength="30"/></li>
+                <li><input name="descrizione" type="text" id="descrizione" placeholder="Descrizione"/></li>
+                <li><input name="tariffa_magg_100km" type="text" id="tariffa_magg_100km" placeholder="Tariffa per tratte > 100Km"/></li>
+                <li><input name="tariffa_min_100km" type="text" id="tariffa_min_100km" placeholder="Tariffa per tratte < 100Km"/></li>
+                <li><input name="tariffa_notturna" type="text" id="tariffa_notturna" placeholder="Tariffa notturna"/></li>
+                <li><input name="tariffa_diurna" type="text" id="tariffa_diurna" placeholder="Tariffa diurna"/></li>
+                <li><input name="costo_mensile" type="text" id="costo_mensile" placeholder="Costo mensile"/></li>
+                <li><input name="num_max_tessere" type="text" id="num_max_tessere" placeholder="Numero massimo di tessere"/></li>
+                <li><input name="num_min_tessere" type="text" id="num_min_tessere" placeholder="Numero minimo di tessere"/></li>
+                
+                <li><button name="submit" type="submit" id="submit">Inserisci</button></li>
+            </ul>
+        </form>
+        
+        <div style="clear: both;"></div>
+    	
+        </div>
+    </div>
+    <div id="footer">
+    	<div class="wrapper">
+        </div>
+    </div>
+</body>
+</html>
