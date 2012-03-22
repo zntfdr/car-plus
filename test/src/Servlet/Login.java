@@ -24,8 +24,11 @@ public class Login extends HttpServlet {
 
 		String page = "";
 		HttpSession session = req.getSession();
-
-		if(login.getPassword().compareTo(password) == 0) {
+		
+		if(login == null){
+			page = "/html/login.html";
+		}
+		else if(login.getPassword().compareTo(password) == 0) {
 			session.setAttribute("utente",login);
 			page = "/jsp/index.jsp"; //qui inviamo anche i dati session.setAttribute("utente",login);
 		}
