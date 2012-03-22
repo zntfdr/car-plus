@@ -26,16 +26,16 @@ public class Login extends HttpServlet {
 		HttpSession session = req.getSession();
 		
 		if(login == null){
-			page = "/html/login.html";
+			page = "html/login.html";
 		}
 		else if(login.getPassword().compareTo(password) == 0) {
 			session.setAttribute("utente",login);
-			page = "/jsp/index.jsp"; //qui inviamo anche i dati session.setAttribute("utente",login);
+			page = "jsp/index.jsp"; //qui inviamo anche i dati session.setAttribute("utente",login);
 		}
 		else{
-			page = "/html/login.html";	
+			page = "html/login.html";	
 		}            
-		res.sendRedirect("/html/login.html");
+		res.sendRedirect(page);
 		//RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
 		//dispatcher.forward(req, res);
 	}

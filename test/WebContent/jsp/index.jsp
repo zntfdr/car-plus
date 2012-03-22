@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
+<%@ page import="Entita.Utente" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -16,6 +17,9 @@
             <li><a href="#">Servizi</a></li>
            <li> <a href="#">Contattaci</a></li>
             <li><a href="login.html">Login</a></li>
+             <% Utente ut = null;
+            ut = (Utente) session.getAttribute("utente"); %>
+            <li>Ciao <%= ut.getEmail() %></li>
         </ul>
     </div>
     <div id="content">
