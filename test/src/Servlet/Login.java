@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
 		HttpSession session = req.getSession();
 		
 		if(login == null){
-			page = "/WEB-INF/html/login.html";
+			page = "/html/login.html";
 		}
 		else if(login.getPassword().compareTo(password) == 0) {
 			session.setAttribute("utente",login);
@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
 			page = "/html/login.html";	
 		}            
 
-		RequestDispatcher dispatcher = req.getRequestDispatcher(page);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
 		dispatcher.forward(req, res);
 	}
 }
