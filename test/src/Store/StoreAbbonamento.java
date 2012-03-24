@@ -17,7 +17,7 @@ public class StoreAbbonamento{
 		if(rs != null){
 			try {
 				while(rs.next()){
-					return new Abbonamento(rs.getString("nome"), rs.getString("descrizione"), rs.getDouble("tariffa_magg_100km"), rs.getDouble("tariffa_min_100km"), rs.getDouble("tariffa_notturna"), rs.getDouble("tariffa_diurna"), rs.getInt("costo_mensile"), rs.getInt("num_max_tessere"), rs.getInt("num_min_tessere"));
+					return new Abbonamento(rs.getString("nome"), rs.getString("descrizione"), rs.getDouble("tariffa_magg_100km"), rs.getDouble("tariffa_min_100km"), rs.getDouble("tariffa_notturna"), rs.getDouble("tariffa_diurna"), rs.getDouble("costo_mensile"), rs.getInt("num_max_tessere"), rs.getInt("num_min_tessere"));
 				}
 			}catch (SQLException e){
 			}
