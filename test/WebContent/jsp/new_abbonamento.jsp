@@ -1,5 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
-<%@ page import="Entita.Abbonamento" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import= "Entita.Abbonamento" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -15,11 +16,10 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Azienda</a></li>
             <li><a href="#">Servizi</a></li>
-           <li> <a href="#">Contattaci</a></li>
+            <li> <a href="#">Contattaci</a></li>
             <li><a href="login.html">Login</a></li>
-             <% Abbonamento abb = null;
-            abb = (Abbonamento) session.getAttribute("abbonamento_nuovo"); %>
-            <li>Ciao <%= abb.getNome() %></li>
+			<% Abbonamento abb = (Abbonamento) session.getAttribute("abbonamento_nuovo"); %>
+			<li>Ciao <%= abb.getNome() %></li>
         </ul>
     </div>
     <div id="content">
