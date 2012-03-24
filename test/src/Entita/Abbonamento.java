@@ -7,11 +7,11 @@ public class Abbonamento {
 	public double tariffa_diurna;
 	public double tariffa_magg_100km;
 	public double tariffa_min_100km;
-	public int costo_mensile;
+	public double costo_mensile;
 	public int num_max_tessere;
 	public int num_min_tessere;
 
-	public Abbonamento(String newnome, String newdescrizione, double newtariffa_notturna, double newtariffa_diurna, double newtariffa_magg_100km, double newtariffa_min_100km, int newcosto_mensile, int newnum_max_tessere, int newnum_min_tessere)
+	public Abbonamento(String newnome, String newdescrizione, double newtariffa_notturna, double newtariffa_diurna, double newtariffa_magg_100km, double newtariffa_min_100km, double newcosto_mensile, int newnum_max_tessere, int newnum_min_tessere)
 	{
 		nome = newnome;
 		descrizione = newdescrizione;
@@ -48,7 +48,7 @@ public class Abbonamento {
 		tariffa_min_100km = newValue;
 	}
 
-	public void setCosto_mensile(int newValue) {
+	public void setCosto_mensile(double newValue) {
 		costo_mensile = newValue;
 	}
 
