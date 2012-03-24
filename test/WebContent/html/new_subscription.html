@@ -5,18 +5,7 @@
 <title>Nuovo Abbonamento | Car+</title>
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $("#tariffa_magg_100km, #tariffa_min_100km, #tariffa_notturna, #tariffa_diurna, #costo_mensile").keypress(function(e){
-            if((e.keyCode >= 48 && e.keyCode <= 57) || e.keyCode == 190) return true;
-            return false;
-        });
-        $("#num_max_tessere, #num_min_tessere").keypress(function(e){
-        	if(e.keyCode < 48 || e.keyCode > 57) return false;
-            return true;
-        });
-    });
-</script>
+
 </head>
 
 <body>
@@ -32,7 +21,7 @@
     </div>
     <div id="content">
         <div class="wrapper">
-        <form method="post" action="../Inserimento_abbonamento" id="new_subscription">
+        <form method="GET" action="../Inserimento_abbonamento" id="new_subscription">
             <ul>
                 <li><h1>Nuovo Abbonamento</h1></li>
                 <li><input name="nome" type="text" id="nome" placeholder="Nome" maxlength="30"/></li>
