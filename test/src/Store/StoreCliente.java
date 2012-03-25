@@ -4,14 +4,14 @@ import Entita.Cliente;
 import Utils.*;
 
 public class StoreCliente {
-	public Cliente insertCliente(Cliente c) {
+	public static Cliente insertCliente(Cliente c) {
 		String sql_query = "INSERT INTO cliente (email, codice_fiscale) VALUES ('" + c.getEmail_utente() + "', '" + c.getCodice_fiscale() + "')";
 		Query.doQuery(sql_query);
 		
 		return readCliente(c.getEmail_utente(), c.getCodice_fiscale());
 	}
 	
-	public Cliente readCliente(String email, String codice_fiscale){
+	public static Cliente readCliente(String email, String codice_fiscale){
 		String sql_query = "SELECT * FROM cliente WHERE email = '" + email + "'";
 		ResultSet rs = Query.doQueryRS(sql_query);
 		if (rs != null) {
