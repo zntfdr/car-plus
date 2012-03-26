@@ -48,6 +48,9 @@ public class Inserimento_cliente extends HttpServlet {
 						StoreCliente.insertCliente(customer);
 					} else {
 						mail_exists_yet = true;
+						HttpSession session = request.getSession();
+						session.setAttribute("error_mail", email);
+						session.setAttribute("error_cf", codice_fiscale);
 						response.sendRedirect("jsp/new_customer.jsp?error=1&customer_type=normal"); // In caso di errore reinvia al modulo di inserimento
 					}
 				} catch(SQLException e) {
@@ -70,6 +73,10 @@ public class Inserimento_cliente extends HttpServlet {
 						StoreCliente_business.insertCliente_business(c);
 					} else {
 						mail_exists_yet = true;
+						HttpSession session = request.getSession();
+						session.setAttribute("error_mail", email);
+						session.setAttribute("error_pi", partita_iva);
+						session.setAttribute("error_na", nome_attivita);
 						response.sendRedirect("jsp/new_customer.jsp?error=1&customer_type=business"); // In caso di errore reinvia al modulo di inserimento
 					}
 				} catch (SQLException e) {
