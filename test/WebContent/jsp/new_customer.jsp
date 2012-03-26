@@ -59,7 +59,7 @@
     <div id="content">
         <div class="wrapper">
         <ul id="customer_type_navigation">
-            <li id="normal_customer" class="<%= ((isBusiness != null) && (!isBusiness.booleanValue())) ? "selected" : ""%>">Cliente</li>
+            <li id="normal_customer" class="<%= (((isBusiness != null) && (!isBusiness.booleanValue()))  || (isBusiness == null)) ? "selected" : ""%>">Cliente</li>
             <li id="business_customer" class="<%= ((isBusiness != null) && (isBusiness.booleanValue())) ? "selected" : ""%>">Cliente Business</li>
         </ul>
         <form method="post" action="../Inserimento_cliente" id="new_customer" class="<%= ((isBusiness != null) && isBusiness.booleanValue()) ? "hide" : ""%>">
@@ -72,7 +72,7 @@
             </ul>
         </form>
         
-        <form method="post" action="../Inserimento_cliente" id="new_business_customer" class="<%= ((isBusiness != null) && !isBusiness.booleanValue()) ? "hide" : ""%>">
+        <form method="post" action="../Inserimento_cliente" id="new_business_customer" class="<%= (((isBusiness != null) && !isBusiness.booleanValue()  || (isBusiness == null))) ? "hide" : ""%>">
             <ul>
                 <li><h1>Nuovo Cliente Business</h1></li>
                 <li><input name="email" type="text" id="email" placeholder="Mail" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"/></li>
