@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <servlet>
+    <servlet-name>Inserimento_abbonamento</servlet-name>
+    <servlet-class>Servlet.Inserimento_abbonamento</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_abbonamento</servlet-name>
+    <url-pattern>/Inserimento_abbonamento</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Inserimento_cliente</servlet-name>
+    <servlet-class>Servlet.Inserimento_cliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_cliente</servlet-name>
+    <url-pattern>/Inserimento_cliente</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Inserimento_localita</servlet-name>
     <servlet-class>Servlet.Inserimento_localita</servlet-class>
   </servlet>
@@ -15,6 +31,14 @@
   <servlet-mapping>
     <servlet-name>Inserimento_macchina_cs</servlet-name>
     <url-pattern>/Inserimento_macchina_cs</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>Inserimento_modello_macchina</servlet-name>
+    <servlet-class>Servlet.Inserimento_modello_macchina</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_modello_macchina</servlet-name>
+    <url-pattern>/Inserimento_modello_macchina</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Inserimento_stazione_cs</servlet-name>
@@ -47,21 +71,5 @@
   <servlet-mapping>
     <servlet-name>RicercaTragitto_CP</servlet-name>
     <url-pattern>/RicercaTragitto_CP</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Inserimento_abbonamento</servlet-name>
-    <servlet-class>Servlet.Inserimento_abbonamento</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Inserimento_abbonamento</servlet-name>
-    <url-pattern>/Inserimento_abbonamento</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>Inserimento_cliente</servlet-name>
-    <servlet-class>Servlet.Inserimento_cliente</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Inserimento_cliente</servlet-name>
-    <url-pattern>/Inserimento_cliente</url-pattern>
   </servlet-mapping>
 </web-app>
