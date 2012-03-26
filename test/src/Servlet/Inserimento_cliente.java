@@ -37,7 +37,7 @@ public class Inserimento_cliente extends HttpServlet {
 			String email = request.getParameter("email");
 			String codice_fiscale = request.getParameter("codice_fiscale");
 			
-			String check_user_existance_query = "SELECT email FROM utente WHERE email = " + email;
+			String check_user_existance_query = "SELECT email FROM utente WHERE email = '" + email + "'";
 			ResultSet rs = Utils.Query.doQueryRS(check_user_existance_query);
 			
 			if (rs != null) {
@@ -58,7 +58,7 @@ public class Inserimento_cliente extends HttpServlet {
 			String partita_iva = request.getParameter("partita_iva");
 			String nome_attivita = request.getParameter("nome_attivita");
 			
-			String check_user_existance_query = "SELECT email FROM utente WHERE email = " + email;
+			String check_user_existance_query = "SELECT email FROM utente WHERE email = '" + email + "'";
 			ResultSet rs = Utils.Query.doQueryRS(check_user_existance_query);
 			
 			if (rs != null) {
