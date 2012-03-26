@@ -28,8 +28,8 @@
            <table id="trip_list">
       <tr>
         <td><b>Citta</b></td>
-        <td><b>Provincia</b></td>
-        <% loc = session.getAttribute("localita_nuova"); %>
+        <td><b>Provincia</b></td></tr>
+        <tr> <% loc = session.getAttribute("localita_nuova"); %>
         <td> <%= A.getCitta() %></td>
         <td> <%= A.getProvincia() %></td>
 
