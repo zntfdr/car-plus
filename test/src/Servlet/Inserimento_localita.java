@@ -36,7 +36,7 @@ public class Inserimento_localita extends HttpServlet {
 		
 		HttpSession session = req.getSession();
 		session.setAttribute("stazione_nuova",loc); //passo il costrutto parametri alla pagina
-		page = "jsp/index.jsp"; 
+		page = "jsp/new_location_landing.jsp"; 
 			
 		res.sendRedirect(page);
 	}
