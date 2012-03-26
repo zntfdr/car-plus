@@ -71,7 +71,7 @@ public class Inserimento_macchina_cs extends HttpServlet {
 		String page = "";
 
 		//Prendo dal DB la lista delle macchine
-		String sql = "SELECT nome FROM Macchina_CS";
+		String sql = "SELECT targa FROM Macchina_CS";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){
 			try {
@@ -82,7 +82,7 @@ public class Inserimento_macchina_cs extends HttpServlet {
 				ArrayList<Macchina_CS> listaCompleta = Store.StoreMacchina_CS.readMacchina_CS_List(listamCS);
 				session.setAttribute("lista_macchine", listaCompleta);
 			} catch(SQLException e){
-
+				
 			}
 		}
 		session.setAttribute("macchina_nuova",mCS); //passo il costrutto parametri alla pagina

@@ -29,11 +29,11 @@ public class StoreMacchina_CS{
 	}
 	
 	public static ArrayList<Macchina_CS> readMacchina_CS_List(ArrayList<String> listaMacchine){
-		String sql = "SELECT * FROM stazione_cs WHERE ";
+		String sql = "SELECT * FROM macchina_cs WHERE ";
 		for (int i=0; i<listaMacchine.size() - 1; i++){
-			sql += "nome = '" + listaMacchine.get(i)+ "' OR ";
+			sql += "targa = '" + listaMacchine.get(i)+ "' OR ";
 		}
-		sql+= "nome = '" + listaMacchine.get(listaMacchine.size() - 1)+ "'";
+		sql+= "targa = '" + listaMacchine.get(listaMacchine.size() - 1)+ "'";
 		ResultSet rs = Query.doQueryRS(sql);
 		if(rs != null){
 			try {

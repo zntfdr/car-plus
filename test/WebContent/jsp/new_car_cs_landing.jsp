@@ -34,6 +34,7 @@
       <tr>
         <td> <%= A.getTarga() %></td>
         <td> <%= A.getNome_stazione_CS() %></td>
+        <td> <%= A.getId_modello() %></td>
         <td> <%= A.getScad_bollo() %></td>
       </tr>
     <% } %>
