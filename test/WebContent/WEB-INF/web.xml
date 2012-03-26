@@ -48,12 +48,20 @@
     <servlet-name>RicercaTragitto_CP</servlet-name>
     <url-pattern>/RicercaTragitto_CP</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>Inserimento_abbonamento</servlet-name>
     <servlet-class>Servlet.Inserimento_abbonamento</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Inserimento_abbonamento</servlet-name>
     <url-pattern>/Inserimento_abbonamento</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Inserimento_cliente</servlet-name>
+    <servlet-class>Servlet.Inserimento_cliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_cliente</servlet-name>
+    <url-pattern>/inserimento_cliente</url-pattern>
   </servlet-mapping>
 </web-app>
