@@ -75,9 +75,9 @@
         <form method="post" action="../Inserimento_cliente" id="new_business_customer" class="<%= (((isBusiness != null) && !isBusiness.booleanValue()  || (isBusiness == null))) ? "hide" : ""%>">
             <ul>
                 <li><h1>Nuovo Cliente Business</h1></li>
-                <li><input name="email" type="text" id="email" placeholder="Mail" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"/></li>
-                <li><input name="partita_iva" type="text" id="partita_iva" placeholder="Partita Iva" maxlength="11" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"/></li>
-                <li><input name="nome_attivita" type="text" id="nome_attivita" placeholder="Nome Attività" maxlength="50" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"/></li>
+                <li><input name="email" type="text" id="email" placeholder="Mail" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"  value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_mail") != null)) ? session.getAttribute("error_bu_mail") : "" %>"/></li>
+                <li><input name="partita_iva" type="text" id="partita_iva" placeholder="Partita Iva" maxlength="11" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_pi") != null)) ? session.getAttribute("error_bu_pi") : "" %>"/></li>
+                <li><input name="nome_attivita" type="text" id="nome_attivita" placeholder="Nome Attività" maxlength="50" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_na") != null)) ? session.getAttribute("error_bu_na") : "" %>"/></li>
 
                 <li><button name="submit_business" type="submit" id="submit_business">Registra</button></li>
             </ul>
