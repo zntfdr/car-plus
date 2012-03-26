@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
-<%@ page import="Entita.Macchina_CS" %>
+<%@ page import="Entita.Localita" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -19,8 +19,8 @@
             <li><a href="login.html">Login</a></li>
             <% Localita loc = null;
             loc = (Localita) session.getAttribute("localita_nuova"); %>
-            <li> Localita' inserita : <%= loc.getCitta()() %></li>
-            <li> Provincia : <%= loc.getProvincia()() %></li>
+            <li> Localita' inserita : <%= loc.getCitta() %></li>
+            <li> Provincia : <%= loc.getProvincia() %></li>
         </ul>
     </div>
     <div id="content">
