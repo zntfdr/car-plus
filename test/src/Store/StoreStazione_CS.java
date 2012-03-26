@@ -1,6 +1,8 @@
 package Store;
 import java.sql.*;
+import java.util.ArrayList;
 
+import Entita.Abbonamento;
 import Entita.Stazione_CS;
 import Utils.*;
 
@@ -25,4 +27,25 @@ public class StoreStazione_CS{
 		}
 		return null;
 	}
+	
+	public static ArrayList<Stazione_CS> readStazione_CS_List(ArrayList<String> listaStazioni){
+		String sql = "SELECT * FROM stazione_cs WHERE ";
+		for (int i=0; i<listaStazioni.size() - 1; i++){
+			sql += "nome = '" + listaStazioni.get(i)+ "' OR ";
+		}
+		sql+= "nome = '" + listaStazioni.get(listaStazioni.size() - 1)+ "'";
+		ResultSet rs = Query.doQueryRS(sql);
+		if(rs != null){
+			try {
+				ArrayList<Stazione_CS> Stazioni_List = new ArrayList<Stazione_CS>();
+				while(rs.next()){
+					Stazioni_List.add(new Stazione_CS(rs.getString("citta"), rs.getString("provincia"), rs.getString("nome"),rs.getString("indirizzo"),rs.getInt("num_posti")));
+				}
+				return Stazioni_List;
+			}catch (SQLException e){
+			}
+		}
+		return null;
+	}
+
 }
