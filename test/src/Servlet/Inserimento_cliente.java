@@ -46,7 +46,7 @@ public class Inserimento_cliente extends HttpServlet {
 						Cliente customer = new Cliente(email, codice_fiscale);
 						StoreCliente.insertCliente(customer);
 					} else {
-						response.sendRedirect("html/new_customer.html"); // In caso di errore reinvia al modulo di inserimento
+						response.sendRedirect("jsp/new_customer.jsp?error=1&customer_type=normal"); // In caso di errore reinvia al modulo di inserimento
 					}
 				} catch(SQLException e) {
 				}
@@ -67,7 +67,7 @@ public class Inserimento_cliente extends HttpServlet {
 						Cliente_business c = new Cliente_business(email, partita_iva, nome_attivita);
 						StoreCliente_business.insertCliente_business(c);
 					} else {
-						response.sendRedirect("html/new_customer.html"); // In caso di errore reinvia al modulo di inserimento
+						response.sendRedirect("jsp/new_customer.jsp?error=1&customer_type=business"); // In caso di errore reinvia al modulo di inserimento
 					}
 				} catch (SQLException e) {
 				}
