@@ -53,6 +53,7 @@ public class Query {
 
 			System.out.printf("Driver: %s registrato con successo.%n", driver);
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 			return false; //something went wrong, sorry buddy
 		}
 
@@ -73,6 +74,7 @@ public class Query {
 			return true;
 
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 
 		} finally {
@@ -90,6 +92,7 @@ public class Query {
 				}
 
 			} catch (SQLException e) {
+				e.printStackTrace();
 				return false;
 
 			} finally {
@@ -136,6 +139,7 @@ public static ResultSet doQueryRS(String sql)
 
 			System.out.printf("Driver: %s registrato con successo.%n", driver);
 		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 			return null;
 		}
 
@@ -161,6 +165,7 @@ public static ResultSet doQueryRS(String sql)
 		    } 
 		catch (SQLException e) 
 		{ 	
+			e.printStackTrace();
 			return null; 
 		}
 		finally {
@@ -177,6 +182,7 @@ public static ResultSet doQueryRS(String sql)
 				}
 
 			} catch (SQLException e) {
+				e.printStackTrace();
 				return null;
 
 			} finally {
