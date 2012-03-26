@@ -873,6 +873,10 @@ form#new_customer ul li > input[type = text], form#new_business_customer ul li >
 	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
 }
 
+form#new_customer ul li > input[type = text].error, form#new_business_customer ul li > input[type = text].error {
+	box-shadow: 0px 0px 5px #FF0000;
+}
+
 form#new_customer ul li > input[type = radio], form#new_business_customer ul li > input[type = radio] {
 	padding: 10px;
 	margin-left: 20px;
@@ -905,7 +909,7 @@ form#new_customer ul li > button#submit:active, form#new_business_customer ul li
 	background-color: #304c00;
 }
 
-form#new_business_customer {
+.hide {
     display: none;
 }
 
