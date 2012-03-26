@@ -1,4 +1,5 @@
 package Store;
+import java.util.ArrayList;
 import java.sql.*;
 import Entita.Cliente;
 import Utils.*;
@@ -23,6 +24,24 @@ public class StoreCliente {
 				
 			}
 		}
+		return null;
+	}
+	
+	public static ArrayList<Cliente> getClienti() {
+		String sql_query = "SELECT * FROM cliente";
+		ResultSet rs = Query.doQueryRS(sql_query);
+		if (rs != null) {
+			try {
+				ArrayList<Cliente> list = new ArrayList<Cliente>();
+				while (rs.next()) {
+					list.add(new Cliente (rs.getString("email_utente"), rs.getString("cf")));
+				}
+				return list;
+			} catch (SQLException e) {
+				
+			}
+		}
+		
 		return null;
 	}
 }
