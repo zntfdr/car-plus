@@ -65,8 +65,8 @@
         <form method="post" action="../Inserimento_cliente" id="new_customer" class="<%= ((isBusiness != null) && isBusiness.booleanValue()) ? "hide" : ""%>">
             <ul>
                 <li><h1>Nuovo Cliente</h1></li>
-                <li><input name="email" type="text" id="email" placeholder="Mail" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (!isBusiness.booleanValue())) ? "error" : "" %>"/></li>
-                <li><input name="codice_fiscale" type="text" id="codice_fiscale" placeholder="Codice Fiscale" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (!isBusiness.booleanValue())) ? "error" : "" %>"/></li>
+                <li><input name="email" type="text" id="email" placeholder="Mail" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (!isBusiness.booleanValue())) ? "error" : "" %>" value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_mail") != null)) ? session.getAttribute("error_mail") : "" %>"/></li>
+                <li><input name="codice_fiscale" type="text" id="codice_fiscale" placeholder="Codice Fiscale" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (!isBusiness.booleanValue())) ? "error" : "" %>"  value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_mail") != null)) ? session.getAttribute("error_cf") : "" %>"/></li>
 
                 <li><button name="submit" type="submit" id="submit">Registra</button></li>
             </ul>
