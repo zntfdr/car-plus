@@ -3,6 +3,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import Entita.Abbonamento;
+import Entita.Localita;
 import Entita.Stazione_CS;
 import Utils.*;
 
@@ -45,6 +46,24 @@ public class StoreStazione_CS{
 			}catch (SQLException e){
 			}
 		}
+		return null;
+	}
+	
+	public static ArrayList<Stazione_CS> getStazione_CS() {
+		String sql_query = "SELECT * FROM stazione_cs";
+		ResultSet rs = Query.doQueryRS(sql_query);
+		if (rs != null) {
+			try {
+				ArrayList<Stazione_CS> list = new ArrayList<Stazione_CS>();
+				while (rs.next()) {
+					list.add(new Stazione_CS (rs.getString("citta"), rs.getString("provincia"), rs.getString("nome"),rs.getString("indirizzo"),rs.getInt("num_posti")));
+				}
+				return list;
+			} catch (SQLException e) {
+				
+			}
+		}
+		
 		return null;
 	}
 
