@@ -874,7 +874,7 @@ form#new_customer ul li > input[type = text], form#new_business_customer ul li >
 }
 
 .error {
-	box-shadow: 0px 0px 10px #FF0000;
+	background-color: rgba(255, 0, 0, .4);
 }
 
 form#new_customer ul li > input[type = radio], form#new_business_customer ul li > input[type = radio] {
