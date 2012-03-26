@@ -166,6 +166,7 @@ public static ResultSet doQueryRS(String sql)
 		catch (SQLException e) 
 		{ 	
 			e.printStackTrace();
+			e.getMessage();
 			return null; 
 		}
 		finally {
