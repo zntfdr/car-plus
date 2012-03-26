@@ -74,7 +74,7 @@ public class Inserimento_cliente extends HttpServlet {
 			}
 		}
 		
-		response.sendRedirect("/jsp/lista_clienti.jsp"); //invia a lista utenti
+		response.sendRedirect("jsp/lista_clienti.jsp"); //invia a lista utenti
 	}
 
 }
