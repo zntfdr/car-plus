@@ -62,6 +62,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Inserimento_cliente</servlet-name>
-    <url-pattern>/inserimento_cliente</url-pattern>
+    <url-pattern>/Inserimento_cliente</url-pattern>
   </servlet-mapping>
 </web-app>
