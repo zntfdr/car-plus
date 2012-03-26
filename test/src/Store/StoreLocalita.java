@@ -20,6 +20,7 @@ public class StoreLocalita{
 					return new Localita(rs.getString("citta"),rs.getString("provincia"));
 				}
 			}catch (SQLException e){
+				e.printStackTrace();
 			}
 		}
 		return null;
