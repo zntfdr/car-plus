@@ -25,11 +25,16 @@
     </div>
     <div id="content">
         <div class="wrapper">
-        <div id="announce"></div>
-        <div id="actions">
-            <a href="search.html"><div id="search"></div></a>
-            <a href="#"><div id="insert"></div></a>
-        </div>
+           <table id="trip_list">
+      <tr>
+        <td><b>Citta</b></td>
+        <td><b>Provincia</b></td>
+        <% loc = session.getAttribute("localita_nuova"); %>
+        <td> <%= A.getCitta() %></td>
+        <td> <%= A.getProvincia() %></td>
+
+      </tr>
+    </table>
         <div style="clear: both;"></div>
     
         </div>
