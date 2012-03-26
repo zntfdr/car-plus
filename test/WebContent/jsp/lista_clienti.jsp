@@ -29,6 +29,7 @@
     </div>
     <div id="content">
         <div class="wrapper">
+        <h1>Lista dei Clienti</h1>
     <table id="trip_list">
 
       <tr>
