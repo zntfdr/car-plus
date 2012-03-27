@@ -1,5 +1,4 @@
 package Entita;
-import java.sql.Timestamp;
 
 public class Tessera {
 	public int id;
