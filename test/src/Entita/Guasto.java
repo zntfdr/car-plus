@@ -10,7 +10,7 @@ public class Guasto {
     public Boolean grave;
     
     //constructor
-    public Tragitto_CS(int newid, int newid_tragitto, String newdanno, String newcausa, Timestamp newdata_rip, Timestamp newdata_seg, Boolean newgrave) {
+    public Guasto(int newid, int newid_tragitto, String newdanno, String newcausa, Timestamp newdata_rip, Timestamp newdata_seg, Boolean newgrave) {
     
      id = newid;
      id_tragitto = newid_tragitto;
@@ -58,11 +58,11 @@ public class Guasto {
         return id_tragitto;
     }
     
-    public String getDanno {
+    public String getDanno() {
         return danno;
     }
     
-    public String getCausa {
+    public String getCausa() {
         return causa;
     }
     
