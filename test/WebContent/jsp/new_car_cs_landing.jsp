@@ -1,6 +1,8 @@
+<%@page import="Utils.TimeString"%>
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Macchina_CS" %>
+<%@ page import="Utils.TimeString" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -22,6 +24,10 @@
     </div>
     <div id="content">
         <div class="wrapper">
+        Hai appena inserito questa macchina <% String dataPassata = (String)session.getAttribute("dataTest");%>
+        <%= dataPassata%>
+        Convertita <% String dataPassata2 = (String)session.getAttribute("dataTest2");%>
+        <%= dataPassata2%>
     <table id="trip_list">
       <tr>
         <td><b>Targa</b></td>
@@ -35,7 +41,7 @@
         <td> <%= A.getTarga() %></td>
         <td> <%= A.getNome_stazione_CS() %></td>
         <td> <%= A.getId_modello() %></td>
-        <td> <%= A.getScad_bollo() %></td>
+        <td> <%= Utils.TimeString.dataCalendarToString(A.getScad_bollo()) %></td>
       </tr>
     <% } %>
     </table>
