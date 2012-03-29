@@ -1,8 +1,6 @@
-<%@page import="Utils.TimeString"%>
 <%@ page contentType="text/html" %>
+<%@ page import="Utils.TimeString"%>
 <%@ page import="Entita.Tragitto_CP" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="Utils.TimeString" %>
 <%@ page import="Entita.Utente" %>    
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
 
@@ -36,26 +34,39 @@
         Benvenuto <b><%= user.getNome() %></b>,<br/>
         <table id="trip_list">
             <tr>
+            	<th>Descrizione</th>
+            	<th>Fumatori</th>
                 <th>Citta Partenza</th>
+                <th>Provincia Partenza</th>
                 <th>Citta Arrivo</th>
+                <th>Provincia Arrivo</th>
                 <th>Partenza</th>
-                <th class="free">Posti Liberi</th>
+                <th>Posti Liberi</th>
                 <th>Proprietario Auto</th>
-                <th>+</th>
             </tr>
-              <% ArrayList<Tragitto_CP> listaCP= new ArrayList<Tragitto_CP>();
-                listaCP = (ArrayList<Tragitto_CP>) session.getAttribute("listaTragitti_CP");
-                for(Tragitto_CP T : listaCP){%>
+              <% Tragitto_CP T = (Tragitto_CP)session.getAttribute("tragitto_scelto");%>
             <tr>
+            	<td class="to"> <%= T.getNote() %></td>
+            	<td class="to"> <%= T.getFumatori() %></td>
                 <td class="from"> <%= T.getCitta_partenza() %></td>
+                <td class="from"> <%= T.getProvincia_partenza() %></td>                
                 <td class="to"> <%= T.getCitta_arrivo() %></td>
+                <td class="to"> <%= T.getProvincia_arrivo() %></td>
                 <td class="date"> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_partenza()) %></td>
                 <td class="free"> <%= T.getNum_posti() %></td>
                 <td class="to"> <%= T.getEmail_utente() %></td>
-                <td><a href="../Vista_partecipazione?id=<%=T.getId() %>" ><img src="../img/lens.png" width="18" height="18"/></a></td>
             </tr>
-            <% } %>
         </table>
+        
+        <form method="get" action="../Inserimento_partecipazione" id="search">
+            <ul>
+            <li>Confermi?</li>
+                Utente: <input name="user" readonly="readonly" type="text" id="user" value="<%=user.getEmail() %>" />
+                Numero Posti: <input name="num_posti" readonly="readonly" type="text" id="num_posti" value="<%= (Integer)session.getAttribute("num_posti")%>"/>
+                <input name="id" type="hidden" id="id" value="<%=T.getId()%>"/>
+ 				<li><button name="submit" type="submit" id="submit">Si</button></li>
+            </ul>
+        </form>
         
         <div style="clear: both;"></div>
     	

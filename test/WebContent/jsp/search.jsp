@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
+<%@ page import="Entita.Utente" %>    
+<% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -27,7 +29,7 @@
                 return true;
             });
             
-            $("input#date").datepicker({ dateFormat: 'dd/mm/yy' });
+            $("input#date").datepicker({ dateFormat: 'yy/mm/dd' });
             $("input#date").datepicker("option", $.datepicker.regional[ "it" ] );
 			
 			$("input#people").keypress(function(e) {
@@ -51,6 +53,7 @@
     </div>
     <div id="content">
         <div class="wrapper">
+        Benvenuto <b><%= user.getNome() %></b>,<br/>
         <form method="get" action="../RicercaTragitto_CP" id="search">
             <ul>
                 <li><h1>Ricerca il tragitto perfetto per te!</h1></li>
