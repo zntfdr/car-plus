@@ -1,13 +1,12 @@
 package Entita;
 
 public class Stazione_CS {
-	public String citta;
-    public String provincia;
-    public String nome;
-    public String indirizzo;
-    public int num_posti;
+	private String citta;
+    private String provincia;
+    private String nome;
+    private String indirizzo;
+    private int num_posti;
 
-    //constructor
     public Stazione_CS(String newcitta, String newprovincia, String newnome, String newindirizzo, int newnum_posti) {
     	citta = newcitta;
         provincia = newprovincia;

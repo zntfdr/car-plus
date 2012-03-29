@@ -1,17 +1,16 @@
 package Entita;
-import java.sql.Timestamp;
+import java.util.Calendar;
 
 public class Feedback_tragitto {
-    public int tragitto_id;
-    public String email_valutante;
-    public String email_valutato;
-    public Timestamp data;
-    public String titolo;
-    public String commento;
-    public int valutazione;
+    private int tragitto_id;
+    private String email_valutante;
+    private String email_valutato;
+    private Calendar data;
+    private String titolo;
+    private String commento;
+    private int valutazione;
 
-    //constructor
-    public Feedback_tragitto(int newtragitto_id, String newemail_valutante, String newemail_valutato, Timestamp newdata, String newtitolo, String newcommento, int newvalutazione) {
+    public Feedback_tragitto(int newtragitto_id, String newemail_valutante, String newemail_valutato, Calendar newdata, String newtitolo, String newcommento, int newvalutazione) {
         tragitto_id = newtragitto_id;
         email_valutante = newemail_valutante;
         email_valutato = newemail_valutato;
@@ -33,7 +32,7 @@ public class Feedback_tragitto {
         email_valutato = newValue;
     }
 
-    public void setData(Timestamp newValue) {
+    public void setData(Calendar newValue) {
         data = newValue;
     }
 
@@ -61,7 +60,7 @@ public class Feedback_tragitto {
         return email_valutante;
     }
 
-    public Timestamp getData() {
+    public Calendar getData() {
         return data;
     }
 

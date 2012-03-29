@@ -1,14 +1,14 @@
 package Entita;
-public class Cliente_business {
-    public String email_utente;
-	public String nome_attivita;
-    public String partita_iva;
 
-    //constructor
+public class Cliente_business {
+    private String email_utente;
+	private String nome_attivita;
+    private String partita_iva;
+
     public Cliente_business(String newemail_utente, String newnome_attivita, String newpartita_iva) {
-    email_utente = newemail_utente;
-    nome_attivita = newnome_attivita;
-    partita_iva = newpartita_iva;
+    	email_utente = newemail_utente;
+    	nome_attivita = newnome_attivita;
+    	partita_iva = newpartita_iva;
     }
 
     public void setEmail_utente(String newValue) {

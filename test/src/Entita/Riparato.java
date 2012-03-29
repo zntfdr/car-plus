@@ -1,18 +1,17 @@
 package Entita;
-import java.sql.Timestamp;
-public class Riparato {	
-    public int id_guasto;
-    public String officina_riparazione;
-    public Timestamp data_riparazione;
-    public int costo_riparazione;
-    
-    //constructor
-    public Riparato(int newid_guasto, String newofficina_riparazione, Timestamp newdata_rip, int newcosto_rip) {
+import java.util.Calendar;
 
-     id_guasto = newid_guasto;
-     officina_riparazione = newofficina_riparazione;
-     data_riparazione = newdata_rip;
-     costo_riparazione = newcosto_rip;
+public class Riparato {	
+    private int id_guasto;
+    private String officina_riparazione;
+    private Calendar data_riparazione;
+    private int costo_riparazione;
+    
+    public Riparato(int newid_guasto, String newofficina_riparazione, Calendar newdata_rip, int newcosto_rip) {
+    	id_guasto = newid_guasto;
+    	officina_riparazione = newofficina_riparazione;
+    	data_riparazione = newdata_rip;
+    	costo_riparazione = newcosto_rip;
     }
     
     public void setId_guasto(int newValue) {
@@ -23,7 +22,7 @@ public class Riparato {
         officina_riparazione = newValue;
     }
     
-    public void setData_riparazione(Timestamp newValue) {
+    public void setData_riparazione(Calendar newValue) {
         data_riparazione = newValue;
     }
     
@@ -39,7 +38,7 @@ public class Riparato {
         return officina_riparazione;
     }
     
-    public Timestamp getData_riparazione() {
+    public Calendar getData_riparazione() {
     	return data_riparazione;
     }
  

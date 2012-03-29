@@ -1,37 +1,28 @@
 package Entita;
-
-import java.sql.Timestamp;
+import java.util.Calendar;
 
 public class Macchina_dismessa {
-	public String targa;
-    public String causa;
-	public Timestamp data;
+	private String targa;
+    private String causa;
+	private Calendar data;
 
-	public Macchina_dismessa(String newtarga, String newcausa, Timestamp newdata)
-	{
+	public Macchina_dismessa(String newtarga, String newcausa, Calendar newdata){
 		targa = newtarga;
 		causa = newcausa;
 		data = newdata;
 	}
 	
-	public void setTarga(String newt)
-	{
+	public void setTarga(String newt){
 		targa = newt;
-		
 	}
 
-	public void setCausa(String newc)
-	{
+	public void setCausa(String newc){
 		causa = newc;
-		
 	}
-	public void setData(Timestamp newd)
-	{
+	public void setData(Calendar newd){
 		data = newd;
-		
 	}
 	
-
 	public String getTarga() {
 		return targa;
 	}
@@ -40,9 +31,7 @@ public class Macchina_dismessa {
 		return causa;
 	}
 	
-	public Timestamp getData() {
+	public Calendar getData() {
 		return data;
 	}
-	
-
 }

@@ -1,31 +1,30 @@
 package Entita;
 
 public class Utente {
-    public String nome;
-    public String cognome;
-    public String sesso;
-    public String indirizzo;
-    public String citta;
-    public String provincia;
-    public String password; /* la criptazione della password viene effettuata esternamente da questa classe */
-    public String email;
-    public String telefono;
-    public boolean account_verificato;
-    public boolean account_sospeso;
+    private String nome;
+    private String cognome;
+    private String sesso;
+    private String indirizzo;
+    private String citta;
+    private String provincia;
+    private String password; /* la criptazione della password viene effettuata esternamente da questa classe */
+    private String email;
+    private String telefono;
+    private boolean account_verificato;
+    private boolean account_sospeso;
     
-    //constructor
     public Utente(String newnome, String newcognome, String newsesso, String newindirizzo, String newcitta, String newprovincia, String newpassword, String newemail, String newtelefono, boolean newsetAccount_verificato, boolean newaccount_sospeso) {
-      nome = newnome;
-      cognome = newcognome;
-      sesso = newsesso;
-      indirizzo = newindirizzo;
-      citta = newcitta;
-      provincia = newprovincia;
-      password = newpassword;
-      email = newemail;
-      telefono = newtelefono;
-      account_verificato = newaccount_sospeso;
-      account_sospeso = newaccount_sospeso;
+    	nome = newnome;
+    	cognome = newcognome;
+    	sesso = newsesso;
+    	indirizzo = newindirizzo;
+    	citta = newcitta;
+    	provincia = newprovincia;
+    	password = newpassword;
+    	email = newemail;
+    	telefono = newtelefono;
+    	account_verificato = newaccount_sospeso;
+    	account_sospeso = newaccount_sospeso;
     }
 
     public String getNome() {

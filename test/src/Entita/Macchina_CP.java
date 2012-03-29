@@ -1,9 +1,9 @@
 package Entita;
-public class Macchina_CP {
-    public String targa;
-    public int modello_macchina;
 
-    //constructor
+public class Macchina_CP {
+    private String targa;
+    private int modello_macchina;
+
     public Macchina_CP(String newtarga, int newmodello_macchina) {
         targa = newtarga;
         modello_macchina = newmodello_macchina;

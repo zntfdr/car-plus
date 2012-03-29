@@ -1,15 +1,14 @@
 package Entita;
-import java.sql.Timestamp;
+import java.util.Calendar;
 
 public class Contratto {
-	public int id;
-    public Timestamp data_stipula;
-    public Timestamp data_scadenza; 
-    public String email_cliente;
-    public String nome_abbonamento;
+	private int id;
+    private Calendar data_stipula;
+    private Calendar data_scadenza; 
+    private String email_cliente;
+    private String nome_abbonamento;
 
-	public Contratto(int newid, Timestamp newdata_stipula, Timestamp newdata_scadenza, String newemail_cliente, String newnome_abbonamento)
-	{
+	public Contratto(int newid, Calendar newdata_stipula, Calendar newdata_scadenza, String newemail_cliente, String newnome_abbonamento){
 		id = newid;
 		data_stipula = newdata_stipula;
 		data_scadenza = newdata_scadenza;
@@ -17,11 +16,11 @@ public class Contratto {
 		nome_abbonamento = newnome_abbonamento;
 	}
 
-	public void setData_stipula(Timestamp newValue) {
+	public void setData_stipula(Calendar newValue) {
 		data_stipula = newValue;
 	}
 	
-	public void setData_scadenza(Timestamp newValue) {
+	public void setData_scadenza(Calendar newValue) {
 		data_scadenza = newValue;
 	}
 	
@@ -37,11 +36,11 @@ public class Contratto {
 		return id;
 	}
 	
-	public Timestamp getData_stipula() {
+	public Calendar getData_stipula() {
 		return data_stipula;
 	}
 	
-	public Timestamp getData_scadenza() {
+	public Calendar getData_scadenza() {
 		return data_scadenza;
 	}
 	

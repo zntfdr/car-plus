@@ -1,10 +1,9 @@
 package Entita;
 
 public class Localita {
-    public String provincia;
-    public String citta;
+    private String provincia;
+    private String citta;
 
-    //constructor
     public Localita(String newcitta, String newprovincia) {
         provincia = newprovincia;
         citta = newcitta;

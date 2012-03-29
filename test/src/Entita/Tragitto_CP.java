@@ -1,37 +1,37 @@
 package Entita;
-import java.sql.Timestamp;
-public class Tragitto_CP {
-    public int id;
-    public boolean fumatori;
-    public int num_posti;
-    public String note;
-    public String citta_arrivo;
-    public String provincia_arrivo;
-    public String citta_partenza;
-    public String provincia_partenza;
-    public String localita_partenza;
-    public String localita_arrivo;
-    public String email_utente;
-    public String targa_CP;
-    public Timestamp tempo_partenza;
-    public Timestamp tempo_arrivo;
+import java.util.Calendar;
 
-    //constructor
-    public Tragitto_CP(int newid, boolean newfumatori, int newnum_posti, String newnote, String newcitta_partenza, String newprovincia_partenza, String newcitta_arrivo, String newprovincia_arrivo, String newlocalita_partenza, String newlocalita_arrivo, String newemail_utente, String newtarga_CP, Timestamp newtempo_partenza, Timestamp newtempo_arrivo) {
-     id = newid;
-     fumatori = newfumatori;
-     num_posti = newnum_posti;
-     note = newnote;
-     citta_partenza = newcitta_partenza;
-     provincia_partenza = newprovincia_partenza;
-     citta_arrivo = newcitta_arrivo;
-     provincia_arrivo = newprovincia_arrivo;
-     localita_arrivo = newlocalita_arrivo;
-     localita_partenza = newlocalita_partenza;
-     email_utente = newemail_utente;
-     targa_CP = newtarga_CP;
-     tempo_partenza = newtempo_partenza;
-     tempo_arrivo = newtempo_arrivo;
+public class Tragitto_CP {
+    private int id;
+    private boolean fumatori;
+    private int num_posti;
+    private String note;
+    private String citta_arrivo;
+    private String provincia_arrivo;
+    private String citta_partenza;
+    private String provincia_partenza;
+    private String localita_partenza;
+    private String localita_arrivo;
+    private String email_utente;
+    private String targa_CP;
+    private Calendar tempo_partenza;
+    private Calendar tempo_arrivo;
+
+    public Tragitto_CP(int newid, boolean newfumatori, int newnum_posti, String newnote, String newcitta_partenza, String newprovincia_partenza, String newcitta_arrivo, String newprovincia_arrivo, String newlocalita_partenza, String newlocalita_arrivo, String newemail_utente, String newtarga_CP, Calendar newtempo_partenza, Calendar newtempo_arrivo) {
+    	id = newid;
+    	fumatori = newfumatori;
+    	num_posti = newnum_posti;
+    	note = newnote;
+    	citta_partenza = newcitta_partenza;
+    	provincia_partenza = newprovincia_partenza;
+    	citta_arrivo = newcitta_arrivo;
+    	provincia_arrivo = newprovincia_arrivo;
+    	localita_arrivo = newlocalita_arrivo;
+    	localita_partenza = newlocalita_partenza;
+    	email_utente = newemail_utente;
+    	targa_CP = newtarga_CP;
+    	tempo_partenza = newtempo_partenza;
+    	tempo_arrivo = newtempo_arrivo;
     }
 
     public void setId(int newValue) {
@@ -82,11 +82,11 @@ public class Tragitto_CP {
         targa_CP = newValue;
     }
 
-    public void setTempo_partenza(Timestamp newValue) {
+    public void setTempo_partenza(Calendar newValue) {
         tempo_partenza = newValue;
     }
 
-    public void setTempo_arrivo(Timestamp newValue) {
+    public void setTempo_arrivo(Calendar newValue) {
         tempo_arrivo  = newValue;
     }
 
@@ -138,11 +138,11 @@ public class Tragitto_CP {
         return targa_CP;
     }
 
-    public Timestamp getTempo_partenza() {
+    public Calendar getTempo_partenza() {
         return tempo_partenza;
     }
 
-    public Timestamp getTempo_arrivo() {
+    public Calendar getTempo_arrivo() {
         return tempo_arrivo;
     }
 }

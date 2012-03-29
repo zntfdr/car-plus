@@ -1,15 +1,15 @@
 package Entita;
+
 public class Modello_Macchina {
-    public int id;
-    public String marca;
-    public String modello;
-    public int cilindrata;
-    public int anno;
-    public String alimentazione;
-    public int emissioni_co2;
-    public int num_posti;
+    private int id;
+    private String marca;
+    private String modello;
+    private int cilindrata;
+    private int anno;
+    private String alimentazione;
+    private int emissioni_co2;
+    private int num_posti;
     
-    //constructor
     public Modello_Macchina(int newid, String newmarca, String newmodello, int newcilindrata, int newanno, String newalimentazione, int newemissioni_co2, int newnum_posti) {
         id = newid;
         marca = newmarca;

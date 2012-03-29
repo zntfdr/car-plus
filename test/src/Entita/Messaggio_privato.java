@@ -1,15 +1,15 @@
 package Entita;
-import java.sql.Timestamp;
-public class Messaggio_privato {
-	public int id;
-	public String email_mittente;
-	public String email_destinatario;
-	public Timestamp data;
-	public String titolo;
-	public String testo;
+import java.util.Calendar;
 
-	public Messaggio_privato(int newid,String newemail_mittente, String newemail_destinatario, Timestamp newdata, String newtitolo, String newtesto)
-	{
+public class Messaggio_privato {
+	private int id;
+	private String email_mittente;
+	private String email_destinatario;
+	private Calendar data;
+	private String titolo;
+	private String testo;
+
+	public Messaggio_privato(int newid,String newemail_mittente, String newemail_destinatario, Calendar newdata, String newtitolo, String newtesto){
 		id = newid;
 		email_mittente = newemail_mittente;
 		email_destinatario = newemail_destinatario;
@@ -26,7 +26,7 @@ public class Messaggio_privato {
 		email_destinatario = newValue;
 	}
 	
-	public void setData(Timestamp newValue) {
+	public void setData(Calendar newValue) {
 		data = newValue;
 	}
 	public void setTitolo(String newValue) {
@@ -49,7 +49,7 @@ public class Messaggio_privato {
 		return email_destinatario;
 	}
 	
-	public Timestamp getData() {
+	public Calendar getData() {
 		return data;
 	}
 	
@@ -60,5 +60,4 @@ public class Messaggio_privato {
 	public String getTesto() {
 		return testo;
 	}
-
 }

@@ -1,27 +1,27 @@
 package Entita;
-import java.sql.Timestamp;
+import java.util.Calendar;
+
 public class Tragitto_CS {	
-	public int id;
-    public int id_tessera;
-    public String targa_CS;
-    public Timestamp tempo_prelievo;
-    public Timestamp tempo_consegna;
-    public Timestamp tempo_prelievo_prenotazione;
-    public Timestamp tempo_consegna_prenotazione;
-    public int km_totali;
-    public Boolean pagato;
-    
-    //constructor
-    public Tragitto_CS(int newid, int newid_tessera, String newtarga_CS, Timestamp newtempo_prelievo, Timestamp newtempo_consegna, Timestamp newtempo_prelievo_prenotazione, Timestamp newtempo_consegna_prenotazione, int newkm_totali, Boolean newpagato) {
-     id = newid;
-     id_tessera = newid_tessera;
-     targa_CS = newtarga_CS;
-     tempo_prelievo = newtempo_prelievo;
-     tempo_consegna = newtempo_consegna;
-     tempo_prelievo_prenotazione = newtempo_prelievo_prenotazione;
-     tempo_consegna_prenotazione = newtempo_consegna_prenotazione;
-     km_totali = newkm_totali;
-     pagato = newpagato;
+	private int id;
+    private int id_tessera;
+    private String targa_CS;
+    private Calendar tempo_prelievo;
+    private Calendar tempo_consegna;
+    private Calendar tempo_prelievo_prenotazione;
+    private Calendar tempo_consegna_prenotazione;
+    private int km_totali;
+    private Boolean pagato;
+
+    public Tragitto_CS(int newid, int newid_tessera, String newtarga_CS, Calendar newtempo_prelievo, Calendar newtempo_consegna, Calendar newtempo_prelievo_prenotazione, Calendar newtempo_consegna_prenotazione, int newkm_totali, Boolean newpagato) {
+    	id = newid;
+    	id_tessera = newid_tessera;
+    	targa_CS = newtarga_CS;
+    	tempo_prelievo = newtempo_prelievo;
+    	tempo_consegna = newtempo_consegna;
+    	tempo_prelievo_prenotazione = newtempo_prelievo_prenotazione;
+    	tempo_consegna_prenotazione = newtempo_consegna_prenotazione;
+    	km_totali = newkm_totali;
+    	pagato = newpagato;
     }
 
     public void setId(int newValue) {
@@ -36,19 +36,19 @@ public class Tragitto_CS {
         targa_CS = newValue;
     }
     
-    public void setTempo_prelievo(Timestamp newValue) {
+    public void setTempo_prelievo(Calendar newValue) {
         tempo_prelievo = newValue;
     }
     
-    public void setTempo_consegna(Timestamp newValue) {
+    public void setTempo_consegna(Calendar newValue) {
         tempo_consegna = newValue;
     }
     
-    public void setTempo_prelievo_prenotazione(Timestamp newValue) {
+    public void setTempo_prelievo_prenotazione(Calendar newValue) {
         tempo_prelievo_prenotazione = newValue;
     }
     
-    public void setTempo_consegna_prenotazione(Timestamp newValue) {
+    public void setTempo_consegna_prenotazione(Calendar newValue) {
         tempo_consegna_prenotazione = newValue;
     }
     
@@ -72,19 +72,19 @@ public class Tragitto_CS {
         return targa_CS;
     }
     
-    public Timestamp getTempo_prelievo() {
+    public Calendar getTempo_prelievo() {
         return tempo_prelievo;
     }
     
-    public Timestamp getTempo_consegna() {
+    public Calendar getTempo_consegna() {
     	return tempo_consegna;
     }
     
-    public Timestamp getTempo_prelievo_prenotazione() {
+    public Calendar getTempo_prelievo_prenotazione() {
     	return tempo_prelievo_prenotazione;
     }
     
-    public Timestamp getTempo_consegna_prenotazione() {
+    public Calendar getTempo_consegna_prenotazione() {
     	return tempo_consegna_prenotazione;
     }
     

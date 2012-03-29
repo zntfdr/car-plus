@@ -1,22 +1,20 @@
 package Entita;
-import java.sql.Timestamp;
+import java.util.Calendar;
 
 public class Macchina_CS {    
-    public String targa;
-    public int id_modello;
-    public String citta;
-    public String provincia;
-    public String nome_stazione_CS;
-    public int anno_acquisto;
-    public Timestamp scad_bollo;
-    public Timestamp scad_assicurazione;
-    public Timestamp scad_revisione;
-    public int km_totali;
-    public Boolean prenotabile;
+    private String targa;
+    private int id_modello;
+    private String citta;
+    private String provincia;
+    private String nome_stazione_CS;
+    private int anno_acquisto;
+    private Calendar scad_bollo;
+    private Calendar scad_assicurazione;
+    private Calendar scad_revisione;
+    private int km_totali;
+    private Boolean prenotabile;
 
-    
-    //constructor
-    public Macchina_CS(String newtarga, int newid_modello, String newcitta, String newprovincia, String newnome_stazione_CS, int newanno_acquisto, Timestamp newscad_bollo, Timestamp newscad_assicurazione, Timestamp newscad_revisione, int newkm_totali, Boolean newprenotabile) {
+    public Macchina_CS(String newtarga, int newid_modello, String newcitta, String newprovincia, String newnome_stazione_CS, int newanno_acquisto, Calendar newscad_bollo, Calendar newscad_assicurazione, Calendar newscad_revisione, int newkm_totali, Boolean newprenotabile) {
         targa = newtarga;
         id_modello = newid_modello;
         citta = newcitta;
@@ -54,15 +52,15 @@ public class Macchina_CS {
     	anno_acquisto = newValue;
     }
     
-    public void setScad_bollo(Timestamp newValue) {
+    public void setScad_bollo(Calendar newValue) {
     	scad_bollo= newValue;
     }
     
-    public void setScad_assicurazione(Timestamp newValue) {
+    public void setScad_assicurazione(Calendar newValue) {
     	scad_assicurazione = newValue;
     }
     
-    public void setScad_revisione(Timestamp newValue) {
+    public void setScad_revisione(Calendar newValue) {
     	scad_revisione = newValue;
     }
     
@@ -98,15 +96,15 @@ public class Macchina_CS {
         return anno_acquisto;
     }
     
-    public Timestamp getScad_bollo() {
+    public Calendar getScad_bollo() {
         return scad_bollo;
     }
         
-    public Timestamp getScad_assicurazione() {
+    public Calendar getScad_assicurazione() {
         return scad_assicurazione;
     }
         
-    public Timestamp getScad_revisione() {
+    public Calendar getScad_revisione() {
         return scad_revisione;
     }
     
@@ -116,6 +114,5 @@ public class Macchina_CS {
     
     public Boolean getPrenotabile() {
         return prenotabile;
-    }
-    
+    } 
 }

@@ -1,18 +1,17 @@
 package Entita;
 
 public class Abbonamento {
-	public String nome;
-	public String descrizione;
-	public double tariffa_notturna;
-	public double tariffa_diurna;
-	public double tariffa_magg_100km;
-	public double tariffa_min_100km;
-	public double costo_mensile;
-	public int num_max_tessere;
-	public int num_min_tessere;
+	private String nome;
+	private String descrizione;
+	private double tariffa_notturna;
+	private double tariffa_diurna;
+	private double tariffa_magg_100km;
+	private double tariffa_min_100km;
+	private double costo_mensile;
+	private int num_max_tessere;
+	private int num_min_tessere;
 
-	public Abbonamento(String newnome, String newdescrizione, double newtariffa_notturna, double newtariffa_diurna, double newtariffa_magg_100km, double newtariffa_min_100km, double newcosto_mensile, int newnum_max_tessere, int newnum_min_tessere)
-	{
+	public Abbonamento(String newnome, String newdescrizione, double newtariffa_notturna, double newtariffa_diurna, double newtariffa_magg_100km, double newtariffa_min_100km, double newcosto_mensile, int newnum_max_tessere, int newnum_min_tessere){
 		nome = newnome;
 		descrizione = newdescrizione;
 		tariffa_notturna = newtariffa_notturna; 

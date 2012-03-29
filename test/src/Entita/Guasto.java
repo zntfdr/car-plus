@@ -1,17 +1,16 @@
 package Entita;
-import java.sql.Timestamp;
+import java.util.Calendar;
+
 public class Guasto {	
-	public int id;
-    public int id_tragitto;
-    public String danno;
-    public String causa;
-    public Timestamp data_invio_riparazione;
-    public Timestamp data_segnalazione;
-    public Boolean grave;
+	private int id;
+    private int id_tragitto;
+    private String danno;
+    private String causa;
+    private Calendar data_invio_riparazione;
+    private Calendar data_segnalazione;
+    private Boolean grave;
     
-    //constructor
-    public Guasto(int newid, int newid_tragitto, String newdanno, String newcausa, Timestamp newdata_rip, Timestamp newdata_seg, Boolean newgrave) {
-    
+    public Guasto(int newid, int newid_tragitto, String newdanno, String newcausa, Calendar newdata_rip, Calendar newdata_seg, Boolean newgrave) {
      id = newid;
      id_tragitto = newid_tragitto;
      danno = newdanno;
@@ -37,11 +36,11 @@ public class Guasto {
         causa = newValue;
     }
     
-    public void setData_invio_segnalazione(Timestamp newValue) {
+    public void setData_invio_segnalazione(Calendar newValue) {
         data_invio_riparazione = newValue;
     }
     
-    public void setData_segnalazione(Timestamp newValue) {
+    public void setData_segnalazione(Calendar newValue) {
         data_segnalazione = newValue;
     }
     
@@ -66,11 +65,11 @@ public class Guasto {
         return causa;
     }
     
-    public Timestamp getData_invio_riparazione() {
+    public Calendar getData_invio_riparazione() {
     	return data_invio_riparazione;
     }
     
-    public Timestamp getData_segnalazione() {
+    public Calendar getData_segnalazione() {
     	return data_segnalazione;
     }
     

@@ -1,13 +1,11 @@
 package Entita;
 
 public class Partecipazione {
-	
-	public String email_utente;
-	public int num_posti;
-	public int id_tragitto_CP;
+	private String email_utente;
+	private int num_posti;
+	private int id_tragitto_CP;
 
-	public Partecipazione(String newemail_utente, int newnum_posti, int newid_tragitto_CP)
-	{
+	public Partecipazione(String newemail_utente, int newnum_posti, int newid_tragitto_CP){
 		email_utente = newemail_utente;
 		num_posti = newnum_posti;
 		id_tragitto_CP = newid_tragitto_CP; 
