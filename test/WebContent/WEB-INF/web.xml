@@ -40,6 +40,14 @@
     <servlet-name>Inserimento_modello_macchina</servlet-name>
     <url-pattern>/Inserimento_modello_macchina</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>Inserimento_partecipazione</servlet-name>
+    <servlet-class>Servlet.Inserimento_partecipazione</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_partecipazione</servlet-name>
+    <url-pattern>/Inserimento_partecipazione</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>Inserimento_stazione_cs</servlet-name>
     <servlet-class>Servlet.Inserimento_stazione_cs</servlet-class>
@@ -71,5 +79,13 @@
   <servlet-mapping>
     <servlet-name>RicercaTragitto_CP</servlet-name>
     <url-pattern>/RicercaTragitto_CP</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>Vista_partecipazione</servlet-name>
+    <servlet-class>Servlet.Vista_partecipazione</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Vista_partecipazione</servlet-name>
+    <url-pattern>/Vista_partecipazione</url-pattern>
   </servlet-mapping>
 </web-app>
