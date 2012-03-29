@@ -3,6 +3,7 @@
 <%@ page import="Entita.Tragitto_CP" %>
 <%@ page import="Entita.Utente" %>    
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
+<% Tragitto_CP T = (Tragitto_CP)session.getAttribute(request.getParameter("tragittoscelto")); %>
 
 <!DOCTYPE HTML>
 <html>
@@ -44,7 +45,7 @@
                 <th>Posti Liberi</th>
                 <th>Proprietario Auto</th>
             </tr>
-              <% Tragitto_CP T = (Tragitto_CP)session.getAttribute("tragitto_scelto");%>
+              <% //Tragitto_CP T = (Tragitto_CP)session.getAttribute("tragitto_scelto");%>
             <tr>
             	<td class="to"> <%= T.getNote() %></td>
             	<td class="to"> <%= T.getFumatori() %></td>

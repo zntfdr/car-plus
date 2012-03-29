@@ -45,14 +45,15 @@
             </tr>
               <% ArrayList<Tragitto_CP> listaCP= new ArrayList<Tragitto_CP>();
                 listaCP = (ArrayList<Tragitto_CP>) session.getAttribute("listaTragitti_CP");
-                for(Tragitto_CP T : listaCP){%>
+                for(Tragitto_CP T : listaCP){
+                session.setAttribute("tragitto"+T.getId(), T);%>
             <tr>
                 <td class="from"> <%= T.getCitta_partenza() %></td>
                 <td class="to"> <%= T.getCitta_arrivo() %></td>
                 <td class="date"> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_partenza()) %></td>
                 <td class="free"> <%= T.getNum_posti() %></td>
                 <td class="to"> <%= T.getEmail_utente() %></td>
-                <td><a href="../Vista_partecipazione?id=<%=T.getId() %>" ><img src="../img/lens.png" width="18" height="18"/></a></td>
+                <td><a href="show_partecipazione.jsp?tragittoscelto=tragitto<%=T.getId() %>" ><img src="../img/lens.png" width="18" height="18"/></a></td>
             </tr>
             <% } %>
         </table>
