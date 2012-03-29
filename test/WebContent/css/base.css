@@ -166,6 +166,16 @@ div#content div#search {
 	margin-right: 35px;
 }
 
+div#content div#account {
+	width: 295px;
+	height: 223px;
+	background-image: url(../img/account.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	float: left;
+	margin-right: 35px;
+}
+
 div#content div#insert {
 	width: 295px;
 	height: 223px;
@@ -176,7 +186,7 @@ div#content div#insert {
 	margin-left: 35px;
 }
 
-div#content div#insert:hover, div#content div#search:hover {
+div#content div#insert:hover, div#content div#search:hover, div#content div#account:hover {
 	background-position: 0px -223px;
 	cursor: pointer;
 }
