@@ -6,7 +6,7 @@ import Utils.*;
 
 public class StorePartecipazione{
 	public static Partecipazione insertPartecipazione(Partecipazione Value){
-		String sql = "INSERT INTO partecipazione(email_utente,num_posti,id_tragitto_CP) VALUES('" + Value.getEmail_utente() + ", " + Value.getNum_posti() + ", " + Value.getId_tragitto_CP() + "')";
+		String sql = "INSERT INTO partecipazione(email_utente,num_posti,id_tragitto_CP) VALUES('" + Value.getEmail_utente() + "', '" + Value.getNum_posti() + "', '" + Value.getId_tragitto_CP() + "')";
 	    
 		Query.doQuery(sql);
 		return readPartecipazione(Value.getEmail_utente(),Value.getId_tragitto_CP());
