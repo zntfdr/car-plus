@@ -6,7 +6,7 @@ import Utils.*;
 
 public class StoreTragitto_CP{
 	public static Tragitto_CP insertTragitto_CP(Tragitto_CP value){
-		String sql = "INSERT INTO tragitto_CP(fumatori, num_posti, note, citta_partenza, provincia_partenza, citta_arrivo, provincia_arrivo, localita_partenza, localita_arrivo, email_utente, targa_CP, tempo_partenza, tempo_arrivo) VALUES('" + value.getFumatori() + "','" + value.getNum_posti() + "','" + value.getNote() + "','" + value.getCitta_partenza() + "','" + value.getProvincia_partenza() + "','" + value.getCitta_arrivo() + "','" + value.getProvincia_arrivo() + "','" + value.getLocalita_partenza() + "','" + value.getLocalita_arrivo() + "','" + value.getEmail_utente() + "','" + value.getTarga_CP() + "','" + Utils.TimeString.dataOraCalendarToString(value.getTempo_partenza()) + "','" + Utils.TimeString.dataOraCalendarToString(value.getTempo_arrivo()) + "')";
+		String sql = "INSERT INTO tragitto_CP(fumatori, num_posti, note, citta_partenza, provincia_partenza, citta_arrivo, provincia_arrivo, localita_partenza, localita_arrivo, email_utente, targa_CP, tempo_partenza, tempo_arrivo) VALUES('" + value.getFumatori() + "','" + value.getNum_posti() + "','" + value.getNote() + "','" + value.getCitta_partenza() + "','" + value.getProvincia_partenza() + "','" + value.getCitta_arrivo() + "','" + value.getProvincia_arrivo() + "','" + value.getEmail_utente() + "','" + value.getTarga_CP() + "','" + Utils.TimeString.dataOraCalendarToString(value.getTempo_partenza()) + "','" + Utils.TimeString.dataOraCalendarToString(value.getTempo_arrivo()) + "')";
 
 		Query.doQuery(sql);
 		return readTragitto_CP(value.getId());
@@ -18,7 +18,7 @@ public class StoreTragitto_CP{
 		if(rs != null){
 			try {
 				while(rs.next()){
-					return new Tragitto_CP(rs.getInt("id"), rs.getBoolean("fumatori"), rs.getInt("num_posti"), rs.getString("note"), rs.getString("citta_partenza"), rs.getString("provincia_partenza"), rs.getString("citta_arrivo"), rs.getString("provincia_arrivo"), rs.getString("localita_partenza"), rs.getString("localita_arrivo"), rs.getString("email_utente"), rs.getString("targa_CP"), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_partenza")), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_arrivo")));
+					return new Tragitto_CP(rs.getInt("id"), rs.getBoolean("fumatori"), rs.getInt("num_posti"), rs.getString("note"), rs.getString("citta_partenza"), rs.getString("provincia_partenza"), rs.getString("citta_arrivo"), rs.getString("provincia_arrivo"), rs.getString("email_utente"), rs.getString("targa_CP"), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_partenza")), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_arrivo")));
 				}
 			}catch (SQLException e){
 			}
@@ -37,7 +37,7 @@ public class StoreTragitto_CP{
 			try {
 				ArrayList<Tragitto_CP> Tragitto_CP_List = new ArrayList<Tragitto_CP>();
 				while(rs.next()){
-					Tragitto_CP_List.add(new Tragitto_CP(rs.getInt("id"), rs.getBoolean("fumatori"), rs.getInt("num_posti"), rs.getString("note"), rs.getString("citta_partenza"), rs.getString("provincia_partenza"), rs.getString("citta_arrivo"), rs.getString("provincia_arrivo"), rs.getString("localita_partenza"), rs.getString("localita_arrivo"), rs.getString("email_utente"), rs.getString("targa_CP"), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_partenza")), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_arrivo"))));
+					Tragitto_CP_List.add(new Tragitto_CP(rs.getInt("id"), rs.getBoolean("fumatori"), rs.getInt("num_posti"), rs.getString("note"), rs.getString("citta_partenza"), rs.getString("provincia_partenza"), rs.getString("citta_arrivo"), rs.getString("provincia_arrivo"), rs.getString("email_utente"), rs.getString("targa_cp"), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_partenza")), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_arrivo"))));
 				}
 				return Tragitto_CP_List;
 			}catch (SQLException e){
