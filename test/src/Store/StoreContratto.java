@@ -6,7 +6,7 @@ import Utils.*;
 
 public class StoreContratto{
 	public static Contratto insertContratto(Contratto Value){
-		String sql = "INSERT INTO contratto(data_stipula,data_scadenza,email_cliente,nome_abbonamento) VALUES('" + Value.getData_stipula() + "', '" + Value.getData_scadenza() + "', '" + Value.getEmail_cliente() + "', '" + Value.getNome_abbonamento() + "')";
+		String sql = "INSERT INTO contratto(data_stipula,data_scadenza,email_cliente,nome_abbonamento) VALUES('" + Utils.TimeString.dataCalendarToString(Value.getData_stipula()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getData_scadenza()) + "', '" + Value.getEmail_cliente() + "', '" + Value.getNome_abbonamento() + "')";
 	    
 		Query.doQuery(sql);
 		return readContratto(Value.getId());
@@ -18,7 +18,7 @@ public class StoreContratto{
 		if(rs != null){
 			try {
 				while(rs.next()){
-					return new Contratto(rs.getInt("id"), rs.getTimestamp("data_stipula"), rs.getTimestamp("data_scadenza"), rs.getString("email_cliente"),rs.getString("nome_abbonamento"));
+					return new Contratto(rs.getInt("id"), Utils.TimeString.dataStringToCalendar(rs.getString("data_stipula")), Utils.TimeString.dataStringToCalendar(rs.getString("data_scadenza")), rs.getString("email_cliente"),rs.getString("nome_abbonamento"));
 				}
 			}catch (SQLException e){
 			}

@@ -8,7 +8,7 @@ import Utils.*;
 
 public class StoreMacchina_CS{
 	public static Macchina_CS insertMacchina_CS(Macchina_CS Value){
-		String sql = "INSERT INTO macchina_CS(targa,id_modello,citta,provincia,nome_stazione_CS,anno_acquisto,scad_bollo,scad_assicurazione,scad_revisione,km_totali,prenotabile) VALUES('" + Value.getTarga() + "', " + Value.getId_modello() + ", '" + Value.getCitta() + "', '" + Value.getProvincia() + "', '" + Value.getNome_stazione_CS() + "', " + Value.getAnno_acquisto() + ", " + Value.getScad_bollo() + ", " + Value.getScad_assicurazione() + ", " + Value.getScad_revisione() + ", " + Value.getKm_totali() + ", TRUE)";
+		String sql = "INSERT INTO macchina_CS(targa,id_modello,citta,provincia,nome_stazione_CS,anno_acquisto,scad_bollo,scad_assicurazione,scad_revisione,km_totali,prenotabile) VALUES('" + Value.getTarga() + "', '" + Value.getId_modello() + "', '" + Value.getCitta() + "', '" + Value.getProvincia() + "', '" + Value.getNome_stazione_CS() + "', '" + Value.getAnno_acquisto() + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_bollo()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_assicurazione()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_revisione()) + "', '" + Value.getKm_totali() + "', TRUE)";
 	    
 		Query.doQuery(sql);
 		return readMacchina_CS(Value.getTarga());
@@ -20,7 +20,7 @@ public class StoreMacchina_CS{
 		if(rs != null){
 			try {
 				while(rs.next()){
-					return new Macchina_CS(rs.getString("targa"), rs.getInt("id_modello"),rs.getString("citta"),rs.getString("provincia"),rs.getString("nome_stazione_CS"),rs.getInt("anno_acquisto"),rs.getTimestamp("scad_bollo"),rs.getTimestamp("scad_assicurazione"),rs.getTimestamp("scad_revisione"),rs.getInt("km_totali"),rs.getBoolean("prenotabile"));
+					return new Macchina_CS(rs.getString("targa"), rs.getInt("id_modello"),rs.getString("citta"),rs.getString("provincia"),rs.getString("nome_stazione_CS"),rs.getInt("anno_acquisto"), Utils.TimeString.dataStringToCalendar(rs.getString("scad_bollo")), Utils.TimeString.dataStringToCalendar(rs.getString("scad_assicurazione")), Utils.TimeString.dataStringToCalendar(rs.getString("scad_revisione")),rs.getInt("km_totali"),rs.getBoolean("prenotabile"));
 				}
 			}catch (SQLException e){
 			}
@@ -39,7 +39,7 @@ public class StoreMacchina_CS{
 			try {
 				ArrayList<Macchina_CS> Macchine_List = new ArrayList<Macchina_CS>();
 				while(rs.next()){
-					Macchine_List.add(new Macchina_CS(rs.getString("targa"), rs.getInt("id_modello"),rs.getString("citta"),rs.getString("provincia"),rs.getString("nome_stazione_CS"),rs.getInt("anno_acquisto"),rs.getTimestamp("scad_bollo"),rs.getTimestamp("scad_assicurazione"),rs.getTimestamp("scad_revisione"),rs.getInt("km_totali"),rs.getBoolean("prenotabile")));
+					Macchine_List.add(new Macchina_CS(rs.getString("targa"), rs.getInt("id_modello"),rs.getString("citta"),rs.getString("provincia"),rs.getString("nome_stazione_CS"),rs.getInt("anno_acquisto"), Utils.TimeString.dataStringToCalendar(rs.getString("scad_bollo")), Utils.TimeString.dataStringToCalendar(rs.getString("scad_assicurazione")), Utils.TimeString.dataStringToCalendar(rs.getString("scad_revisione")),rs.getInt("km_totali"),rs.getBoolean("prenotabile")));
 				}
 				return Macchine_List;
 			}catch (SQLException e){

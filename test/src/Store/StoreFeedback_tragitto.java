@@ -6,7 +6,7 @@ import Utils.*;
 
 public class StoreFeedback_tragitto{
 	public static Feedback_tragitto insertFeedback_tragitto(Feedback_tragitto Value){
-		String sql = "INSERT INTO feedback_tragitto(email_valutante,email_valutato,data,titolo,commento,valutazione) VALUES('" + Value.getEmail_valutante() + "', '" + Value.getEmail_valutato() + "', '" + Value.getData() + "', '" + Value.getTitolo() + "', '" + Value.getCommento() + "', '" + Value.getValutazione() + "')";
+		String sql = "INSERT INTO feedback_tragitto(email_valutante,email_valutato,data,titolo,commento,valutazione) VALUES('" + Value.getEmail_valutante() + "', '" + Value.getEmail_valutato() + "', '" + Utils.TimeString.dataCalendarToString(Value.getData()) + "', '" + Value.getTitolo() + "', '" + Value.getCommento() + "', '" + Value.getValutazione() + "')";
 	    
 		Query.doQuery(sql);
 		return readFeedback_tragitto(Value.getTragitto_id(), Value.getEmail_valutante(), Value.getEmail_valutato());
@@ -18,7 +18,7 @@ public class StoreFeedback_tragitto{
 		if(rs != null){
 			try {
 				while(rs.next()){
-					return new Feedback_tragitto(rs.getInt("id_tragitto"), rs.getString("email_valutante"), rs.getString("email_valutato"), rs.getTimestamp("data"), rs.getString("titolo"), rs.getString("commento"), rs.getInt("newvalutazione"));
+					return new Feedback_tragitto(rs.getInt("id_tragitto"), rs.getString("email_valutante"), rs.getString("email_valutato"), Utils.TimeString.dataStringToCalendar(rs.getString("data")), rs.getString("titolo"), rs.getString("commento"), rs.getInt("newvalutazione"));
 				}
 			}catch (SQLException e){
 			}
