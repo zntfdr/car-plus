@@ -33,7 +33,7 @@
         	<li><a href="../html/new_customer.html">Inserimento</a>/Visualizzazione/Modifica/Cancellazione Clienti</li>
         	<li>Inserimento/Visualizzazione/Modifica/Cancellazione Stazioni Abbonamenti</li>
         	<li>Numero utenti registrati:
-        	<% int n = Interrogazione.numero_utenti_registrati();  %>
+        	<% int n = Interrogazione.Numero_Utenti_Registrati();  %>
         	<%=n %></li>
         </ul>
         <div style="clear: both;"></div>
