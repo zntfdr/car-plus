@@ -10,14 +10,12 @@ public class Tragitto_CP {
     private String provincia_arrivo;
     private String citta_partenza;
     private String provincia_partenza;
-    private String localita_partenza;
-    private String localita_arrivo;
     private String email_utente;
     private String targa_CP;
     private Calendar tempo_partenza;
     private Calendar tempo_arrivo;
 
-    public Tragitto_CP(int newid, boolean newfumatori, int newnum_posti, String newnote, String newcitta_partenza, String newprovincia_partenza, String newcitta_arrivo, String newprovincia_arrivo, String newlocalita_partenza, String newlocalita_arrivo, String newemail_utente, String newtarga_CP, Calendar newtempo_partenza, Calendar newtempo_arrivo) {
+    public Tragitto_CP(int newid, boolean newfumatori, int newnum_posti, String newnote, String newcitta_partenza, String newprovincia_partenza, String newcitta_arrivo, String newprovincia_arrivo, String newemail_utente, String newtarga_CP, Calendar newtempo_partenza, Calendar newtempo_arrivo) {
     	id = newid;
     	fumatori = newfumatori;
     	num_posti = newnum_posti;
@@ -26,8 +24,6 @@ public class Tragitto_CP {
     	provincia_partenza = newprovincia_partenza;
     	citta_arrivo = newcitta_arrivo;
     	provincia_arrivo = newprovincia_arrivo;
-    	localita_arrivo = newlocalita_arrivo;
-    	localita_partenza = newlocalita_partenza;
     	email_utente = newemail_utente;
     	targa_CP = newtarga_CP;
     	tempo_partenza = newtempo_partenza;
@@ -64,14 +60,6 @@ public class Tragitto_CP {
     
     public void setProvincia_arrivo(String newValue) {
         provincia_arrivo = newValue;
-    }
-    
-    public void setLocalita_partenza(String newValue) {
-        localita_partenza = newValue;
-    }
-
-    public void setLocalita_arrivo(String newValue) {
-        localita_arrivo = newValue;
     }
 
     public void setEmail_utente(String newValue) {
@@ -120,14 +108,6 @@ public class Tragitto_CP {
 
     public String getProvincia_arrivo() {
         return provincia_arrivo;
-    }
-    
-    public String getLocalita_partenza() {
-        return localita_partenza;
-    }
-
-    public String getLocalita_arrivo() {
-        return localita_arrivo;
     }
 
     public String getEmail_utente() {
