@@ -18,8 +18,10 @@
      listaCP = (ArrayList<Tragitto_CP>) session.getAttribute("listaTragitti_CP");
      for(Tragitto_CP T : listaCP){%>
       <tr>
-        <td> <%= T.getLocalita_partenza() %></td>
-        <td> <%= T.getLocalita_arrivo() %></td>
+        <td> <%= T.getCitta_partenza() %></td>
+        <td> <%= T.getProvincia_partenza() %></td>
+        <td> <%= T.getCitta_arrivo() %></td>
+        <td> <%= T.getProvincia_arrivo() %></td>
         <td> <%= T.getEmail_utente() %></td>
         <td> <%= T.getNum_posti() %></td>
         <td> <%= T.getTarga_CP() %></td>
