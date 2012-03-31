@@ -28,8 +28,8 @@
         scegli l'azione desiderata:
         <div id="actions">
             <a href="../jsp/search.jsp"><div id="search"></div></a>
-            <a href="../jsp/insert.jsp?who=<%= user.getEmail() %>"><div id="insert"></div></a>
-            <a href="../jsp/iltuoconto.jsp?who=<%= user.getEmail() %>"><div id="account"></div></a>
+            <a href="../jsp/new_tragitto.jsp"><div id="insert"></div></a>
+            <a href="../jsp/iltuoconto.jsp"><div id="account"></div></a>
         </div>
         <div style="clear: both;"></div>
     
