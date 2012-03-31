@@ -18,13 +18,13 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
 <script>
     $(document).ready(function(){
-        $("#purchase_year, #tot_km").keypress(function(e){
+        $("#numero_posti").keypress(function(e){
             if(e.keyCode < 48 || e.keyCode > 57) return false;
             return true;
         });
 
-        $("#scadenza_bollo, #scadenza_assicurazione, #scadenza_revisione").datepicker({ dateFormat: 'dd/mm/yy' });
-        $("#scadenza_bollo, #scadenza_assicurazione, #scadenza_revisione").datepicker("option", $.datepicker.regional[ "it" ] );
+        $("#tempo_partenza, #tempo_arrivo").datepicker({ dateFormat: 'yy/mm/dd' });
+        $("#tempo_partenza, #tempo_arrivo").datepicker("option", $.datepicker.regional[ "it" ] );
     });
 </script>
 </head>
@@ -45,6 +45,7 @@
         <form method="GET" action="../Inserimento_tragitto_cp" id="Inserimento_tragitto_cp">
             <ul>
                 <li><h1>Inserimento nuova tragitto di Car Pooling</h1></li>
+                <li><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
                 <li><input name="smokers" type="checkbox" id="smokers"> Fumatori</li>
                 <li><input name="numero_posti" type="text" id="numero_posti" placeholder="Numero di posti disponibili"/></li>
                 <li><textarea name="commento" id="commento" rows="10" cols="60" placeholder="commento"></textarea>
@@ -71,11 +72,8 @@
                 <% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
                 <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
                 </select>
-                <li><input name="scadenza_bollo" type="text" id="scadenza_bollo" placeholder="Data di Scadenza Bollo"/></li>
-                <li><input name="scadenza_assicurazione" type="text" id="scadenza_assicurazione" placeholder="Data di Scadenza Assicurazione"/></li>
-                <li><input name="scadenza_revisione" type="text" id="scadenza_revisione" placeholder="Data di Scadenza Revisione"/></li>
-
-                <li><input name="tot_km" type="text" id="tot_km" placeholder="Km Totali"/></li>
+                <li><input name="tempo_partenza" type="text" id="tempo_partenza" placeholder="Tempo Partenza"/></li>
+                <li><input name="tempo_arrivo" type="text" id="tempo_arrivo" placeholder="Tempo Arrivo"/></li>
 
                 <li><button name="submit" type="submit" id="submit">Inserisci</button></li>
             </ul>

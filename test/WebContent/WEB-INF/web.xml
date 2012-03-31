@@ -64,7 +64,6 @@
     <servlet-name>Inserimento_tragitto_cp</servlet-name>
     <url-pattern>/Inserimento_tragitto_cp</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>Servlet.Login</servlet-class>

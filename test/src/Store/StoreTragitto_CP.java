@@ -6,7 +6,7 @@ import Utils.*;
 
 public class StoreTragitto_CP{
 	public static Tragitto_CP insertTragitto_CP(Tragitto_CP value){
-		String sql = "INSERT INTO tragitto_CP(fumatori, num_posti, note, citta_partenza, provincia_partenza, citta_arrivo, provincia_arrivo, localita_partenza, localita_arrivo, email_utente, targa_CP, tempo_partenza, tempo_arrivo) VALUES('" + value.getFumatori() + "','" + value.getNum_posti() + "','" + value.getNote() + "','" + value.getCitta_partenza() + "','" + value.getProvincia_partenza() + "','" + value.getCitta_arrivo() + "','" + value.getProvincia_arrivo() + "','" + value.getEmail_utente() + "','" + value.getTarga_CP() + "','" + Utils.TimeString.dataOraCalendarToString(value.getTempo_partenza()) + "','" + Utils.TimeString.dataOraCalendarToString(value.getTempo_arrivo()) + "')";
+		String sql = "INSERT INTO tragitto_CP(fumatori, num_posti, note, citta_partenza, provincia_partenza, citta_arrivo, provincia_arrivo, email_utente, targa_CP, tempo_partenza, tempo_arrivo) VALUES(" + value.getFumatori() + "," + value.getNum_posti() + ",'" + value.getNote() + "','" + value.getCitta_partenza() + "','" + value.getProvincia_partenza() + "','" + value.getCitta_arrivo() + "','" + value.getProvincia_arrivo() + "','" + value.getEmail_utente() + "','" + value.getTarga_CP() + "','" + Utils.TimeString.dataOraCalendarToString(value.getTempo_partenza()) + "','" + Utils.TimeString.dataOraCalendarToString(value.getTempo_arrivo()) + "')";
 
 		Query.doQuery(sql);
 		return readTragitto_CP(value.getId());
