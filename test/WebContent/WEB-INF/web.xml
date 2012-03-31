@@ -57,6 +57,15 @@
     <url-pattern>/Inserimento_stazione_cs</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Inserimento_tragitto_cp</servlet-name>
+    <servlet-class>Servlet.Inserimento_tragitto_cp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_tragitto_cp</servlet-name>
+    <url-pattern>/Inserimento_tragitto_cp</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>Servlet.Login</servlet-class>
   </servlet>
