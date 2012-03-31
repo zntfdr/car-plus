@@ -67,4 +67,21 @@ public class StoreLocalita{
 		
 		return null;
 	}
+	
+	public static ArrayList<String> getCitta(String Provincia) {
+		String sql_query = "SELECT Citta FROM localita WHERE provincia ="+Provincia;
+		ResultSet rs = Query.doQueryRS(sql_query);
+		if (rs != null) {
+			try {
+				ArrayList<String> list = new ArrayList<String>();
+				while (rs.next()) {
+					list.add(rs.getString("citta"));
+				}
+				return list;
+			} catch (SQLException e) {
+				
+			}
+		}
+		return null;
+	}
 }
