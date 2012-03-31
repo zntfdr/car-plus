@@ -20,6 +20,39 @@ import Store.*;
 
 public class Interrogazione extends HttpServlet {
 			
+	public static ArrayList<Macchina_CP> ListaMacchineUtente(String Email){
+		String sql = "select DISTINCT(targa), modello_macchina from utente NATURAL JOIN tragitto_CP JOIN macchina_cp ON targa_cp = targa WHERE email = '" + Email +"'";
+		
+		ResultSet rs = Query.doQueryRS(sql);
+		if(rs != null){
+			try {
+				ArrayList<Macchina_CP> Macchine_List = new ArrayList<Macchina_CP>();
+				while(rs.next()){
+					Macchine_List.add(new Macchina_CP( rs.getString("targa"), rs.getInt("modello_macchina")));
+				}
+				return Macchine_List;
+			}catch (SQLException e){
+			}
+		}
+		return null;
+	}
+	
+	public static Modello_Macchina ModelloMacchina(String Targa){ //data una targa, riusciamo ad ottenere il modello della macchina 
+		String sql = "select * from modello_macchina join macchina_cp on modello_macchina = id WHERE targa = '" + Targa + "'";
+
+		
+		ResultSet rs = Query.doQueryRS(sql);
+		if(rs != null){
+			try {
+				while(rs.next()){
+					return new Modello_Macchina(rs.getInt("modello_macchina"), rs.getString("marca"), rs.getString("modello"), rs.getInt("cilindrata"),rs.getInt("anno"), rs.getString("alimentazione"), rs.getInt("emissioni_co2"), rs.getInt("num_posti"));
+				}
+			}catch (SQLException e){
+			}
+		}
+		return null;
+	}
+	
 	public static int Numero_Utenti_Registrati()
 	{
 		String sql = "SELECT COUNT(*) AS numero_utenti_registrati FROM utente";
@@ -75,4 +108,5 @@ public class Interrogazione extends HttpServlet {
 		}
 		return 0; 
 	}
+	
 }
