@@ -46,7 +46,7 @@
             <ul>
                 <li><h1>Inserimento nuova tragitto di Car Pooling</h1></li>
                 <li><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
-                <li><input name="smokers" type="checkbox" id="smokers"> Fumatori</li>
+                <li>Fumatori: <input type="radio" name="smokers" value="true"> Sì <input type="radio" name="smokers" value="false"> No</li>
                 <li><input name="numero_posti" type="text" id="numero_posti" placeholder="Numero di posti disponibili"/></li>
                 <li><textarea name="commento" id="commento" rows="10" cols="60" placeholder="commento"></textarea>
                 </li>
