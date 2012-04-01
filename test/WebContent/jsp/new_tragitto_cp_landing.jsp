@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Tragitto_CP" %>
+<%@ page import="java.util.Calendar" %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -31,8 +33,6 @@
 <td><b>provincia_partenza</b></td>
 <td><b>citta_arrivo</b></td>
 <td><b>provincia_arrivo</b></td>
-<td><b>localita_partenza</b></td>
-<td><b>localita_arrivo</b></td>
 <td><b>email_utente</b></td>
 <td><b>targa_CP</b></td>
 <td><b>tempo_partenza</b></td>
@@ -51,8 +51,8 @@
 					<td><%=tcp.getProvincia_arrivo()%></td>
 					<td><%=tcp.getEmail_utente()%></td>
 					<td><%=tcp.getTarga_CP()%></td>
-					<td><%=tcp.getTempo_partenza()%></td>
-					<td><%=tcp.getTempo_arrivo()%></td>
+					<td><%=tcp.getTempo_partenza().get(Calendar.YEAR)+ "-" + tcp.getTempo_partenza().get(Calendar.MONTH + 1)+ "-" + tcp.getTempo_partenza().DAY_OF_MONTH + " " +tcp.getTempo_partenza().get(Calendar.HOUR)+ ":" + tcp.getTempo_partenza().get(Calendar.MINUTE)%></td>
+					<td><%=tcp.getTempo_arrivo().get(Calendar.YEAR)+ "-" + tcp.getTempo_arrivo().get(Calendar.MONTH + 1)+ "-" + tcp.getTempo_arrivo().DAY_OF_MONTH + " " +tcp.getTempo_arrivo().get(Calendar.HOUR)+ ":" + tcp.getTempo_arrivo().get(Calendar.MINUTE)%></td>
 				</tr>
 				<%
 					}
