@@ -17,7 +17,7 @@ public class Inserimento_tragitto_cp extends HttpServlet {
 			throws ServletException, IOException {
 		
 		//Inserisco Tragitto_CP
-		Tragitto_CP tcp = new Tragitto_CP(0, Boolean.parseBoolean(req.getParameter("smokers")),Integer.parseInt(req.getParameter("numero_posti")),req.getParameter("commento"),req.getParameter("fromprovince"),req.getParameter("fromcity"),req.getParameter("toprovince"),req.getParameter("tocity"),req.getParameter("email_utente"),req.getParameter("carplate"),Utils.TimeString.parseSQLTimestampToCalendar(req.getParameter("tempo_partenza")),Utils.TimeString.parseSQLTimestampToCalendar(req.getParameter("tempo_arrivo")));
+		Tragitto_CP tcp = new Tragitto_CP(0, Boolean.parseBoolean(req.getParameter("smokers")),Integer.parseInt(req.getParameter("numero_posti")),req.getParameter("commento"),req.getParameter("fromprovince"),req.getParameter("fromcity"),req.getParameter("toprovince"),req.getParameter("tocity"),req.getParameter("email_utente"),req.getParameter("carplate"),Utils.TimeString.parseSQLTimestampToCalendar(req.getParameter("tempo_partenza")+":00"),Utils.TimeString.parseSQLTimestampToCalendar(req.getParameter("tempo_arrivo")+":00"));
 		tcp = StoreTragitto_CP.insertTragitto_CP(tcp);
 		
 		//Se tutto va bene, comincio a definire la sessione

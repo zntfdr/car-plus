@@ -16,6 +16,7 @@
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
+<script type="text/javascript" src="../css/jquery-ui-timepicker-addon.js" ></script>
 <script>
     $(document).ready(function(){
         $("#numero_posti").keypress(function(e){
@@ -23,8 +24,8 @@
             return true;
         });
 
-        $("#tempo_partenza, #tempo_arrivo").datepicker({ dateFormat: 'yy/mm/dd' });
-        $("#tempo_partenza, #tempo_arrivo").datepicker("option", $.datepicker.regional[ "it" ] );
+        $("#tempo_partenza, #tempo_arrivo").datetimepicker({ dateFormat: 'yy-mm-dd' });
+        //$("#tempo_partenza, #tempo_arrivo").datetimepicker("option", $.datepicker.regional[ "it" ] );
     });
 </script>
 </head>
