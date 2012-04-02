@@ -1040,7 +1040,7 @@ form#new_car_model ul li > button#submit:active {
 /**************NEW TRAGITTO CP**************/
 /*******************************************/
 
-form#Inserisci_tragitto_cp ul {
+form#Inserimento_tragitto_cp ul {
 	list-style: none;
 	margin-left: auto;
 	margin-right: auto;
@@ -1049,15 +1049,15 @@ form#Inserisci_tragitto_cp ul {
 	padding: 0;
 }
 
-form#Inserisci_tragitto_cp ul li {
+form#Inserimento_tragitto_cp ul li {
 	padding: 10px;
 }
 
-form#Inserisci_tragitto_cp ul li:not(:first-child) {
+form#Inserimento_tragitto_cp ul li:not(:first-child) {
 	padding: 10px 10px;
 }
 
-form#Inserisci_tragitto_cp ul li:first-child {
+form#Inserimento_tragitto_cp ul li:first-child {
 	margin-bottom: 20px;
 	background:none;
 	border-bottom: 1px solid #6E6E6E;
@@ -1065,12 +1065,12 @@ form#Inserisci_tragitto_cp ul li:first-child {
 	color: #333;
 }
 
-form#Inserisci_tragitto_cp ul li > input:focus {
+form#Inserimento_tragitto_cp ul li > input:focus {
 	outline: none;
 	box-shadow:  0px 0px 10px #7dc500;
 }
 
-form#Inserisci_tragitto_cp ul li > input[type = text] {
+form#Inserimento_tragitto_cp ul li > input[type = text] {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 20px;
 	padding: 10px;
@@ -1082,7 +1082,7 @@ form#Inserisci_tragitto_cp ul li > input[type = text] {
 	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
 }
 
-form#Inserisci_tragitto_cp ul li > input[type = radio] {
+form#Inserimento_tragitto_cp ul li > input[type = radio] {
 	padding: 10px;
 	margin-left: 20px;
 	margin-right: 5px;
@@ -1090,7 +1090,7 @@ form#Inserisci_tragitto_cp ul li > input[type = radio] {
 	font-size: 20px;
 }
 
-form#Inserisci_tragitto_cp ul li > button#submit {
+form#Inserimento_tragitto_cp ul li > button#submit {
 	padding: 15px;
 	font-size: 15px;
 	border-radius: 10px;
@@ -1105,11 +1105,11 @@ form#Inserisci_tragitto_cp ul li > button#submit {
 	color: #FFFFFF;
 }
 
-form#Inserisci_tragitto_cp ul li > button#submit:hover {
+form#Inserimento_tragitto_cp ul li > button#submit:hover {
 	opacity: .85;
 }
 
-form#Inserisci_tragitto_cp ul li > button#submit:active {
+form#Inserimento_tragitto_cp ul li > button#submit:active {
 	box-shadow: 2px 2px 2px #466e00 inset;
 	background-color: #304c00;
 }
