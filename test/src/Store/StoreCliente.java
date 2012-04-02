@@ -9,10 +9,10 @@ public class StoreCliente {
 		String sql_query = "INSERT INTO cliente (email_utente, cf) VALUES ('" + c.getEmail_utente() + "', '" + c.getCodice_fiscale() + "')";
 		Query.doQuery(sql_query);
 		
-		return readCliente(c.getEmail_utente(), c.getCodice_fiscale());
+		return readCliente(c.getEmail_utente());
 	}
 	
-	public static Cliente readCliente(String email, String codice_fiscale){
+	public static Cliente readCliente(String email){
 		String sql_query = "SELECT * FROM cliente WHERE email = '" + email + "'";
 		ResultSet rs = Query.doQueryRS(sql_query);
 		if (rs != null) {
