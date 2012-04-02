@@ -19,6 +19,7 @@
 <script type="text/javascript" src="../css/jquery-ui-timepicker-addon.js" ></script>
 <script>
     $(document).ready(function(){
+    	 $("#radio").buttonset();
         $("#numero_posti").keypress(function(e){
             if(e.keyCode < 48 || e.keyCode > 57) return false;
             return true;
@@ -46,36 +47,46 @@
         <form method="GET" action="../Inserimento_tragitto_cp" id="Inserimento_tragitto_cp">
             <ul>
                 <li><h1>Inserimento nuova tragitto di Car Pooling</h1></li>
-                <li><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
-                <li>Fumatori: <input type="radio" name="smokers" value="true"> Sì <input type="radio" name="smokers" value="false"> No</li>
-                <li><input name="numero_posti" type="text" id="numero_posti" placeholder="Numero di posti disponibili"/></li>
-                <li><textarea name="commento" id="commento" rows="10" cols="60" placeholder="commento"></textarea>
-                </li>
-				<li><select name="fromprovince">
-				<option>Seleziona provincia partenza..</option>
-     			<% for(Localita A : lista_localita){%> <option value="<%= A.getProvincia() %>"><%= A.getProvincia() %></option> <% } %>
-                </select></li>
-                <li><select name="fromcity">
-                <option>Seleziona città partenza..</option>
-                <% for(Localita A : lista_localita){%> <option value="<%= A.getCitta() %>"><%= A.getCitta() %></option> <% } %>
-                </select></li>
-                <li><select name="toprovince">
-				<option>Seleziona provincia arrivo..</option>
-     			<% for(Localita A : lista_localita){%> <option value="<%= A.getProvincia() %>"><%= A.getProvincia() %></option> <% } %>
-                </select></li>
-                <li><select name="tocity">
-                <option>Seleziona città arrivo..</option>
-                <% for(Localita A : lista_localita){%> <option value="<%= A.getCitta() %>"><%= A.getCitta() %></option> <% } %>
-                </select></li>
-                <li><select name="carplate">
-                <option>Seleziona la macchina che utilizzerai..</option>
-                <% for(Macchina_CP A : lista_targhe){%> <option value="<%= A.getTarga() %>">
-                <% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
-                <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
-                </select></li>
-                <li><input name="tempo_partenza" type="text" id="tempo_partenza" placeholder="Tempo Partenza"/></li>
-                <li><input name="tempo_arrivo" type="text" id="tempo_arrivo" placeholder="Tempo Arrivo"/></li>
-
+                <fieldset>
+                <legend>Informazioni Vettura:</legend>
+	                <li><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
+	                <li>Fumatori:
+	                <div id="radio">
+	                        <input type="radio" id="radio1" name="smokers" value="true"/><label for="radio1">S&igrave;</label>
+	                        <input type="radio" id="radio2" name="smokers" value="false"/><label for="radio2">No</label>
+	                    </div> 
+	                </li>
+	                <li><input name="numero_posti" type="text" id="numero_posti" placeholder="Numero di posti disponibili"/></li>
+	                <li><textarea name="commento" id="commento" rows="10" cols="60" placeholder="commento"></textarea>
+	                </li>
+                </fieldset>
+                <fieldset>
+                	<legend>Informazioni Viaggio:</legend>
+					<li><select name="fromprovince">
+					<option>Seleziona provincia partenza..</option>
+	     			<% for(Localita A : lista_localita){%> <option value="<%= A.getProvincia() %>"><%= A.getProvincia() %></option> <% } %>
+	                </select></li>
+	                <li><select name="fromcity">
+	                <option>Seleziona città partenza..</option>
+	                <% for(Localita A : lista_localita){%> <option value="<%= A.getCitta() %>"><%= A.getCitta() %></option> <% } %>
+	                </select></li>
+	                <li><select name="toprovince">
+					<option>Seleziona provincia arrivo..</option>
+	     			<% for(Localita A : lista_localita){%> <option value="<%= A.getProvincia() %>"><%= A.getProvincia() %></option> <% } %>
+	                </select></li>
+	                <li><select name="tocity">
+	                <option>Seleziona città arrivo..</option>
+	                <% for(Localita A : lista_localita){%> <option value="<%= A.getCitta() %>"><%= A.getCitta() %></option> <% } %>
+	                </select></li>
+	                <li><select name="carplate">
+	                <option>Seleziona la macchina che utilizzerai..</option>
+	                <% for(Macchina_CP A : lista_targhe){%> <option value="<%= A.getTarga() %>">
+	                <% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
+	                <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
+	                </select></li>
+	                <li><input name="tempo_partenza" type="text" id="tempo_partenza" placeholder="Tempo Partenza"/></li>
+	                <li><input name="tempo_arrivo" type="text" id="tempo_arrivo" placeholder="Tempo Arrivo"/></li>
+				</fieldset>
                 <li><button name="submit" type="submit" id="submit">Inserisci</button></li>
             </ul>
         </form>
