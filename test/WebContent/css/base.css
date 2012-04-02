@@ -499,6 +499,22 @@ form#register ul li:first-child {
 	color: #333;
 }
 
+form#register ul li > input:focus {
+	outline: none;
+	box-shadow:  0px 0px 10px #7dc500;
+}
+
+form#register ul li > input[type = text],  form#register ul li > input[type = password]{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	padding: 10px;
+	width: 95%;
+	height: auto;
+	margin: 0;
+	border-radius: 10px;
+	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
+}
 
 form#register ul li > input[type = radio] {
 	padding: 10px;
@@ -530,6 +546,20 @@ form#register ul li > button#submit:hover {
 form#register ul li > button#submit:active {
 	box-shadow: 2px 2px 2px #466e00 inset;
 	background-color: #304c00;
+}
+
+form#register fieldset {
+	border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    background: none;
+}
+form#register fieldset:not(:first-child) {
+	margin-top: 25px;
+}
+
+form#register fieldset > legend {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin-left: 15px;
 }
 
 /*******************************************/
@@ -1116,4 +1146,12 @@ form#Inserimento_tragitto_cp ul li > button#submit:active {
 
 form#Inserimento_tragitto_cp ul li > select {
 	margin: 5px 0px 5px 0px;
+}
+
+form#Inserimento_tragitto_cp ul li > input[type = radio] {
+	padding: 10px;
+	margin-left: 20px;
+	margin-right: 5px;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 20px;
 }
