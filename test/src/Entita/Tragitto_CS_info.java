@@ -14,7 +14,7 @@ public class Tragitto_CS_info {
     private int km_totali;
     private Boolean pagato;
 
-    public Tragitto_CS_info(String newnome, String newcitta, String newprovincia, String newmarca, String newmodello, Calendar newtempo_prelievo, Calendar newtempo_consegna, Calendar newtempo_prelievo_prenotazione, Calendar newtempo_consegna_prenotazione, int newkm_totali, Boolean newpagato) {
+    public Tragitto_CS_info(String newnome, String newcitta, String newprovincia, String newmarca, String newmodello, Calendar newtempo_prelievo_prenotazione, Calendar newtempo_consegna_prenotazione, Calendar newtempo_prelievo, Calendar newtempo_consegna, int newkm_totali, Boolean newpagato) {
     	nome = newnome;
     	citta = newcitta;
     	provincia = newprovincia;
