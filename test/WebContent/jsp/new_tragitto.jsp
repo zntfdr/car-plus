@@ -51,28 +51,28 @@
                 <li><input name="numero_posti" type="text" id="numero_posti" placeholder="Numero di posti disponibili"/></li>
                 <li><textarea name="commento" id="commento" rows="10" cols="60" placeholder="commento"></textarea>
                 </li>
-				<select name="fromprovince">
+				<li><select name="fromprovince">
 				<option>Seleziona provincia partenza..</option>
      			<% for(Localita A : lista_localita){%> <option value="<%= A.getProvincia() %>"><%= A.getProvincia() %></option> <% } %>
-                </select><br/>
-                <select name="fromcity">
+                </select></li>
+                <li><select name="fromcity">
                 <option>Seleziona città partenza..</option>
                 <% for(Localita A : lista_localita){%> <option value="<%= A.getCitta() %>"><%= A.getCitta() %></option> <% } %>
-                </select><br/>
-                <select name="toprovince">
+                </select></li>
+                <li><select name="toprovince">
 				<option>Seleziona provincia arrivo..</option>
      			<% for(Localita A : lista_localita){%> <option value="<%= A.getProvincia() %>"><%= A.getProvincia() %></option> <% } %>
-                </select><br/>
-                <select name="tocity">
+                </select></li>
+                <li><select name="tocity">
                 <option>Seleziona città arrivo..</option>
                 <% for(Localita A : lista_localita){%> <option value="<%= A.getCitta() %>"><%= A.getCitta() %></option> <% } %>
-                </select><br/>
-                <select name="carplate">
+                </select></li>
+                <li><select name="carplate">
                 <option>Seleziona la macchina che utilizzerai..</option>
                 <% for(Macchina_CP A : lista_targhe){%> <option value="<%= A.getTarga() %>">
                 <% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
                 <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
-                </select>
+                </select></li>
                 <li><input name="tempo_partenza" type="text" id="tempo_partenza" placeholder="Tempo Partenza"/></li>
                 <li><input name="tempo_arrivo" type="text" id="tempo_arrivo" placeholder="Tempo Arrivo"/></li>
 
