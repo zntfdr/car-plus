@@ -1,6 +1,10 @@
 package Entita;
 
 public class Utente {
+	
+	public enum Type {
+	    USER, CLIENTE, BUSINESS
+	}
     private String nome;
     private String cognome;
     private String sesso;
@@ -12,6 +16,7 @@ public class Utente {
     private String telefono;
     private boolean account_verificato;
     private boolean account_sospeso;
+    private Type user_type;
     
     public Utente(String newnome, String newcognome, String newsesso, String newindirizzo, String newcitta, String newprovincia, String newpassword, String newemail, String newtelefono, boolean newsetAccount_verificato, boolean newaccount_sospeso) {
     	nome = newnome;
@@ -71,6 +76,10 @@ public class Utente {
         return account_sospeso;
     }
 
+    public Type getUserType(){
+    	return user_type;
+    }
+    
     public void setNome(String newValue) {
         nome = newValue;
     }
@@ -113,5 +122,9 @@ public class Utente {
 
     public void setAccount_sospeso(boolean newValue) {
         account_sospeso = newValue;
+    }
+    
+    public void setUserType(Type newValue){
+    	user_type=newValue;
     }
 }
