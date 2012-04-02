@@ -13,7 +13,7 @@ public class Tessera {
 		id = value;
 	}
 	
-	public void setId_Contratto(int id_c){
+	public void setId_contratto(int id_c){
 		id_contratto = id_c;
 	}
 
@@ -21,7 +21,7 @@ public class Tessera {
 		return id;
 	}
 	
-	public int getContratto() {
+	public int getId_contratto() {
 		return id_contratto;
 	}
 }
