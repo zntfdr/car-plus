@@ -8,10 +8,10 @@ public class StoreCliente_business{
 		String sql = "INSERT INTO cliente_business(email_utente, partita_iva, nome_attivita) VALUES('" + cb.getEmail_utente() + "', '" + cb.getPartita_iva() + "', '" + cb.getNome_attivita()+ "')";
 	    
 		Query.doQuery(sql);
-		return readCliente_business(cb.getEmail_utente(),cb.getPartita_iva(),cb.getNome_attivita());
+		return readCliente_business(cb.getEmail_utente());
 	}
 
-	public static Cliente_business readCliente_business(String email_utente, String partita_iva, String nome_attivita){
+	public static Cliente_business readCliente_business(String email_utente){
 		String sql = "SELECT * FROM cliente_business WHERE email_utente = '" + email_utente + "'";
 		ResultSet rs = Query.doQueryRS(sql);
 		if(rs != null){
