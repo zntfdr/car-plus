@@ -12,10 +12,11 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	
 }
 
 p {
@@ -23,15 +24,15 @@ p {
 }
 
 h1 {
-	font-size: 25px;
+	font-size: 24px;
 }
 
 h2 {
-	font-size: 20px;
+	font-size: 19px;
 }
 
 h3 {
-	font-size: 17px;
+	font-size: 15px;
 }
 
 /*******************************************/
@@ -284,15 +285,7 @@ form#search ul li > label {
 }
 
 form#search ul li > input[type = text] {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	padding: 10px;
 	width: 80%;
-	height: auto;
-	margin: 0;
-	border-radius: 10px;
-	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
 }
 
 form#search ul li > input[type = checkbox] {
@@ -400,40 +393,10 @@ table#trip_list tr > th.free, table#trip_list tr > td.free {
 }
 
 /*******************************************/
-/******************LOGIN FORM***************/
+/****************** INPUT ******************/
 /*******************************************/
 
-form#login ul {
-	list-style: none;
-	margin-left: auto;
-	margin-right: auto;
-	width: 400px;
-	border-radius: 5px;
-	padding: 0;
-}
-
-form#login ul li {
-	padding: 10px;
-}
-
-form#login ul li:not(:first-child) {
-	padding: 20px 20px;
-}
-
-form#login ul li:first-child {
-	margin-bottom: 20px;
-	background:none;
-	border-bottom: 1px solid #6E6E6E;
-	text-shadow: 1px 1px 2px #333;
-	color: #333;
-}
-
-form#login ul li > input:focus {
-	outline: none;
-	box-shadow:  0px 0px 10px #7dc500;
-}
-
-form#login ul li > input[type = text], form#login ul li > input[type = password] {
+form input[type = text], form input[type = password] {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 20px;
 	padding: 10px;
@@ -445,8 +408,29 @@ form#login ul li > input[type = text], form#login ul li > input[type = password]
 	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
 }
 
+form input:focus {
+	outline: none;
+	box-shadow:  0px 0px 10px #7dc500;
+}
 
-form#login ul li > button#submit {
+form input[type = radio] {
+	padding: 10px;
+	margin-left: 20px;
+	margin-right: 5px;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 20px;
+}
+
+form textarea {
+	border-radius: 10px;
+	background: -webkit-gradient(linear, left top, left bottom, from(whiteSmoke), to(white)) no-repeat;
+	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
+	border: 1px solid #919191;
+	padding: 10px;
+	font-size: 14px;
+}
+
+form button#submit {
 	padding: 15px;
 	font-size: 15px;
 	border-radius: 10px;
@@ -461,501 +445,95 @@ form#login ul li > button#submit {
 	color: #FFFFFF;
 }
 
-form#login ul li > button#submit:hover {
+form button#submit:hover {
 	opacity: .85;
 }
 
-form#login ul li > button#submit:active {
+form button#submit:active {
 	box-shadow: 2px 2px 2px #466e00 inset;
 	background-color: #304c00;
+}
+
+
+form fieldset {
+	border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    background: none;
+}
+form fieldset:not(:first-child) {
+	margin-top: 25px;
+}
+
+form fieldset > legend {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin-left: 15px;
+}
+
+/*******************************************/
+/***************** FORM LIST ***************/
+/*******************************************/
+
+form ul {
+	list-style: none;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	border-radius: 5px;
+	padding: 0;
+}
+
+form ul li {
+	padding: 10px;
+}
+
+form ul li:not(:first-child) {
+	padding: 10px 10px;
+}
+
+form ul li:first-child {
+	margin-bottom: 20px;
+	background:none;
+	border-bottom: 1px solid #6E6E6E;
+	text-shadow: 1px 1px 2px #E5E5E5;
+	color: #333;
+}
+
+/*******************************************/
+/******************LOGIN FORM***************/
+/*******************************************/
+
+form#login ul {
+	width: 400px;
 }
 
 /*******************************************/
 /*************REGISTRATION FORM*************/
 /*******************************************/
 
-form#register ul {
-	list-style: none;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	border-radius: 5px;
-	padding: 0;
-}
-
-form#register ul li {
-	padding: 10px;
-}
-
-form#register ul li:not(:first-child) {
-	padding: 10px 10px;
-}
-
-form#register ul li:first-child {
-	margin-bottom: 20px;
-	background:none;
-	border-bottom: 1px solid #6E6E6E;
-	text-shadow: 1px 1px 2px #E5E5E5;
-	color: #333;
-}
-
-form#register ul li > input:focus {
-	outline: none;
-	box-shadow:  0px 0px 10px #7dc500;
-}
-
-form#register ul li > input[type = text],  form#register ul li > input[type = password]{
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	padding: 10px;
-	width: 95%;
-	height: auto;
-	margin: 0;
-	border-radius: 10px;
-	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
-}
-
-form#register ul li > input[type = radio] {
-	padding: 10px;
-	margin-left: 20px;
-	margin-right: 5px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-}
-
-form#register ul li > button#submit {
-	padding: 15px;
-	font-size: 15px;
-	border-radius: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
-	border: 1px solid #466e00;
-	box-shadow: 0px 2px 0px #c3ff5a inset;
-	text-shadow: 1px 1px 2px #333;
-	cursor: pointer;
-	color: #FFFFFF;
-}
-
-form#register ul li > button#submit:hover {
-	opacity: .85;
-}
-
-form#register ul li > button#submit:active {
-	box-shadow: 2px 2px 2px #466e00 inset;
-	background-color: #304c00;
-}
-
-form#register fieldset {
-	border: 1px solid #d1d1d1;
-    border-radius: 5px;
-    background: none;
-}
-form#register fieldset:not(:first-child) {
-	margin-top: 25px;
-}
-
-form#register fieldset > legend {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	margin-left: 15px;
-}
 
 /*******************************************/
 /***********NEW CAR SHARING FORM************/
 /*******************************************/
 
-form#new_cs_station ul {
-	list-style: none;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	border-radius: 5px;
-	padding: 0;
-}
-
-form#new_cs_station ul li {
-	padding: 10px;
-}
-
-form#new_cs_station ul li:not(:first-child) {
-	padding: 10px 10px;
-}
-
-form#new_cs_station ul li:first-child {
-	margin-bottom: 20px;
-	background:none;
-	border-bottom: 1px solid #6E6E6E;
-	text-shadow: 1px 1px 2px #E5E5E5;
-	color: #333;
-}
-
-form#new_cs_station ul li > input:focus {
-	outline: none;
-	box-shadow:  0px 0px 10px #7dc500;
-}
-
-form#new_cs_station ul li > input[type = text] {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	padding: 10px;
-	width: 95%;
-	height: auto;
-	margin: 0;
-	border-radius: 10px;
-	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
-}
-
-form#new_cs_station ul li > input[type = radio] {
-	padding: 10px;
-	margin-left: 20px;
-	margin-right: 5px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-}
-
-form#new_cs_station ul li > button#submit {
-	padding: 15px;
-	font-size: 15px;
-	border-radius: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
-	border: 1px solid #466e00;
-	box-shadow: 0px 2px 0px #c3ff5a inset;
-	text-shadow: 1px 1px 2px #333;
-	cursor: pointer;
-	color: #FFFFFF;
-}
-
-form#new_cs_station ul li > button#submit:hover {
-	opacity: .85;
-}
-
-form#new_cs_station ul li > button#submit:active {
-	box-shadow: 2px 2px 2px #466e00 inset;
-	background-color: #304c00;
-}
 
 /*******************************************/
 /*********NEW CAR SHARING CAR FORM**********/
 /*******************************************/
 
-form#new_cs_car ul {
-	list-style: none;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	border-radius: 5px;
-	padding: 0;
-}
-
-form#new_cs_car ul li {
-	padding: 10px;
-}
-
-form#new_cs_car ul li:not(:first-child) {
-	padding: 10px 10px;
-}
-
-form#new_cs_car ul li:first-child {
-	margin-bottom: 20px;
-	background:none;
-	border-bottom: 1px solid #6E6E6E;
-	text-shadow: 1px 1px 2px #E5E5E5;
-	color: #333;
-}
-
-form#new_cs_car ul li > input:focus {
-	outline: none;
-	box-shadow:  0px 0px 10px #7dc500;
-}
-
-form#new_cs_car ul li > input[type = text] {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	padding: 10px;
-	width: 95%;
-	height: auto;
-	margin: 0;
-	border-radius: 10px;
-	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
-}
-
-form#new_cs_car ul li > input[type = radio] {
-	padding: 10px;
-	margin-left: 20px;
-	margin-right: 5px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-}
-
-form#new_cs_car ul li > button#submit {
-	padding: 15px;
-	font-size: 15px;
-	border-radius: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
-	border: 1px solid #466e00;
-	box-shadow: 0px 2px 0px #c3ff5a inset;
-	text-shadow: 1px 1px 2px #333;
-	cursor: pointer;
-	color: #FFFFFF;
-}
-
-form#new_cs_car ul li > button#submit:hover {
-	opacity: .85;
-}
-
-form#new_cs_station ul li > button#submit:active {
-	box-shadow: 2px 2px 2px #466e00 inset;
-	background-color: #304c00;
-}
 
 /*******************************************/
 /***************NEW LOCATION****************/
 /*******************************************/
 
-form#new_location ul {
-	list-style: none;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	border-radius: 5px;
-	padding: 0;
-}
-
-form#new_location ul li {
-	padding: 10px;
-}
-
-form#new_location ul li:not(:first-child) {
-	padding: 10px 10px;
-}
-
-form#new_location ul li:first-child {
-	margin-bottom: 20px;
-	background:none;
-	border-bottom: 1px solid #6E6E6E;
-	text-shadow: 1px 1px 2px #E5E5E5;
-	color: #333;
-}
-
-form#new_location ul li > input:focus {
-	outline: none;
-	box-shadow:  0px 0px 10px #7dc500;
-}
-
-form#new_location ul li > input[type = text] {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	padding: 10px;
-	width: 95%;
-	height: auto;
-	margin: 0;
-	border-radius: 10px;
-	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
-}
-
-form#new_location ul li > input[type = radio] {
-	padding: 10px;
-	margin-left: 20px;
-	margin-right: 5px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-}
-
-form#new_location ul li > button#submit {
-	padding: 15px;
-	font-size: 15px;
-	border-radius: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
-	border: 1px solid #466e00;
-	box-shadow: 0px 2px 0px #c3ff5a inset;
-	text-shadow: 1px 1px 2px #333;
-	cursor: pointer;
-	color: #FFFFFF;
-}
-
-form#new_location ul li > button#submit:hover {
-	opacity: .85;
-}
-
-form#new_location ul li > button#submit:active {
-	box-shadow: 2px 2px 2px #466e00 inset;
-	background-color: #304c00;
-}
 
 /*******************************************/
 /*************NEW SUBSCRIPTION**************/
 /*******************************************/
 
-form#new_subscription ul {
-	list-style: none;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	border-radius: 5px;
-	padding: 0;
-}
-
-form#new_subscription ul li {
-	padding: 10px;
-}
-
-form#new_subscription ul li:not(:first-child) {
-	padding: 10px 10px;
-}
-
-form#new_subscription ul li:first-child {
-	margin-bottom: 20px;
-	background:none;
-	border-bottom: 1px solid #6E6E6E;
-	text-shadow: 1px 1px 2px #E5E5E5;
-	color: #333;
-}
-
-form#new_subscription ul li > input:focus {
-	outline: none;
-	box-shadow:  0px 0px 10px #7dc500;
-}
-
-form#new_subscription ul li > input[type = text] {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	padding: 10px;
-	width: 95%;
-	height: auto;
-	margin: 0;
-	border-radius: 10px;
-	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
-}
-
-form#new_subscription ul li > input[type = radio] {
-	padding: 10px;
-	margin-left: 20px;
-	margin-right: 5px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-}
-
-form#new_subscription ul li > button#submit {
-	padding: 15px;
-	font-size: 15px;
-	border-radius: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
-	border: 1px solid #466e00;
-	box-shadow: 0px 2px 0px #c3ff5a inset;
-	text-shadow: 1px 1px 2px #333;
-	cursor: pointer;
-	color: #FFFFFF;
-}
-
-form#new_subscription ul li > button#submit:hover {
-	opacity: .85;
-}
-
-form#new_subscription ul li > button#submit:active {
-	box-shadow: 2px 2px 2px #466e00 inset;
-	background-color: #304c00;
-}
 
 /*******************************************/
-/***************NEW CUSTOMER****************/
+/************** NEW CUSTOMER ***************/
 /*******************************************/
-
-form#new_customer ul, form#new_business_customer ul {
-	list-style: none;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	border-radius: 5px;
-	padding: 0;
-	background-color: #fefefe;
-}
-
-form#new_customer ul li, form#new_business_customer ul li {
-	padding: 10px;
-}
-
-form#new_customer ul li:not(:first-child), form#new_business_customer ul li:not(:first-child) {
-	padding: 10px 10px;
-}
-
-form#new_customer ul li:first-child, form#new_business_customer ul li:first-child {
-	margin-bottom: 20px;
-	background:none;
-	border-bottom: 1px solid #6E6E6E;
-	text-shadow: 1px 1px 2px #E5E5E5;
-	color: #333;
-}
-
-form#new_customer ul li > input:focus, form#new_business_customer ul li > input:focus {
-	outline: none;
-	box-shadow:  0px 0px 10px #7dc500;
-}
-
-form#new_customer ul li > input[type = text], form#new_business_customer ul li > input[type = text] {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	padding: 10px;
-	width: 95%;
-	height: auto;
-	margin: 0;
-	border-radius: 10px;
-	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
-}
-
-.error {
-	box-shadow: 0px 0px 10px #FF0000;
-}
-
-form#new_customer ul li > input[type = radio], form#new_business_customer ul li > input[type = radio] {
-	padding: 10px;
-	margin-left: 20px;
-	margin-right: 5px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-}
-
-form#new_customer ul li > button#submit, form#new_business_customer ul li > button#submit_business {
-	padding: 15px;
-	font-size: 15px;
-	border-radius: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
-	border: 1px solid #466e00;
-	box-shadow: 0px 2px 0px #c3ff5a inset;
-	text-shadow: 1px 1px 2px #333;
-	cursor: pointer;
-	color: #FFFFFF;
-}
-
-form#new_customer ul li > button#submit:hover, form#new_business_customer ul li > button#submit_business:hover {
-	opacity: .85;
-}
-
-form#new_customer ul li > button#submit:active, form#new_business_customer ul li > button#submit_business:active {
-	box-shadow: 2px 2px 2px #466e00 inset;
-	background-color: #304c00;
-}
 
 .hide {
     display: none;
@@ -992,189 +570,8 @@ ul#customer_type_navigation li:hover {
 /*************NEW CAR MODEL*****************/
 /*******************************************/
 
-form#new_car_model ul {
-	list-style: none;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	border-radius: 5px;
-	padding: 0;
-}
-
-form#new_car_model ul li {
-	padding: 10px;
-}
-
-form#new_car_model ul li:not(:first-child) {
-	padding: 10px 10px;
-}
-
-form#new_car_model ul li:first-child {
-	margin-bottom: 20px;
-	background:none;
-	border-bottom: 1px solid #6E6E6E;
-	text-shadow: 1px 1px 2px #E5E5E5;
-	color: #333;
-}
-
-form#new_car_model ul li > input:focus {
-	outline: none;
-	box-shadow:  0px 0px 10px #7dc500;
-}
-
-form#new_car_model ul li > input[type = text] {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	padding: 10px;
-	width: 95%;
-	height: auto;
-	margin: 0;
-	border-radius: 10px;
-	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
-}
-
-form#new_car_model ul li > input[type = radio] {
-	padding: 10px;
-	margin-left: 20px;
-	margin-right: 5px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-}
-
-form#new_car_model ul li > button#submit {
-	padding: 15px;
-	font-size: 15px;
-	border-radius: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
-	border: 1px solid #466e00;
-	box-shadow: 0px 2px 0px #c3ff5a inset;
-	text-shadow: 1px 1px 2px #333;
-	cursor: pointer;
-	color: #FFFFFF;
-}
-
-form#new_car_model ul li > button#submit:hover {
-	opacity: .85;
-}
-
-form#new_car_model ul li > button#submit:active {
-	box-shadow: 2px 2px 2px #466e00 inset;
-	background-color: #304c00;
-}
 
 /*******************************************/
 /**************NEW TRAGITTO CP**************/
 /*******************************************/
 
-form#Inserimento_tragitto_cp ul {
-	list-style: none;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	border-radius: 5px;
-	padding: 0;
-}
-
-form#Inserimento_tragitto_cp ul li {
-	padding: 10px;
-}
-
-form#Inserimento_tragitto_cp ul li:not(:first-child) {
-	padding: 10px 10px;
-}
-
-form#Inserimento_tragitto_cp ul li:first-child {
-	margin-bottom: 20px;
-	background:none;
-	border-bottom: 1px solid #6E6E6E;
-	text-shadow: 1px 1px 2px #E5E5E5;
-	color: #333;
-}
-
-form#Inserimento_tragitto_cp ul li > input:focus {
-	outline: none;
-	box-shadow:  0px 0px 10px #7dc500;
-}
-
-form#Inserimento_tragitto_cp ul li > input[type = text] {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-	padding: 10px;
-	width: 95%;
-	height: auto;
-	margin: 0;
-	border-radius: 10px;
-	background: -moz-linear-gradient(top,#f5f5f5,#FFFFFF) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#FFFFFF)) no-repeat;
-}
-
-form#Inserimento_tragitto_cp ul li > input[type = radio] {
-	padding: 10px;
-	margin-left: 20px;
-	margin-right: 5px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-}
-
-form#Inserimento_tragitto_cp ul li > button#submit {
-	padding: 15px;
-	font-size: 15px;
-	border-radius: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
-	background: -webkit-gradient(linear, left top, left bottom, from(#7dc500), to(#619801)) no-repeat;
-	border: 1px solid #466e00;
-	box-shadow: 0px 2px 0px #c3ff5a inset;
-	text-shadow: 1px 1px 2px #333;
-	cursor: pointer;
-	color: #FFFFFF;
-}
-
-form#Inserimento_tragitto_cp ul li > textarea {
-	border-radius: 10px;
-	background: -webkit-gradient(linear, left top, left bottom, from(whiteSmoke), to(white)) no-repeat;
-	background: -moz-linear-gradient(top,#7dc500,#619801) no-repeat;
-	border: 1px solid #919191;
-	padding: 10px;
-	font-size: 14px;
-}
-
-form#Inserimento_tragitto_cp ul li > button#submit:hover {
-	opacity: .85;
-}
-
-form#Inserimento_tragitto_cp ul li > button#submit:active {
-	box-shadow: 2px 2px 2px #466e00 inset;
-	background-color: #304c00;
-}
-
-form#Inserimento_tragitto_cp ul li > select {
-	margin: 5px 0px 5px 0px;
-}
-
-form#Inserimento_tragitto_cp ul li > input[type = radio] {
-	padding: 10px;
-	margin-left: 20px;
-	margin-right: 5px;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 20px;
-}
-
-form#Inserimento_tragitto_cp fieldset {
-	border: 1px solid #d1d1d1;
-    border-radius: 5px;
-    background: none;
-}
-form#Inserimento_tragitto_cp fieldset:not(:first-child) {
-	margin-top: 25px;
-}
-
-form#Inserimento_tragitto_cp fieldset > legend {
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	margin-left: 15px;
-}
