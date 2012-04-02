@@ -1113,3 +1113,7 @@ form#Inserimento_tragitto_cp ul li > button#submit:active {
 	box-shadow: 2px 2px 2px #466e00 inset;
 	background-color: #304c00;
 }
+
+form#Inserimento_tragitto_cp ul li > select {
+	margin: 5px 0px 5px 0px;
+}
