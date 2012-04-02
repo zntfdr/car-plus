@@ -65,9 +65,7 @@
 	                <% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
 	                <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
 	                </select></li>
-	                <li><input name="tempo_partenza" type="text" id="tempo_partenza" placeholder="Tempo Partenza"/></li>
-	                <li><input name="tempo_arrivo" type="text" id="tempo_arrivo" placeholder="Tempo Arrivo"/></li>
-				</fieldset>
+	            </fieldset>
                 <li><button name="submit" type="submit" id="submit">Prenota</button></li>
             </ul>
         </form>
