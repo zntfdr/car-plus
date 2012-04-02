@@ -17,13 +17,16 @@ public class Inserimento_tragitto_cs_check extends HttpServlet {
 			throws ServletException, IOException {
 		Contratto contratto = StoreContratto.readContratto(Integer.parseInt(req.getParameter("contratto")));
 		ArrayList<Tessera> listaTessere = StoreTessera.getTesseraFromContratto(Integer.parseInt(req.getParameter("contratto")));
-		
+		String tempoPrelievo = req.getParameter("tempoPrelievo");
+		String tempoConsegna = req.getParameter("tempoConesegna");
 		//Se tutto va bene, comincio a definire la sessione
 		HttpSession session = req.getSession();
 		session.setAttribute("listaTessere", listaTessere);
-		//Prendo dal DB la lista delle stazioni
-		String sql = "SELECT MCS.targa FROM macchina_cs AS MCS INNERJOIN disponibilita AS D ON MCS.id_modello = D.id_modello WHERE MCS.provincia = '" + req.getParameter("provincia_stazione") + "' AND MCS.citta = '" + req.getParameter("citta_stazione") + "' AND MCS.prenotabile = 'true' AND D.nome_abbonamento ='"+ contratto.getNome_abbonamento()+"'";
+		session.setAttribute("contratto", contratto);
+		session.setAttribute("tempoPrelievo", tempoPrelievo);
+		session.setAttribute("tempoConsegna", tempoConsegna);
 		
+		String sql = "SELECT MCS.targa FROM macchina_cs AS MCS INNER JOIN disponibilita AS D ON MCS.id_modello = D.modello_macchina INNER JOIN tragitto_cs AS TCS ON MCS.targa = TCS.targa_cs  WHERE MCS.provincia = '" + req.getParameter("provincia_stazione") + "' AND MCS.citta = '" + req.getParameter("citta_stazione") + "' AND MCS.prenotabile = 'true' AND D.nome_abbonamento = '"+ contratto.getNome_abbonamento()+"' AND TCS.tempo_consegna < '"+ tempoPrelievo +"'";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){
 			try {
