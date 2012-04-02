@@ -8,7 +8,7 @@ import Utils.*;
 
 public class StoreTessera{
     public static Tessera insertTessera(Tessera tess){
-        String sql = "INSERT INTO tessera(id, id_contratto) VALUES(" + tess.getId() + "," + tess.getContratto() + ")";
+        String sql = "INSERT INTO tessera(id, id_contratto) VALUES(" + tess.getId() + "," + tess.getId_contratto() + ")";
 
       Query.doQuery(sql);
       return readTessera(tess.getId());
