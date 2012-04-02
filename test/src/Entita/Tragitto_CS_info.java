@@ -28,23 +28,23 @@ public class Tragitto_CS_info {
     	pagato = newpagato;
     }
 
-    public void setnome(String newnome) {
+    public void setNome(String newnome) {
         nome = newnome;
     }
     
-    public void setcitta(String newcitta) {
+    public void setCitta(String newcitta) {
         citta = newcitta;
     }
     
-    public void setprovincia(String newprovincia) {
+    public void setProvincia(String newprovincia) {
         provincia = newprovincia;
     }
     
-    public void setmarca(String newmarca) {
+    public void setMarca(String newmarca) {
         marca = newmarca;
     }
     
-    public void setmodello_macchina(String newmodello_macchina) {
+    public void setModello_macchina(String newmodello_macchina) {
         modello_macchina = newmodello_macchina;
     }
     
@@ -72,23 +72,23 @@ public class Tragitto_CS_info {
         pagato = newValue;
     }
 
-    public String getnome() {
+    public String getNome() {
         return nome;
     }
     
-    public String getcitta() {
+    public String getCitta() {
         return citta;
     }
     
-    public String getprovincia() {
+    public String getProvincia() {
         return provincia;
     }
     
-    public String getmarca() {
+    public String getMarca() {
         return marca;
     }
     
-    public String getmodello_macchina() {
+    public String getModello_macchina() {
         return modello_macchina;
     }
     
