@@ -49,12 +49,28 @@
     <url-pattern>/Inserimento_partecipazione</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Inserimento_solo_targa</servlet-name>
+    <servlet-class>Servlet.Inserimento_solo_targa</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_solo_targa</servlet-name>
+    <url-pattern>/Inserimento_solo_targa</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Inserimento_stazione_cs</servlet-name>
     <servlet-class>Servlet.Inserimento_stazione_cs</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Inserimento_stazione_cs</servlet-name>
     <url-pattern>/Inserimento_stazione_cs</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Inserimento_targa_e_modello</servlet-name>
+    <servlet-class>Servlet.Inserimento_targa_e_modello</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_targa_e_modello</servlet-name>
+    <url-pattern>/Inserimento_targa_e_modello</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Inserimento_tragitto_cp</servlet-name>
