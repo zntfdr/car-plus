@@ -110,22 +110,28 @@
         <form method="GET" action="../RegistrazioneUtente" id="register">
             <ul>
                 <li><h1>Registrati ed entra nel mondo Car+!</h1></li>
-                <li><input name="mail" type="text" id="mail" placeholder="Mail" maxlength="320"/></li>
-                <li><input name="password" type="password" id="password" placeholder="Password"/></li>
-                <li><input name="retype-password" type="password" id="retype-password" placeholder="Ripeti Password"/></li>
-                <li><input name="name" type="text" id="name" placeholder="Nome" maxlength="30"/></li>
-                <li><input name="surname" type="text" id="surname" placeholder="Cognome" maxlength="30"/></li>
-                <li>
-                	<div id="radio">
-                        <input type="radio" id="radio1" name="radio" value="M"/><label for="radio1">Maschio</label>
-                        <input type="radio" id="radio2" name="radio" value="F"/><label for="radio2">Femmina</label>
-                    </div>
-				</li>
-                <li><input name="address" type="text" id="address" placeholder="Indirizzo" maxlength="50"/></li>
-                <li><input name="provincia" type="text" id="provincia" placeholder="Provincia" maxlength="50"/></li>
-                <li><input name="citta" type="text" id="citta" placeholder="Citta" maxlength="50"/></li>
-                <!-- QUA VA GENERATO DINAMICAMENTE UNA DROP-DOWN LIST PER LE LOCALITA -->
-                <li><input name="phone" type="text" id="phone" placeholder="Telefono" maxlength="15"/></li>
+                <fieldset>
+                	<legend>Informazioni Account:</legend>
+	                <li><input name="mail" type="text" id="mail" placeholder="Mail" maxlength="320"/></li>
+	                <li><input name="password" type="password" id="password" placeholder="Password"/></li>
+	                <li><input name="retype-password" type="password" id="retype-password" placeholder="Ripeti Password"/></li>
+                </fieldset>
+                <fieldset>
+                <legend>Informazioni Personali:</legend>
+	                <li><input name="name" type="text" id="name" placeholder="Nome" maxlength="30"/></li>
+	                <li><input name="surname" type="text" id="surname" placeholder="Cognome" maxlength="30"/></li>
+	                <li>
+	                	<div id="radio">
+	                        <input type="radio" id="radio1" name="radio" value="M"/><label for="radio1">Maschio</label>
+	                        <input type="radio" id="radio2" name="radio" value="F"/><label for="radio2">Femmina</label>
+	                    </div>
+					</li>
+	                <li><input name="address" type="text" id="address" placeholder="Indirizzo" maxlength="50"/></li>
+	                <li><input name="provincia" type="text" id="provincia" placeholder="Provincia" maxlength="50"/></li>
+	                <li><input name="citta" type="text" id="citta" placeholder="Citta" maxlength="50"/></li>
+	                <!-- QUA VA GENERATO DINAMICAMENTE UNA DROP-DOWN LIST PER LE LOCALITA -->
+	                <li><input name="phone" type="text" id="phone" placeholder="Telefono" maxlength="15"/></li>
+                </fieldset>
                 <li><button name="submit" type="submit" id="submit">Completa la Registrazione</button></li>
             </ul>
         </form>
