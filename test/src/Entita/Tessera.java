@@ -9,7 +9,11 @@ public class Tessera {
 		id_contratto = newid_c;
 	}
 	
-	public void setContratto(int id_c){
+	public void setId(int value){
+		id = value;
+	}
+	
+	public void setId_Contratto(int id_c){
 		id_contratto = id_c;
 	}
 
