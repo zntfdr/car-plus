@@ -21,7 +21,7 @@
         <td><b>Pagato</b></td>
       </tr>
   <% ArrayList<Tragitto_CS_info> listaCP= new ArrayList<Tragitto_CS_info>();
-     listaCSinfo = (ArrayList<Tragitto_CS_info>) session.getAttribute("listaTragitti_CS_info");
+     listaCSinfo = (ArrayList<Tragitto_CS_info>) session.getAttribute("lista_tragitti");
      for(Tragitto_CS_info T : listaCSinfo){%>
       <tr>
         <td> <%= T.getNome() %></td>
