@@ -1,3 +1,4 @@
+<%@page import="Utils.TimeString"%>
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Tragitto_CP" %>
@@ -27,16 +28,16 @@
     <table id="trip_list">
       <tr>
         <td><b>fumatori</b></td>
-<td><b>num_posti</b></td>
+<td><b>num posti</b></td>
 <td><b>note</b></td>
-<td><b>citta_partenza</b></td>
-<td><b>provincia_partenza</b></td>
-<td><b>citta_arrivo</b></td>
-<td><b>provincia_arrivo</b></td>
-<td><b>email_utente</b></td>
-<td><b>targa_CP</b></td>
-<td><b>tempo_partenza</b></td>
-<td><b>tempo_arrivo</b></td>
+<td><b>citta partenza</b></td>
+<td><b>provincia partenza</b></td>
+<td><b>citta arrivo</b></td>
+<td><b>provincia arrivo</b></td>
+<td><b>email utente</b></td>
+<td><b>targa CP</b></td>
+<td><b>tempo partenza</b></td>
+<td><b>tempo arrivo</b></td>
 </tr><%
 	ArrayList<Tragitto_CP> listatCP = new ArrayList<Tragitto_CP>();
 	listatCP = (ArrayList<Tragitto_CP>) session.getAttribute("lista_tragitti");
@@ -51,8 +52,8 @@
 					<td><%=tcp.getProvincia_arrivo()%></td>
 					<td><%=tcp.getEmail_utente()%></td>
 					<td><%=tcp.getTarga_CP()%></td>
-					<td><%=tcp.getTempo_partenza().get(Calendar.YEAR)+ "-" + tcp.getTempo_partenza().get(Calendar.MONTH + 1)+ "-" + tcp.getTempo_partenza().DAY_OF_MONTH + " " +tcp.getTempo_partenza().get(Calendar.HOUR)+ ":" + tcp.getTempo_partenza().get(Calendar.MINUTE)%></td>
-					<td><%=tcp.getTempo_arrivo().get(Calendar.YEAR)+ "-" + tcp.getTempo_arrivo().get(Calendar.MONTH + 1)+ "-" + tcp.getTempo_arrivo().DAY_OF_MONTH + " " +tcp.getTempo_arrivo().get(Calendar.HOUR)+ ":" + tcp.getTempo_arrivo().get(Calendar.MINUTE)%></td>
+					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_partenza())%></td>
+					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_arrivo())%></td>
 				</tr>
 				<%
 					}
