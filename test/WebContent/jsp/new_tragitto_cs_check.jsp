@@ -6,7 +6,7 @@
 <%@ page import="Store.StoreLocalita" %> 
 <%@ page import="Entita.Localita" %> 
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
-<% ArrayList<Contratto> listaContratti = (ArrayList<Contratto>)session.getAttribute(request.getParameter("listaContratti")); %>
+<% ArrayList<Contratto> listaContratti = (ArrayList<Contratto>)session.getAttribute("listaContratti"); %>
 <% ArrayList<Localita> listaLocalita = StoreLocalita.getLocalita(); %>
 <!DOCTYPE HTML>
 <html>
