@@ -62,7 +62,7 @@
 	                <li><select name="carplate">
 	                <option>Seleziona la macchina che utilizzerai..</option>
 	                <% for(Macchina_CS A : listaMacchine){%> <option value="<%= A.getTarga() %>">
-	                <% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
+	                <% modello = Interrogazione.ModelloMacchinaCS(A.getTarga());%>
 	                <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
 	                </select></li>
 	            </fieldset>
