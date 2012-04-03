@@ -50,7 +50,7 @@
                 <fieldset>
                 <legend>Informazioni Cliente:</legend>
 	                <li><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
-	                <li><input name="contrattoCliente" type="readOnly" id="contrattoCliente" value="<%= contratto.getId() +"-"+ contratto.getNome_abbonamento()%>"/></li>
+	                <li><input name="contrattoCliente" type="text" readonly="readnly" id="contrattoCliente" value="<%= contratto.getId() +"-"+ contratto.getNome_abbonamento()%>"/></li>
 	                <li><select name="idTessera">
 	                <option>Seleziona la tessera..</option>
 	                <% for(Tessera T : listaTessere){%> <option value="<%= T.getId() %>"><%= T.getId() %></option> <% } %>
