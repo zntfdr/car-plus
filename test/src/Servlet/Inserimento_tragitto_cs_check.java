@@ -26,7 +26,7 @@ public class Inserimento_tragitto_cs_check extends HttpServlet {
 		session.setAttribute("tempoPrelievo", tempoPrelievo);
 		session.setAttribute("tempoConsegna", tempoConsegna);
 		
-		String sql = "SELECT MCS.targa FROM macchina_cs AS MCS INNER JOIN disponibilita AS D ON MCS.id_modello = D.modello_macchina INNER JOIN tragitto_cs AS TCS ON MCS.targa = TCS.targa_cs  WHERE MCS.provincia = '" + req.getParameter("provincia_stazione") + "' AND MCS.citta = '" + req.getParameter("citta_stazione") + "' AND MCS.prenotabile = 'true' AND D.nome_abbonamento = '"+ contratto.getNome_abbonamento()+"' AND TCS.tempo_consegna < '"+ tempoPrelievo +"'";
+		String sql = "(SELECT MCS.targa FROM macchina_cs AS MCS INNER JOIN disponibilita AS D ON MCS.id_modello = D.modello_macchina WHERE MCS.provincia = '" + req.getParameter("provincia_stazione") + "' AND MCS.citta = '" + req.getParameter("citta_stazione") + "' AND MCS.prenotabile = 'true' AND D.nome_abbonamento = '"+ contratto.getNome_abbonamento()+ "') EXCEPT (SELECT targa_cs FROM tragitto_cs WHERE tempo_consegna > '" + tempoPrelievo +"')";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){
 			try {
@@ -35,7 +35,7 @@ public class Inserimento_tragitto_cs_check extends HttpServlet {
 					listaTarghe.add(rs.getString("targa"));
 				}
 				ArrayList<Macchina_CS> listaMacchine = StoreMacchina_CS.readMacchina_CS_List(listaTarghe);
-				session.setAttribute("listaStazioni", listaMacchine);
+				session.setAttribute("listaMacchine", listaMacchine);
 			} catch(SQLException e){
 				
 			}
