@@ -54,14 +54,21 @@ public class TimeString {
 	public static String dataCalendarToString(Calendar cal){
 		String date = "";
 		int mese = cal.get(cal.MONTH) +1;
-		date = cal.get(cal.YEAR) + "/" + mese + "/" + cal.get(cal.DAY_OF_MONTH);
+		date = cal.get(cal.YEAR) + "/" + duecifre(mese) + "/" + duecifre(cal.get(cal.DAY_OF_MONTH));
 		return date;
 	}
 	
 	public static String dataOraCalendarToString(Calendar cal){
 		String date = "";
 		int mese = cal.get(cal.MONTH) +1;
-		date = cal.get(cal.YEAR) + "/" + mese + "/" + cal.get(cal.DAY_OF_MONTH) + " " + cal.get(cal.HOUR) + ":" + cal.get(cal.MINUTE) + ":" + cal.get(cal.SECOND);
+		date = cal.get(cal.YEAR) + "/" + duecifre(mese) + "/" + duecifre(cal.get(cal.DAY_OF_MONTH)) + " " + duecifre(cal.get(cal.HOUR)) + ":" + duecifre(cal.get(cal.MINUTE)) + ":" + duecifre(cal.get(cal.SECOND));
 		return date;
+	}
+	
+	public static String duecifre(int numero)
+	{
+		if(numero<10)
+			return "0"+numero;
+		else return "" + numero;
 	}
 }

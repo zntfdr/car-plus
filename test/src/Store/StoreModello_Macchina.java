@@ -12,7 +12,15 @@ public class StoreModello_Macchina{
 		String sql = "INSERT INTO modello_macchina(marca,modello,cilindrata,anno,alimentazione,emissioni_co2,num_posti) VALUES('" + Value.getMarca() + "','" + Value.getModello() + "', " + Value.getCilindrata() +","+ Value.getAnno() + ",'" + Value.getAlimentazione() + "'," + Value.getEmissioni_co2() + "," + Value.getNum_posti() + ")";
 	    
 		Query.doQuery(sql);
-		return readModello_Macchina(Value.getId());
+		
+		sql = "select max(id) as ultimoidinserito from modello_macchina";
+		
+		ResultSet rs = Query.doQueryRS(sql);
+		try {rs.next();} catch (SQLException e1) {e1.printStackTrace();	}
+		
+		try { return readModello_Macchina(rs.getInt("ultimoidinserito")); }
+		catch (SQLException e) { e.printStackTrace();	}
+		return readModello_Macchina(5);
 	}
 
 	public static Modello_Macchina readModello_Macchina(int id){
