@@ -81,6 +81,22 @@
     <url-pattern>/Inserimento_tragitto_cp</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Inserimento_tragitto_cs_check</servlet-name>
+    <servlet-class>Servlet.Inserimento_tragitto_cs_check</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_tragitto_cs_check</servlet-name>
+    <url-pattern>/Inserimento_tragitto_cs_check</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Inserimento_tragitto_cs</servlet-name>
+    <servlet-class>Servlet.Inserimento_tragitto_cs</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_tragitto_cs</servlet-name>
+    <url-pattern>/Inserimento_tragitto_cs</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>Servlet.Login</servlet-class>
   </servlet>
