@@ -70,6 +70,21 @@ public class Interrogazione extends HttpServlet {
 		return null;
 	}
 	
+	public static Modello_Macchina ModelloMacchinaCS(String Targa){ //data una targa, riusciamo ad ottenere il modello della macchina 
+		String sql = "SELECT * FROM modello_macchina AS MM JOIN macchina_cs AS MCS ON MM.id = MCS.id_modello WHERE targa = '" + Targa + "'";
+
+		
+		ResultSet rs = Query.doQueryRS(sql);
+		if(rs != null){
+			try {
+				while(rs.next()){
+					return new Modello_Macchina(rs.getInt("id"), rs.getString("marca"), rs.getString("modello"), rs.getInt("cilindrata"),rs.getInt("anno"), rs.getString("alimentazione"), rs.getInt("emissioni_co2"), rs.getInt("num_posti"));
+				}
+			}catch (SQLException e){
+			}
+		}
+		return null;
+	}
 	public static int Numero_Utenti_Registrati()
 	{
 		String sql = "SELECT COUNT(*) AS numero_utenti_registrati FROM utente";
