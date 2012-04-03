@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="Entita.Utente" %>    
+<%@ page import="Entita.Utente" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="Utils.TimeString"%>
+<%@ page import="Entita.Contratto" %>
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
+
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +28,7 @@
     </div>
     <div id="content">
         <div class="wrapper">
-        Benvenuto <b><%= user.getNome() %></b>,<br/>
+        Benvenuto <b><%= user.getNome() + "---" + user.getUserType() %></b>,<br/>
         scegli l'azione desiderata:
         <div id="actions">
             <a href="../jsp/search.jsp"><div id="search"></div></a>
