@@ -40,7 +40,7 @@ public class Inserimento_macchina_cs extends HttpServlet {
 		String dataTest2 = Utils.TimeString.dataCalendarToString(scadenza_bollo);
 		//Inserisco Macchina car sharing
 		Macchina_CS mCS = new Macchina_CS(req.getParameter("car_plate"),Integer.parseInt(req.getParameter("model")),req.getParameter("city"),req.getParameter("province"), req.getParameter("name_cs"),Integer.parseInt(req.getParameter("purchase_year")),scadenza_bollo, scadenza_assicurazione, scadenza_revisione, Integer.parseInt(req.getParameter("tot_km")),Boolean.parseBoolean("TRUE"));		
-		mCS =  StoreMacchina_CS.insertMacchina_CS(mCS);
+		StoreMacchina_CS.insertMacchina_CS(mCS);
 
 		//Se tutto va bene, comincio a definire la sessione
 		HttpSession session = req.getSession();
@@ -61,9 +61,6 @@ public class Inserimento_macchina_cs extends HttpServlet {
 				
 			}
 		}
-		session.setAttribute("macchina_nuova",mCS); //passo il costrutto parametri alla pagina
-		session.setAttribute("dataTest", dataTest);
-		session.setAttribute("dataTest2", dataTest2);
 
 		page = "jsp/new_car_cs_landing.jsp";	
 
