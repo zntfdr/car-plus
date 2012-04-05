@@ -19,18 +19,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
 <script type="text/javascript" src="../css/jquery-ui-timepicker-addon.js" ></script>
-<script>
-    $(document).ready(function(){
-    	 $("#radio").buttonset();
-        $("#numero_posti").keypress(function(e){
-            if(e.keyCode < 48 || e.keyCode > 57) return false;
-            return true;
-        });
 
-        $("#tempo_partenza, #tempo_arrivo").datetimepicker({ dateFormat: 'yy-mm-dd' });
-        //$("#tempo_partenza, #tempo_arrivo").datetimepicker("option", $.datepicker.regional[ "it" ] );
-    });
-</script>
 </head>
 
 <body>
@@ -39,7 +28,7 @@
 	
     <div id="content">
         <div class="wrapper">
-        <form method="GET" action="../Inserimento_tragitto_cp" id="Inserimento_tragitto_cp">
+        <form method="GET" action="../Inserimento_tragitto_cs" id="Inserimento_tragitto_cs">
             <ul>
                 <li><h1>Inserimento prenotazione Car Sharing</h1></li>
                 <fieldset>
@@ -58,7 +47,7 @@
 	                <option>Seleziona la macchina che utilizzerai..</option>
 	                <% for(Macchina_CS A : listaMacchine){%> <option value="<%= A.getTarga() %>">
 	                <% modello = Interrogazione.ModelloMacchinaCS(A.getTarga());%>
-	                <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
+	                Stazione: <%=A.getNome_stazione_CS() %> -- Modello macchina: <%= modello.getMarca() %> <%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
 	                </select></li>
 	            </fieldset>
                 <li><button name="submit" type="submit" id="submit">Prenota</button></li>

@@ -19,7 +19,6 @@
 <script type="text/javascript" src="../css/jquery-ui-timepicker-addon.js" ></script>
 <script>
     $(document).ready(function(){
-    	 $("#radio").buttonset();
         $("#numero_posti").keypress(function(e){
             if(e.keyCode < 48 || e.keyCode > 57) return false;
             return true;
@@ -80,10 +79,11 @@
 	                <% for(Macchina_CP A : lista_targhe){%> <option value="<%= A.getTarga() %>">
 	                <% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
 	                <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
-	                </select></li>
+	                </select></li><br/>
+	                Oppure <a href="../jsp/new_inserimento_macchina_cp.jsp">inserisci un nuova macchina</a>!</li>
 	                <li><input name="tempo_partenza" type="text" id="tempo_partenza" placeholder="Tempo Partenza"/></li>
-	                <li><input name="tempo_arrivo" type="text" id="tempo_arrivo" placeholder="Tempo Arrivo"/></li>
-				</fieldset>
+               		<li><input name="tempo_arrivo" type="text" id="tempo_arrivo" placeholder="Tempo Arrivo"/></li>
+                </fieldset>
                 <li><button name="submit" type="submit" id="submit">Inserisci</button></li>
             </ul>
         </form>

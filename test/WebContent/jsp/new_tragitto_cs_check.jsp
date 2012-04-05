@@ -12,13 +12,18 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Scegli il contratto | Car+</title>
+<meta charset="UTF-8">
+<title>Scegli il tragitto di Car sharing | Car+</title>
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
 <script type="text/javascript" src="../css/jquery-ui-timepicker-addon.js" ></script>
+<script>
+    $(document).ready(function(){
+	    $("#tempoPrelievo, #tempoConsegna").datetimepicker({ dateFormat: 'yy-mm-dd' });
+    });
+</script>
 </head>
 
 <body>
@@ -39,7 +44,7 @@
      			<% for(Localita P : listaLocalita){%> <option value="<%= P.getProvincia() %>"><%= P.getProvincia() %></option> <% } %>
         </select><br/>
         <select name="citta_stazione">
-	                <option>Seleziona città stazione..</option>
+	                <option>Seleziona citta stazione..</option>
 	                <% for(Localita C : listaLocalita){%> <option value="<%= C.getCitta() %>"><%= C.getCitta() %></option> <% } %>
 	    </select>
 	    <input name="tempoPrelievo" type="text" id="tempoPrelievo" placeholder="Tempo Prelievo"/></li>
