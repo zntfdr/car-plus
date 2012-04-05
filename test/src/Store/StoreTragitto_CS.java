@@ -5,11 +5,10 @@ import Entita.Tragitto_CS;
 import Utils.*;
 
 public class StoreTragitto_CS{
-	public static Tragitto_CS insertTragitto_CS(Tragitto_CS Value){
-		String sql = "INSERT INTO tragitto_CS(id, id_tessera, targa_CS, tempo_prelievo, tempo_consegna, tempo_prelievo_prenotazione, tempo_consegna_prenotazione, km_totali, pagato) VALUES('" + Value.getId() + "', '" + Value.getId_tessera() + "', '" + Value.getTarga_CS() + "', '" + Utils.TimeString.dataOraCalendarToString(Value.getTempo_prelievo()) + "', '" + Utils.TimeString.dataOraCalendarToString(Value.getTempo_consegna()) + "', '" + Utils.TimeString.dataOraCalendarToString(Value.getTempo_prelievo_prenotazione()) + "', '" + Utils.TimeString.dataOraCalendarToString(Value.getTempo_consegna_prenotazione()) + "', '" + Value.getKm_totali() + "', '" + Value.getPagato() + "')";
+	public static void insertTragitto_CS(Tragitto_CS Value){
+		String sql = "INSERT INTO tragitto_CS(id_tessera, targa_CS, tempo_prelievo, tempo_consegna) VALUES('" + Value.getId_tessera() + "', '" + Value.getTarga_CS() + "', '" + Utils.TimeString.dataOraCalendarToString(Value.getTempo_prelievo()) + "', '" + Utils.TimeString.dataOraCalendarToString(Value.getTempo_consegna()) + "')";
 	    
 		Query.doQuery(sql);
-		return readTragitto_CS(Value.getId());
 	}
 
 	public static Tragitto_CS readTragitto_CS(int id){
