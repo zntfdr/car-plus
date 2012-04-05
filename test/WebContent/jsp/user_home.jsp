@@ -25,11 +25,9 @@
 		        <div class="wrapper">
 		        Benvenuto <b><%= user.getNome() + "---" + user.getUserType() %></b>,<br/>
 		        scegli l'azione desiderata:
-		        <div id="actions">
-		            <a href="../jsp/search.jsp"><div id="search"></div></a>
-		            <a href="../jsp/new_tragitto.jsp"><div id="insert"></div></a>
-		            <a href="../jsp/iltuoconto.jsp"><div id="account"></div></a>
-		        </div>
+		        
+		        <%= HTMLManager.getUserMenu(user) %>
+		        
 		        <div style="clear: both;"></div>
 		    
 		        </div>
