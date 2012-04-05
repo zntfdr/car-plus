@@ -31,7 +31,7 @@ public class Login extends HttpServlet {
 		HttpSession session = req.getSession();
 		
 		if(login == null){
-			page = "html/login.html";
+			page = "jsp/login.jsp?error=1";
 		}
 		else if(login.getPassword().compareTo(password) == 0) {
 			if (StoreCliente_business.readCliente_business(email) != null){
@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
 			page = "jsp/user_home.jsp";
 		}
 		else{
-			page = "html/login.html?fail=TRUE";	
+			page = "jsp/login.jsp?error=1";	
 		}            
 		res.sendRedirect(page);
 	}
