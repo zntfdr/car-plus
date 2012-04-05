@@ -1,4 +1,3 @@
 <%
-    String redirectURL = "html/index.html";
-    response.sendRedirect(redirectURL);
+	response.sendRedirect("jsp/");
 %>
