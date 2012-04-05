@@ -42,7 +42,7 @@ public class Inserimento_modello_macchina extends HttpServlet {
 
 		//Inserisco nuovo modello macchina  marca,modello,cilindrata,anno,alimentazione)
 		Modello_Macchina mm = new Modello_Macchina(0, req.getParameter("marca"), req.getParameter("modello"), Integer.parseInt(req.getParameter("cilindrata")),Integer.parseInt(req.getParameter("anno")), req.getParameter("alimentazione"), Integer.parseInt(req.getParameter("emissioni_co2")), Integer.parseInt(req.getParameter("num_posti")));		
-		mm =  StoreModello_Macchina.insertModello_Macchina(mm);
+		StoreModello_Macchina.insertModello_Macchina(mm);
 
 		//Se tutto va bene, comincio a definire la sessione
 		HttpSession session = req.getSession();
@@ -63,7 +63,6 @@ public class Inserimento_modello_macchina extends HttpServlet {
 				
 			}
 		}
-		session.setAttribute("modello_nuovo",mm); //passo il costrutto parametri alla pagina
 		page = "jsp/new_car_model_landing.jsp";	
 
 		res.sendRedirect(page);
