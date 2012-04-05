@@ -3,10 +3,10 @@
 <%@ page import="Entita.*" %>
 <%@ page import="Store.StoreLocalita" %>
 <%@ page import="Servlet.Interrogazione" %>
+<%@ page import = "Utils.HTMLManager" %>
+
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
-<% ArrayList<Localita> lista_localita = StoreLocalita.getLocalita(); %>
-<% ArrayList<Macchina_CP> lista_targhe = Interrogazione.ListaMacchineUtente(user.getEmail()); %>
-<% Modello_Macchina modello; %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -32,16 +32,13 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><a href="../html/index.html"><img src="../img/logo.png" alt="Logo"/></a></li>
-            <li><a href="../html/index.html">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-            <li><a href="#">Contattaci</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
+	<% ArrayList<Localita> lista_localita = StoreLocalita.getLocalita(); %>
+	<% ArrayList<Macchina_CP> lista_targhe = Interrogazione.ListaMacchineUtente(user.getEmail()); %>
+	<% Modello_Macchina modello; %>
+	
     <div id="content">
         <div class="wrapper">
         <form method="GET" action="../Inserimento_tragitto_cp" id="Inserimento_tragitto_cp">

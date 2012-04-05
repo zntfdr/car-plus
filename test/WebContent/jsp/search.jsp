@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ page import="Entita.Utente" %>    
+<%@ page import = "Utils.HTMLManager" %>
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
 <!DOCTYPE HTML>
 <html>
@@ -41,16 +42,9 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><a href="index.jsp"><img src="../img/logo.png" alt="Logo"/></a></li>
-            <li><a href="index.jsp">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-            <li><a href="#">Contattaci</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
     <div id="content">
         <div class="wrapper">
         Benvenuto <b><%= user.getNome() %></b>,<br/>

@@ -4,6 +4,7 @@
 <%@ page import="Entita.Modello_Macchina" %>
 <%@ page import="Store.StoreStazione_CS" %>
 <%@ page import="Store.StoreModello_Macchina" %>
+<%@ page import="Utils.HTMLManager" %>
 <% ArrayList<Stazione_CS> lista_stazioni = StoreStazione_CS.getStazione_CS(); %>
 <% ArrayList<Modello_Macchina> lista_mod_mac = StoreModello_Macchina.getModello_Macchina(); %>
 <!DOCTYPE HTML>
@@ -29,16 +30,9 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><a href="../html/index.html"><img src="../img/logo.png" alt="Logo"/></a></li>
-            <li><a href="../html/index.html">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-            <li><a href="#">Contattaci</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
     <div id="content">
         <div class="wrapper">
         <form method="GET" action="../Inserimento_macchina_cs" id="Inserimento_macchina_cs">

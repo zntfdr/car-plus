@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "Servlet.Interrogazione" %>
+<%@ page import = "Utils.HTMLManager" %>
 <!DOCTYPE html>
 <html>
 
@@ -11,16 +12,9 @@
 </head>
 
 <body>
-    <div id="header">
-        <ul>
-            <li><a href="../html/index.html"><img src="../img/logo.png" alt="Logo"/></a></li>
-            <li><a href="../html/index.html">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-           <li> <a href="#">Contattaci</a></li>
-            <li><a href="../html/login.html">Login</a></li>
-        </ul>
-    </div>
+    
+    <%= HTMLManager.getHeader(session) %>
+    
     <div id="content">
         <div class="wrapper">
         Benvenuto amministratore,<br/>

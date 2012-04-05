@@ -3,6 +3,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Tragitto_CP" %>
 <%@ page import="java.util.Calendar" %>
+<%@ page import = "Utils.HTMLManager" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -13,16 +14,9 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><img src="../img/logo.png" alt="Logo"/></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">id</a></li>
-            <li><a href="#">Servizi</a></li>
-           <li> <a href="#">Contattaci</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
     <div id="content">
 <div class="wrapper">
     <table id="trip_list">

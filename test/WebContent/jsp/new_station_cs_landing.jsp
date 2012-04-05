@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Stazione_CS" %>
+<%@ page import = "Utils.HTMLManager" %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -10,18 +12,9 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><img src="../img/logo.png" alt="Logo"/></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-           <li> <a href="#">Contattaci</a></li>
-            <li><a href="login.html">Login</a></li>
-             <% Stazione_CS sCS = null;
-            sCS = (Stazione_CS) session.getAttribute("stazione_nuova"); %>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
     <div id="content">
 <div class="wrapper">
     <table id="trip_list">

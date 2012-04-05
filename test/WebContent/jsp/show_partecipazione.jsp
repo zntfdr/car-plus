@@ -2,9 +2,9 @@
 <%@ page import="Utils.TimeString"%>
 <%@ page import="Entita.Tragitto_CP" %>
 <%@ page import="Entita.Utente" %>    
-<% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
+<%@ page import = "Utils.HTMLManager" %>
 <% Tragitto_CP T = (Tragitto_CP)session.getAttribute(request.getParameter("tragittoscelto")); %>
-
+<% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -13,23 +13,14 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js" ></script>
     
-    
-    
     <link href="../css/base.css" rel="stylesheet" type="text/css" />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><a href="../jsp/index.jsp"><img src="../img/logo.png" alt="Logo"/></a></li>
-            <li><a href="../jsp/index.jsp">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-            <li><a href="#">Contattaci</a></li>
-            <li><a href="../html/login.html">Login</a></li>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
     <div id="content">
         <div class="wrapper">
         Benvenuto <b><%= user.getNome() %></b>,<br/>

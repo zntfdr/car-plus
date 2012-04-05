@@ -2,6 +2,8 @@
 <%@ page import="Entita.*" %>
 <%@ page import="Store.StoreModello_Macchina" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import = "Utils.HTMLManager" %>
+
 <% ArrayList<Modello_Macchina> lista_mod_mac = StoreModello_Macchina.getModello_Macchina(); %>
 <!DOCTYPE HTML>
 <html>
@@ -37,16 +39,9 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><a href="../html/index.html"><img src="../img/logo.png" alt="Logo"/></a></li>
-            <li><a href="../html/index.html">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-            <li><a href="#">Contattaci</a></li>
-            <li><a href="../html/login.html">Login</a></li>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
     <%
     	String error_type = request.getParameter("error");
     	String customer_type = request.getParameter("customer_type");

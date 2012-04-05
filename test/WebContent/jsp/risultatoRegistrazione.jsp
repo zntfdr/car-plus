@@ -1,5 +1,7 @@
 <%@ page contentType="text/html" %>
 <%@ page import="Entita.Utente" %>
+
+<%@ page import = "Utils.HTMLManager" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,16 +17,9 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><a href="file:///Macintosh HD/Users/Gianmarco/Sites"><img src="img/logo.png" alt="Logo"/></a></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-            <li><a href="#">Contattaci</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
     <div id="content">
         <div class="wrapper">
         <table id="trip_list">

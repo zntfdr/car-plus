@@ -2,11 +2,13 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.*" %>
 <%@ page import="Servlet.Interrogazione" %>
-<% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
+<%@ page import = "Utils.HTMLManager" %>
+
 <% ArrayList<Macchina_CS> listaMacchine = (ArrayList<Macchina_CS>) session.getAttribute("listaMacchine"); %>
 <% ArrayList<Tessera> listaTessere = (ArrayList<Tessera>) session.getAttribute("listaTessere"); %>
 <% Contratto contratto = (Contratto)session.getAttribute("contratto"); %>
 <% Modello_Macchina modello; %>
+<% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -32,16 +34,9 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><a href="../html/index.html"><img src="../img/logo.png" alt="Logo"/></a></li>
-            <li><a href="../html/index.html">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-            <li><a href="#">Contattaci</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
     <div id="content">
         <div class="wrapper">
         <form method="GET" action="../Inserimento_tragitto_cp" id="Inserimento_tragitto_cp">

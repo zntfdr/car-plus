@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import = "Utils.HTMLManager" %>
+ 
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -40,16 +41,9 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><a href="index.html"><img src="../img/logo.png" alt="Logo"/></a></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-            <li><a href="#">Contattaci</a></li>
-            <li><a href="login.html">Login</a></li>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
     <%
     	String error_type = request.getParameter("error");
     	String customer_type = request.getParameter("customer_type");

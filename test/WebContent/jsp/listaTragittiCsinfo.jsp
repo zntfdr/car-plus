@@ -1,6 +1,7 @@
 <%@ page contentType="text/html" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Tragitto_CS_info"%>
+<%@ page import = "Utils.HTMLManager" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -20,8 +21,8 @@
         <td><b>Km effettuati</b></td>
         <td><b>Pagato</b></td>
       </tr>
-  <% ArrayList<Tragitto_CS_info> listaCP= new ArrayList<Tragitto_CS_info>();
-     listaCSinfo = (ArrayList<Tragitto_CS_info>) session.getAttribute("lista_tragitti");
+  <% ArrayList<Tragitto_CS_info> listaCSinfo = (ArrayList<Tragitto_CS_info>) session.getAttribute("lista_tragitti");
+     
      for(Tragitto_CS_info T : listaCSinfo){%>
       <tr>
         <td> <%= T.getNome() %></td>

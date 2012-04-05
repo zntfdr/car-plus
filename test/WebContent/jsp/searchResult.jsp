@@ -4,6 +4,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Utils.TimeString" %>
 <%@ page import="Entita.Utente" %>    
+<%@ page import = "Utils.HTMLManager" %>
+
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
 
 <!DOCTYPE HTML>
@@ -21,16 +23,9 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><a href="../jsp/index.jsp"><img src="../img/logo.png" alt="Logo"/></a></li>
-            <li><a href="../jsp/index.jsp">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-            <li><a href="#">Contattaci</a></li>
-            <li><a href="../html/login.html">Login</a></li>
-        </ul>
-    </div>
+	
+	<%= HTMLManager.getHeader(session) %>
+	
     <div id="content">
         <div class="wrapper">
         Benvenuto <b><%= user.getNome() %></b>,<br/>
