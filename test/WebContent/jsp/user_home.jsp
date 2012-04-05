@@ -5,7 +5,7 @@
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
 <%
 	if (user == null) {
-		response.sendRedirect("../html/login.html");
+		response.sendRedirect("login.jsp");
 	} else {
 %>
 		<!DOCTYPE html>
