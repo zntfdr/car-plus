@@ -19,7 +19,7 @@ public class Inserimento_tragitto_cs_check extends HttpServlet {
 		Contratto contratto = StoreContratto.readContratto(Integer.parseInt(req.getParameter("contratto")));
 		ArrayList<Tessera> listaTessere = StoreTessera.getTesseraFromContratto(Integer.parseInt(req.getParameter("contratto")));
 		String tempoPrelievo = req.getParameter("tempoPrelievo");
-		String tempoConsegna = req.getParameter("tempoConesegna");
+		String tempoConsegna = req.getParameter("tempoConsegna");
 		//Se tutto va bene, comincio a definire la sessione
 		HttpSession session = req.getSession();
 		session.setAttribute("listaTessere", listaTessere);
