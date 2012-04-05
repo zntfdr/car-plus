@@ -25,10 +25,11 @@ public class Inserimento_targa_e_modello extends HttpServlet {
 		
 		//Inserisco nuovo modello macchina  marca,modello,cilindrata,anno,alimentazione)
 		Modello_Macchina mm = new Modello_Macchina(0, req.getParameter("marca"), req.getParameter("modello"), Integer.parseInt(req.getParameter("cilindrata")),Integer.parseInt(req.getParameter("anno")), req.getParameter("alimentazione"), Integer.parseInt(req.getParameter("emissioni_co2")), Integer.parseInt(req.getParameter("num_posti")));		
-		mm =  StoreModello_Macchina.insertModello_Macchina(mm);
+		StoreModello_Macchina.insertModello_Macchina(mm);
 
+		//TODO:ATTENZIONE RIVEDERE COSA DELL'ID!!!
 		//Inserisco nuova macchina cp
-		Macchina_CP mCP = new Macchina_CP(req.getParameter("targa"), mm.getId());		
+		Macchina_CP mCP = new Macchina_CP(req.getParameter("targa"), 1);		
 		mCP =  StoreMacchina_CP.insertMacchina_CP(mCP);
 				
 		//Se tutto va bene, comincio a definire la sessione
