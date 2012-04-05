@@ -6,7 +6,7 @@ import Utils.*;
 
 public class StoreTragitto_CS{
 	public static void insertTragitto_CS(Tragitto_CS Value){
-		String sql = "INSERT INTO tragitto_CS(id_tessera, targa_CS, tempo_prelievo, tempo_consegna) VALUES('" + Value.getId_tessera() + "', '" + Value.getTarga_CS() + "', '" + Utils.TimeString.dataOraCalendarToString(Value.getTempo_prelievo()) + "', '" + Utils.TimeString.dataOraCalendarToString(Value.getTempo_consegna()) + "')";
+		String sql = "INSERT INTO tragitto_CS(id_tessera, targa_CS, tempo_prelievo_prenotazione, tempo_consegna_prenotazione) VALUES('" + Value.getId_tessera() + "', '" + Value.getTarga_CS() + "', '" + Utils.TimeString.dataOraCalendarToString(Value.getTempo_prelievo_prenotazione()) + "', '" + Utils.TimeString.dataOraCalendarToString(Value.getTempo_consegna_prenotazione()) + "')";
 	    
 		Query.doQuery(sql);
 	}
