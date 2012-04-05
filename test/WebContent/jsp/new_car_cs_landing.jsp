@@ -24,10 +24,7 @@
     </div>
     <div id="content">
         <div class="wrapper">
-        Hai appena inserito questa macchina <% String dataPassata = (String)session.getAttribute("dataTest");%>
-        <%= dataPassata%>
-        Convertita <% String dataPassata2 = (String)session.getAttribute("dataTest2");%>
-        <%= dataPassata2%>
+
     <table id="trip_list">
       <tr>
         <td><b>Targa</b></td>
