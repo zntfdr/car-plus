@@ -1,6 +1,7 @@
 package Utils;
 import javax.servlet.http.HttpSession;
 import Entita.Utente;
+import Entita.Utente.Type;
 
 public class HTMLManager {
 	
@@ -15,7 +16,7 @@ public class HTMLManager {
 				"<li> <a href=\"#\">Contattaci</a></li>";
 
 		if (user == null) {
-			header += "<li><a href=\"jsp/login.jsp\">Login</a></li>";
+			header += "<li><a href=\"login.jsp\">Login</a></li>";
 		} else {
 			header += "<li><a href=\"user_home.jsp\">MyPage+</a></li><li><a href=\"logout.jsp\">Logout</a></li>";
 		}
@@ -23,5 +24,16 @@ public class HTMLManager {
 		header += "</ul></div>";
 		
 		return header;
+	}
+	
+	public static String getUserMenu(Utente user){
+		String menu = "<div id=\"actions\">" + 
+				"<a href=\"search.jsp\"><div id=\"search\"></div></a>" + //ricerca TRAGITTO CP
+				"<a href=\"new_tragitto.jsp\"><div id=\"insert\"></div></a>"; //inserimento TRAGITTO CP
+		if(user.getUserType() == Type.CLIENTE || user.getUserType() == Type.BUSINESS){
+			menu+="<a href=\"new_tragitto_cs_check.jsp\"><div id=\"account\"></div></a>"; //prenotazione TRAGITTO CS
+		}
+        menu+="</div>";
+		return menu;
 	}
 }
