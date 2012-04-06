@@ -124,4 +124,25 @@ public class Interrogazione extends HttpServlet {
 		return 0; 
 	}
 	
+	public static ArrayList<Integer> getCo2Saved(){//posizione 0 dell'array = cifra piu significativa
+		ArrayList<Integer> array = new ArrayList<Integer>();
+		String sql = "SELECT sum FROM co2_risparmiata";
+		String sum="";
+		ResultSet rs = Utils.Query.doQueryRS(sql);
+		if(rs != null) {
+			try {
+				while(rs.next()) { 
+					sum = rs.getString("sum");	
+				}
+			} catch (SQLException e) { }
+		}
+		if (sum == null || sum.compareTo("")==0){
+			array.add(0);
+		} else {
+			for(int i = 0; i<sum.length();i++){
+				array.add(Integer.parseInt(sum.substring(i, i+1)));
+			}
+		}
+		return array;
+	}
 }
