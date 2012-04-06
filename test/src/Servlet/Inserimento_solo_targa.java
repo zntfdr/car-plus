@@ -26,10 +26,11 @@ public class Inserimento_solo_targa extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 
-		//Fine conversione date
-
+		String targa = req.getParameter("targa");
+		int mod = Integer.parseInt(req.getParameter("model"));
+		
 		//Inserisco nuova macchina cp
-		Macchina_CP mCP = new Macchina_CP(req.getParameter("targa"), Integer.parseInt(req.getParameter("model")));		
+		Macchina_CP mCP = new Macchina_CP(targa, mod);		
 		mCP =  StoreMacchina_CP.insertMacchina_CP(mCP);
 
 		//Se tutto va bene, comincio a definire la sessione
@@ -37,12 +38,11 @@ public class Inserimento_solo_targa extends HttpServlet {
 		String page = "";
 
 		//ricavo dal db il modello della macchina
-		ArrayList<String> listamm = new ArrayList<String>();
-		listamm.add(""+req.getParameter("model"));
-		ArrayList<Modello_Macchina> listaCompleta = Store.StoreModello_Macchina.readModello_Macchina_List(listamm);
-		session.setAttribute("modello_macchina", listaCompleta);
-		
-		session.setAttribute("targa",req.getParameter("targa")); //passo il costrutto parametri alla pagina
+		Modello_Macchina modello = StoreModello_Macchina.readModello_Macchina(mod);
+
+		session.setAttribute("modello_macchina_cp", modello);
+		session.setAttribute("targa",targa);
+		session.setAttribute("macchina_creata", true);
 		page = "jsp/new_tragitto.jsp";	
 
 		res.sendRedirect(page);
