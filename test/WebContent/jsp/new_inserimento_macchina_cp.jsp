@@ -45,11 +45,15 @@
     <%
     	String error_type = request.getParameter("error");
     	String customer_type = request.getParameter("customer_type");
+    	String macchina_inserita = request.getParameter("macchina_inserita");
     	Boolean solotarga = (customer_type != null) ? (new Boolean(customer_type.compareToIgnoreCase("business") == 0)) : null;
     	Boolean error_exist =  (error_type != null) ? (new Boolean(error_type.compareToIgnoreCase("1") == 0)) : null;
     %>
     <div id="content">
         <div class="wrapper">
+        <% if (macchina_inserita!=null && macchina_inserita.compareTo("ok")==0){ %>
+        Ora scelgi il modello che hai appena inserito e completa il form inserendo anche la targa.
+        <%} %> 
         <form method="post" action="../Inserimento_solo_targa" id="solo_targa" class="<%= ((solotarga != null) && solotarga.booleanValue()) ? "hide" : ""%>">
             <ul>
                 <li><h1>Inserisci la tua nuova macchina</h1></li>
@@ -67,7 +71,6 @@
         <form method="post" action="../Inserimento_targa_e_modello" id="anche_modello" class="<%= (((solotarga != null) && !solotarga.booleanValue()  || (solotarga == null))) ? "hide" : ""%>">
             <ul>
                 <li><h1>Nuovo Modello Macchina</h1></li>
-                <li><input name="targa" type="text" id="targa" placeholder="Targa"/></li>
                 <li><input name="marca" type="text" id="marca" placeholder="Marca" maxlenght="30"/></li>
                 <li><input name="modello" type="text" id="modello" placeholder="Modello" maxlength="50"/></li>
                 <li><input name="cilindrata" type="text" id="cilindrata" placeholder="Cilindrata"/></li>

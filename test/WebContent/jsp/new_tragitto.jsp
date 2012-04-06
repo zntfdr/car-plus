@@ -36,7 +36,9 @@
 	
 	<% ArrayList<Localita> lista_localita = StoreLocalita.getLocalita(); %>
 	<% ArrayList<Macchina_CP> lista_targhe = Interrogazione.ListaMacchineUtente(user.getEmail()); %>
+	<% String targa = (String)session.getAttribute("targa"); %>
 	<% Modello_Macchina modello; %>
+	<% Boolean macchina_creata = (Boolean)session.getAttribute("macchina_creata"); %>
 	
     <div id="content">
         <div class="wrapper">
@@ -46,6 +48,19 @@
                 <fieldset>
                 <legend>Informazioni Vettura:</legend>
 	                <li><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
+	                <% if (macchina_creata == null || macchina_creata.booleanValue() ==false){ %>
+	                <li><select name="carplate">
+	                <option>Seleziona la macchina che utilizzerai..</option>
+	                <% for(Macchina_CP A : lista_targhe){%> <option value="<%= A.getTarga() %>">
+	                <% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
+	                <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
+	                </select></li><br/>
+	                <%} else{ modello = (Modello_Macchina)session.getAttribute("modello_macchina_cp"); %>
+	                <li><input name="carplate" type="hidden" id="carplate" value="<%= targa %>"/></li>
+	                <li><input name="info" type="text" readonly ="readonly" id="info"/><%= modello.getMarca() %> <%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= targa %></li>
+	                <%} %>
+	                Oppure <a href="../jsp/new_inserimento_macchina_cp.jsp">inserisci un nuova macchina</a>!</li>
+	                
 	                <li>Fumatori:
 	                <div id="radio">
 	                        <input type="radio" id="radio1" name="smokers" value="true"/><label for="radio1">S&igrave;</label>
@@ -74,13 +89,6 @@
 	                <option>Seleziona città arrivo..</option>
 	                <% for(Localita A : lista_localita){%> <option value="<%= A.getCitta() %>"><%= A.getCitta() %></option> <% } %>
 	                </select></li>
-	                <li><select name="carplate">
-	                <option>Seleziona la macchina che utilizzerai..</option>
-	                <% for(Macchina_CP A : lista_targhe){%> <option value="<%= A.getTarga() %>">
-	                <% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
-	                <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
-	                </select></li><br/>
-	                Oppure <a href="../jsp/new_inserimento_macchina_cp.jsp">inserisci un nuova macchina</a>!</li>
 	                <li><input name="tempo_partenza" type="text" id="tempo_partenza" placeholder="Tempo Partenza"/></li>
                		<li><input name="tempo_arrivo" type="text" id="tempo_arrivo" placeholder="Tempo Arrivo"/></li>
                 </fieldset>
