@@ -120,4 +120,28 @@
     <servlet-name>RicercaTragitto_CP</servlet-name>
     <url-pattern>/RicercaTragitto_CP</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>Vista_tragitti_cliente</servlet-name>
+    <servlet-class>Servlet.Vista_tragitti_cliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Vista_tragitti_cliente</servlet-name>
+    <url-pattern>/Vista_tragitti_cliente</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>Vista_tragitti_contratto</servlet-name>
+    <servlet-class>Servlet.Vista_tragitti_contratto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Vista_tragitti_contratto</servlet-name>
+    <url-pattern>/Vista_tragitti_contratto</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>Vista_tragitti_tessera</servlet-name>
+    <servlet-class>Servlet.Vista_tragitti_tessera</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Vista_tragitti_tessera</servlet-name>
+    <url-pattern>/Vista_tragitti_tessera</url-pattern>
+  </servlet-mapping>
 </web-app>
