@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-
 <%@ page import = "Utils.HTMLManager" %>
-
 <%
 	String error_type = request.getParameter("error");
 	Boolean error = (error_type != null) ? (new Boolean(error_type.compareToIgnoreCase("1") == 0)) : null;
@@ -26,7 +24,6 @@
 
 <body>
 	<%= HTMLManager.getHeader(session) %>
-    
     <div id="content">
         <div class="wrapper">
         <form method="POST" action="../Login" id="login">
@@ -37,6 +34,7 @@
                 <%= (error != null) && (error.booleanValue()) ? "<li class=\"error_message\">email o password errati! Riprova</li>" : "" %>
                 
                 <li><button name="submit" type="submit" id="submit">Login</button></li>
+                Oppure <a href="../jsp/register.jsp">Registrati</a>!
             </ul>
         </form>
         

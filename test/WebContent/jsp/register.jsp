@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import = "Servlet.Interrogazione" %>
+<%@ page import = "Utils.HTMLManager" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -77,7 +80,7 @@
 				var reg_exp_mail = new RegExp('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+[\.]([a-z0-9-]+)*([a-z]{2,3})$');
 				var email = $("input#mail").val();
 				if ( !reg_exp_mail.test(email) ) {
-					var modal_box =  '<div class="ui-widget" id="error_modal" ><div class="ui-state-error ui-corner-all"style="padding:30px;"> <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> <strong>Attenzione:</strong>La mail inserita non è una mail valida. Controllala per completare registrazione</p></div></div>';
+					var modal_box =  '<div class="ui-widget" id="error_modal" ><div class="ui-state-error ui-corner-all"style="padding:30px;"> <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> <strong>Attenzione:</strong>La mail inserita non Ã¨ una mail valida. Controllala per completare registrazione</p></div></div>';
 					$("div#content > div.wrapper").prepend(modal_box);
 					$(document).scrollTop();
 					return false;
@@ -86,7 +89,7 @@
             });
 			
 			$("div#content input").click(function(e) {
-                $("div#error_modal").slideUp('slow', function() {$("div#error_modal").remove();});
+                $("div#error_modal").slideUp('slow', function()Â {$("div#error_modal").remove();});
 				
             });
         });
@@ -94,16 +97,7 @@
 </head>
 
 <body>
-	<div id="header">
-        <ul>
-            <li><a href="index.html"><img src="../img/logo.png" alt="Logo"/></a></li>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="#">Azienda</a></li>
-            <li><a href="#">Servizi</a></li>
-            <li><a href="#">Contattaci</a></li>
-            <li><a href="../login.html">Login</a></li>
-        </ul>
-    </div>
+	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
        

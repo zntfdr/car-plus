@@ -27,8 +27,8 @@
         	<li><a href="../jsp/new_car_cs.jsp">Inserimento</a>/Visualizzazione/Modifica/Cancellazione Stazioni Macchine Sharing</li>
         	<li><a href="../html/new_car_model.html"></a>Inserimento/Visualizzazione/Modifica/Cancellazione Modelli Macchina</li>
         	<li>Inserimento/Visualizzazione/Modifica/Cancellazione Stazioni Utenti</li>
-        	<li><a href="../jsp/new_customer.jsp">Inserimento</a>/Visualizzazione/Modifica/Cancellazione Clienti</li>
-        	<li>Inserimento/Visualizzazione/Modifica/Cancellazione Stazioni Abbonamenti</li>
+        	<li><a href="../jsp/new_customer.jsp">Inserimento</a>/Visualizzazione/Modifica/Cancellazione Clienti/Clienti Business</li>
+        	<li><a href="../jsp/new_subscription.jsp"></a>Inserimento</a>/Visualizzazione/Modifica/Cancellazione Stazioni Abbonamenti</li>
         	<li>Numero utenti registrati:
         	<% int n = Interrogazione.Numero_Utenti_Registrati();  %>
         	<%=n %></li>
