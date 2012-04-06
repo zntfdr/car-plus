@@ -13,8 +13,11 @@ public class Tragitto_CS_info {
     private Calendar tempo_consegna_prenotazione;
     private int km_totali;
     private Boolean pagato;
+    private int tessera;
+    private int contratto;
+    private String email_cliente;
 
-    public Tragitto_CS_info(String newnome, String newcitta, String newprovincia, String newmarca, String newmodello, Calendar newtempo_prelievo_prenotazione, Calendar newtempo_consegna_prenotazione, Calendar newtempo_prelievo, Calendar newtempo_consegna, int newkm_totali, Boolean newpagato) {
+    public Tragitto_CS_info(String newnome, String newcitta, String newprovincia, String newmarca, String newmodello, Calendar newtempo_prelievo_prenotazione, Calendar newtempo_consegna_prenotazione, Calendar newtempo_prelievo, Calendar newtempo_consegna, int newkm_totali, Boolean newpagato, int newtessera, int newcontratto, String newemail_cliente) {
     	nome = newnome;
     	citta = newcitta;
     	provincia = newprovincia;
@@ -26,6 +29,9 @@ public class Tragitto_CS_info {
     	tempo_consegna_prenotazione = newtempo_consegna_prenotazione;
     	km_totali = newkm_totali;
     	pagato = newpagato;
+    	tessera = newtessera;
+    	contratto = newcontratto;
+    	email_cliente = newemail_cliente;
     }
 
     public void setNome(String newnome) {
@@ -72,6 +78,18 @@ public class Tragitto_CS_info {
         pagato = newValue;
     }
 
+    public void setTessera(int newtessera) {
+        tessera = newtessera;
+    }
+    
+    public void setContratto(int newcontratto) {
+        contratto = newcontratto;
+    }
+    
+    public void setEmail_cliente(String newemail_cliente) {
+        email_cliente = newemail_cliente;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -114,5 +132,17 @@ public class Tragitto_CS_info {
     
     public Boolean getPagato() {
     	return pagato;
+    }
+    
+    public int getTessera() {
+        return tessera;
+    }
+    
+    public int getContratto() {
+        return contratto;
+    }
+    
+    public String getEmail_cliente() {
+        return email_cliente;
     }
 }
