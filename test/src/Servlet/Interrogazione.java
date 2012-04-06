@@ -20,8 +20,8 @@ import Store.*;
 
 public class Interrogazione extends HttpServlet {
 			
-	public static ArrayList<Macchina_CP> ListaMacchineUtente(String Email){
-		String sql = "select DISTINCT(targa), modello_macchina from utente NATURAL JOIN tragitto_CP JOIN macchina_cp ON targa_cp = targa WHERE email = '" + Email +"'";
+	public static ArrayList<Macchina_CP> ListaMacchineUtente(String email){
+		String sql = "SELECT targa, modello_macchina FROM utente AS U INNER JOIN tragitto_CP AS TCP ON U.email = TCP.email_utente INNER JOIN macchina_cp AS MCP ON TCP.targa_cp = MCP.targa WHERE email = '" + email + "'GROUP BY targa, modello_macchina";
 		
 		ResultSet rs = Query.doQueryRS(sql);
 		if(rs != null){
