@@ -37,23 +37,6 @@ public class Interrogazione extends HttpServlet {
 		return null;
 	}
 	
-	public static ArrayList<Tragitto_CS_info> ListaTragittiUtente(int id){
-		String sql = "select mcs.nome, mcs.citta, mcs.provincia, mm.marca, mm.modello_macchina ,T.tempo_prelievo_prenotazione, T,tempo_consegna_prenotazione, T.tempo_prelievo, T.tempo_consegna, T.km_totali, T.pagato  from tragitto_CS AS T JOIN macchina_CS as mcs ON T.targa_CS = mcs.targa JOIN modello_macchina AS mm ON mcs.id_modello = mm.id WHERE T.id_tessera = '" +id + "'";
-		
-		ResultSet rs = Query.doQueryRS(sql);
-		if(rs != null){
-			try {
-				ArrayList<Tragitto_CS_info> Tragitti_list = new ArrayList<Tragitto_CS_info>();
-				while(rs.next()){
-					Tragitti_list.add(new Tragitto_CS_info( rs.getString("nome"), rs.getString("citta"), rs.getString("provincia"), rs.getString("marca"), rs.getString("modello_macchina"), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_prelievo_prenotazione")), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_consegna_prenotazione")), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_prelievo")) ,Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_consegna")), rs.getInt("km_totali"), rs.getBoolean("pagato")));
-				}
-				return Tragitti_list;
-			}catch (SQLException e){
-			}
-		}
-		return null;
-	}
-	
 	public static Modello_Macchina ModelloMacchina(String Targa){ //data una targa, riusciamo ad ottenere il modello della macchina 
 		String sql = "select * from modello_macchina join macchina_cp on modello_macchina = id WHERE targa = '" + Targa + "'";
 
