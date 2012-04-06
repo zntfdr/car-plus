@@ -49,7 +49,7 @@ public class StoreModello_Macchina{
 	}
 	
 	public static ArrayList<Modello_Macchina> getModello_Macchina() {
-		String sql_query = "SELECT * FROM modello_macchina ORDER BY id";
+		String sql_query = "SELECT * FROM modello_macchina ORDER BY marca";
 		ResultSet rs = Query.doQueryRS(sql_query);
 		if (rs != null) {
 			try {
