@@ -15,7 +15,9 @@ public class HTMLManager {
 				"<li><a href=\"#\">Servizi</a></li>" +
 				"<li> <a href=\"#\">Contattaci</a></li>";
 
-		if (user == null) {
+		if(session.getAttribute("ADMIN") != null) {
+			header += "<li><a href=\"admin_home.jsp\">Admin+</a></li><li><a href=\"logout.jsp\">Logout</a></li>";
+		} else if (user == null) {
 			header += "<li><a href=\"login.jsp\">Login</a></li>";
 		} else {
 			header += "<li><a href=\"user_home.jsp\">MyPage+</a></li><li><a href=\"logout.jsp\">Logout</a></li>";

@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "Servlet.Interrogazione" %>
 <%@ page import = "Utils.HTMLManager" %>
+<%	if (session.getAttribute("ADMIN") == null) {
+	response.sendRedirect("login.jsp");
+} else { %>
 <!DOCTYPE html>
 <html>
 
@@ -39,4 +42,5 @@
 </body>
 
 </html>
+<% } %>
 
