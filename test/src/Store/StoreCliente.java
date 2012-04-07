@@ -13,7 +13,7 @@ public class StoreCliente {
 	}
 	
 	public static Cliente readCliente(String email){
-		String sql_query = "SELECT * FROM cliente WHERE email = '" + email + "'";
+		String sql_query = "SELECT * FROM cliente WHERE email_utente = '" + email + "'";
 		ResultSet rs = Query.doQueryRS(sql_query);
 		if (rs != null) {
 			try {
