@@ -37,7 +37,7 @@ public class Vista_tragitti_tessera extends HttpServlet {
 		
 		HttpSession session = req.getSession();
 		session.setAttribute("lista_tragitti", lista); //passo il costrutto parametri alla pagina
-		page = "";
+		page = "jsp/lista_TragittiCSinfo_tessera.jsp";
 			
 		res.sendRedirect(page);
 	}
