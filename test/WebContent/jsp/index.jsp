@@ -8,6 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <link href="../css/base.css" type="text/css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
     <title>Car+ | Il nuovo servizio di Car Pooling</title>
 </head>
 

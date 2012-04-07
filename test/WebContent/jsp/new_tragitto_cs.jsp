@@ -4,12 +4,11 @@
 <%@ page import="Entita.Utente.Type" %>
 <%@ page import="Servlet.Interrogazione" %>
 <%@ page import = "Utils.HTMLManager" %>
-
-<% ArrayList<Macchina_CS> listaMacchine = (ArrayList<Macchina_CS>) session.getAttribute("listaMacchine"); %>
-<% ArrayList<Tessera> listaTessere = (ArrayList<Tessera>) session.getAttribute("listaTessere"); %>
-<% Contratto contratto = (Contratto)session.getAttribute("contratto"); %>
-<% Modello_Macchina modello; %>
-<% Utente user = (Utente) session.getAttribute("utente_loggato");
+<% 	ArrayList<Macchina_CS> listaMacchine = (ArrayList<Macchina_CS>) session.getAttribute("listaMacchine");
+	ArrayList<Tessera> listaTessere = (ArrayList<Tessera>) session.getAttribute("listaTessere");
+	Contratto contratto = (Contratto)session.getAttribute("contratto");
+	Modello_Macchina modello;
+	Utente user = (Utente) session.getAttribute("utente_loggato");
 	if ( user == null || ! ( user.getUserType() == Type.CLIENTE || user.getUserType() == Type.BUSINESS ) ) { //Controllo che sia aperta una connessione con un cliente, altrimenti faccio il redirect a login.jsp
 		response.sendRedirect("login.jsp");
 	} else {
@@ -20,6 +19,7 @@
 <meta charset="UTF-8">
 <title>Inserimento nuovo tragitto di Car pooling | Car+</title>
 <link href="../css/base.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" href="../img/favicon.png" />
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>

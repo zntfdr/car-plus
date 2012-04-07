@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>Registrazione nuova Stazione avvenuta con successo!</title>
 <link href="../css/base.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" href="../img/favicon.png" />
 </head>
 
 <body>

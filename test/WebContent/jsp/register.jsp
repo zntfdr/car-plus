@@ -8,11 +8,9 @@
     <title>Crea un nuovo account | Car+</title>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js" ></script>
-    
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="../css/base.css" rel="stylesheet" type="text/css" />
-    
-    
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
     <script>
         $(document).ready(function() {
             $("#radio").buttonset();

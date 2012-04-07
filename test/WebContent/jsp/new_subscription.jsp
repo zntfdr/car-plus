@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>Nuovo Abbonamento | Car+</title>
 <link href="../css/base.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" href="../img/favicon.png" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 
 </head>

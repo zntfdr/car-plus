@@ -11,6 +11,7 @@
 <meta charset="UTF-8">
 <title>Registrazione nuovo Tragitto avvenuta con successo!</title>
 <link href="../css/base.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" href="../img/favicon.png" />
 </head>
 
 <body>

@@ -16,6 +16,7 @@
 <meta charset="UTF-8">
 <title>Inserimento nuova macchina di Car sharing | Car+</title>
 <link href="../css/base.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" href="../img/favicon.png" />
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
