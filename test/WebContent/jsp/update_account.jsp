@@ -26,10 +26,6 @@
 				$("div#error_modal").slideUp('slow').remove();
                 var error = false;
 				var missing = '';
-				if ($("input#mail").val() == "") {
-					error = error || true;
-					missing += 'mail, ';
-				}
 				
 				if ($("input#name").val() == "") {
 					error = error || true;
@@ -67,14 +63,6 @@
 					return false;
 				}
 				
-				var reg_exp_mail = new RegExp('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+[\.]([a-z0-9-]+)*([a-z]{2,3})$');
-				var email = $("input#mail").val();
-				if ( !reg_exp_mail.test(email) ) {
-					var modal_box =  '<div class="ui-widget" id="error_modal" ><div class="ui-state-error ui-corner-all"style="padding:30px;"> <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> <strong>Attenzione:</strong>La mail inserita non Ã¨ una mail valida. Controllala per completare registrazione</p></div></div>';
-					$("div#content > div.wrapper").prepend(modal_box);
-					$(document).scrollTop();
-					return false;
-				}
 				return true;
             });
 			
