@@ -51,11 +51,6 @@
 					missing += 'telefono, ';
 				}
 				
-				if (! (($("input#radio1").attr("checked") != "undefined") && ($("input#radio1").attr("checked") == "checked")) ||
-					 ($("input#radio2").attr("checked") != "undefined") && ($("input#radio2").attr("checked") == "checked")) {
-					error = error || true;
-					missing += 'sesso, ';
-				}
 				if (error) {
 					var modal_box =  '<div class="ui-widget" id="error_modal" ><div class="ui-state-error ui-corner-all"style="padding:30px;"> <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> <strong>Attenzione:</strong>I campi '+ missing + ' non sono stati correttamente impostati! Riempi tutti i campi per completare la registrazione</p></div></div>';
 					
@@ -96,7 +91,7 @@
     <div id="content">
         <div class="wrapper">
        
-        <form method="GET" action="../UpdateUtente" id="register">
+        <form method="POST" action="../UpdateUtente" id="register">
             <ul>
                 <li><h1>Aggiornamento Account</h1></li>
                 <fieldset>
@@ -111,8 +106,8 @@
 	                <li><input name="surname" type="text" id="surname" placeholder="cognome" Value="<%= user.getCognome() %>" maxlength="30"/></li>
 	                <li>
 	                	<div id="radio">
-	                        <input type="radio" id="radio1" name="radio" value="M"/><label for="radio1">Maschio</label>
-	                        <input type="radio" id="radio2" name="radio" value="F"/><label for="radio2">Femmina</label>
+	                        <input type="radio" id="radio1" name="radio" value="M" <% if(user.getSesso().compareTo("M") == 0) { %> checked="checked" <% } %>/><label for="radio1">Maschio</label>
+	                        <input type="radio" id="radio2" name="radio" value="F"<% if(user.getSesso().compareTo("F") == 0) { %> checked="checked" <% } %>/><label for="radio2">Femmina</label>
 	                    </div>
 					</li>
 	                <li><input name="address" type="text" id="address" placeholder="Indirizzo" Value="<%= user.getIndirizzo() %>" maxlength="50"/></li>
@@ -123,9 +118,7 @@
                 <li><button name="submit" type="submit" id="submit">Aggiorna il Profilo</button></li>
             </ul>
         </form>
-        
         <div style="clear: both;"></div>
-    	
         </div>
     </div>
     <div id="footer">

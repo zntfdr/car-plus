@@ -5,14 +5,14 @@ import Utils.*;
 
 public class StoreUtente{
     public static Utente insertUtente(Utente ut){
-        String sql = "INSERT INTO utente(nome, cognome, sesso, indirizzo, citta, provincia, telefono, email, password, account_sospeso, account_verificato) VALUES('" + ut.getNome() + "','" + ut.getCognome() + "','" + ut.getSesso() + "','" + ut.getIndirizzo() + "','" + ut.getCitta() + "','" + ut.getProvincia() + "','" + ut.getTelefono() + "','" + ut.getEmail() + "','" + ut.getPassword() + "','" + ut.getAccount_sospeso() + "','" + ut.getAccount_verificato() + "')";
+        String sql = "INSERT INTO utente(nome, cognome, sesso, indirizzo, citta, provincia, telefono, email, password, account_sospeso, account_verificato) VALUES('" + ut.getNome() + "','" + ut.getCognome() + "','" + ut.getSesso() + "','" + ut.getIndirizzo() + "','" + ut.getCitta() + "','" + ut.getProvincia() + "','" + ut.getTelefono() + "','" + ut.getEmail() + "','" + Password.checkpsw(ut.getPassword()) + "','" + ut.getAccount_sospeso() + "','" + ut.getAccount_verificato() + "')";
 
       Query.doQuery(sql);
       return readUtente(ut.getEmail());
     }
     
     public static Utente UpdateUtente(Utente ut){
-    	String sql = "UPDATE utente SET nome = '" + ut.getNome() + "', cognome = '" + ut.getCognome() + "', sesso = '" + ut.getSesso() + "', indirizzo = '" + ut.getIndirizzo() + "', citta = '" + ut.getCitta() + "', provincia = '" + ut.getProvincia() + "', telefono = '" + ut.getTelefono() + "', password = '" + ut.getPassword() + "' WHERE email = '" + ut.getEmail() + "'";
+    	String sql = "UPDATE utente SET nome = '" + ut.getNome() + "', cognome = '" + ut.getCognome() + "', sesso = '" + ut.getSesso() + "', indirizzo = '" + ut.getIndirizzo() + "', citta = '" + ut.getCitta() + "', provincia = '" + ut.getProvincia() + "', telefono = '" + ut.getTelefono() + "', password = '" + Password.checkpsw(ut.getPassword()) + "' WHERE email = '" + ut.getEmail() + "'";
     	Query.doQuery(sql);
     	return readUtente(ut.getEmail());
     }
@@ -29,11 +29,12 @@ public class StoreUtente{
         if(rs != null){
             try {
                 while(rs.next()){
-                    return new Utente(rs.getString("nome"), rs.getString("cognome"),rs.getString("sesso"), rs.getString("indirizzo"), rs.getString("citta"), rs.getString("provincia"), rs.getString("password"), rs.getString("email"), rs.getString("telefono"), rs.getBoolean("account_verificato"), rs.getBoolean("account_sospeso"));
+                    return new Utente(rs.getString("nome"), rs.getString("cognome"),rs.getString("sesso"), rs.getString("indirizzo"), rs.getString("citta"), rs.getString("provincia"), Password.checkpsw(rs.getString("password")), rs.getString("email"), rs.getString("telefono"), rs.getBoolean("account_verificato"), rs.getBoolean("account_sospeso"));
                 }
             }catch (SQLException e){
                 }
             }
         return null;
     }
+    
 }

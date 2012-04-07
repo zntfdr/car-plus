@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
 			if(login == null){
 				page = "jsp/login.jsp?error=1";
 			}
-			else if(login.getPassword().compareTo(password) == 0) {
+			else if(login.getPassword().compareTo(Password.checkpsw(password)) == 0) {
 				if (StoreCliente_business.readCliente_business(email) != null){
 					login.setUserType(Type.BUSINESS);
 					ArrayList<Contratto> listaContratti = StoreContratto.listaContrattiUtente(email);

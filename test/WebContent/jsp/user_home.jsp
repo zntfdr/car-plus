@@ -46,7 +46,7 @@
         			<% if(user.getUserType() == Type.CLIENTE || user.getUserType() == Type.BUSINESS) { %>
             		<a href="new_tragitto_cs_check.jsp"><li><h1>Prenota una macchina</h1><img src="../img/booking.png"/></li></a> <!--  prenota tragitto car sharing -->
                     <a href="iltuoconto.jsp"><li><h1>Il tuo Conto</h1><img src="../img/money.png"/></li></a> <!-- Visualizzazione conto -->
-                    <a href="lista_TragittiCSinfo_cliente.jsp"><li><h1>I tuoi viaggi</h1><img src="../img/faq.png"/></h1></a></li> <!-- Visualizzazione lista_TragittiCSinfo_cliente -->
+                    <a href="lista_TragittiCSinfo_cliente.jsp"><li><h1>I tuoi viaggi</h1><img src="../img/faq.png"/></li></a> <!-- Visualizzazione lista_TragittiCSinfo_cliente -->
 					<% } %>		
 				</ul>        
 		        <div style="clear: both;"></div>

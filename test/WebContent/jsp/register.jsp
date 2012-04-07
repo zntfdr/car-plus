@@ -87,7 +87,7 @@
             });
 			
 			$("div#content input").click(function(e) {
-                $("div#error_modal").slideUp('slow', function()Â {$("div#error_modal").remove();});
+                $("div#error_modal").slideUp('slow', function() {$("div#error_modal").remove();});
 				
             });
         });

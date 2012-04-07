@@ -8,24 +8,8 @@ import Entita.*;
 import Utils.*;
 import Store.*;
 
-/**
- *
- */
 public class RegistrazioneUtente extends HttpServlet {
 
-	/**
-	 * Gestisce le richieste HTTP GETT
-	 * 
-	 * @param req
-	 *            la richiesta ricevuta dal client.
-	 * @param res
-	 *            la rispota fornita dal server.
-	 * 
-	 * @throws ServletException
-	 *             se ci sono problemi nell'esecuzione della servlet.
-	 * @throws IOException
-	 *             se ci sono problemi nella comunicazione client-server.
-	 */
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		

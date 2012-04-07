@@ -4,26 +4,29 @@ import java.io.PrintWriter;
 import java.sql.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-
 import Entita.*;
+import Entita.Utente.Type;
 import Utils.*;
 import Store.*;
 
 public class UpdateUtente extends HttpServlet {
 
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		
-		Utente ut = new Utente(req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), req.getParameter("citta"), req.getParameter("provincia"), MD5.encrypt(req.getParameter("password")), req.getParameter("mail"), req.getParameter("phone"), false, false);
+		String email = req.getParameter("mail");
+		Utente ut = new Utente(req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), req.getParameter("citta"), req.getParameter("provincia"), MD5.encrypt(req.getParameter("password")), email, req.getParameter("phone"), false, false);
 
-		// l'interrogazione da effettuare
-		if(req.getParameter("password").compareTo("") == 0 ) 
-			ut = StoreUtente.UpdateUtenteWithoutPassword(ut);
-		else
-			ut = StoreUtente.UpdateUtente(ut);
+		// Aggiornamento account (aggiornando, o meno, la password)
+		if(req.getParameter("password").equals(""))	{	ut = StoreUtente.UpdateUtenteWithoutPassword(ut); }
+		else										{	ut = StoreUtente.UpdateUtente(ut); }
 
 		HttpSession session = req.getSession();
-		session.setAttribute("utente", ut);
+		
+		if (StoreCliente_business.readCliente_business(email) != null)	{ut.setUserType(Type.BUSINESS);	}
+		else	if(StoreCliente.readCliente(email) != null)				{ut.setUserType(Type.CLIENTE);	}
+		else 															{ut.setUserType(Type.USER);		}
+		
+		session.setAttribute("utente_loggato", ut);
 		
 		String page = "jsp/login.jsp"; //mi manderà alla home dell'utente o dell'amministratore in base alla sessione	
 		res.sendRedirect(page);
