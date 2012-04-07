@@ -5,33 +5,91 @@
 <%	if (session.getAttribute("ADMIN") == null) {
 	response.sendRedirect("login.jsp");
 } else { %>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <link href="../css/base.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <title>Car+ | Il nuovo servizio di Car Pooling</title>
+    
+    <script>
+    	$(document).ready(function(){
+    		var menu_ul  = $("ul#admin_navigation > li > ul");
+    		menu_ul.hide();
+    		$(menu_ul.get(0)).show();
+    		
+    		$("ul#admin_navigation > li > a").click(function(e){
+    			e.preventDefault();
+    			if (!$(this).hasClass('active')) {
+    				$("ul#admin_navigation > li > a").removeClass('active');
+    				menu_ul.filter(':visible').slideUp('normal');
+    				$(this).addClass('active').next().stop(true, true).slideDown('normal');
+    			}
+    		});
+    	});
+    </script>
+    
 </head>
 
 <body>
-    
+
     <%= HTMLManager.getHeader(session) %>
-    
+
     <div id="content">
         <div class="wrapper">
-        Benvenuto amministratore,<br/>
-        scegli l'azione desiderata:
-        <ul>
-        	<li>Inserimento/Visualizzazione/Modifica/Cancellazione Stazioni Car Sharing</li>
-        	<li><a href="../jsp/new_car_cs.jsp">Inserimento</a>/Visualizzazione/Modifica/Cancellazione Stazioni Macchine Sharing</li>
-        	<li><a href="../html/new_car_model.html"></a>Inserimento/Visualizzazione/Modifica/Cancellazione Modelli Macchina</li>
-        	<li>Inserimento/Visualizzazione/Modifica/Cancellazione Stazioni Utenti</li>
-        	<li><a href="../jsp/new_customer.jsp">Inserimento</a>/Visualizzazione/Modifica/Cancellazione Clienti/Clienti Business</li>
-        	<li><a href="../jsp/new_subscription.jsp"></a>Inserimento</a>/Visualizzazione/Modifica/Cancellazione Stazioni Abbonamenti</li>
-        	<li>Numero utenti registrati:
-        	<% int n = Interrogazione.Numero_Utenti_Registrati();  %>
-        	<%=n %></li>
+        <h1>Benvenuto Amministratore, scegli cosa vuoi fare:</h1>
+        <ul id="admin_navigation">
+        	<li><a href="#">Gestione Stazioni di Car Sharing</a>
+        		<ul>
+        			<li><a href="#" class="inserisci">Inserisci</a></li>
+        			<li><a href="#" class="visualizza">Visualizza</a></li>
+        			<li><a href="#" class="modifica">Modifica</a></li>
+        			<li><a href="#" class="cancella">Cancella</a></li>
+        		</ul>
+        	</li>
+        	<li><a href="#">Gestione Macchine di Car Sharing</a>
+        		<ul>
+        			<li><a href="../jsp/new_car_cs.jsp" class="inserisci">Inserisci</a></li>
+        			<li><a href="#" class="visualizza">Visualizza</a></li>
+        			<li><a href="#" class="modifica">Modifica</a></li>
+        			<li><a href="#" class="cancella">Cancella</a></li>
+        		</ul>
+        	</li>
+        	<li><a href="#">Gestione Modelli Macchine</a>
+        		<ul>
+        			<li><a href="../html/new_car_model.html" class="inserisci">Inserisci</a></li>
+        			<li><a href="#" class="visualizza">Visualizza</a></li>
+        			<li><a href="#" class="modifica">Modifica</a></li>
+        			<li><a href="#" class="cancella">Cancella</a></li>
+        		</ul>
+        	</li>
+        	<li><a href="#">Gestione Stazioni Utente</a>
+        		<ul>
+        			<li><a href="#" class="inserisci">Inserisci</a></li>
+        			<li><a href="#" class="visualizza">Visualizza</a></li>
+        			<li><a href="#" class="modifica">Modifica</a></li>
+        			<li><a href="#" class="cancella">Cancella</a></li>
+        		</ul>
+        	</li>
+        	<li><a href="#">Gestione Clienti</a>
+        		<ul>
+        			<li><a href="../jsp/new_customer.jsp" class="inserisci">Inserisci</a></li>
+        			<li><a href="#" class="visualizza">Visualizza</a></li>
+        			<li><a href="#" class="modifica">Modifica</a></li>
+        			<li><a href="#" class="cancella">Cancella</a></li>
+        		</ul>
+        	</li>
+        	<li><a href="#">Gestione Abbonamenti</a>
+        		<ul>
+        			<li><a href="../jsp/new_subscription.jsp" class="inserisci">Inserisci</a></li>
+        			<li><a href="#" class="visualizza">Visualizza</a></li>
+        			<li><a href="#" class="modifica">Modifica</a></li>
+        			<li><a href="#" class="cancella">Cancella</a></li>
+        		</ul>
+        	</li>
         </ul>
         <div style="clear: both;"></div>
     
