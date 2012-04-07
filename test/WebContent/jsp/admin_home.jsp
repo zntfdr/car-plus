@@ -5,7 +5,6 @@
 <%	if (session.getAttribute("ADMIN") == null) {
 	response.sendRedirect("login.jsp");
 } else { %>
-
 <!DOCTYPE html>
 <html>
 
@@ -35,59 +34,65 @@
 </head>
 
 <body>
-
     <%= HTMLManager.getHeader(session) %>
-
     <div id="content">
         <div class="wrapper">
         <h1>Benvenuto Amministratore, scegli cosa vuoi fare:</h1>
         <ul id="admin_navigation">
         	<li><a href="#">Gestione Stazioni di Car Sharing</a>
         		<ul>
-        			<li><a href="#" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza">Visualizza</a></li>
-        			<li><a href="#" class="modifica">Modifica</a></li>
-        			<li><a href="#" class="cancella">Cancella</a></li>
+        			<li><a href="../jsp/new_station_cs.jsp" class="inserisci">Inserisci</a></li>
+        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
+        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
+        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
         		</ul>
         	</li>
         	<li><a href="#">Gestione Macchine di Car Sharing</a>
         		<ul>
         			<li><a href="../jsp/new_car_cs.jsp" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza">Visualizza</a></li>
-        			<li><a href="#" class="modifica">Modifica</a></li>
-        			<li><a href="#" class="cancella">Cancella</a></li>
+        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
+        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
+        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
         		</ul>
         	</li>
         	<li><a href="#">Gestione Modelli Macchine</a>
         		<ul>
-        			<li><a href="../html/new_car_model.html" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza">Visualizza</a></li>
-        			<li><a href="#" class="modifica">Modifica</a></li>
-        			<li><a href="#" class="cancella">Cancella</a></li>
+        			<li><a href="../jsp/new_car_model.jsp" class="inserisci">Inserisci</a></li>
+        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
+        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
+        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
         		</ul>
         	</li>
-        	<li><a href="#">Gestione Stazioni Utente</a>
+        	<li><a href="#">Gestione Utente</a>
         		<ul>
-        			<li><a href="#" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza">Visualizza</a></li>
-        			<li><a href="#" class="modifica">Modifica</a></li>
-        			<li><a href="#" class="cancella">Cancella</a></li>
+        			<li><a href="../jsp/register.jsp" class="inserisci">Inserisci</a></li>
+        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
+        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
+        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
         		</ul>
         	</li>
         	<li><a href="#">Gestione Clienti</a>
         		<ul>
         			<li><a href="../jsp/new_customer.jsp" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza">Visualizza</a></li>
-        			<li><a href="#" class="modifica">Modifica</a></li>
-        			<li><a href="#" class="cancella">Cancella</a></li>
+        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
+        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
+        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
         		</ul>
         	</li>
         	<li><a href="#">Gestione Abbonamenti</a>
         		<ul>
         			<li><a href="../jsp/new_subscription.jsp" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza">Visualizza</a></li>
-        			<li><a href="#" class="modifica">Modifica</a></li>
-        			<li><a href="#" class="cancella">Cancella</a></li>
+        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
+        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
+        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
+        		</ul>
+        	</li>
+        	<li><a href="#">Gestione Località</a>
+        		<ul>
+        			<li><a href="../jsp/new_location.jsp" class="inserisci">Inserisci</a></li>
+        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
+        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
+        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
         		</ul>
         	</li>
         </ul>
@@ -101,4 +106,3 @@
 
 </html>
 <% } %>
-
