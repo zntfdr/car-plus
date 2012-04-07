@@ -5,9 +5,11 @@
 <%@ page import="Store.StoreStazione_CS" %>
 <%@ page import="Store.StoreModello_Macchina" %>
 <%@ page import = "Utils.HTMLManager" %>
-
-<% ArrayList<Stazione_CS> lista_stazioni = StoreStazione_CS.getStazione_CS(); %>
-<% ArrayList<Modello_Macchina> lista_mod_mac = StoreModello_Macchina.getModello_Macchina(); %>
+<%	if (session.getAttribute("ADMIN") == null) {
+	response.sendRedirect("login.jsp");
+} else {
+ ArrayList<Stazione_CS> lista_stazioni = StoreStazione_CS.getStazione_CS();
+ ArrayList<Modello_Macchina> lista_mod_mac = StoreModello_Macchina.getModello_Macchina(); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -78,3 +80,4 @@
     </div>
 </body>
 </html>
+<% } %>

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.*" %>
+<%@ page import="Entita.Utente.Type" %>
 <%@ page import="Servlet.Interrogazione" %>
 <%@ page import = "Utils.HTMLManager" %>
 
@@ -8,7 +9,11 @@
 <% ArrayList<Tessera> listaTessere = (ArrayList<Tessera>) session.getAttribute("listaTessere"); %>
 <% Contratto contratto = (Contratto)session.getAttribute("contratto"); %>
 <% Modello_Macchina modello; %>
-<% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
+<% Utente user = (Utente) session.getAttribute("utente_loggato");
+	if ( user == null || ! ( user.getUserType() == Type.CLIENTE || user.getUserType() == Type.BUSINESS ) ) { //Controllo che sia aperta una connessione con un cliente, altrimenti faccio il redirect a login.jsp
+		response.sendRedirect("login.jsp");
+	} else {
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -23,9 +28,7 @@
 </head>
 
 <body>
-	
 	<%= HTMLManager.getHeader(session) %>
-	
     <div id="content">
         <div class="wrapper">
         <form method="GET" action="../Inserimento_tragitto_cs" id="Inserimento_tragitto_cs">
@@ -64,3 +67,4 @@
     </div>
 </body>
 </html>
+<% } %>

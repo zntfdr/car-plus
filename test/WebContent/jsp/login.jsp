@@ -34,7 +34,7 @@
                 <%= (error != null) && (error.booleanValue()) ? "<li class=\"error_message\">email o password errati! Riprova</li>" : "" %>
                 
                 <li><button name="submit" type="submit" id="submit">Login</button></li>
-                Oppure <a href="../jsp/register.jsp">Registrati</a>!
+                ..oppure <a href="../jsp/register.jsp">registrati</a>!
             </ul>
         </form>
         

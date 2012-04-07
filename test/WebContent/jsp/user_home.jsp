@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="Entita.Utente" %>
 <%@ page import = "Utils.HTMLManager" %>
-<% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
-<%
-	if (user == null) {
+<%@ page import="Entita.Utente" %>
+<% Utente user = (Utente) session.getAttribute("utente_loggato");
+	if (user == null) { //Controllo che sia aperta una connessione, altrimenti faccio il redirect a login.jsp
 		response.sendRedirect("login.jsp");
 	} else {
 %>

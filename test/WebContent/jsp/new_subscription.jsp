@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import = "Utils.HTMLManager" %>
+<%	if (session.getAttribute("ADMIN") == null) {
+	response.sendRedirect("login.jsp");
+} else { %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -41,3 +44,4 @@
     </div>
 </body>
 </html>
+<% } %>
