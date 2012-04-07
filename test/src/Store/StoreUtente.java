@@ -10,6 +10,18 @@ public class StoreUtente{
       Query.doQuery(sql);
       return readUtente(ut.getEmail());
     }
+    
+    public static Utente UpdateUtente(Utente ut){
+    	String sql = "UPDATE utente SET nome = '" + ut.getNome() + "', cognome = '" + ut.getCognome() + "', sesso = '" + ut.getSesso() + "', indirizzo = '" + ut.getIndirizzo() + "', citta = '" + ut.getCitta() + "', provincia = '" + ut.getProvincia() + "', telefono = '" + ut.getTelefono() + "', password = '" + ut.getPassword() + "' WHERE email = '" + ut.getEmail() + "'";
+    	Query.doQuery(sql);
+    	return readUtente(ut.getEmail());
+    }
+    
+    public static Utente UpdateUtenteWithoutPassword(Utente ut){
+    	String sql = "UPDATE utente SET nome = '" + ut.getNome() + "', cognome = '" + ut.getCognome() + "', sesso = '" + ut.getSesso() + "', indirizzo = '" + ut.getIndirizzo() + "', citta = '" + ut.getCitta() + "', provincia = '" + ut.getProvincia() + "', telefono = '" + ut.getTelefono() + "' WHERE email = '" + ut.getEmail() + "'";
+    	Query.doQuery(sql);
+    	return readUtente(ut.getEmail());
+    }
 
     public static Utente readUtente(String email){
         String sql = "SELECT * FROM utente WHERE email = '" + email + "'";

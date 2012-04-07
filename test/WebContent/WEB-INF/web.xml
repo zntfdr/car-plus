@@ -120,7 +120,15 @@
     <servlet-name>RicercaTragitto_CP</servlet-name>
     <url-pattern>/RicercaTragitto_CP</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
+    <servlet-name>UpdateUtente</servlet-name>
+    <servlet-class>Servlet.UpdateUtente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUtente</servlet-name>
+    <url-pattern>/UpdateUtente</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Vista_tragitti_cliente</servlet-name>
     <servlet-class>Servlet.Vista_tragitti_cliente</servlet-class>
   </servlet>

@@ -1,8 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import = "Utils.HTMLManager" %>
+<%@ page import="Entita.Utente" %>
 <%
 	String error_type = request.getParameter("error");
 	Boolean error = (error_type != null) ? (new Boolean(error_type.compareToIgnoreCase("1") == 0)) : null;
+	Utente user = (Utente) session.getAttribute("utente_loggato");
+	if (user != null) { //Controllo che sia aperta una sessione utente
+		response.sendRedirect("user_home.jsp");
+	} else if (session.getAttribute("ADMIN") != null) { //Controllo che sia aperta una sessione admin
+		response.sendRedirect("admin_home.jsp");
+	} else {
 %>
 <!DOCTYPE HTML>
 <html>
@@ -49,3 +56,4 @@
     </div>
 </body>
 </html>
+<% } %>
