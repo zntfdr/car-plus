@@ -21,17 +21,9 @@ public class RegistrazioneUtente extends HttpServlet {
 		// l'interrogazione da effettuare
 		ut = StoreUtente.insertUtente(ut);
 
-		// imposta il tipo MIME della risposta
-		res.setContentType("text/html");
-
-		// pagine da invocare in caso di successo o fallimento
-		String failure = "/jsp/failure.jsp?message=";
-		String success = "/jsp/risultatoRegistrazione.jsp";
-
 		HttpSession session = req.getSession();
 		session.setAttribute("utente", ut);
-
-		RequestDispatcher dispatcher = req.getRequestDispatcher(success);
-		dispatcher.forward(req, res);
+		
+		res.sendRedirect("/jsp/risultatoRegistrazione.jsp");
 	}
 }

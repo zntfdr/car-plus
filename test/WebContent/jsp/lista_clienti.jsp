@@ -2,10 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Cliente"%>
-<%@ page import="Store.StoreCliente" %>
+<%@ page import="Store.*" %>
 <%@ page import = "Utils.HTMLManager" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%	if (session.getAttribute("ADMIN") == null) {
+	response.sendRedirect("login.jsp");
+} else {  %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -16,30 +18,32 @@
     <link rel="icon" type="image/png" href="../img/favicon.png" />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
-	
 	<%= HTMLManager.getHeader(session) %>
-    
     <div id="content">
         <div class="wrapper">
+        <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %>avvenuta con successo!<% session.removeAttribute("descrizione");} %>
         <h1>Lista dei Clienti</h1>
-    <table id="trip_list">
-
-      <tr>
-        <td><b>Mail</b></td>
-        <td><b>Codice Fiscale</b></td>
-      </tr>
-  <% ArrayList<Cliente> lista_clienti = StoreCliente.getClienti();
-     for(Cliente c : lista_clienti){%>
-      <tr>
-        <td> <%= c.getEmail_utente() %></td>
-        <td> <%= c.getCodice_fiscale() %></td>
-      </tr>
-    <% } %>
-    </table>
-       <div style="clear: both;"></div>
-    	
+    	<table id="trip_list">
+      		<tr>
+		        <td><b>Mail</b></td>
+		        <td><b>Codice Fiscale</b></td>
+		        <td><b>Cliente Business</b></td>
+		        <td><b>Modifica</b></td>
+		        <td><b>Cancella</b></td>
+      		</tr>
+  			<% ArrayList<Cliente> lista_clienti = StoreCliente.getClienti();
+     		for(Cliente c : lista_clienti){ %>
+      		<tr>
+        		<td> <%= c.getEmail_utente() %></td>
+        		<td> <%= c.getCodice_fiscale() %></td>
+        		<td> <% if (StoreCliente_business.readCliente_business(c.getEmail_utente()) != null){ %> &#10003;<% } %></td>
+        		<td> <a href="update_costumer.jsp?email=<%= c.getEmail_utente() %>"><img src="../img/ic_edit.png"></a></td>
+        		<td> <a href="../CancellaCliente?email=<%= c.getEmail_utente() %>"><img src="../img/ic_cancel.png"></a></td>
+      		</tr>
+		    <% } %>
+    	</table>
+      	<div style="clear: both;"></div>
         </div>
     </div>
     <div id="footer">
@@ -48,3 +52,4 @@
     </div>
 </body>
 </html>
+<% } %>

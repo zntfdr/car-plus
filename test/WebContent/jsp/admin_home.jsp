@@ -7,7 +7,6 @@
 } else { %>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <link href="../css/base.css" type="text/css" rel="stylesheet" />
@@ -75,9 +74,7 @@
         	<li><a href="#">Gestione Clienti</a>
         		<ul>
         			<li><a href="../jsp/new_customer.jsp" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
-        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
-        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
+        			<li><a href="../jsp/lista_clienti.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
         	</li>
         	<li><a href="#">Gestione Abbonamenti</a>

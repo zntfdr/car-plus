@@ -12,6 +12,21 @@ public class StoreCliente {
 		return readCliente(c.getEmail_utente());
 	}
 	
+	public static void updateCliente(Cliente c) {
+		String sql_query = "Update cliente set cf = '" + c.getCodice_fiscale() + "' where email_utente = '" + c.getEmail_utente() + "'";
+		Query.doQuery(sql_query);
+		
+		readCliente(c.getEmail_utente());
+	}
+	
+	public static void deleteCliente(String email) {
+		String sql_query = "delete from cliente where email_utente = '" + email + "'";
+		Query.doQuery(sql_query);
+		
+		sql_query = "delete from cliente_business where email_utente = '" + email + "'";
+		Query.doQuery(sql_query);
+	}
+	
 	public static Cliente readCliente(String email){
 		String sql_query = "SELECT * FROM cliente WHERE email_utente = '" + email + "'";
 		ResultSet rs = Query.doQueryRS(sql_query);

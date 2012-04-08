@@ -10,6 +10,13 @@ public class StoreCliente_business{
 		Query.doQuery(sql);
 		return readCliente_business(cb.getEmail_utente());
 	}
+	
+	public static void updateCliente_business(Cliente_business cb){
+		String sql = "update cliente_business set partita_iva = '" + cb.getPartita_iva() + "', nome_attivita = '" + cb.getNome_attivita()+ "' where email_utente = '" + cb.getEmail_utente() + "'";
+	    
+		Query.doQuery(sql);
+		readCliente_business(cb.getEmail_utente());
+	}
 
 	public static Cliente_business readCliente_business(String email_utente){
 		String sql = "SELECT * FROM cliente_business WHERE email_utente = '" + email_utente + "'";

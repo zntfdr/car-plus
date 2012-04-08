@@ -19,7 +19,33 @@ import Utils.*;
 import Store.*;
 
 public class Interrogazione extends HttpServlet {
-			
+	
+	public static ArrayList<String> ListaClientiNonClientiBusiness(){
+		ArrayList<String> array = new ArrayList<String>();
+		String sql = "SELECT email_utente FROM cliente WHERE email_utente NOT IN (SELECT email_utente FROM cliente_business)";
+		ResultSet rs = Utils.Query.doQueryRS(sql);
+		
+		try { while(rs.next()) { array.add(rs.getString("email_utente")); }
+		} catch (SQLException e) {}
+
+		return array;
+	}
+	
+	public static ArrayList<String> ListaUtentiNonClienti(){
+		ArrayList<String> array = new ArrayList<String>();
+		String sql = "SELECT email FROM utente WHERE email NOT IN (SELECT email_utente FROM cliente)";
+		ResultSet rs = Utils.Query.doQueryRS(sql);
+		
+		if(rs != null) {
+			try {
+				while(rs.next()) { 
+					array.add(rs.getString("email"));	
+				}
+			} catch (SQLException e) { }
+		}
+		return array;
+	}
+	
 	public static ArrayList<Macchina_CP> ListaMacchineUtente(String email){
 		String sql = "SELECT targa, modello_macchina FROM utente AS U INNER JOIN tragitto_CP AS TCP ON U.email = TCP.email_utente INNER JOIN macchina_cp AS MCP ON TCP.targa_cp = MCP.targa WHERE email = '" + email + "'GROUP BY targa, modello_macchina";
 		
