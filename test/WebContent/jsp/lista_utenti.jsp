@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Lista dei Clienti | Car+</title>
+    <title>Lista degli Utenti | Car+</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js" ></script>
     <link href="../css/base.css" rel="stylesheet" type="text/css" />
@@ -33,8 +33,8 @@
 		        <td><b>Modifica</b></td>
 		        <td><b>Cancella</b></td>
       		</tr>
-  			<% ArrayList<Utente> lista_clienti = StoreUtente.getUtenti();
-     		for(Utente c : lista_clienti){ %>
+  			<% ArrayList<Utente> lista_utenti = StoreUtente.getUtenti();
+     		for(Utente c : lista_utenti){ %>
       		<tr>
         		<td> <%= c.getEmail() %></td>
         		<td> <%= c.getNome() %></td>
