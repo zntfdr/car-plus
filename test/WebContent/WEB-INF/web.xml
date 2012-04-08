@@ -8,6 +8,14 @@
     <servlet-name>CancellaCliente</servlet-name>
     <url-pattern>/CancellaCliente</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>CancellaUtente</servlet-name>
+    <servlet-class>Servlet.CancellaUtente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CancellaUtente</servlet-name>
+    <url-pattern>/CancellaUtente</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>Inserimento_abbonamento</servlet-name>
     <servlet-class>Servlet.Inserimento_abbonamento</servlet-class>

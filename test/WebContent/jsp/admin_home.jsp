@@ -66,9 +66,7 @@
         	<li><a href="#">Gestione Utente</a>
         		<ul>
         			<li><a href="../jsp/register.jsp" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
-        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
-        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
+        			<li><a href="../jsp/lista_utenti.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
         	</li>
         	<li><a href="#">Gestione Clienti</a>

@@ -14,6 +14,7 @@ public class UpdateUtente extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		String email = req.getParameter("mail");
+		String page = "";
 		Utente ut = new Utente(req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), req.getParameter("citta"), req.getParameter("provincia"), MD5.encrypt(req.getParameter("password")), email, req.getParameter("phone"), false, false);
 
 		// Aggiornamento account (aggiornando, o meno, la password)
@@ -26,9 +27,16 @@ public class UpdateUtente extends HttpServlet {
 		else	if(StoreCliente.readCliente(email) != null)				{ut.setUserType(Type.CLIENTE);	}
 		else 															{ut.setUserType(Type.USER);		}
 		
-		session.setAttribute("utente_loggato", ut);
-		
-		String page = "jsp/login.jsp"; //mi manderà alla home dell'utente o dell'amministratore in base alla sessione	
+		if (session.getAttribute("ADMIN") != null) { 
+			session.setAttribute("descrizione", "Aggiornamento profilo di " + email + " avvenuto con successo!"); 
+			page = "jsp/lista_utenti.jsp";
+		} 
+		else { 
+			session.setAttribute("utente_loggato", ut);
+			session.setAttribute("descrizione", "Aggiornamento profilo avvenuto con successo!"); 
+			page = "jsp/user_home.jsp";
+		}
+			
 		res.sendRedirect(page);
 	}
 }

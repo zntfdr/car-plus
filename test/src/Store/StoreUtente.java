@@ -1,9 +1,17 @@
 package Store;
 import java.sql.*;
+import java.util.ArrayList;
+
+import Entita.Cliente;
 import Entita.Utente;
 import Utils.*;
 
 public class StoreUtente{
+	public static void deleteUtente(String email) {
+		String sql_query = "delete from utente where email = '" + email + "'";
+		Query.doQuery(sql_query);
+	}
+	
     public static Utente insertUtente(Utente ut){
         String sql = "INSERT INTO utente(nome, cognome, sesso, indirizzo, citta, provincia, telefono, email, password, account_sospeso, account_verificato) VALUES('" + ut.getNome() + "','" + ut.getCognome() + "','" + ut.getSesso() + "','" + ut.getIndirizzo() + "','" + ut.getCitta() + "','" + ut.getProvincia() + "','" + ut.getTelefono() + "','" + ut.getEmail() + "','" + Password.checkpsw(ut.getPassword()) + "','" + ut.getAccount_sospeso() + "','" + ut.getAccount_verificato() + "')";
 
@@ -37,4 +45,21 @@ public class StoreUtente{
         return null;
     }
     
+    public static ArrayList<Utente> getUtenti() {
+		String sql_query = "SELECT * FROM utente ORDER BY email";
+		ResultSet rs = Query.doQueryRS(sql_query);
+		if (rs != null) {
+			try {
+				ArrayList<Utente> list = new ArrayList<Utente>();
+				while (rs.next()) {
+					list.add(new Utente (rs.getString("nome"), rs.getString("cognome"),rs.getString("sesso"), rs.getString("indirizzo"), rs.getString("citta"), rs.getString("provincia"), Password.checkpsw(rs.getString("password")), rs.getString("email"), rs.getString("telefono"), rs.getBoolean("account_verificato"), rs.getBoolean("account_sospeso")));
+				}
+				return list;
+			} catch (SQLException e) {
+				
+			}
+		}
+		
+		return null;
+	}
 }

@@ -16,14 +16,16 @@ public class RegistrazioneUtente extends HttpServlet {
 		Localita loc = new Localita(req.getParameter("provincia"), req.getParameter("citta"));
 		loc = StoreLocalita.insertLocalita(loc);
 		
-		Utente ut = new Utente(req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), req.getParameter("citta"), req.getParameter("provincia"), MD5.encrypt(req.getParameter("password")), req.getParameter("mail"), req.getParameter("phone"), false, false);
+		String email = req.getParameter("mail");
+		Utente ut = new Utente(req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), req.getParameter("citta"), req.getParameter("provincia"), MD5.encrypt(req.getParameter("password")), email, req.getParameter("phone"), false, false);
 
 		// l'interrogazione da effettuare
 		ut = StoreUtente.insertUtente(ut);
 
 		HttpSession session = req.getSession();
 		session.setAttribute("utente", ut);
+		session.setAttribute("descrizione", "Registrazione di " + email + " avvenuta con successo!");
 		
-		res.sendRedirect("/jsp/risultatoRegistrazione.jsp");
+		res.sendRedirect("jsp/new_user_landing.jsp");
 	}
 }

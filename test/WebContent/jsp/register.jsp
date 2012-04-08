@@ -101,7 +101,7 @@
        
         <form method="GET" action="../RegistrazioneUtente" id="register">
             <ul>
-                <li><h1>Registrati ed entra nel mondo Car+!</h1></li>
+                <li><h1><% if (session.getAttribute("ADMIN") != null) { %><%= "Registra un nuovo account" %><% } else { %>Registrati ed entra nel mondo Car+!<%}%></h1></li>
                 <fieldset>
                 	<legend>Informazioni Account:</legend>
 	                <li><input name="mail" type="text" id="mail" placeholder="Mail" maxlength="320"/></li>

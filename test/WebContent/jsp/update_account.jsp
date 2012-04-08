@@ -1,9 +1,13 @@
+<%@page import="Store.StoreUtente"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "Servlet.Interrogazione" %>
 <%@ page import = "Utils.HTMLManager" %>
 <%@ page import="Entita.Utente" %>
 <%@ page import="Entita.Utente.Type" %>
-<% Utente user = (Utente) session.getAttribute("utente_loggato");
+<% Utente user;
+	if (session.getAttribute("ADMIN") != null)	user = StoreUtente.readUtente(request.getParameter("email")); //amministratore che modifica un account
+	else										user = (Utente) session.getAttribute("utente_loggato"); //utente che modifica il suo profilo
+	
 	if (user == null) { //Controllo che sia aperta una connessione, altrimenti faccio il redirect a login.jsp
 		response.sendRedirect("login.jsp");
 	} else {
@@ -12,7 +16,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Aggiorna il tuo account | Car+</title>
+    <title>Aggiorna <% if (session.getAttribute("ADMIN") != null) { %><%= "il profilo di " + user.getEmail() %><% } else { %>il tuo account<%}%> | Car+</title>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js" ></script>
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />

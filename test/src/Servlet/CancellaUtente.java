@@ -12,16 +12,16 @@ import Entita.*;
 import Utils.*;
 import Store.*;
 
-public class CancellaCliente extends HttpServlet {
+public class CancellaUtente extends HttpServlet {
        
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 		String email = request.getParameter("email");			
-		StoreCliente.deleteCliente(email);
+		StoreUtente.deleteUtente(email);
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("descrizione", "Cancellazione cliente " + email + " avvenuta con successo!");
-		response.sendRedirect("jsp/lista_clienti.jsp"); //invia a lista utenti
+		session.setAttribute("descrizione", "Cancellazione utente " + email + " avvenuta con successo!");
+		response.sendRedirect("jsp/lista_utenti.jsp"); //invia a lista utenti
 	}
 
 }
