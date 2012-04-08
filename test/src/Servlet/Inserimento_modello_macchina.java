@@ -63,8 +63,8 @@ public class Inserimento_modello_macchina extends HttpServlet {
 				
 			}
 		}
-		page = "jsp/new_car_model_landing.jsp";	
-
+		page = "jsp/lista_modelli_macchina.jsp";	
+		session.setAttribute("descrizione", "Aggiunta del nuovo modello avvenuta con successo!"); 
 		res.sendRedirect(page);
 	}
 }

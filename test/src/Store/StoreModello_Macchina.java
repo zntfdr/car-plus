@@ -5,9 +5,16 @@ import java.util.ArrayList;
 import Entita.Localita;
 import Entita.Modello_Macchina;
 import Entita.Modello_Macchina;
+import Entita.Utente;
 import Utils.*;
 
 public class StoreModello_Macchina{
+	
+	public static void deleteModelloMacchina(int id) {
+		String sql_query = "delete from modello_macchina where id = " + id;
+		Query.doQuery(sql_query);
+	}
+	
 	public static void insertModello_Macchina(Modello_Macchina Value){
 		String sql = "INSERT INTO modello_macchina(marca,modello,cilindrata,anno,alimentazione,emissioni_co2,num_posti) VALUES('" + Value.getMarca() + "','" + Value.getModello() + "', " + Value.getCilindrata() +","+ Value.getAnno() + ",'" + Value.getAlimentazione() + "'," + Value.getEmissioni_co2() + "," + Value.getNum_posti() + ")";
 	    
@@ -65,5 +72,10 @@ public class StoreModello_Macchina{
 		
 		return null;
 	}
+	
+	public static void UpdateModelloMacchina(Modello_Macchina mm){
+    	String sql = "UPDATE modello_macchina SET marca = '" + mm.getMarca() + "', modello = '" + mm.getModello() + "', cilindrata = " + mm.getCilindrata() + ", anno = " + mm.getAnno() + ", alimentazione  = '" + mm.getAlimentazione() + "', emissioni_co2 = " + mm.getEmissioni_co2() + ", num_posti = " + mm.getNum_posti() + " WHERE id = " + mm.getId();
+    	Query.doQuery(sql);
+    }
 	
 }

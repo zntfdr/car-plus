@@ -58,9 +58,7 @@
         	<li><a href="#">Gestione Modelli Macchine</a>
         		<ul>
         			<li><a href="../jsp/new_car_model.jsp" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
-        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
-        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
+        			<li><a href="../jsp/lista_modelli_macchina.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
         	</li>
         	<li><a href="#">Gestione Utente</a>
