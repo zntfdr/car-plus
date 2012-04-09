@@ -38,11 +38,13 @@ public class Get_citta extends HttpServlet {
 		// ottiene un flusso di uscita per scrivere la risposta
 		PrintWriter out = res.getWriter();
 		String provincia = req.getParameter("provincia");
+		String selectName = req.getParameter("selectName");
+		String newSelectName = selectName.replace("provincia", "citta");
 		String sql = "SELECT * FROM localita WHERE provincia = '"+provincia+"'";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){
 			try {
-				out.println("<select name=\"citta\">");
+				out.println("<select name=\""+newSelectName+"\">");
 				while(rs.next()){
 					String citta = rs.getString("citta");
 					out.println("<option value=\""+ citta + "\">"+citta+"</option>");
