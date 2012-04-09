@@ -26,7 +26,7 @@
        
         <form method="POST" action="../UpdateAbbonamento" id="register">
             <ul>
-                <li><h1>Nuovo Abbonamento</h1></li>
+                <li><h1>Aggiornamento Abbonamento</h1></li>
                 <li><input name="nome" type="text" id="nome" readonly="readnly" value="<%= abb.getNome() %>"/></li>
                 <li><input name="descrizione" type="text" id="descrizione" value="<%= abb.getDescrizione() %>" placeholder="Descrizione"/></li>
                 <li><input name="tariffa_magg_100km" type="text" id="tariffa_magg_100km" value="<%= abb.getTariffa_magg_100km() %>" placeholder="Tariffa per tratte > 100Km"/></li>
