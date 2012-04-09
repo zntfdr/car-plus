@@ -31,13 +31,7 @@
                 <li><h1>Nuova Stazione di Car Sharing</h1></li>
                 <li><input name="name" type="text" id="name" placeholder="Nome"/></li>
                 <li><input name="city" type="text" id="city" placeholder="Città"/></li>
-                <li><input name="province" type="text" id="province" placeholder="Provincia"/>
-                    <!-- <select name="province">
-                        <option value="VE">Venezia</option>
-                        <option value="PD">Padova</option>
-                        <option value="MI">Milano</option>
-                    </select> -->
-                </li>
+                <li><input name="province" type="text" id="province" placeholder="Provincia"/></li>
                 <li><input name="address" type="text" id="address" placeholder="Indirizzo"/></li>
                 <li><input name="num_places" type="text" id="num_places" placeholder="Numero posti"/></li>
                 <li><button name="submit" type="submit" id="submit">Inserisci</button></li>

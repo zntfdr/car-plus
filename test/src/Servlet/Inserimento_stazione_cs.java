@@ -11,24 +11,8 @@ import Entita.*;
 import Utils.*;
 import Store.*;
 
-/**
- *
- */
 public class Inserimento_stazione_cs extends HttpServlet {
 
-	/**
-	 * Gestisce le richieste HTTP GETT
-	 * 
-	 * @param req
-	 *            la richiesta ricevuta dal client.
-	 * @param res
-	 *            la rispota fornita dal server.
-	 * 
-	 * @throws ServletException
-	 *             se ci sono problemi nell'esecuzione della servlet.
-	 * @throws IOException
-	 *             se ci sono problemi nella comunicazione client-server.
-	 */
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		
@@ -45,7 +29,7 @@ public class Inserimento_stazione_cs extends HttpServlet {
 		String page = "";
 		
 		//Prendo dal DB la lista delle stazioni
-		String sql = "SELECT nome FROM Stazione_CS";
+		String sql = "SELECT nome FROM Stazione_CS ORDER BY provincia,citta";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){
 			try {
@@ -61,7 +45,8 @@ public class Inserimento_stazione_cs extends HttpServlet {
 		}
 		
 		session.setAttribute("stazione_nuova",sCS); //passo il costrutto parametri alla pagina
-		page = "jsp/new_station_cs_landing.jsp";	
+		page = "jsp/lista_stazioni_cs.jsp";	
+		session.setAttribute("descrizione", "Registrazione nuova Stazione avvenuta con successo!");
 		
 		res.sendRedirect(page);
 	}
