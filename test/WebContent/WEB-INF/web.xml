@@ -9,6 +9,14 @@
     <url-pattern>/CancellaCliente</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>CancellaMacchinaCS</servlet-name>
+    <servlet-class>Servlet.CancellaMacchinaCS</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CancellaMacchinaCS</servlet-name>
+    <url-pattern>/CancellaMacchinaCS</url-pattern>
+  </servlet-mapping>
+  <servlet>
   <servlet-name>CancellaModelloMacchina</servlet-name>
     <servlet-class>Servlet.CancellaModelloMacchina</servlet-class>
   </servlet>
@@ -159,6 +167,14 @@
   <servlet-mapping>
     <servlet-name>UpdateCliente</servlet-name>
     <url-pattern>/UpdateCliente</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateMacchinaCS</servlet-name>
+    <servlet-class>Servlet.UpdateMacchinaCS</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateMacchinaCS</servlet-name>
+    <url-pattern>/UpdateMacchinaCS</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>UpdateModelloMacchina</servlet-name>

@@ -12,32 +12,13 @@ import Entita.*;
 import Utils.*;
 import Store.*;
 
-/**
- *
- */
 public class Inserimento_macchina_cs extends HttpServlet {
 
-	/**
-	 * Gestisce le richieste HTTP GETT
-	 * 
-	 * @param req
-	 *            la richiesta ricevuta dal client.
-	 * @param res
-	 *            la rispota fornita dal server.
-	 * 
-	 * @throws ServletException
-	 *             se ci sono problemi nell'esecuzione della servlet.
-	 * @throws IOException
-	 *             se ci sono problemi nella comunicazione client-server.
-	 */
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		
-		String dataTest = req.getParameter("scadenza_bollo");
 		Calendar scadenza_bollo = Utils.TimeString.dataStringToCalendar(req.getParameter("scadenza_bollo"));
 		Calendar scadenza_assicurazione = Utils.TimeString.dataStringToCalendar(req.getParameter("scadenza_assicurazione"));
 		Calendar scadenza_revisione = Utils.TimeString.dataStringToCalendar(req.getParameter("scadenza_revisione"));
-		String dataTest2 = Utils.TimeString.dataCalendarToString(scadenza_bollo);
 		//Inserisco Macchina car sharing
 		Macchina_CS mCS = new Macchina_CS(req.getParameter("car_plate"),Integer.parseInt(req.getParameter("model")),req.getParameter("city"),req.getParameter("province"), req.getParameter("name_cs"),Integer.parseInt(req.getParameter("purchase_year")),scadenza_bollo, scadenza_assicurazione, scadenza_revisione, Integer.parseInt(req.getParameter("tot_km")),Boolean.parseBoolean("TRUE"));		
 		StoreMacchina_CS.insertMacchina_CS(mCS);
@@ -62,7 +43,8 @@ public class Inserimento_macchina_cs extends HttpServlet {
 			}
 		}
 
-		page = "jsp/new_car_cs_landing.jsp";	
+		page = "jsp/lista_macchine_cs.jsp";
+		session.setAttribute("descrizione", "Registrazione nuova macchina car sharing avvenuta con successo!");
 
 		res.sendRedirect(page);
 	}

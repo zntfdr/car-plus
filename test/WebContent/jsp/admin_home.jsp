@@ -48,9 +48,7 @@
         	<li><a href="#">Gestione Macchine di Car Sharing</a>
         		<ul>
         			<li><a href="../jsp/new_car_cs.jsp" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
-        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
-        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
+        			<li><a href="../jsp/lista_macchine_cs.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
         	</li>
         	<li><a href="#">Gestione Modelli Macchine</a>
