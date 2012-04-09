@@ -77,10 +77,8 @@
         	</li>
         	<li><a href="#">Gestione Località</a>
         		<ul>
-        			<li><a href="../jsp/new_location.jsp" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
-        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
-        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
+        			<li><a href="../jsp/new_place.jsp" class="inserisci">Inserisci</a></li>
+        			<li><a href="../jsp/lista_localita.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
         	</li>
         </ul>

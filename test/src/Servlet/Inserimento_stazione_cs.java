@@ -16,10 +16,6 @@ public class Inserimento_stazione_cs extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		
-		//Inserisco Località (sia che esista già o no, tanto non crea problemi nè tuple doppie)
-		Localita loc = new Localita(req.getParameter("city"),req.getParameter("province"));
-		loc = StoreLocalita.insertLocalita(loc);
-		
 		//Inserisco Stazione_CS
 		Stazione_CS sCS = new Stazione_CS(req.getParameter("city"),req.getParameter("province"),req.getParameter("name"),req.getParameter("address"), Integer.parseInt(req.getParameter("num_places")));		
 		sCS =  StoreStazione_CS.insertStazione_CS(sCS);
