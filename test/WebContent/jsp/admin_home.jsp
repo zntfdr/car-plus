@@ -72,9 +72,7 @@
         	<li><a href="#">Gestione Abbonamenti</a>
         		<ul>
         			<li><a href="../jsp/new_subscription.jsp" class="inserisci">Inserisci</a></li>
-        			<li><a href="#" class="visualizza"><s>Visualizza</s></a></li>
-        			<li><a href="#" class="modifica"><s>Modifica</s></a></li>
-        			<li><a href="#" class="cancella"><s>Cancella</s></a></li>
+        			<li><a href="../jsp/lista_abbonamenti.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
         	</li>
         	<li><a href="#">Gestione Località</a>

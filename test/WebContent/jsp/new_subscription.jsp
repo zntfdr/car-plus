@@ -11,9 +11,7 @@
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <link rel="icon" type="image/png" href="../img/favicon.png" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-
 </head>
-
 <body>
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
@@ -28,9 +26,8 @@
                 <li><input name="tariffa_notturna" type="text" id="tariffa_notturna" placeholder="Tariffa notturna"/></li>
                 <li><input name="tariffa_diurna" type="text" id="tariffa_diurna" placeholder="Tariffa diurna"/></li>
                 <li><input name="costo_mensile" type="text" id="costo_mensile" placeholder="Costo mensile"/></li>
-                <li><input name="num_max_tessere" type="text" id="num_max_tessere" placeholder="Numero massimo di tessere"/></li>
                 <li><input name="num_min_tessere" type="text" id="num_min_tessere" placeholder="Numero minimo di tessere"/></li>
-                
+                <li><input name="num_max_tessere" type="text" id="num_max_tessere" placeholder="Numero massimo di tessere"/></li>
                 <li><button name="submit" type="submit" id="submit">Inserisci</button></li>
             </ul>
         </form>

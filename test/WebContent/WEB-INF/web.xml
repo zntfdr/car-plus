@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <servlet>
+    <servlet-name>CancellaAbbonamento</servlet-name>
+    <servlet-class>Servlet.CancellaAbbonamento</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CancellaAbbonamento</servlet-name>
+    <url-pattern>/CancellaAbbonamento</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>CancellaCliente</servlet-name>
     <servlet-class>Servlet.CancellaCliente</servlet-class>
   </servlet>
@@ -159,6 +167,14 @@
   <servlet-mapping>
     <servlet-name>RicercaTragitto_CP</servlet-name>
     <url-pattern>/RicercaTragitto_CP</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateAbbonamento</servlet-name>
+    <servlet-class>Servlet.UpdateAbbonamento</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateAbbonamento</servlet-name>
+    <url-pattern>/UpdateAbbonamento</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>UpdateCliente</servlet-name>
