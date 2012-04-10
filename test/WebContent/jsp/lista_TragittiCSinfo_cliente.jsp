@@ -3,10 +3,13 @@
 <%@ page import="Entita.Tragitto_CS_info"%>
 <%@ page import="Store.StoreTragitto_CS_info"%>
 <%@ page import = "Utils.HTMLManager" %>
-
+<% Utente user = (Utente) session.getAttribute("utente_loggato"); 
+   String email_cliente = user.getEmail();%>
+   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
    <body>
+    <form method="GET" action="../Vista_tragitti_cliente" id="Vista_tragitti_cliente">
     <table border="1">
 
       <tr>
@@ -42,6 +45,6 @@
       </tr>
     <% } %>
     </table>
-
+    </form>
   </body>
 </html>
