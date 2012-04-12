@@ -34,9 +34,10 @@
         <form method="POST" action="../UpdateStazioneCS" id="register">
             <ul>
                 <li><h1>Aggiornamento della Stazione <%= stazione.getNome() %></h1></li>
-                <!-- parametri da passare alla servlet per capire quale stazione aggiornare --> <li><input name="oldname" id="oldname" type="hidden" value="<%= stazione.getNome() %>" placeholder="Nome"/></li>
-                <li><input name="oldprovince" id="oldprovince" type="hidden" value="<%= stazione.getProvincia() %>" placeholder="Provincia"/></li>
-                <li><input name="oldcity" id="oldcity" type="hidden" value="<%= stazione.getCitta() %>" placeholder="Città"/></li>
+                <!-- parametri da passare alla servlet per capire quale stazione aggiornare --> 
+                <li class="hide"><input name="oldname" id="oldname" type="hidden" value="<%= stazione.getNome() %>" placeholder="Nome"/></li>
+                <li class="hide"><input name="oldprovince" id="oldprovince" type="hidden" value="<%= stazione.getProvincia() %>" placeholder="Provincia"/></li>
+                <li class="hide"><input name="oldcity" id="oldcity" type="hidden" value="<%= stazione.getCitta() %>" placeholder="Città"/></li>
                 <!-- parametri da moificare --> <li><input name="name" type="text" id="name" value="<%= stazione.getNome() %>" placeholder="Nome"/></li>
                 <li><input name="address" type="text" id="address" value="<%= stazione.getIndirizzo() %>" placeholder="Indirizzo"/></li>
                 <li><input name="province" type="text" id="province" value="<%= stazione.getProvincia() %>" placeholder="Provincia"/></li>
