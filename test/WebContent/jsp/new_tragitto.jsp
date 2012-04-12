@@ -6,6 +6,10 @@
 <%@ page import = "Utils.HTMLManager" %>
 
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
+<%	if (user == null) {
+	response.sendRedirect("login.jsp");
+} else {
+%>
 
 <!DOCTYPE HTML>
 <html>
@@ -35,7 +39,7 @@
 	
 	<%= HTMLManager.getHeader(session) %>
 	
-	<% ArrayList<Localita> lista_localita = StoreLocalita.getLocalita(); %>
+	<% ArrayList<String> listaProvincia = StoreLocalita.getProvincia(); %>
 	<% ArrayList<Macchina_CP> lista_targhe = Interrogazione.ListaMacchineUtente(user.getEmail()); %>
 	<% String targa = (String)session.getAttribute("targa"); %>
 	<% Modello_Macchina modello; %>
@@ -74,22 +78,10 @@
                 </fieldset>
                 <fieldset>
                 	<legend>Informazioni Viaggio:</legend>
-					<li><select name="fromprovince">
-					<option>Seleziona provincia partenza..</option>
-	     			<% for(Localita A : lista_localita){%> <option value="<%= A.getProvincia() %>"><%= A.getProvincia() %></option> <% } %>
-	                </select></li>
-	                <li><select name="fromcity">
-	                <option>Seleziona città partenza..</option>
-	                <% for(Localita A : lista_localita){%> <option value="<%= A.getCitta() %>"><%= A.getCitta() %></option> <% } %>
-	                </select></li>
-	                <li><select name="toprovince">
-					<option>Seleziona provincia arrivo..</option>
-	     			<% for(Localita A : lista_localita){%> <option value="<%= A.getProvincia() %>"><%= A.getProvincia() %></option> <% } %>
-	                </select></li>
-	                <li><select name="tocity">
-	                <option>Seleziona città arrivo..</option>
-	                <% for(Localita A : lista_localita){%> <option value="<%= A.getCitta() %>"><%= A.getCitta() %></option> <% } %>
-	                </select></li>
+					<li><input name="fromprovince" type="text" id="fromprovince" placeholder="Provincia Partenza"/></li>
+               		<li><input name="fromcity" type="text" id="fromcity" placeholder="Citta Partenza"/></li>
+               		<li><input name="toprovince" type="text" id="toprovince" placeholder="Provincia Arrivo"/></li>
+               		<li><input name="tocity" type="text" id="tocity" placeholder="Citta Arrivo"/></li>
 	                <li><input name="tempo_partenza" type="text" id="tempo_partenza" placeholder="Tempo Partenza"/></li>
                		<li><input name="tempo_arrivo" type="text" id="tempo_arrivo" placeholder="Tempo Arrivo"/></li>
                 </fieldset>
@@ -107,3 +99,4 @@
     </div>
 </body>
 </html>
+<% } %>
