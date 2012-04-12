@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ page import="Entita.Utente" %>    
 <%@ page import = "Utils.HTMLManager" %>
-<% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -45,7 +45,6 @@
 	
     <div id="content">
         <div class="wrapper">
-        Benvenuto <b><%= user.getNome() %></b>,<br/>
         <form method="get" action="../RicercaTragitto_CP" id="search">
             <ul>
                 <li><h1>Ricerca il tragitto perfetto per te!</h1></li>
@@ -58,7 +57,6 @@
                 <li><button name="submit" type="submit" id="submit">Cerca</button></li>
             </ul>
         </form>
-        </table>
         
         <div style="clear: both;"></div>
     	
