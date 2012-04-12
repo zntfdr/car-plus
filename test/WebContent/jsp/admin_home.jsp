@@ -16,18 +16,18 @@
     
     <script>
     	$(document).ready(function(){
-    		var menu_ul  = $("ul#admin_navigation > li > ul");
-    		menu_ul.hide();
-    		$(menu_ul.get(0)).show();
+			var li = $("ul#admin_navigation > li");
     		
-    		$("ul#admin_navigation > li > a").click(function(e){
-    			e.preventDefault();
-    			if (!$(this).hasClass('active')) {
-    				$("ul#admin_navigation > li > a").removeClass('active');
-    				menu_ul.filter(':visible').slideUp('normal');
-    				$(this).addClass('active').next().stop(true, true).slideDown('normal');
-    			}
-    		});
+    		var li_width = li.width();
+    		var li_height = li.height();
+    		
+    		$("ul#admin_navigation ul").css({top: -li_height, left: li_width+5});
+    		$("ul#admin_navigation > li").hover(function(){
+									    			$(this).find("ul").show();
+									    		}, 
+									    		function(){
+									    			$(this).find("ul").hide();
+									    		});
     	});
     </script>
     
