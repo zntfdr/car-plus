@@ -57,6 +57,22 @@
     <url-pattern>/CancellaUtente</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Get_citta</servlet-name>
+    <servlet-class>Servlet.Get_citta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Get_citta</servlet-name>
+    <url-pattern>/Get_citta</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Get_stazione</servlet-name>
+    <servlet-class>Servlet.Get_stazione</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Get_stazione</servlet-name>
+    <url-pattern>/Get_stazione</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Inserimento_abbonamento</servlet-name>
     <servlet-class>Servlet.Inserimento_abbonamento</servlet-class>
   </servlet>
