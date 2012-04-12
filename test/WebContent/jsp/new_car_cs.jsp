@@ -8,8 +8,8 @@
 <%	if (session.getAttribute("ADMIN") == null) {
 	response.sendRedirect("login.jsp");
 } else {
- ArrayList<Stazione_CS> lista_stazioni = StoreStazione_CS.getStazione_CS();
- ArrayList<Modello_Macchina> lista_mod_mac = StoreModello_Macchina.getModello_Macchina(); %>
+	ArrayList<String> listaProvincia = StoreStazione_CS.getProvincia();
+    ArrayList<Modello_Macchina> lista_mod_mac = StoreModello_Macchina.getModello_Macchina(); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -20,6 +20,7 @@
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
+<script type="text/javascript" src="scriptDropdownCitta.js"></script>
 <script>
     $(document).ready(function(){
         $("#purchase_year, #tot_km").keypress(function(e){
@@ -49,17 +50,20 @@
                 <% for(Modello_Macchina A : lista_mod_mac){%> <option value="<%= A.getId() %>"><%= A.getMarca() %> <%= A.getModello() %> <%= A.getAnno() %> alimentata a <%= A.getAlimentazione() %> <%= A.getCilindrata() %>cc</option> <% } %>
                 </select>
                 </li>
-                <li>
-                <select name="name_cs">
-                <% for(Stazione_CS A : lista_stazioni){%> <option value="<%= A.getNome() %>"><%= A.getNome() %></option> <% } %>
-                </select>
-                <li>
-                <select name="city">
-                <% for(Stazione_CS A : lista_stazioni){%> <option value="<%= A.getCitta() %>"><%= A.getCitta() %></option> <% } %>
-                </select>
-                <select name="province">
-     			<% for(Stazione_CS A : lista_stazioni){%> <option value="<%= A.getProvincia() %>"><%= A.getProvincia() %></option> <% } %>
-                </select>
+                <li><select name="provincia_stazione" id="provincia_stazione" onchange="showCity1(this.value, this.name)">
+					<option>Seleziona provincia stazione..</option>
+     					<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
+      			</select></li>
+       			<div id="citta1">
+        			<li><select name="citta_stazione" id="citta_stazione" disabled="disabled">
+        				<option>Seleziona citta stazione..</option>
+        			</select></li>
+        		</div>
+        		<input type="button" value="Cerca Stazione" onClick="showStation(document.getElementById('provincia_stazione').value, document.getElementById('citta_stazione').value);">
+                <div id="nomeStazione">
+
+        		</div>
+                
                 <li><input name="purchase_year" type="text" id="purchase_year" placeholder="Anno di Acquisto"/></li>
                 <li><input name="scadenza_bollo" type="text" id="scadenza_bollo" placeholder="Data di Scadenza Bollo"/></li>
                 <li><input name="scadenza_assicurazione" type="text" id="scadenza_assicurazione" placeholder="Data di Scadenza Assicurazione"/></li>

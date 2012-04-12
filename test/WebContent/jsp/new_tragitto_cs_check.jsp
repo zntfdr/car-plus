@@ -3,12 +3,15 @@
 <%@ page import="Utils.TimeString"%>
 <%@ page import="Entita.Contratto" %>
 <%@ page import="Entita.Utente" %>
-<%@ page import="Store.StoreLocalita" %> 
+<%@ page import="Store.StoreStazione_CS" %> 
 <%@ page import="Entita.Localita" %> 
 <%@ page import = "Utils.HTMLManager" %>
 <% 	Utente user = (Utente) session.getAttribute("utente_loggato");
+	if (user == null || user.getUserType()== Utente.Type.USER ) { //Controllo che sia aperta una connessione, altrimenti faccio il redirect a login.jsp
+		response.sendRedirect("login.jsp");
+	} else {
 	ArrayList<Contratto> listaContratti = (ArrayList<Contratto>)session.getAttribute("listaContratti");
-	ArrayList<Localita> listaLocalita = StoreLocalita.getLocalita(); %>
+	ArrayList<String> listaProvincia = StoreStazione_CS.getProvincia(); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -43,7 +46,7 @@
         </select><br/>
           <select name="provincia_stazione" onchange="showCity1(this.value, this.name)">
 				<option>Seleziona provincia stazione..</option>
-     			<% for(Localita P : listaLocalita){%> <option value="<%= P.getProvincia() %>"><%= P.getProvincia() %></option> <% } %>
+     			<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
         </select><br/>
         <div id="citta1">
         	<select name="citta_stazione" disabled="disabled">
@@ -66,3 +69,4 @@
     </div>
 </body>
 </html>
+<% } %>

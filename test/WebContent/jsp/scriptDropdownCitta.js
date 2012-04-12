@@ -25,12 +25,12 @@ xmlhttp.open("GET","../Get_citta?provincia="+str+"&selectName="+name,true);
 xmlhttp.send();
 }
 
-function showCity2(str, name)
+function showStation(provincia, citta)
 {
 var xmlhttp;    
-if (str=="")
+if (provincia=="")
   {
-  document.getElementById("citta2").innerHTML="";
+  document.getElementById("nomeStazione").innerHTML="";
   return;
   }
 if (window.XMLHttpRequest)
@@ -45,9 +45,9 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-    document.getElementById("citta2").innerHTML=xmlhttp.responseText;
+    document.getElementById("nomeStazione").innerHTML=xmlhttp.responseText;
     }
   }
-xmlhttp.open("GET","../Get_citta?provincia="+str+"&selectName="+name,true);
+xmlhttp.open("GET","../Get_stazione?provincia="+provincia+"&citta="+citta,true);
 xmlhttp.send();
 }
