@@ -16,6 +16,12 @@ public class Inserimento_tragitto_cp extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		
+		Localita partenza = new Localita(req.getParameter("fromcity"), req.getParameter("fromprovince"));
+		Localita arrivo = new Localita(req.getParameter("tocity"), req.getParameter("toprovince"));
+		
+		StoreLocalita.insertLocalita(partenza);
+		StoreLocalita.insertLocalita(arrivo);
+		
 		//Inserisco Tragitto_CP
 		Tragitto_CP tcp = new Tragitto_CP(0, Boolean.parseBoolean(req.getParameter("smokers")),Integer.parseInt(req.getParameter("numero_posti")),req.getParameter("commento"),req.getParameter("fromcity"), req.getParameter("fromprovince"), req.getParameter("tocity"), req.getParameter("toprovince"),req.getParameter("email_utente"),req.getParameter("carplate"),Utils.TimeString.parseSQLTimestampToCalendar(req.getParameter("tempo_partenza")+":00"),Utils.TimeString.parseSQLTimestampToCalendar(req.getParameter("tempo_arrivo")+":00"));
 		StoreTragitto_CP.insertTragitto_CP(tcp);
