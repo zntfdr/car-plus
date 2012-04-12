@@ -14,7 +14,7 @@ import Store.*;
 /**
  *
  */
-public class Get_citta extends HttpServlet {
+public class Get_stazione extends HttpServlet {
 
 	/**
 	 * Gestisce le richieste HTTP GETT
@@ -38,20 +38,20 @@ public class Get_citta extends HttpServlet {
 		// ottiene un flusso di uscita per scrivere la risposta
 		PrintWriter out = res.getWriter();
 		String provincia = req.getParameter("provincia");
-		String selectName = req.getParameter("selectName");
-		String newSelectName = selectName.replace("provincia", "citta");
-		String sql= "SELECT citta FROM stazione_cs WHERE provincia = '"+provincia+"'";
+		String citta = req.getParameter("citta");
+		String sql = "SELECT * FROM stazione_cs WHERE provincia = '"+provincia+"' AND citta='"+citta+"'";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
+		out.println("Risultati Ricerca:");
 		if(rs != null){
 			try {
-				out.println("<select name=\""+newSelectName+"\" id=\""+newSelectName+"\" > ");
+				out.println("<select name=\"nome_stazione\">");
 				while(rs.next()){
-					String citta = rs.getString("citta");
-					out.println("<option value=\""+ citta + "\">"+citta+"</option>");
+					String stazione = "Nome stazione: " + rs.getString("nome") + " indirizzo: "+rs.getString("indirizzo") + " posti: " + rs.getInt("num_posti");
+					out.println("<option value=\""+ rs.getString("nome") + "\">"+stazione+"</option>");
 				}
 				out.println("</section>");
 			} catch(SQLException e){
-				
+				out.println("Errore DB");
 			}
 		}
 		out.flush();
