@@ -15,6 +15,23 @@ public class StoreStazione_CS{
 		Query.doQuery(sql_query);
 	}
 	
+	public static ArrayList<String> getProvincia() {
+		String sql_query = "SELECT DISTINCT provincia FROM stazione_cs ORDER BY provincia";
+		ResultSet rs = Query.doQueryRS(sql_query);
+		if (rs != null) {
+			try {
+				ArrayList<String> list = new ArrayList<String>();
+				while (rs.next()) {
+					list.add(rs.getString("provincia"));
+				}
+				return list;
+			} catch (SQLException e) {
+				
+			}
+		}
+		return null;
+	}
+	
 	public static Stazione_CS insertStazione_CS(Stazione_CS Value){
 		String sql = "INSERT INTO stazione_CS(citta, provincia, nome, indirizzo, num_posti) VALUES('" + Value.getCitta() + "', '" + Value.getProvincia() + "', '" + Value.getNome() + "', '" + Value.getIndirizzo() + "', " + Value.getNum_posti()+ ")";
 	    

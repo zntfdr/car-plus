@@ -54,7 +54,7 @@ public class StoreLocalita{
 	}
 	
 	public static ArrayList<Localita> getLocalita() {
-		String sql_query = "SELECT * FROM localita";
+		String sql_query = "SELECT * FROM localita ORDER BY provincia, citta";
 		ResultSet rs = Query.doQueryRS(sql_query);
 		if (rs != null) {
 			try {
@@ -72,13 +72,30 @@ public class StoreLocalita{
 	}
 	
 	public static ArrayList<String> getCitta(String Provincia) {
-		String sql_query = "SELECT Citta FROM localita WHERE provincia ="+Provincia;
+		String sql_query = "SELECT Citta FROM localita WHERE provincia = '"+Provincia + "' ORDER BY citta";
 		ResultSet rs = Query.doQueryRS(sql_query);
 		if (rs != null) {
 			try {
 				ArrayList<String> list = new ArrayList<String>();
 				while (rs.next()) {
 					list.add(rs.getString("citta"));
+				}
+				return list;
+			} catch (SQLException e) {
+				
+			}
+		}
+		return null;
+	}
+	
+	public static ArrayList<String> getProvincia() {
+		String sql_query = "SELECT DISTINCT provincia FROM localita ORDER BY provincia";
+		ResultSet rs = Query.doQueryRS(sql_query);
+		if (rs != null) {
+			try {
+				ArrayList<String> list = new ArrayList<String>();
+				while (rs.next()) {
+					list.add(rs.getString("provincia"));
 				}
 				return list;
 			} catch (SQLException e) {
