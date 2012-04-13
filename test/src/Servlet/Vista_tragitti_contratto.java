@@ -29,7 +29,7 @@ public class Vista_tragitti_contratto extends HttpServlet {
 	 * @throws IOException
 	 *             se ci sono problemi nella comunicazione client-server.
 	 */
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		String page = "";
 		int contratto_ID = Integer.parseInt(req.getParameter("id"));
