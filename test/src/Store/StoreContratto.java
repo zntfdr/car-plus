@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import Entita.Contratto;
+import Entita.Tessera;
 import Utils.*;
 
 public class StoreContratto{
@@ -41,5 +42,25 @@ public class StoreContratto{
 			}
 		}
 		return listaContratti;
+	}
+	
+	public static int CountTessere(int id){
+		String sql = "SELECT COUNT(*) AS numero_tessere FROM tessera WHERE id_contratto = " + id;
+    	ResultSet rs = Query.doQueryRS(sql);
+    	if(rs != null){
+			try {
+				return rs.getInt("numero_tessere");
+			}catch (SQLException e){
+			}
+		}
+		return 0;	
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
