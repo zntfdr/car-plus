@@ -1,6 +1,8 @@
 <%@ page contentType="text/html" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Tragitto_CS_info"%>
+<%@ page import="Entita.Utente"%>
+<%@ page import="Entita.Utente.Type" %>
 <%@ page import="Store.StoreTragitto_CS_info"%>
 <%@ page import = "Utils.HTMLManager" %>
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); 
@@ -9,8 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
    <body>
-    <form method="GET" action="../Vista_tragitti_cliente" id="Vista_tragitti_cliente">
-    <table border="1">
+       <table border="1">
 
       <tr>
         <td><b>Tessera</b></td>
@@ -26,7 +27,7 @@
         <td><b>Km effettuati</b></td>
         <td><b>Pagato</b></td>
       </tr>
-  <% ArrayList<Tragitto_CS_info> listaCSinfo = (ArrayList<Tragitto_CS_info>) session.getAttribute("lista_tragitti");
+  <% ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_cliente(email_cliente);
      
      for(Tragitto_CS_info T : listaCSinfo){%>
       <tr>
@@ -45,6 +46,5 @@
       </tr>
     <% } %>
     </table>
-    </form>
   </body>
 </html>
