@@ -3,10 +3,11 @@
 <%@ page import="Entita.Tragitto_CS_info"%>
 <%@ page import="Store.StoreTragitto_CS_info"%>
 <%@ page import = "Utils.HTMLManager" %>
-
+   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
    <body>
+    <form method="post" action="../Vista_tragitti_tessera" id="Vista_tragitti_tessera">
     <table border="1">
 
       <tr>
@@ -40,6 +41,6 @@
       </tr>
     <% } %>
     </table>
-
+    </form>
   </body>
 </html>
