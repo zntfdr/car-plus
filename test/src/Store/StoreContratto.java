@@ -44,8 +44,8 @@ public class StoreContratto{
 		return listaContratti;
 	}
 	
-	public static int CountTessere(int id){
-		String sql = "SELECT COUNT(*) AS numero_tessere FROM tessera WHERE id_contratto = " + id;
+	public static int CountTessere(Contratto C){
+		String sql = "SELECT COUNT(*) AS numero_tessere FROM tessera WHERE id_contratto = " + C.getId();
     	ResultSet rs = Query.doQueryRS(sql);
     	if(rs != null){
 			try {
