@@ -4,12 +4,14 @@
 <%@ page import="Store.StoreTragitto_CS_info"%>
 <%@ page import = "Utils.HTMLManager" %>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
    <body>
-    <table border="1">
-
+    <form method="post" action="../Vista_tragitti_contratto" id="Vista_tragitti_contratto">
+      <table border="1">
       <tr>
+        <td><b>Contratto</b></td>
         <td><b>Tessera</b></td>
         <td><b>Nome Stazione</b></td>
         <td><b>Citta</b></td>
@@ -23,10 +25,12 @@
         <td><b>Km effettuati</b></td>
         <td><b>Pagato</b></td>
       </tr>
+      
   <% ArrayList<Tragitto_CS_info> listaCSinfo = (ArrayList<Tragitto_CS_info>) session.getAttribute("lista_tragitti");
      
      for(Tragitto_CS_info T : listaCSinfo){%>
       <tr>
+        <td> <%= T.getContratto() %></td>
         <td> <%= T.getTessera() %></td>
         <td> <%= T.getNome() %></td>
         <td> <%= T.getCitta() %></td>
@@ -42,6 +46,6 @@
       </tr>
     <% } %>
     </table>
-
+   </form> 
   </body>
 </html>
