@@ -13,7 +13,7 @@
    <body>
        
 <% ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_cliente(email_cliente);
-     if listaCSinfo = null then
+     if (listaCSinfo == null)
     	  { %>
     	  <div id="content">
            <div class="wrapper">
