@@ -58,7 +58,7 @@ public class StoreMacchina_CS{
 		for (int i=0; i<listaMacchine.size() - 1; i++){
 			sql += "targa = '" + listaMacchine.get(i)+ "' OR ";
 		}
-		sql+= "targa = '" + listaMacchine.get(listaMacchine.size() - 1)+ "'";
+		if (listaMacchine.size()>0) sql+= "targa = '" + listaMacchine.get(listaMacchine.size() - 1)+ "'";
 		ResultSet rs = Query.doQueryRS(sql);
 		if(rs != null){
 			try {
