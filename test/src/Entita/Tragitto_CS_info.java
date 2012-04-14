@@ -17,7 +17,7 @@ public class Tragitto_CS_info {
     private int contratto;
     private String email_cliente;
 
-    public Tragitto_CS_info(String newnome, String newcitta, String newprovincia, String newmarca, String newmodello, Calendar newtempo_prelievo_prenotazione, Calendar newtempo_consegna_prenotazione, Calendar newtempo_prelievo, Calendar newtempo_consegna, int newkm_totali, Boolean newpagato, int newtessera, int newcontratto, String newemail_cliente) {
+    public Tragitto_CS_info(String newnome, String newcitta, String newprovincia, String newmarca, String newmodello, Calendar newtempo_prelievo, Calendar newtempo_consegna, Calendar newtempo_prelievo_prenotazione, Calendar newtempo_consegna_prenotazione, int newkm_totali, Boolean newpagato, int newtessera, int newcontratto, String newemail_cliente) {
     	nome = newnome;
     	citta = newcitta;
     	provincia = newprovincia;
