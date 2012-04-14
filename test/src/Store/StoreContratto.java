@@ -45,15 +45,15 @@ public class StoreContratto{
 	}
 	
 	public static int CountTessere(Contratto C){
-		String sql = "SELECT COUNT(*) AS numero_tessere FROM tessera WHERE id_contratto = " + C.getId();
+		String sql = "SELECT COUNT(*) FROM tessera WHERE id_contratto = " + C.getId();
     	ResultSet rs = Query.doQueryRS(sql);
     	if(rs != null){
 			try {
-				return rs.getInt("numero_tessere");
+				return rs.getInt("count");
 			}catch (SQLException e){
 			}
 		}
-		return 0;	
+		return 999;	
 		
 		
 		
