@@ -26,7 +26,7 @@
     	  { %>
            <div id="content">
             <div class="wrapper">
-            Non hai ancora fatto uso del servizio di car sharing. Cosa aspetti? <a href="../jsp/new_tragitto_cs_check.jsp">prenota un tragitto</a>!
+            <%=email_cliente%> , non hai ancora fatto uso del servizio di car sharing. Cosa aspetti? <a href="../jsp/new_tragitto_cs_check.jsp">prenota un tragitto</a>!
             <div style="clear: both;"></div>
             </div>
            </div>
@@ -56,10 +56,20 @@
             <td> <%= T.getProvincia() %></td>
             <td> <%= T.getMarca() %></td>
             <td> <%= T.getModello_macchina() %></td>
-            <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione()) %></td>
+            <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione())%></td>
             <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna_prenotazione()) %></td>
-            <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo())%></td>
-            <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna()) %></td>
+            <% String tp = Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo());
+            if (tp.equals("1111/11/11 00:00:00")){%>
+            	<td>  La data di prelievo effettiva non e' ancora stata inserita</td>
+            <%} else { %>
+            	<td> <%= tp %></td>
+             	<%} %>
+              <% String tc = Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna());
+            if (tc.equals("1111/11/11 00:00:00")){%>
+            	<td>  La data di consegna effettiva non e' ancora stata inserita</td>
+            <%} else { %>
+            	<td> <%= tc %></td>
+             	<%} %>
             <td> <%= T.getKm_totali() %></td>
             <td> <%= T.getPagato() %></td>
            </tr> <% } %>
