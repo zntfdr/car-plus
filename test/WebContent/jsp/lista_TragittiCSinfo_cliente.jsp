@@ -11,40 +11,50 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
    <body>
-       <table border="1">
-
-      <tr>
-        <td><b>Tessera</b></td>
-        <td><b>Nome Stazione</b></td>
-        <td><b>Citta</b></td>
-        <td><b>Provincia</b></td>
-        <td><b>Marca Veicolo</b></td>
-        <td><b>Modello Veicolo</b></td>
-        <td><b>Tempo Prelievo Prenotazione</b></td>
-        <td><b>tempo Consegna Prenotazione</b></td>
-        <td><b>Tempo Prelievo</b></td>
-        <td><b>Tempo Consegna</b></td>
-        <td><b>Km effettuati</b></td>
-        <td><b>Pagato</b></td>
-      </tr>
-  <% ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_cliente(email_cliente);
-     
-     for(Tragitto_CS_info T : listaCSinfo){%>
-      <tr>
-        <td> <%= T.getTessera() %></td>
-        <td> <%= T.getNome() %></td>
-        <td> <%= T.getCitta() %></td>
-        <td> <%= T.getProvincia() %></td>
-        <td> <%= T.getMarca() %></td>
-        <td> <%= T.getModello_macchina() %></td>
-        <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione()) %></td>
-        <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna_prenotazione()) %></td>
-        <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo())%></td>
-        <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna()) %></td>
-        <td> <%= T.getKm_totali() %></td>
-        <td> <%= T.getPagato() %></td>
-      </tr>
-    <% } %>
-    </table>
+       
+<% ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_cliente(email_cliente);
+     if listaCSinfo = null then
+    	  { %>
+    	  <div id="content">
+           <div class="wrapper">
+            Non hai fatto alcun tragitto. Cosa aspetti? <a href="../jsp/new_tragitto_cs_check.jsp">prenota un tragitto</a>!
+            <div style="clear: both;"></div>
+           </div>
+          </div> 
+       <% }
+     else 
+          { %>
+      	  <table border="1">
+      	    <tr>
+       		 <td><b>Tessera</b></td>
+       		 <td><b>Nome Stazione</b></td>
+       		 <td><b>Citta</b></td>
+       		 <td><b>Provincia</b></td>
+      		 <td><b>Marca Veicolo</b></td>
+       		 <td><b>Modello Veicolo</b></td>
+      	     <td><b>Tempo Prelievo Prenotazione</b></td>
+      		 <td><b>tempo Consegna Prenotazione</b></td>
+      	     <td><b>Tempo Prelievo</b></td>
+             <td><b>Tempo Consegna</b></td>
+             <td><b>Km effettuati</b></td>
+             <td><b>Pagato</b></td>
+            </tr>
+      <% for(Tragitto_CS_info T : listaCSinfo){%>
+            <tr>
+            <td> <%= T.getTessera() %></td>
+            <td> <%= T.getNome() %></td>
+            <td> <%= T.getCitta() %></td>
+            <td> <%= T.getProvincia() %></td>
+            <td> <%= T.getMarca() %></td>
+            <td> <%= T.getModello_macchina() %></td>
+            <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione()) %></td>
+            <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna_prenotazione()) %></td>
+            <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo())%></td>
+            <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna()) %></td>
+            <td> <%= T.getKm_totali() %></td>
+            <td> <%= T.getPagato() %></td>
+           </tr> <% } %>
+         </table>
+      <% } %>
   </body>
 </html>
