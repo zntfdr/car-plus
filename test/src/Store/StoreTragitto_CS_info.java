@@ -75,11 +75,10 @@ public class StoreTragitto_CS_info{
 					int id_contratto = rs.getInt("id_contratto");
 					Tragitto_CS_info_list.add(new Tragitto_CS_info(nome,citta,provincia,marca,modello,tempo_prelievo,tempo_consegna,tempo_prelievo_prenotazione,tempo_consegna_prenotazione,km,pagato,id_tessera,id_contratto,email));
 				}
-				return Tragitto_CS_info_list;
-			}catch (SQLException e){;
+			}catch (SQLException e){
 			}
 		}
-		return null;
+		return Tragitto_CS_info_list;
 	}
 
 }
