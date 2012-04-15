@@ -22,7 +22,7 @@
    <body>
        <%= HTMLManager.getHeader(session) %>
    <%ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_cliente(email_cliente);
-     if (listaCSinfo == null)
+     if (listaCSinfo.isEmpty())
     	  { %>
            <div id="content">
             <div class="wrapper">
