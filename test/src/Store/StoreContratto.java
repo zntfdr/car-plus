@@ -45,7 +45,7 @@ public class StoreContratto{
 	}
 	
 	public static int CountTessere(Contratto C){
-		String sql = "SELECT COUNT(*) FROM tessera WHERE id_contratto = '" + C.getId() + "'";
+		String sql = "SELECT COUNT(*) FROM tessera WHERE id_contratto = " + C.getId() ;
     	ResultSet rs = Query.doQueryRS(sql);
     	if(rs != null){
 			try {
@@ -53,7 +53,7 @@ public class StoreContratto{
 			}catch (SQLException e){
 			}
 		}
-		return 0;	
+		return 77;	
 		
 		
 		
