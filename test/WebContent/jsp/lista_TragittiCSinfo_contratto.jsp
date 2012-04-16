@@ -22,12 +22,8 @@
    <%= HTMLManager.getHeader(session) %>
    <% int idc = Integer.parseInt(request.getParameter("contratto"));
    Contratto c = Store.StoreContratto.readContratto(idc); %>
-   Id contratto : <%= idc %> 
-   Tipo di abbonamento : <%= c.getNome_abbonamento() %>
-   Data stipula :  <%= c.getData_stipula() %>
-   Data scadenza :  <%= c.getData_scadenza() %>
      <%ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_contratto(idc); %>
-      <h1>Elenco dei tragitti effettuati con il contratto <%=idc %> :</h1>
+      <h1>Elenco dei tragitti effettuati con il contratto <%=idc %> di tipo <%=c.getNome_abbonamento() %> :</h1>
       <table border="1">
 	    <tr>
  		 <td><b>Tessera</b></td>
