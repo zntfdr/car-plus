@@ -49,18 +49,12 @@ public class StoreContratto{
     	ResultSet rs = Query.doQueryRS(sql);
     	if(rs != null){
 			try {
-				return rs.getInt("count");
+				while(rs.next()){
+					return rs.getInt("count");
+				}
 			}catch (SQLException e){
 			}
 		}
-		return 77;	
-		
-		
-		
-		
-		
-		
-		
-		
+		return 77;
 	}
 }
