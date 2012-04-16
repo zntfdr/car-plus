@@ -1,6 +1,9 @@
 package Entita;
 import java.util.Calendar;
 
+import Store.StoreAbbonamento;
+import Store.StoreContratto;
+
 public class Tragitto_CS_info {	
 	private String nome;
     private String citta;
@@ -144,5 +147,34 @@ public class Tragitto_CS_info {
     
     public String getEmail_cliente() {
         return email_cliente;
+    }
+    
+    public double getCosto(){
+    	if(this.tempo_consegna.get(tempo_consegna.YEAR)==1111){
+    		return -1;
+    	}
+    	double costo;
+    	double ore;
+    	Contratto contratto = StoreContratto.readContratto(this.contratto);
+    	Abbonamento abbonamento = StoreAbbonamento.readAbbonamento(contratto.getNome_abbonamento());
+    	//prendi il tempo max tra consegna_prenotazione e consegna_reale
+    	if(this.tempo_consegna.compareTo(this.tempo_consegna_prenotazione) > 0){
+        	ore = (this.tempo_consegna.getTimeInMillis()-this.tempo_prelievo_prenotazione.getTimeInMillis())/(1000*3600);
+    	} else {
+        	ore = (this.tempo_consegna_prenotazione.getTimeInMillis()-this.tempo_prelievo_prenotazione.getTimeInMillis())/(1000*3600);
+    	}
+    	//scegli se tariffa notturna (prelievo dopo le 20.00) o diurna
+    	if(this.tempo_prelievo.get(tempo_prelievo.HOUR_OF_DAY)>20){
+    		costo = ore * abbonamento.getTariffa_notturna();
+    	} else {
+    		costo = ore * abbonamento.getTariffa_diurna();
+    	}
+    	//scegli se usare la tariffa magg 100 km o min 100 km
+    	if(this.km_totali>100){
+    		costo+=(this.km_totali*abbonamento.getTariffa_magg_100km());
+    	} else {
+    		costo+=(this.km_totali*abbonamento.getTariffa_min_100km());
+    	}
+    	return costo;
     }
 }
