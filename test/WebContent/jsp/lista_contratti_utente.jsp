@@ -37,7 +37,7 @@
         <td> <%= C.getNome_abbonamento() %></td>
         <td> <%= Utils.TimeString.dataOraCalendarToString(C.getData_stipula()) %></td>
         <td> <%= Utils.TimeString.dataOraCalendarToString(C.getData_scadenza()) %></td>
-        <td> <%= Store.StoreContratto.CountTessere(C)%></td>
+        <td> <%= Interrogazione.CountTessere(C)%></td>
       </tr>
     <% } %>
     </table>
