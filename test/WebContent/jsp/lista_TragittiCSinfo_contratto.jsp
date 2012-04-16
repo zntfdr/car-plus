@@ -1,7 +1,9 @@
 <%@ page contentType="text/html" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Tragitto_CS_info"%>
+<%@ page import="Entita.Contratto"%>
 <%@ page import="Store.StoreTragitto_CS_info"%>
+<%@ page import="Store.StoreContratto"%>
 <%@ page import = "Utils.HTMLManager" %>
 
 
