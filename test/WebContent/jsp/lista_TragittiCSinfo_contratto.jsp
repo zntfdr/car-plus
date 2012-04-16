@@ -18,13 +18,13 @@
 </head>
    <body>
    <%= HTMLManager.getHeader(session) %>
-   <% int idc = Integer.parseInt(request.getParameter("contratto")) %> 
-   <% Contratto c = Store.StoreContratto.readcontratto(idc) %>
+   <% int idc = Integer.parseInt(request.getParameter("contratto"));
+   Contratto c = Store.StoreContratto.readcontratto(idc); %>
    Id contratto : <%= idc %> 
    Tipo di abbonamento : <%= c.getNome_abbonamento() %>
    Data stipula :  <%= c.getData_stipula() %>
    Data scadenza :  <%= c.getData_scadenza() %>
-     <%ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_contratto(idc);
+     <%ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_contratto(idc); %>
       <table border="1">
 	    <tr>
  		 <td><b>Tessera</b></td>
