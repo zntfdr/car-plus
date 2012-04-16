@@ -17,6 +17,14 @@
     <url-pattern>/CancellaCliente</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>CancellaContratto</servlet-name>
+    <servlet-class>Servlet.CancellaContratto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CancellaContratto</servlet-name>
+    <url-pattern>/CancellaContratto</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>CancellaLocalita</servlet-name>
     <servlet-class>Servlet.CancellaLocalita</servlet-class>
   </servlet>
@@ -87,6 +95,14 @@
   <servlet-mapping>
     <servlet-name>Inserimento_cliente</servlet-name>
     <url-pattern>/Inserimento_cliente</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Inserimento_contratto</servlet-name>
+    <servlet-class>Servlet.Inserimento_contratto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_contratto</servlet-name>
+    <url-pattern>/Inserimento_contratto</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Inserimento_localita</servlet-name>
@@ -207,6 +223,14 @@
   <servlet-mapping>
     <servlet-name>UpdateCliente</servlet-name>
     <url-pattern>/UpdateCliente</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateContratto</servlet-name>
+    <servlet-class>Servlet.UpdateContratto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateContratto</servlet-name>
+    <url-pattern>/UpdateContratto</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>UpdateLocalita</servlet-name>

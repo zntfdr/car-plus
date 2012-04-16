@@ -9,14 +9,14 @@ import Entita.Utente;
 import Utils.*;
 
 public class StoreAbbonamento{
-	public static void deleteAbbonamento(String nome) {
+	public static boolean deleteAbbonamento(String nome) {
 		String sql = "DELETE FROM abbonamento WHERE nome = '" + nome + "'";
-		Query.doQuery(sql);
+		return Query.doUpdate(sql);
 	}
 	
-	public static void insertAbbonamento(Abbonamento abb){
+	public static boolean insertAbbonamento(Abbonamento abb){
 		String sql = "INSERT INTO abbonamento(nome, descrizione, tariffa_magg_100km, tariffa_min_100km, tariffa_notturna, tariffa_diurna, costo_mensile, num_max_tessere, num_min_tessere) VALUES('" + abb.getNome() + "', '" + abb.getDescrizione() + "', " + abb.getTariffa_magg_100km() + ", " + abb.getTariffa_min_100km()  + ", " + abb.getTariffa_notturna()  + ", " + abb.getTariffa_diurna() +  ", " + abb.getCosto_mensile()  + ", " + abb.getNum_max_tessere()  + ", " + abb.getNum_min_tessere() +")";	    
-		Query.doQuery(sql);
+		return Query.doUpdate(sql);
 	}
 
 	public static ArrayList<Abbonamento> getAbbonamenti() {
@@ -73,6 +73,6 @@ public class StoreAbbonamento{
 	
 	 public static void UpdateAbbonamento(Abbonamento abb){
 	    	String sql = "UPDATE abbonamento SET descrizione = '" + abb.getDescrizione() + "',  tariffa_magg_100km = " + abb.getTariffa_magg_100km() + ",  tariffa_min_100km = " + abb.getTariffa_min_100km() + ",  tariffa_notturna = " + abb.getTariffa_notturna() + ",  tariffa_diurna = " + abb.getTariffa_diurna() + ",  costo_mensile = " + abb.getCosto_mensile() + ",  num_max_tessere = " + abb.getNum_max_tessere() + ",  num_min_tessere = " + abb.getNum_min_tessere() + "  WHERE nome = '"+ abb.getNome() + "'";
-	    	Query.doQuery(sql);
+	    	Query.doUpdate(sql);
 	 }
 }

@@ -47,12 +47,12 @@ public class Login extends HttpServlet {
 			else if(login.getPassword().compareTo(Password.checkpsw(password)) == 0) {
 				if (StoreCliente_business.readCliente_business(email) != null){
 					login.setUserType(Type.BUSINESS);
-					ArrayList<Contratto> listaContratti = StoreContratto.listaContrattiUtente(email);
+					ArrayList<Contratto> listaContratti = Interrogazione.listaContrattiUtente(email);
 					session.setAttribute("listaContratti",listaContratti);
 				}
 				else if(StoreCliente.readCliente(email) != null){
 					login.setUserType(Type.CLIENTE);
-					ArrayList<Contratto> listaContratti = StoreContratto.listaContrattiUtente(email);
+					ArrayList<Contratto> listaContratti = Interrogazione.listaContrattiUtente(email);
 					session.setAttribute("listaContratti",listaContratti);
 				}
 				else{

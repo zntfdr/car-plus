@@ -75,6 +75,12 @@
         			<li><a href="../jsp/lista_abbonamenti.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
         	</li>
+        	<li><a href="#">Gestione Contratti</a>
+        		<ul>
+        			<li><a href="../jsp/new_contract.jsp" class="inserisci">Inserisci</a></li>
+        			<li><a href="../jsp/lista_contratti.jsp" class="visualizza">Visualizza</a></li>
+        		</ul>
+        	</li>
         	<li><a href="#">Gestione Località</a>
         		<ul>
         			<li><a href="../jsp/new_place.jsp" class="inserisci">Inserisci</a></li>

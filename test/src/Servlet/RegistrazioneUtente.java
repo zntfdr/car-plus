@@ -13,6 +13,9 @@ public class RegistrazioneUtente extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		
+		Localita loc = new Localita(req.getParameter("provincia"), req.getParameter("citta"));
+		StoreLocalita.insertLocalita(loc);
+		
 		String email = req.getParameter("mail");
 		Utente ut = new Utente(req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), req.getParameter("citta"), req.getParameter("provincia"), MD5.encrypt(req.getParameter("password")), email, req.getParameter("phone"), false, false);
 
