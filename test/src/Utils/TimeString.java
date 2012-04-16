@@ -61,7 +61,7 @@ public class TimeString {
 	public static String dataOraCalendarToString(Calendar cal){
 		String date = "";
 		int mese = cal.get(cal.MONTH) +1;
-		date = cal.get(cal.YEAR) + "/" + duecifre(mese) + "/" + duecifre(cal.get(cal.DAY_OF_MONTH)) + " " + duecifre(cal.get(cal.HOUR)) + ":" + duecifre(cal.get(cal.MINUTE)) + ":" + duecifre(cal.get(cal.SECOND));
+		date = cal.get(cal.YEAR) + "/" + duecifre(mese) + "/" + duecifre(cal.get(cal.DAY_OF_MONTH)) + " " + duecifre(cal.get(cal.HOUR_OF_DAY)) + ":" + duecifre(cal.get(cal.MINUTE)) + ":" + duecifre(cal.get(cal.SECOND));
 		return date;
 	}
 	
