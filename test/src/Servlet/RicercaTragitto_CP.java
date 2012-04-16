@@ -18,20 +18,18 @@ public class RicercaTragitto_CP extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-
-		boolean fumatori = false;
-		String partenza = req.getParameter("from");
-		String arrivo = req.getParameter("to");
+		
+		String provinciaPartenza = req.getParameter("fromProv");
+		String cittaPartenza = req.getParameter("from");
+		String provinciaArrivo = req.getParameter("toProv");
+		String cittaArrivo = req.getParameter("to");
 		Calendar data = Utils.TimeString.dataStringToCalendar(req.getParameter("date"));
 		int num_posti = Integer.parseInt(req.getParameter("people"));
-		if(req.getParameter("smoker")!=null){
-			fumatori = true;
-		}
 
 		HttpSession session = req.getSession();
 		String result = "jsp/searchResult.jsp";
 
-		String sql ="SELECT id FROM tragitto_CP WHERE citta_partenza = '"+ partenza +"' AND citta_arrivo = '"+ arrivo + "' AND tempo_partenza >= '" + Utils.TimeString.dataCalendarToString(data)+"' AND fumatori = '"+ fumatori + "' AND num_posti >= '" + num_posti + "'";
+		String sql ="SELECT id FROM tragitto_CP WHERE provincia_partenza = '" + provinciaPartenza +"' AND citta_partenza = '"+ cittaPartenza +"' AND provincia_arrivo = '"+ provinciaArrivo+ "' AND citta_arrivo = '"+ cittaArrivo + "' AND tempo_partenza >= '" + Utils.TimeString.dataCalendarToString(data)+"' AND num_posti >= '" + num_posti + "'";
 		ResultSet rs = Query.doQueryRS(sql);
 
 		if(rs != null){
