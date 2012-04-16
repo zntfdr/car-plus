@@ -12,34 +12,59 @@
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <link rel="icon" type="image/png" href="../img/favicon.png" />
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
+<style>
+	.selected{
+		background-color: #FFF;
+	}
+</style>
 <script>
     $(document).ready(function(){
-    	$("input#codice_fiscale").keypress(function(e){         	
-         	if ( $("input#codice_fiscale").val().length < 16){ 
-	    		 if (e.keyCode >= 48 && e.keyCode <= 57) {
-	         		return true;
-	         	} else if (e.keyCode >= 97 && e.keyCode <= 122) {
-	         		var content = $(this).val();
-	         		$(this).val(content + String.fromCharCode(e.keyCode - 32));
-	         		return false;
-	         	} else if (e.keyCode >= 65 && e.keyCode <= 90) {
-	         		return true;
-	         	} 
-         	}
-         	return false;
-     })
-     .focusin(function(){
-		 	$(this).removeClass("error");
-	 })
-	 .focusout(function(){
-		 	var pattern = /[A-Z][A-Z][A-Z][A-Z][A-Z][A-Z][0-9][0-9][A-Z][0-9][0-9][A-Z][0-9][0-9][0-9][A-Z]/
-         	if (!pattern.test($("input#codice_fiscale").val())){
-         		alert("Il formato del codice fiscale non è valido. Ricontrolla!");
-         		$("input#codice_fiscale").addClass("error");
-         	}
-	});
+    	$("input#codice_fiscale")
+			.keypress(function(e){
+				if ((e.which != 0) && (e.which != 8)){
+					var cf_length = $("input#codice_fiscale").val().length;
+					if (cf_length < 16) {
+						if ((e.which >= 48) && (e.which <= 57)) {
+								
+								$("input#codice_fiscale").val(
+									$("input#codice_fiscale").val() + String.fromCharCode(e.which)
+								);
+						} else if ((e.which >= 97) && (e.which <= 122)) {
+								
+								$("input#codice_fiscale").val(
+									$("input#codice_fiscale").val() + String.fromCharCode(e.which-32)
+								);
+						} else if ((e.which >= 65) && (e.which <= 90)) {
+							
+								$("input#codice_fiscale").val(
+									$("input#codice_fiscale").val() + String.fromCharCode(e.which)
+								);
+						}
+					}
+					
+					return false;
+				}
+			})
+			.keydown(function(e){
+				if((e.which == 8) || (e.which == 46) || ((e.which >= 37) && (e.which <= 40))) {
+					return true;
+				}
+			})
+	     .focusin(function(){
+			 	$(this).removeClass("error");
+		 })
+		 .focusout(function(){
+				 if ($("input#codice_fiscale").val() != "") {
+					var pattern = /[A-Z][A-Z][A-Z][A-Z][A-Z][A-Z][0-9][0-9][A-Z][0-9][0-9][A-Z][0-9][0-9][0-9][A-Z]/
+		         	if (!pattern.test($("input#codice_fiscale").val())){
+		         		alert("Il formato del codice fiscale non è valido. Ricontrolla!");
+		         		$("input#codice_fiscale").addClass("error");
+		         	} 
+				 }
+		});
+    	
         $("ul#customer_type_navigation li").click(function(e){
             if(e.target.id == "normal_customer"){
                 if(!$(e.target).hasClass("selected")){
@@ -104,7 +129,7 @@
                 <li><input name="partita_iva" type="text" id="partita_iva" placeholder="Partita Iva" maxlength="11" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_pi") != null)) ? session.getAttribute("error_bu_pi") : "" %>"/></li>
                 <li><input name="nome_attivita" type="text" id="nome_attivita" placeholder="Nome Attività" maxlength="50" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_na") != null)) ? session.getAttribute("error_bu_na") : "" %>"/></li>
 
-                <li><button name="submit_business" type="submit" id="submit_business">Registra Cliente Business</button></li>
+                <li><button name="submit_business" type="submit" id="submit">Registra Cliente Business</button></li>
             </ul>
         </form>
         <div style="clear: both;"></div>
