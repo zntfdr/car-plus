@@ -36,6 +36,7 @@
       	  <table border="1">
       	    <tr>
        		 <td><b>Tessera</b></td>
+       		 <td><b>Contratto</b></td>
        		 <td><b>Nome Stazione</b></td>
        		 <td><b>Citta</b></td>
        		 <td><b>Provincia</b></td>
@@ -50,7 +51,8 @@
             </tr>
       <% for(Tragitto_CS_info T : listaCSinfo){%>
             <tr>
-            <td> <%= T.getTessera() %></td>
+            <a href="../jsp/lista_tragittiCSinfo_tessera.jsp?tessera=<%= T.getTessera() %>"><td> <%= T.getTessera() %></a></td>
+            <a href="../jsp/lista_tragittiCSinfo_contratto.jsp?contratto=<%= T.getContratto() %>"><td> <%= T.getContratto() %></a></td>
             <td> <%= T.getNome() %></td>
             <td> <%= T.getCitta() %></td>
             <td> <%= T.getProvincia() %></td>
