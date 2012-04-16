@@ -51,8 +51,8 @@
             </tr>
       <% for(Tragitto_CS_info T : listaCSinfo){%>
             <tr>
-            <a href="../jsp/lista_tragittiCSinfo_tessera.jsp?tessera=<%= T.getTessera() %>"><td> <%= T.getTessera() %></a></td>
-            <a href="../jsp/lista_tragittiCSinfo_contratto.jsp?contratto=<%= T.getContratto() %>"><td> <%= T.getContratto() %></a></td>
+            <td ><a href="../jsp/lista_tragittiCSinfo_tessera.jsp?tessera=<%= T.getTessera() %>"> <%= T.getTessera() %></a></td>
+            <td> <a href="../jsp/lista_tragittiCSinfo_contratto.jsp?contratto=<%= T.getContratto() %>"> <%= T.getContratto() %></a></td>
             <td> <%= T.getNome() %></td>
             <td> <%= T.getCitta() %></td>
             <td> <%= T.getProvincia() %></td>
