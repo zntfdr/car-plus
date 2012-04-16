@@ -19,10 +19,10 @@ public class Inserimento_tragitto_cs extends HttpServlet {
 		
 		HttpSession session = req.getSession();
 		
-		Calendar tempoPrelievo = Utils.TimeString.parseSQLTimestampToCalendar((String)session.getAttribute("tempoPrelievo"));
-		Calendar tempoConsegna = Utils.TimeString.parseSQLTimestampToCalendar((String)session.getAttribute("tempoConsegna"));
+		Calendar tempoPrelievoPrenotazione = Utils.TimeString.parseSQLTimestampToCalendar((String)session.getAttribute("tempoPrelievo"));
+		Calendar tempoConsegnaPrenotazione = Utils.TimeString.parseSQLTimestampToCalendar((String)session.getAttribute("tempoConsegna"));
 		
-		Tragitto_CS tragitto = new Tragitto_CS(0, Integer.parseInt(req.getParameter("idTessera")), req.getParameter("carplate"),tempoPrelievo, tempoConsegna,null ,null , 0, false);
+		Tragitto_CS tragitto = new Tragitto_CS(0, Integer.parseInt(req.getParameter("idTessera")), req.getParameter("carplate"),null, null,tempoPrelievoPrenotazione ,tempoConsegnaPrenotazione , 0, false);
 		StoreTragitto_CS.insertTragitto_CS(tragitto);
 		
 		//Se tutto va bene, comincio a definire la sessione				
