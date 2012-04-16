@@ -19,7 +19,7 @@
    <body>
    <%= HTMLManager.getHeader(session) %>
    <% int idc = Integer.parseInt(request.getParameter("contratto"));
-   Contratto c = Store.StoreContratto.readcontratto(idc); %>
+   Contratto c = Store.StoreContratto.readContratto(idc); %>
    Id contratto : <%= idc %> 
    Tipo di abbonamento : <%= c.getNome_abbonamento() %>
    Data stipula :  <%= c.getData_stipula() %>
