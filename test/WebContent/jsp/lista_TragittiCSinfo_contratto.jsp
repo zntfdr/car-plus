@@ -44,7 +44,7 @@
       </tr>
 <% for(Tragitto_CS_info T : listaCSinfo){%>
       <tr>
-      <a href="../jsp/lista_TragittiCSinfo_tessera.jsp?tessera=<%= T.getTessera() %>"><td> <%= T.getTessera() %></a></td>
+      <td> <a href="../jsp/lista_TragittiCSinfo_tessera.jsp?tessera=<%= T.getTessera() %>"> <%= T.getTessera() %></a></td>
       <td> <%= T.getNome() %></td>
       <td> <%= T.getCitta() %></td>
       <td> <%= T.getProvincia() %></td>
