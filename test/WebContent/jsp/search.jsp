@@ -49,11 +49,12 @@
             <ul>
                 <li><h1>Ricerca il tragitto perfetto per te!</h1></li>
                 <li id="change"><img src="../img/double_arrows.png" id="change_button" /></li>
-                <li><label for="from">Partenza:</label><input name="from" type="text" id="from" /></li>
-                <li><label for="to">Arrivo:</label><input name="to" type="text" id="to" /></li>
+                <li><label for="fromProv">Provincia Partenza:</label><input name="fromProv" type="text" id="fromProv" /></li>
+                <li><label for="from">Citta Partenza:</label><input name="from" type="text" id="from" /></li>
+                <li><label for="toProv">Provincia Arrivo:</label><input name="toProv" type="text" id="toProv" /></li>
+                <li><label for="to">Citta Arrivo:</label><input name="to" type="text" id="to" /></li>
                 <li><label for="date">Data:</label><input name="date" type="datetime" id="date" /></li>
                 <li><label for="people">Quante persone:</label><input name="people" type="text" id="people" maxlength="2"/></li>
-                <li><label for="smoker">Fumatore:</label><input name="smoker" type="checkbox" id="smoker" /></li>
                 <li><button name="submit" type="submit" id="submit">Cerca</button></li>
             </ul>
         </form>
