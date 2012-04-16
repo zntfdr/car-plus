@@ -31,7 +31,7 @@
         <td><b>Tessere Associate</b></td>
 
       </tr>
-  <% ArrayList<Contratto> lista = Store.StoreContratto.listaContrattiUtente(email_cliente);
+  <% ArrayList<Contratto> lista = Interrogazione.listaContrattiUtente(email_cliente);
          for(Contratto C : lista){%> 
       <tr>
         <td> <%= C.getNome_abbonamento() %></td>
