@@ -21,7 +21,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
 <script>
-    $(document).ready(function(){
+$(document).ready(function(){
         $("#purchase_year, #tot_km").keypress(function(e){
             if(e.keyCode < 48 || e.keyCode > 57) return false;
             return true;
@@ -40,21 +40,23 @@
         	var province = $(this).val();
         	var name = $(this).attr('name');
         	var url = "../Get_citta?provincia=" + province + "&selectName=" + name;
-        	$.get(url, function(data){
-		        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '<input type="submit" id="get_stations" name="get_stations" /></li>';
-		        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
-		        			$("input#get_stations").click(function(){
-		        				var city = $("select#citta_stazione").val();
-		        				var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
-		        				$.get(url_stations, function(data){
-		        					var li_stations = '<li id="stations">' + data + '</li>';
-		        					$(li_stations).insertAfter("li#li_citta_stazione");
-		        				});
-		        				return false;
-		        			});
-		        		});
+        	if (province != "") {
+	        	$.get(url, function(data){
+			        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '<input type="submit" id="get_stations" name="get_stations" /></li>';
+			        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
+			        			$("input#get_stations").click(function(){
+			        				var city = $("select#citta_stazione").val();
+			        				var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
+			        				$.get(url_stations, function(data){
+			        					var li_stations = '<li id="stations">' + data + '</li>';
+			        					$(li_stations).insertAfter("li#li_citta_stazione");
+			        				});
+			        				return false;
+			        			});
+			    });
+        	}
         });
-    });
+});
 </script>
 </head>
 
