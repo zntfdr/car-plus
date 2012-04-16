@@ -35,7 +35,7 @@
   <% ArrayList<Contratto> lista = Interrogazione.listaContrattiUtente(email_cliente);
          for(Contratto C : lista){%> 
       <tr>
-        <td ><a href="../jsp/lista_caratteristiche_contratto.jsp?contratto=<%= C.getId() %>">  <%= C.getId() %></a></td>
+        <td ><a href="../jsp/caratteristiche_contratto.jsp?contratto=<%= C.getId() %>">  <%= C.getId() %></a></td>
         <td> <%= C.getNome_abbonamento() %></td>
         <td> <%= Utils.TimeString.dataOraCalendarToString(C.getData_stipula()) %></td>
         <td> <%= Utils.TimeString.dataOraCalendarToString(C.getData_scadenza()) %></td>
