@@ -55,6 +55,6 @@ public class StoreContratto{
 			}catch (SQLException e){
 			}
 		}
-		return 77;
+		return -1;
 	}
 }
