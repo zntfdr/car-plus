@@ -58,9 +58,9 @@ public class StoreMacchina_CS{
 		}
 		if (listaMacchine.size()>0) sql+= "targa = '" + listaMacchine.get(listaMacchine.size() - 1)+ "'";
 		ResultSet rs = Query.doQueryRS(sql);
+		ArrayList<Macchina_CS> Macchine_List = new ArrayList<Macchina_CS>();	
 		if(rs != null){
 			try {
-				ArrayList<Macchina_CS> Macchine_List = new ArrayList<Macchina_CS>();
 				while(rs.next()){
 					Macchine_List.add(new Macchina_CS(rs.getString("targa"), rs.getInt("id_modello"),rs.getString("citta"),rs.getString("provincia"),rs.getString("nome_stazione_CS"),rs.getInt("anno_acquisto"), Utils.TimeString.dataStringToCalendar(rs.getString("scad_bollo")), Utils.TimeString.dataStringToCalendar(rs.getString("scad_assicurazione")), Utils.TimeString.dataStringToCalendar(rs.getString("scad_revisione")),rs.getInt("km_totali"),rs.getBoolean("prenotabile")));
 				}
@@ -68,7 +68,7 @@ public class StoreMacchina_CS{
 			}catch (SQLException e){
 			}
 		}
-		return null;
+		return Macchine_List;
 	}
 	
 	public static boolean UpdateMacchinaCS(Macchina_CS mCS, String targa){
