@@ -16,7 +16,30 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
 <script>
     $(document).ready(function(){
-        
+    	$("input#codice_fiscale").keypress(function(e){         	
+         	if ( $("input#codice_fiscale").val().length < 16){ 
+	    		 if (e.keyCode >= 48 && e.keyCode <= 57) {
+	         		return true;
+	         	} else if (e.keyCode >= 97 && e.keyCode <= 122) {
+	         		var content = $(this).val();
+	         		$(this).val(content + String.fromCharCode(e.keyCode - 32));
+	         		return false;
+	         	} else if (e.keyCode >= 65 && e.keyCode <= 90) {
+	         		return true;
+	         	} 
+         	}
+         	return false;
+     })
+     .focusin(function(){
+		 	$(this).removeClass("error");
+	 })
+	 .focusout(function(){
+		 	var pattern = /[A-Z][A-Z][A-Z][A-Z][A-Z][A-Z][0-9][0-9][A-Z][0-9][0-9][A-Z][0-9][0-9][0-9][A-Z]/
+         	if (!pattern.test($("input#codice_fiscale").val())){
+         		alert("Il formato del codice fiscale non è valido. Ricontrolla!");
+         		$("input#codice_fiscale").addClass("error");
+         	}
+	});
         $("ul#customer_type_navigation li").click(function(e){
             if(e.target.id == "normal_customer"){
                 if(!$(e.target).hasClass("selected")){
@@ -63,7 +86,7 @@
 	                	<% for(String A : Interrogazione.ListaUtentiNonClienti()){%> <option value="<%= A %>"><%= A %></option> <% } %>
 	                </select>
 	            </li>
-                <li><input name="codice_fiscale" type="text" id="codice_fiscale" placeholder="Codice Fiscale" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (!isBusiness.booleanValue())) ? "error" : "" %>"  value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_mail") != null)) ? session.getAttribute("error_cf") : "" %>"/></li>
+                <li><input name="codice_fiscale" type="text" id="codice_fiscale" placeholder="Codice Fiscale" maxlenght="16" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (!isBusiness.booleanValue())) ? "error" : "" %>"  value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_mail") != null)) ? session.getAttribute("error_cf") : "" %>"/></li>
 
                 <li><button name="submit" type="submit" id="submit">Registra Cliente</button></li>
             </ul>
