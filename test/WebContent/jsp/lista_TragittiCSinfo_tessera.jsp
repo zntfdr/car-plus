@@ -24,7 +24,7 @@
    <%= HTMLManager.getHeader(session) %>
    <%ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_tessera(request.getParameter("tessera"));%>
       Numero tessera : <%= request.getParameter("tessera") %>
-      <% Contratto c = Store.StoreContratto.readContratto(Store.StoreTessera.readTessera(request.getParameter('tessera')).getId_contratto())%>
+      <% Contratto c = Store.StoreContratto.readContratto(Store.StoreTessera.readTessera(request.getParameter('tessera')).getId_contratto());%>
       Associata al contratto <%= c.getId() %> di tipo <% c.getNome_abbonamento() %>
       <table border="1">
 	    <tr>
