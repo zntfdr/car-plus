@@ -151,7 +151,7 @@ public class Tragitto_CS_info {
     
     public double getCosto(){
     	if(this.tempo_consegna.get(tempo_consegna.YEAR)==1111){
-    		return -1;
+    		return 0;
     	}
     	double costo;
     	double ore;
@@ -161,7 +161,7 @@ public class Tragitto_CS_info {
     	if(this.tempo_consegna.compareTo(this.tempo_consegna_prenotazione) > 0){
         	ore = (this.tempo_consegna.getTimeInMillis()-this.tempo_prelievo_prenotazione.getTimeInMillis())/(1000*3600);
     	} else {
-        	ore = (this.tempo_consegna_prenotazione.getTimeInMillis()-this.tempo_prelievo_prenotazione.getTimeInMillis())/(1000*3600);
+        	ore = ((double)this.tempo_consegna_prenotazione.getTimeInMillis()-this.tempo_prelievo_prenotazione.getTimeInMillis())/(1000*3600);
     	}
     	//scegli se tariffa notturna (prelievo dopo le 20.00) o diurna
     	if(this.tempo_prelievo.get(tempo_prelievo.HOUR_OF_DAY)>20){
