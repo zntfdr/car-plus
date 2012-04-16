@@ -65,7 +65,8 @@
       	<td> <%= tc %></td>
        	<%} %>
       <td> <%= T.getKm_totali() %></td>
-      <td> <%= T.getPagato() %></td>
+      <td> <% if (T.getPagato()){ %> &#10003;<% } 
+      else { %> &#10007;<% }  %></td>
      </tr> <% } %>
    </table>
   </body>
