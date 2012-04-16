@@ -18,8 +18,13 @@
 </head>
    <body>
    <%= HTMLManager.getHeader(session) %>
-   <%ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_contratto(request.getParameter("contratto"));
-      Id contratto = <%= request.getParameter("contratto") %>
+   <% int idc = Integer.parseInt(request.getParameter("contratto")) %> 
+   <% Contratto c = Store.StoreContratto.readcontratto(idc) %>
+   Id contratto : <%= idc %> 
+   Tipo di abbonamento : <%= c.getNome_abbonamento() %>
+   Data stipula :  <%= c.getData_stipula() %>
+   Data scadenza :  <%= c.getData_scadenza() %>
+     <%ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_contratto(idc);
       <table border="1">
 	    <tr>
  		 <td><b>Tessera</b></td>
@@ -37,7 +42,7 @@
       </tr>
 <% for(Tragitto_CS_info T : listaCSinfo){%>
       <tr>
-      <a href="../jsp/lista_tragittiCSinfo_tessera.jsp?tessera=<%= T.getTessera() %>"><td> <%= T.getTessera() %></a></td>
+      <a href="../jsp/lista_TragittiCSinfo_tessera.jsp?tessera=<%= T.getTessera() %>"><td> <%= T.getTessera() %></a></td>
       <td> <%= T.getNome() %></td>
       <td> <%= T.getCitta() %></td>
       <td> <%= T.getProvincia() %></td>
