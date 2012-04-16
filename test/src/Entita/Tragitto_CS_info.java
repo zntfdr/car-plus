@@ -159,9 +159,9 @@ public class Tragitto_CS_info {
     	Abbonamento abbonamento = StoreAbbonamento.readAbbonamento(contratto.getNome_abbonamento());
     	//prendi il tempo max tra consegna_prenotazione e consegna_reale
     	if(this.tempo_consegna.compareTo(this.tempo_consegna_prenotazione) > 0){
-        	ore = (this.tempo_consegna.getTimeInMillis()-this.tempo_prelievo_prenotazione.getTimeInMillis())/(1000*3600);
+        	ore = (double)(this.tempo_consegna.getTimeInMillis()-this.tempo_prelievo_prenotazione.getTimeInMillis())/(1000*3600);
     	} else {
-        	ore = ((double)this.tempo_consegna_prenotazione.getTimeInMillis()-this.tempo_prelievo_prenotazione.getTimeInMillis())/(1000*3600);
+        	ore = (double)(this.tempo_consegna_prenotazione.getTimeInMillis()-this.tempo_prelievo_prenotazione.getTimeInMillis())/(1000*3600);
     	}
     	//scegli se tariffa notturna (prelievo dopo le 20.00) o diurna
     	if(this.tempo_prelievo.get(tempo_prelievo.HOUR_OF_DAY)>20){
