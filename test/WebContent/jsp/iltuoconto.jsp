@@ -29,6 +29,32 @@
     <div id="content">
         <div class="wrapper">
          Nothing to see here, yet!
+         <% ArrayList<Tragitto_CS_info> listaTragitti = StoreTragitto_CS_info.readTragitto_CS_info_cliente(user.getEmail());
+         double costoTotale = 0;%>
+         <table id="trip_list">
+      		<tr>
+		        <td><b>Stazione tragitto</b></td>
+		        <td><b>Costo</b></td>
+		        <td><b>pagato</b></td>
+      		</tr>
+  			<% for(Tragitto_CS_info T : listaTragitti){
+  				if(!T.getPagato()){
+  					costoTotale += T.getCosto();
+  				}
+  			%>
+      		<tr>
+				<td><%= T.getNome() %></td>
+				<%if(T.getCosto()==0){ %>
+				<td>Vettura non ancora riconsegnata</td>
+				<%} else { %>
+				<td><%= T.getCosto() %></td>
+				<%} %>
+				<td><%= T.getPagato() %></td>
+			</tr>
+		    <% } %>
+    	</table>
+    	<br></br>
+    	Il tuo debito totale nei nostri confronti è di euro: <%=costoTotale %>
          <div style="clear: both;"></div>
         </div>
     </div>
