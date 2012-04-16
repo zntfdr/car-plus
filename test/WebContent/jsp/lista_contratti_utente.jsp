@@ -4,6 +4,7 @@
 <%@ page import="Entita.Utente" %>
 <%@ page import="Entita.Contratto" %>
 <%@ page import="Entita.Utente.Type" %>
+<%@ page import="Servlet.Interrogazione" %>
 <%@ page import="Store.StoreContratto"%>
 <%@ page import = "Utils.HTMLManager" %>
 <% Utente user = (Utente) session.getAttribute("utente_loggato"); 
@@ -23,8 +24,8 @@
    <body>
     <%= HTMLManager.getHeader(session) %>
     <table border="1">
-
       <tr>
+        <td><b>Id Contratto</b></td>
         <td><b>Nome Contratto</b></td>
         <td><b>Data Stipula</b></td>
         <td><b>Data Scadenza</b></td>
@@ -34,6 +35,7 @@
   <% ArrayList<Contratto> lista = Interrogazione.listaContrattiUtente(email_cliente);
          for(Contratto C : lista){%> 
       <tr>
+        <td ><a href="../jsp/lista_caratteristiche_contratto.jsp?contratto=<%= C.getId() %>">  <%= C.getId() %></a></td>
         <td> <%= C.getNome_abbonamento() %></td>
         <td> <%= Utils.TimeString.dataOraCalendarToString(C.getData_stipula()) %></td>
         <td> <%= Utils.TimeString.dataOraCalendarToString(C.getData_scadenza()) %></td>
