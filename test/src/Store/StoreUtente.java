@@ -7,22 +7,19 @@ import Entita.Utente;
 import Utils.*;
 
 public class StoreUtente{
-	public static void deleteUtente(String email) {
+	public static boolean deleteUtente(String email) {
 		String sql_query = "delete from utente where email = '" + email + "'";
-		Query.doQuery(sql_query);
+		return Query.doUpdate(sql_query);
 	}
 	
-    public static Utente insertUtente(Utente ut){
+    public static boolean insertUtente(Utente ut){
         String sql = "INSERT INTO utente(nome, cognome, sesso, indirizzo, citta, provincia, telefono, email, password, account_sospeso, account_verificato) VALUES('" + ut.getNome() + "','" + ut.getCognome() + "','" + ut.getSesso() + "','" + ut.getIndirizzo() + "','" + ut.getCitta() + "','" + ut.getProvincia() + "','" + ut.getTelefono() + "','" + ut.getEmail() + "','" + Password.checkpsw(ut.getPassword()) + "','" + ut.getAccount_sospeso() + "','" + ut.getAccount_verificato() + "')";
-
-      Query.doQuery(sql);
-      return readUtente(ut.getEmail());
+        return Query.doUpdate(sql);
     }
     
-    public static Utente UpdateUtente(Utente ut){
+    public static boolean UpdateUtente(Utente ut){
     	String sql = "UPDATE utente SET nome = '" + ut.getNome() + "', cognome = '" + ut.getCognome() + "', sesso = '" + ut.getSesso() + "', indirizzo = '" + ut.getIndirizzo() + "', citta = '" + ut.getCitta() + "', provincia = '" + ut.getProvincia() + "', telefono = '" + ut.getTelefono() + "', password = '" + Password.checkpsw(ut.getPassword()) + "' WHERE email = '" + ut.getEmail() + "'";
-    	Query.doQuery(sql);
-    	return readUtente(ut.getEmail());
+    	return Query.doUpdate(sql);
     }
     
     public static Utente UpdateUtenteWithoutPassword(Utente ut){

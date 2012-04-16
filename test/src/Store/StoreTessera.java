@@ -7,10 +7,10 @@ import Entita.Tragitto_CP;
 import Utils.*;
 
 public class StoreTessera{
-    public static void insertTessera(Tessera tess){
+    public static boolean insertTessera(Tessera tess){
         String sql = "INSERT INTO tessera(id_contratto) VALUES(" +tess.getId_contratto()+")";
 
-      Query.doQuery(sql);
+      return Query.doUpdate(sql);
     }
 
     public static Tessera readTessera(int id){

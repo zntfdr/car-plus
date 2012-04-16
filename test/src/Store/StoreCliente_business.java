@@ -4,18 +4,14 @@ import Entita.Cliente_business;
 import Utils.*;
 
 public class StoreCliente_business{
-	public static Cliente_business insertCliente_business(Cliente_business cb){
+	public static boolean insertCliente_business(Cliente_business cb){
 		String sql = "INSERT INTO cliente_business(email_utente, partita_iva, nome_attivita) VALUES('" + cb.getEmail_utente() + "', '" + cb.getPartita_iva() + "', '" + cb.getNome_attivita()+ "')";
-	    
-		Query.doQuery(sql);
-		return readCliente_business(cb.getEmail_utente());
+		return Query.doUpdate(sql);
 	}
 	
-	public static void updateCliente_business(Cliente_business cb){
+	public static boolean updateCliente_business(Cliente_business cb){
 		String sql = "update cliente_business set partita_iva = '" + cb.getPartita_iva() + "', nome_attivita = '" + cb.getNome_attivita()+ "' where email_utente = '" + cb.getEmail_utente() + "'";
-	    
-		Query.doQuery(sql);
-		readCliente_business(cb.getEmail_utente());
+		return Query.doUpdate(sql);
 	}
 
 	public static Cliente_business readCliente_business(String email_utente){

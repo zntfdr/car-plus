@@ -8,14 +8,14 @@ import Entita.Localita;
 import Utils.*;
 
 public class StoreLocalita{
-	public static void deleteLocalita(Localita old) {
+	public static boolean deleteLocalita(Localita old) {
 		String sql = "DELETE FROM localita WHERE citta = '" + old.getCitta() + "' AND provincia = '" + old.getProvincia() + "'";
-		Query.doQuery(sql);
+		return Query.doUpdate(sql);
 	}
 	
-	public static void insertLocalita(Localita loc){
+	public static boolean insertLocalita(Localita loc){
 		String sql = "INSERT INTO localita(provincia, citta) VALUES('" + loc.getProvincia() + "', '" + loc.getCitta() + "')";
-		Query.doQuery(sql);
+		return Query.doUpdate(sql);
 	}
 
 	public static Localita readLocalita(String provincia, String citta){
@@ -105,8 +105,8 @@ public class StoreLocalita{
 		return null;
 	}
 
-	public static void UpdateLocalita(Localita newplace, Localita oldplace) {
+	public static boolean UpdateLocalita(Localita newplace, Localita oldplace) {
 		String sql = "UPDATE localita SET citta = '"+ newplace.getCitta() +"', provincia = '"+ newplace.getProvincia() +"' WHERE  citta = '" + oldplace.getCitta() + "' AND provincia = '" + oldplace.getProvincia() + "'";
-		Query.doQuery(sql);
+		return Query.doUpdate(sql);
 	}
 }

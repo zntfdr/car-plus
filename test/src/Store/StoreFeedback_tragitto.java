@@ -5,11 +5,10 @@ import Entita.Feedback_tragitto;
 import Utils.*;
 
 public class StoreFeedback_tragitto{
-	public static Feedback_tragitto insertFeedback_tragitto(Feedback_tragitto Value){
+	public static boolean insertFeedback_tragitto(Feedback_tragitto Value){
 		String sql = "INSERT INTO feedback_tragitto(email_valutante,email_valutato,data,titolo,commento,valutazione) VALUES('" + Value.getEmail_valutante() + "', '" + Value.getEmail_valutato() + "', '" + Utils.TimeString.dataCalendarToString(Value.getData()) + "', '" + Value.getTitolo() + "', '" + Value.getCommento() + "', '" + Value.getValutazione() + "')";
 	    
-		Query.doQuery(sql);
-		return readFeedback_tragitto(Value.getTragitto_id(), Value.getEmail_valutante(), Value.getEmail_valutato());
+		return Query.doUpdate(sql);
 	}
 
 	public static Feedback_tragitto readFeedback_tragitto(int tragitto_id, String email_valutante, String email_valutato){

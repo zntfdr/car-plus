@@ -10,9 +10,9 @@ import Utils.*;
 
 public class StoreStazione_CS{
 	
-	public static void deleteStazioneCS(String citta, String provincia, String nome) {
+	public static boolean deleteStazioneCS(String citta, String provincia, String nome) {
 		String sql_query = "delete from stazione_cs where citta = '" + citta + "' AND provincia = '" + provincia + "' AND nome = '" + nome + "'";
-		Query.doQuery(sql_query);
+		return Query.doUpdate(sql_query);
 	}
 	
 	public static ArrayList<String> getProvincia() {
@@ -32,11 +32,9 @@ public class StoreStazione_CS{
 		return null;
 	}
 	
-	public static Stazione_CS insertStazione_CS(Stazione_CS Value){
+	public static boolean insertStazione_CS(Stazione_CS Value){
 		String sql = "INSERT INTO stazione_CS(citta, provincia, nome, indirizzo, num_posti) VALUES('" + Value.getCitta() + "', '" + Value.getProvincia() + "', '" + Value.getNome() + "', '" + Value.getIndirizzo() + "', " + Value.getNum_posti()+ ")";
-	    
-		Query.doQuery(sql);
-		return readStazione_CS(Value.getCitta(),Value.getProvincia(),Value.getNome());
+		return Query.doUpdate(sql);
 	}
 
 	public static Stazione_CS readStazione_CS(String citta, String provincia, String nome){
@@ -91,9 +89,9 @@ public class StoreStazione_CS{
 		return null;
 	}
 
-	public static void UpdateStazioneCS(Stazione_CS scs, String citta, String provincia, String nome){
+	public static boolean UpdateStazioneCS(Stazione_CS scs, String citta, String provincia, String nome){
     	String sql = "UPDATE stazione_cs SET citta = '" + scs.getCitta() + "', provincia = '" + scs.getProvincia() + "', nome = '" + scs.getNome() + "', indirizzo = '" + scs.getIndirizzo() + "', num_posti  = " + scs.getNum_posti() + " WHERE citta = '" + citta + "' AND provincia = '" + provincia + "' AND nome = '" + nome + "'";
-    	Query.doQuery(sql);
+    	return Query.doUpdate(sql);
     }
 	
 }

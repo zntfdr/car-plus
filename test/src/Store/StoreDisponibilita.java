@@ -8,10 +8,9 @@ import Entita.Tragitto_CP;
 import Utils.*;
 
 public class StoreDisponibilita{	
-	public static void insertDisponibilita(Disponibilita dis){
+	public static boolean insertDisponibilita(Disponibilita dis){
 		String sql = "INSERT INTO disponibilita(modello_macchina, nome_abbonamento) VALUES('" + dis.getModello() + "', '" + dis.getNome_abb() +"')";
-	  
-		Query.doQuery(sql);
+		return Query.doUpdate(sql);
 	}
 
 	public static  Disponibilita readDisponibilita(String nome){

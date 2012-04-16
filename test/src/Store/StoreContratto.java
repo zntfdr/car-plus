@@ -32,7 +32,6 @@ public class StoreContratto{
 	
 	public static boolean insertContratto(Contratto Value){
 		String sql = "INSERT INTO contratto(data_stipula,data_scadenza,email_cliente,nome_abbonamento) VALUES('" + Utils.TimeString.dataCalendarToString(Value.getData_stipula()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getData_scadenza()) + "', '" + Value.getEmail_cliente() + "', '" + Value.getNome_abbonamento() + "')";
-	    
 		return Query.doUpdate(sql);
 	}
 

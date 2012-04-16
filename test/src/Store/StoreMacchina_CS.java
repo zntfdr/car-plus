@@ -9,9 +9,9 @@ import Utils.*;
 
 public class StoreMacchina_CS{
 	
-	public static void deleteMacchinaCS(String targa) {
+	public static boolean deleteMacchinaCS(String targa) {
 		String sql_query = "delete from macchina_cs where targa = '" + targa + "'";
-		Query.doQuery(sql_query);
+		return Query.doUpdate(sql_query);
 	}
 	
 	public static ArrayList<Macchina_CS> getMacchina_CS() {
@@ -32,11 +32,9 @@ public class StoreMacchina_CS{
 		return null;
 	}
 	
-	public static Macchina_CS insertMacchina_CS(Macchina_CS Value){
+	public static boolean insertMacchina_CS(Macchina_CS Value){
 		String sql = "INSERT INTO macchina_CS(targa,id_modello,citta,provincia,nome_stazione_CS,anno_acquisto,scad_bollo,scad_assicurazione,scad_revisione,km_totali,prenotabile) VALUES('" + Value.getTarga() + "', '" + Value.getId_modello() + "', '" + Value.getCitta() + "', '" + Value.getProvincia() + "', '" + Value.getNome_stazione_CS() + "', '" + Value.getAnno_acquisto() + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_bollo()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_assicurazione()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_revisione()) + "', '" + Value.getKm_totali() + "', TRUE)";
-	    
-		Query.doQuery(sql);
-		return readMacchina_CS(Value.getTarga());
+		return Query.doUpdate(sql);
 	}
 
 	public static Macchina_CS readMacchina_CS(String targa){
@@ -73,8 +71,8 @@ public class StoreMacchina_CS{
 		return null;
 	}
 	
-	public static void UpdateMacchinaCS(Macchina_CS mCS, String targa){
+	public static boolean UpdateMacchinaCS(Macchina_CS mCS, String targa){
     	String sql = "UPDATE macchina_cs SET targa = '" + mCS.getTarga() + "', id_modello = " + mCS.getId_modello() + ", citta = '" + mCS.getCitta() + "', provincia = '" + mCS.getProvincia() + "', nome_stazione_CS = '" + mCS.getNome_stazione_CS() + "', anno_acquisto = " + mCS.getAnno_acquisto() + ", scad_bollo = '" + Utils.TimeString.dataCalendarToString(mCS.getScad_bollo()) + "', scad_assicurazione = '" + Utils.TimeString.dataCalendarToString(mCS.getScad_assicurazione()) + "', scad_revisione = '" + Utils.TimeString.dataCalendarToString(mCS.getScad_revisione()) + "', km_totali = " + mCS.getKm_totali() + ", prenotabile = " + mCS.getPrenotabile() + " WHERE targa = '" + targa + "'";
-    	Query.doQuery(sql);
+    	return Query.doUpdate(sql);
     }
 }

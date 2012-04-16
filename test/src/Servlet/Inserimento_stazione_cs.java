@@ -17,8 +17,7 @@ public class Inserimento_stazione_cs extends HttpServlet {
 			throws ServletException, IOException {
 		
 		//Inserisco Stazione_CS
-		Stazione_CS sCS = new Stazione_CS(req.getParameter("city"),req.getParameter("province"),req.getParameter("name"),req.getParameter("address"), Integer.parseInt(req.getParameter("num_places")));		
-		sCS =  StoreStazione_CS.insertStazione_CS(sCS);
+		Stazione_CS sCS = new Stazione_CS(req.getParameter("city"),req.getParameter("province"),req.getParameter("name"),req.getParameter("address"), Integer.parseInt(req.getParameter("num_places")));
 		
 		//Se tutto va bene, comincio a definire la sessione
 		HttpSession session = req.getSession();
@@ -40,7 +39,6 @@ public class Inserimento_stazione_cs extends HttpServlet {
 			}
 		}
 		
-		session.setAttribute("stazione_nuova",sCS); //passo il costrutto parametri alla pagina
 		page = "jsp/lista_stazioni_cs.jsp";	
 		session.setAttribute("descrizione", "Registrazione nuova Stazione avvenuta con successo!");
 		

@@ -5,26 +5,22 @@ import Entita.Cliente;
 import Utils.*;
 
 public class StoreCliente {
-	public static Cliente insertCliente(Cliente c) {
-		String sql_query = "INSERT INTO cliente (email_utente, cf) VALUES ('" + c.getEmail_utente() + "', '" + c.getCodice_fiscale() + "')";
-		Query.doQuery(sql_query);
-		
-		return readCliente(c.getEmail_utente());
+	public static boolean insertCliente(Cliente c) {
+		String sql = "INSERT INTO cliente (email_utente, cf) VALUES ('" + c.getEmail_utente() + "', '" + c.getCodice_fiscale() + "')";
+		return Query.doUpdate(sql);
 	}
 	
-	public static void updateCliente(Cliente c) {
-		String sql_query = "Update cliente set cf = '" + c.getCodice_fiscale() + "' where email_utente = '" + c.getEmail_utente() + "'";
-		Query.doQuery(sql_query);
-		
-		readCliente(c.getEmail_utente());
+	public static boolean updateCliente(Cliente c) {
+		String sql = "Update cliente set cf = '" + c.getCodice_fiscale() + "' where email_utente = '" + c.getEmail_utente() + "'";
+		return Query.doUpdate(sql);
 	}
 	
-	public static void deleteCliente(String email) {
-		String sql_query = "delete from cliente where email_utente = '" + email + "'";
-		Query.doQuery(sql_query);
+	public static boolean deleteCliente(String email) {
+		String sql = "delete from cliente_business where email_utente = '" + email + "'";
+		Query.doUpdate(sql);
 		
-		sql_query = "delete from cliente_business where email_utente = '" + email + "'";
-		Query.doQuery(sql_query);
+		sql = "delete from cliente where email_utente = '" + email + "'";
+		return Query.doUpdate(sql);
 	}
 	
 	public static Cliente readCliente(String email){

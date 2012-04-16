@@ -22,11 +22,12 @@
 </head>
    <body>
    <%= HTMLManager.getHeader(session) %>
-   <%ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_tessera(request.getParameter("tessera"));
-    int idt = Integer.parseInt(request.getParameter("tessera"));%>
+   <% int idt = Integer.parseInt(request.getParameter("tessera"));
+      ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_tessera(idt);
+    %>
       Numero tessera : <%= idt %>
       <% Contratto c = Store.StoreContratto.readContratto(Store.StoreTessera.readTessera(idt).getId_contratto());%>
-      Associata al contratto <%= c.getId() %> di tipo <% c.getNome_abbonamento() %>
+      Associata al contratto <%= c.getId() %> di tipo <%= c.getNome_abbonamento() %>
       <table border="1">
 	    <tr>
  		 <td><b>Nome Stazione</b></td>

@@ -4,11 +4,10 @@ import Entita.Guasto;
 import Utils.*;
 
 public class StoreGuasto{
-    public static Guasto insertGuasto(Guasto gst){
+    public static boolean insertGuasto(Guasto gst){
         String sql = "INSERT INTO guasto(id_tragitto_CS,danno,causa,data_invio_riparazione, data_segnalazione,grave) VALUES(" + gst.getId_tragitto() + ",'" + gst.getDanno() + "','" + gst.getCausa() + "','"+ gst.getData_invio_riparazione() +"','"+gst.getData_segnalazione() + "'," + gst.getGrave() + ")";
 
-      Query.doQuery(sql);
-      return readGuasto(gst.getId());
+      return Query.doUpdate(sql);
     }
 
     public static Guasto readGuasto(int id){
