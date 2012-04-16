@@ -32,6 +32,15 @@
     <div id="content">
         <div class="wrapper">
         <form method="GET" action="../Inserimento_tragitto_cs" id="Inserimento_tragitto_cs">
+            <%if (listaMacchine.isEmpty()) { %>
+            <div id="content">
+            <div class="wrapper">
+            Non ci sono macchine disponibili. <a href="../jsp/new_tragitto_cs_check.jsp">Riprova cambiando i campi di ricerca </a>
+            <div style="clear: both;"></div>
+            </div>
+           </div>
+            <% } else {%>
+            
             <ul>
                 <li><h1>Inserimento prenotazione Car Sharing</h1></li>
                 <fieldset>
@@ -55,6 +64,7 @@
 	            </fieldset>
                 <li><button name="submit" type="submit" id="submit">Prenota</button></li>
             </ul>
+            <%} %>
         </form>
         
         <div style="clear: both;"></div>
