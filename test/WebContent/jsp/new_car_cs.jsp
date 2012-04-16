@@ -67,27 +67,34 @@
         <form method="GET" action="../Inserimento_macchina_cs" id="Inserimento_macchina_cs">
             <ul>
                 <li><h1>Inserimento nuova macchina di Car sharing</h1></li>
-                <li><input name="car_plate" type="text" id="car_plate" placeholder="Targa"/></li>
-                <li>
-                <select name="model">
-                <option>Nuovo modello..</option>
-                <% for(Modello_Macchina A : lista_mod_mac){%> <option value="<%= A.getId() %>"><%= A.getMarca() %> <%= A.getModello() %> <%= A.getAnno() %> alimentata a <%= A.getAlimentazione() %> <%= A.getCilindrata() %>cc</option> <% } %>
-                </select>
-                </li>
-                <li id="li_provincia_stazione">
-	                <select name="provincia_stazione" id="provincia_stazione">
-						<option>Seleziona provincia stazione..</option>
-	     				<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
-	      			</select>
-      			</li>
-                
-                <li><input name="purchase_year" type="text" id="purchase_year" placeholder="Anno di Acquisto"/></li>
-                <li><input name="scadenza_bollo" type="text" id="scadenza_bollo" placeholder="Data di Scadenza Bollo"/></li>
-                <li><input name="scadenza_assicurazione" type="text" id="scadenza_assicurazione" placeholder="Data di Scadenza Assicurazione"/></li>
-                <li><input name="scadenza_revisione" type="text" id="scadenza_revisione" placeholder="Data di Scadenza Revisione"/></li>
-
-                <li><input name="tot_km" type="text" id="tot_km" placeholder="Km Totali"/></li>
-
+                <fieldset>
+                	<legend>Informazioni Automobile (1):</legend>
+	                <li><input name="car_plate" type="text" id="car_plate" placeholder="Targa"/></li>
+	                <li>
+		                <select name="model">
+			                <option>Nuovo modello..</option>
+			                <% for(Modello_Macchina A : lista_mod_mac){%> <option value="<%= A.getId() %>"><%= A.getMarca() %> <%= A.getModello() %> <%= A.getAnno() %> alimentata a <%= A.getAlimentazione() %> <%= A.getCilindrata() %>cc</option> <% } %>
+		                </select>
+	                </li>
+	            </fieldset>
+	            <fieldset>
+	            	<legend>Locazione Automobile:</legend>
+	                <li id="li_provincia_stazione">
+		                <select name="provincia_stazione" id="provincia_stazione">
+							<option>Seleziona provincia stazione..</option>
+		     				<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
+		      			</select>
+	      			</li>
+                </fieldset>
+                <fieldset>
+                	<legend>Informazioni Automobile (2):</legend>
+	                <li><input name="purchase_year" type="text" id="purchase_year" placeholder="Anno di Acquisto"/></li>
+	                <li><input name="scadenza_bollo" type="text" id="scadenza_bollo" placeholder="Data di Scadenza Bollo"/></li>
+	                <li><input name="scadenza_assicurazione" type="text" id="scadenza_assicurazione" placeholder="Data di Scadenza Assicurazione"/></li>
+	                <li><input name="scadenza_revisione" type="text" id="scadenza_revisione" placeholder="Data di Scadenza Revisione"/></li>
+	
+	                <li><input name="tot_km" type="text" id="tot_km" placeholder="Km Totali"/></li>
+				</fieldset>
                 <li><button name="submit" type="submit" id="submit">Inserisci</button></li>
             </ul>
         </form>
