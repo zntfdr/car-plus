@@ -23,10 +23,11 @@
 </head>
    <body>
     <%= HTMLManager.getHeader(session) %>
+    <h1>Elenco dei tuoi contratti:</h1>
     <table border="1">
       <tr>
         <td><b>Id Contratto</b></td>
-        <td><b>Nome Contratto</b></td>
+        <td><b>Tipo Contratto</b></td>
         <td><b>Data Stipula</b></td>
         <td><b>Data Scadenza</b></td>
         <td><b>Tessere Associate</b></td>
