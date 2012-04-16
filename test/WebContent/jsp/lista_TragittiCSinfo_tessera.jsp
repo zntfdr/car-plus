@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Visualizza i tragitti effettuati dal cliente | Car+</title>
+<title>Visualizza i tragitti effettuati dal cliente con una tessera| Car+</title>
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <link rel="icon" type="image/png" href="../img/favicon.png" />
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
