@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Visualizza i tragitti effettuati dal cliente | Car+</title>
+<title>Visualizza i tragitti effettuati dal cliente con un contratto| Car+</title>
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <link rel="icon" type="image/png" href="../img/favicon.png" />
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -27,6 +27,7 @@
    Data stipula :  <%= c.getData_stipula() %>
    Data scadenza :  <%= c.getData_scadenza() %>
      <%ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_contratto(idc); %>
+      <h1>Elenco dei tragitti effettuati con il contratto <%=idc %> :</h1>
       <table border="1">
 	    <tr>
  		 <td><b>Tessera</b></td>
