@@ -48,7 +48,6 @@
         <form method="get" action="../RicercaTragitto_CP" id="search">
             <ul>
                 <li><h1>Ricerca il tragitto perfetto per te!</h1></li>
-                <li id="change"><img src="../img/double_arrows.png" id="change_button" /></li>
                 <li><label for="fromProv">Provincia Partenza:</label><input name="fromProv" type="text" id="fromProv" /></li>
                 <li><label for="from">Citta Partenza:</label><input name="from" type="text" id="from" /></li>
                 <li><label for="toProv">Provincia Arrivo:</label><input name="toProv" type="text" id="toProv" /></li>
