@@ -52,7 +52,7 @@
             </tr>
       <% for(Tragitto_CS_info T : listaCSinfo){%>
             <tr>
-            <td ><a href="../jsp/lista_TragittiCSinfo_tessera.jsp?tessera=<%= T.getTessera() %>"> <%= T.getTessera() %></a></td>
+            <td ><a href="../jsp/lista_TragittiCSinfo_tessera.jsp?tessera=<%= T.getId_tessera() %>"> <%= T.getId_tessera() %></a></td>
             <td> <a href="../jsp/lista_TragittiCSinfo_contratto.jsp?contratto=<%= T.getContratto() %>"> <%= T.getContratto() %></a></td>
             <td> <%= T.getNome() %></td>
             <td> <%= T.getCitta() %></td>
