@@ -22,10 +22,9 @@ public class StoreUtente{
     	return Query.doUpdate(sql);
     }
     
-    public static Utente UpdateUtenteWithoutPassword(Utente ut){
+    public static boolean UpdateUtenteWithoutPassword(Utente ut){
     	String sql = "UPDATE utente SET nome = '" + ut.getNome() + "', cognome = '" + ut.getCognome() + "', sesso = '" + ut.getSesso() + "', indirizzo = '" + ut.getIndirizzo() + "', citta = '" + ut.getCitta() + "', provincia = '" + ut.getProvincia() + "', telefono = '" + ut.getTelefono() + "' WHERE email = '" + ut.getEmail() + "'";
-    	Query.doQuery(sql);
-    	return readUtente(ut.getEmail());
+    	return Query.doUpdate(sql);
     }
 
     public static Utente readUtente(String email){

@@ -15,12 +15,16 @@ import Store.*;
 public class CancellaLocalita extends HttpServlet {
        
 	public void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-			
+		String descrizione;
 		Localita old = new Localita (req.getParameter("citta"), req.getParameter("provincia"));			
-		StoreLocalita.deleteLocalita(old);
+		
+		if(StoreLocalita.deleteLocalita(old))
+			descrizione = "Cancellazione localita (" + old.getCitta() + "," + old.getProvincia() + ") avvenuta con successo!";
+		else
+			descrizione = "Cancellazione localita (" + old.getCitta() + "," + old.getProvincia() + ") non avvenuta! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
 		
 		HttpSession session = req.getSession();
-		session.setAttribute("descrizione", "Cancellazione localita (" + old.getCitta() + "," + old.getProvincia() + ") avvenuta con successo!");
+		session.setAttribute("descrizione", descrizione);
 		response.sendRedirect("jsp/lista_localita.jsp"); //invia a lista localita
 	}
 

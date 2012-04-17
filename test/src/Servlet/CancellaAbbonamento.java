@@ -16,11 +16,15 @@ public class CancellaAbbonamento extends HttpServlet {
        
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-		String nome = request.getParameter("nome");			
-		StoreAbbonamento.deleteAbbonamento(nome);
+		String descrizione, nome = request.getParameter("nome");
+		
+		if(StoreAbbonamento.deleteAbbonamento(nome))
+			descrizione = "Cancellazione abbonamento " + nome + " avvenuta con successo!";
+		else
+			descrizione = "Cancellazione abbonamento " + nome + " non avvenuta! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("descrizione", "Cancellazione abbonamento " + nome + " avvenuta con successo!");
+		session.setAttribute("descrizione",descrizione); 
 		response.sendRedirect("jsp/lista_abbonamenti.jsp"); //invia a lista abbonamenti
 	}
 

@@ -1,13 +1,8 @@
 package Servlet;
-
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.*;
-import java.util.ArrayList;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
-
 import Entita.*;
 import Utils.*;
 import Store.*;
@@ -17,22 +12,10 @@ import Store.*;
  */
 public class Inserimento_cliente extends HttpServlet {
        
-
-	/**
-	 * Gestisce le richieste HTTP POST
-	 * 
-	 * @param req
-	 *            la richiesta ricevuta dal client.
-	 * @param res
-	 *            la rispota fornita dal server.
-	 * 
-	 * @throws ServletException
-	 *             se ci sono problemi nell'esecuzione della servlet.
-	 * @throws IOException
-	 *             se ci sono problemi nella comunicazione client-server.
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean mail_exists_yet = false;
+		String descrizione = "";
+		
 		if (request.getParameter("submit") != null) {
 			
 			String email = request.getParameter("email");
@@ -45,7 +28,10 @@ public class Inserimento_cliente extends HttpServlet {
 				try {
 					if (rs.next()) {
 						Cliente customer = new Cliente(email, codice_fiscale);
-						StoreCliente.insertCliente(customer);
+						if(StoreCliente.insertCliente(customer))
+							descrizione = "Inserimento del cliente base (" + customer.getEmail_utente() + "," + customer.getCodice_fiscale() + ") avvenuta con successo!";
+						else
+							descrizione = "Inserimento del cliente base (" + customer.getEmail_utente() + "," + customer.getCodice_fiscale() + ") non avvenuta! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
 					} else {
 						mail_exists_yet = true;
 						HttpSession session = request.getSession();
@@ -70,7 +56,10 @@ public class Inserimento_cliente extends HttpServlet {
 				try {
 					if (rs.next()) {
 						Cliente_business c = new Cliente_business(email, partita_iva, nome_attivita);
-						StoreCliente_business.insertCliente_business(c);
+						if(StoreCliente_business.insertCliente_business(c))
+							descrizione = "Inserimento del cliente base (" + c.getEmail_utente() + "," + c.getPartita_iva() + "," + c.getNome_attivita() + ") avvenuta con successo!";
+						else
+							descrizione = "Inserimento del cliente base (" + c.getEmail_utente() + "," + c.getPartita_iva() + "," + c.getNome_attivita() + ") non avvenuta! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";						
 					} else {
 						mail_exists_yet = true;
 						HttpSession session = request.getSession();
@@ -85,7 +74,11 @@ public class Inserimento_cliente extends HttpServlet {
 		}
 		
 		if(!mail_exists_yet) 
-			response.sendRedirect("jsp/lista_clienti.jsp"); //invia a lista utenti
+		{
+			HttpSession session = request.getSession();
+			session.setAttribute("descrizione",descrizione);	
+			response.sendRedirect("jsp/lista_clienti.jsp"); //invia a lista clienti
+		}
 	}
 
 }

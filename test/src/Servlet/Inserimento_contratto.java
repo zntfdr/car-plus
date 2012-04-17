@@ -15,7 +15,7 @@ public class Inserimento_contratto extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		Contratto cntr = new Contratto(0,Utils.TimeString.dataStringToCalendar(req.getParameter("data_stipula")),Utils.TimeString.dataStringToCalendar(req.getParameter("data_scadenza")),req.getParameter("email_cliente"),req.getParameter("nome_abbonamento"));
-		String descrizione = "";
+		String descrizione;
 		
 		if(StoreContratto.insertContratto(cntr))
 			descrizione = "Inserimento del contratto (" + cntr.getEmail_cliente() + "," + cntr.getNome_abbonamento() + ") avvenuto con successo!";

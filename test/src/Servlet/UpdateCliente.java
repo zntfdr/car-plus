@@ -1,45 +1,34 @@
 package Servlet;
-
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
-import java.util.ArrayList;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
-
 import Entita.*;
-import Utils.*;
 import Store.*;
+import Utils.Query;
 
 public class UpdateCliente extends HttpServlet {
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String descrizione = "";
 		if (request.getParameter("submit") != null) {
+			Cliente c = new Cliente(request.getParameter("email"), request.getParameter("codice_fiscale"));
+
+			if(StoreCliente.updateCliente(c))
+				descrizione = "Aggiornamento del cliente (" + c.getEmail_utente() + "," + c.getCodice_fiscale() + ") avvenuto con successo!";
+			else
+				descrizione = "Aggiornamento del cliente (" + c.getEmail_utente() + "," + c.getCodice_fiscale() + ") non avvenuto! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";;
 			
-			String email = request.getParameter("email");
-			String codice_fiscale = request.getParameter("codice_fiscale");
-			descrizione = "cliente " + email;
-			
-			Cliente customer = new Cliente(email, codice_fiscale);
-			StoreCliente.updateCliente(customer);
-			
-		} else if (request.getParameter("submit_business") != null) {
-			
-			String email = request.getParameter("email");
-			String partita_iva = request.getParameter("partita_iva");
-			String nome_attivita = request.getParameter("nome_attivita");
-			
-			descrizione = "cliente business "+email;
-			
-			Cliente_business c = new Cliente_business(email, partita_iva, nome_attivita);
-			StoreCliente_business.updateCliente_business(c);
+		} else 
+		if (request.getParameter("submit_business") != null) {
+			Cliente_business c = new Cliente_business(request.getParameter("email"), request.getParameter("partita_iva"), request.getParameter("nome_attivita"));
+			if(StoreCliente_business.updateCliente_business(c))
+				descrizione = "Aggiornamento del cliente business (" + c.getEmail_utente() + "," + c.getNome_attivita() + ", " + c.getPartita_iva() + ") avvenuto con successo!";
+			else
+				descrizione = "Aggiornamento del cliente business (" + c.getEmail_utente() + "," + c.getNome_attivita() + ", " + c.getPartita_iva() + ") non avvenuto! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";;
 		}
 		
-		HttpSession session = request.getSession();
-		session.setAttribute("descrizione", "Aggiornamento " + descrizione + " ");
-		response.sendRedirect("jsp/lista_clienti.jsp"); //invia a lista utenti
+		request.getSession().setAttribute("descrizione", descrizione);
+		response.sendRedirect("jsp/lista_clienti.jsp"); //invia a lista clienti
 	}
 
 }

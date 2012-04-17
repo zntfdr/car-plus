@@ -12,20 +12,32 @@ public class RegistrazioneUtente extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		String descrizione, page;
 		
-		Localita loc = new Localita(req.getParameter("provincia"), req.getParameter("citta"));
+		//Inserisco la località
+		Localita loc = new Localita(req.getParameter("citta"),req.getParameter("provincia"));
 		StoreLocalita.insertLocalita(loc);
 		
-		String email = req.getParameter("mail");
-		Utente ut = new Utente(req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), req.getParameter("citta"), req.getParameter("provincia"), MD5.encrypt(req.getParameter("password")), email, req.getParameter("phone"), false, false);
+		//Inserisco l'utente
+		Utente ut = new Utente(req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), req.getParameter("citta"), req.getParameter("provincia"), MD5.encrypt(req.getParameter("password")), req.getParameter("mail"), req.getParameter("phone"), false, false);
 
-		// l'interrogazione da effettuare
-		ut = StoreUtente.insertUtente(ut);
-
-		HttpSession session = req.getSession();
-		session.setAttribute("utente", ut);
-		session.setAttribute("descrizione", "Registrazione di " + email + " avvenuta con successo!");
+		if(StoreUtente.insertUtente(ut))
+			descrizione = "Registrazione di " + ut.getEmail() + " avvenuta con successo!";
+		else
+			descrizione = "Registrazione di " + ut.getEmail() + " non avvenuta! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
 		
-		res.sendRedirect("jsp/new_user_landing.jsp");
+		HttpSession session = req.getSession();
+		session.setAttribute("descrizione", descrizione);
+
+		//Redirigo alla pagina corretta in base a chi ha effettuato la registrazione
+		if(session.getAttribute("ADMIN") != null)
+			page = "jsp/lista_utenti.jsp";
+		else
+		{
+			session.setAttribute("utente", ut); //visualizzerò tali informazioni nella landing page
+			page ="jsp/new_user_landing.jsp";
+		}
+		
+		res.sendRedirect(page);
 	}
 }

@@ -15,33 +15,16 @@ public class Inserimento_stazione_cs extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		
-		//Inserisco Stazione_CS
 		Stazione_CS sCS = new Stazione_CS(req.getParameter("city"),req.getParameter("province"),req.getParameter("name"),req.getParameter("address"), Integer.parseInt(req.getParameter("num_places")));
+		String descrizione = "";
 		
-		//Se tutto va bene, comincio a definire la sessione
+		if(StoreStazione_CS.insertStazione_CS(sCS))
+			descrizione = "Inserimento della stazione (" + sCS.getNome() + ", " + sCS.getProvincia() + ", " + sCS.getCitta() + ") avvenuto con successo!";
+		else
+			descrizione = "Inserimento della stazione (" + sCS.getNome() + ", " + sCS.getProvincia() + ", " + sCS.getCitta() + ") non avvenuta! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
+
 		HttpSession session = req.getSession();
-		String page = "";
-		
-		//Prendo dal DB la lista delle stazioni
-		String sql = "SELECT nome FROM Stazione_CS ORDER BY provincia,citta";
-		ResultSet rs = Utils.Query.doQueryRS(sql);
-		if(rs != null){
-			try {
-				ArrayList<String> listasCS = new ArrayList<String>();
-				while(rs.next()){
-					listasCS.add(rs.getString("nome"));
-				}
-				ArrayList<Stazione_CS> listaCompleta = Store.StoreStazione_CS.readStazione_CS_List(listasCS);
-				session.setAttribute("lista_stazioni", listaCompleta);
-			} catch(SQLException e){
-				
-			}
-		}
-		
-		page = "jsp/lista_stazioni_cs.jsp";	
-		session.setAttribute("descrizione", "Registrazione nuova Stazione avvenuta con successo!");
-		
-		res.sendRedirect(page);
+		session.setAttribute("descrizione",descrizione);
+		res.sendRedirect("jsp/lista_stazioni_cs.jsp");
 	}
 }

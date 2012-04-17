@@ -1,10 +1,6 @@
 <%@ page contentType="text/html" %>
 <%@ page import="Entita.Utente" %>
 <%@ page import = "Utils.HTMLManager" %>
-<%	if (session.getAttribute("ADMIN") != null) {
-	response.sendRedirect("lista_utenti.jsp");
-}
-else { %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,4 +41,4 @@ else { %>
     </div>
 </body>
 </html>
-<% session.invalidate(); } %>
+<% session.invalidate(); %>

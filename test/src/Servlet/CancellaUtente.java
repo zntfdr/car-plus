@@ -16,11 +16,15 @@ public class CancellaUtente extends HttpServlet {
        
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-		String email = request.getParameter("email");			
-		StoreUtente.deleteUtente(email);
+		String descrizione, email = request.getParameter("email");			
+		
+		if(StoreUtente.deleteUtente(email))
+			descrizione = "Cancellazione utente " + email + " avvenuta con successo!";
+		else
+			descrizione = "Cancellazione utente " + email + " non avvenuta! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";;
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("descrizione", "Cancellazione utente " + email + " avvenuta con successo!");
+		session.setAttribute("descrizione", descrizione);
 		response.sendRedirect("jsp/lista_utenti.jsp"); //invia a lista utenti
 	}
 

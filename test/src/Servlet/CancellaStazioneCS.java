@@ -16,12 +16,15 @@ public class CancellaStazioneCS extends HttpServlet {
        
 	public void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
 			
-		String nome = req.getParameter("nome");			
+		String descrizione, nome = req.getParameter("nome");			
 		
-		StoreStazione_CS.deleteStazioneCS(req.getParameter("citta"),req.getParameter("provincia"),nome);
+		if(StoreStazione_CS.deleteStazioneCS(req.getParameter("citta"),req.getParameter("provincia"),nome))
+			descrizione = "Cancellazione della stazione " + nome + " avvenuta con successo!";
+		else
+			descrizione = "Cancellazione della stazione " + nome + " non avvenuta! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";;
 		
 		HttpSession session = req.getSession();
-		session.setAttribute("descrizione", "Cancellazione della stazione " + nome + " avvenuta con successo!");
+		session.setAttribute("descrizione", descrizione);
 		response.sendRedirect("jsp/lista_stazioni_cs.jsp"); //invia a lista stazioni cs
 	}
 

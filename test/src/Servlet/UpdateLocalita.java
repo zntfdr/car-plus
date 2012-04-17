@@ -1,30 +1,25 @@
 package Servlet;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
-import java.util.Calendar;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import Entita.*;
-import Entita.Utente.Type;
-import Utils.*;
 import Store.*;
+import Utils.Query;
 
 public class UpdateLocalita extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		
+		String descrizione;
 		Localita newplace = new Localita(req.getParameter("city"),req.getParameter("province"));
 		Localita oldplace = new Localita(req.getParameter("oldcity"),req.getParameter("oldprovince"));
 	
-		StoreLocalita.UpdateLocalita(newplace,oldplace);
+		if(StoreLocalita.UpdateLocalita(newplace,oldplace))
+			descrizione = "Aggiornamento della località (" + newplace.getCitta() + "," + newplace.getProvincia() + ") in (" + oldplace.getCitta() + "," + oldplace.getProvincia() + ") avvenuto con successo!";
+		else
+			descrizione = "Aggiornamento della località (" + newplace.getCitta() + "," + newplace.getProvincia() + ") in (" + oldplace.getCitta() + "," + oldplace.getProvincia() + ") non avvenuto! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
 
-		HttpSession session = req.getSession();
-		session.setAttribute("descrizione", "Aggiornamento della località (" + newplace.getCitta() + "," + newplace.getProvincia() + ") in (" + oldplace.getCitta() + "," + oldplace.getProvincia() + ") avvenuto con successo!"); 
-		
-		String page = "jsp/lista_localita.jsp";
-		res.sendRedirect(page);
+		req.getSession().setAttribute("descrizione", descrizione); 
+		res.sendRedirect("jsp/lista_localita.jsp");
 	}
 }

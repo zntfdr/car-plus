@@ -47,7 +47,7 @@ public class Interrogazione extends HttpServlet {
 
 	public static ArrayList<String> ListaClientiNonClientiBusiness(){
 		ArrayList<String> array = new ArrayList<String>();
-		String sql = "SELECT email_utente FROM cliente WHERE email_utente NOT IN (SELECT email_utente FROM cliente_business) ORDER BY email";
+		String sql = "SELECT email_utente FROM cliente WHERE email_utente NOT IN (SELECT email_utente FROM cliente_business) ORDER BY email_utente";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		
 		try { while(rs.next()) { array.add(rs.getString("email_utente")); }
