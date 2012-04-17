@@ -38,8 +38,8 @@
       <tr>
         <td ><a href="../jsp/caratteristiche_contratto.jsp?contratto=<%= C.getId() %>">  <%= C.getId() %></a></td>
         <td> <%= C.getNome_abbonamento() %></td>
-        <td> <%= Utils.TimeString.dataOraCalendarToString(C.getData_stipula()) %></td>
-        <td> <%= Utils.TimeString.dataOraCalendarToString(C.getData_scadenza()) %></td>
+        <td> <%= Utils.TimeString.dataCalendarToString(C.getData_stipula()) %></td>
+        <td> <%= Utils.TimeString.dataCalendarToString(C.getData_scadenza()) %></td>
         <td> <%= Interrogazione.CountTessere(C)%></td>
       </tr>
     <% } %>
