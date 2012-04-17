@@ -96,8 +96,8 @@ public class Tragitto_CS_info extends Tragitto_CS {
     	} else {
         	ore = (double)(this.getTempo_consegna_prenotazione().getTimeInMillis()-this.getTempo_prelievo_prenotazione().getTimeInMillis())/(1000*3600);
     	}
-    	//scegli se tariffa notturna (prelievo dopo le 20.00) o diurna
-    	if(this.getTempo_prelievo().HOUR_OF_DAY>20){
+    	//scegli se tariffa notturna (prelievo dalle 20.00 alle 6.00) o diurna
+    	if(this.getTempo_prelievo().HOUR_OF_DAY<6 && this.getTempo_prelievo().HOUR_OF_DAY>20){
     		costo = ore * abbonamento.getTariffa_notturna();
     	} else {
     		costo = ore * abbonamento.getTariffa_diurna();
