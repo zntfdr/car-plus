@@ -26,7 +26,7 @@ public class StoreAbbonamento{
 			try {
 				ArrayList<Abbonamento> list = new ArrayList<Abbonamento>();
 				while (rs.next()) {
-					list.add(new Abbonamento (rs.getString("nome"), rs.getString("descrizione"), rs.getDouble("tariffa_magg_100km"), rs.getDouble("tariffa_min_100km"), rs.getDouble("tariffa_notturna"), rs.getDouble("tariffa_diurna"), rs.getDouble("costo_mensile"), rs.getInt("num_max_tessere"), rs.getInt("num_min_tessere")));
+					list.add(new Abbonamento (rs.getString("nome"), rs.getString("descrizione"), rs.getDouble("tariffa_notturna"), rs.getDouble("tariffa_diurna"), rs.getDouble("tariffa_magg_100km"), rs.getDouble("tariffa_min_100km"), rs.getDouble("costo_mensile"), rs.getInt("num_max_tessere"), rs.getInt("num_min_tessere")));
 				}
 				return list;
 			} catch (SQLException e) {
@@ -43,7 +43,7 @@ public class StoreAbbonamento{
 		if(rs != null){
 			try {
 				while(rs.next()){
-					return new Abbonamento(rs.getString("nome"), rs.getString("descrizione"), rs.getDouble("tariffa_magg_100km"), rs.getDouble("tariffa_min_100km"), rs.getDouble("tariffa_notturna"), rs.getDouble("tariffa_diurna"), rs.getDouble("costo_mensile"), rs.getInt("num_max_tessere"), rs.getInt("num_min_tessere"));
+					return new Abbonamento(rs.getString("nome"), rs.getString("descrizione"), rs.getDouble("tariffa_notturna"), rs.getDouble("tariffa_diurna"), rs.getDouble("tariffa_magg_100km"), rs.getDouble("tariffa_min_100km"), rs.getDouble("costo_mensile"), rs.getInt("num_max_tessere"), rs.getInt("num_min_tessere"));
 				}
 			}catch (SQLException e){
 			}
@@ -62,7 +62,7 @@ public class StoreAbbonamento{
 			try {
 				ArrayList<Abbonamento> Abbonamenti_List = new ArrayList<Abbonamento>();
 				while(rs.next()){
-					Abbonamenti_List.add(new Abbonamento (rs.getString("nome"), rs.getString("descrizione"), rs.getDouble("tariffa_magg_100km"), rs.getDouble("tariffa_min_100km"), rs.getDouble("tariffa_notturna"), rs.getDouble("tariffa_diurna"), rs.getDouble("costo_mensile"), rs.getInt("num_max_tessere"), rs.getInt("num_min_tessere")));
+					Abbonamenti_List.add(new Abbonamento (rs.getString("nome"), rs.getString("descrizione"), rs.getDouble("tariffa_notturna"), rs.getDouble("tariffa_diurna"), rs.getDouble("tariffa_magg_100km"), rs.getDouble("tariffa_min_100km"), rs.getDouble("costo_mensile"), rs.getInt("num_max_tessere"), rs.getInt("num_min_tessere")));
 				}
 				return Abbonamenti_List;
 			}catch (SQLException e){
