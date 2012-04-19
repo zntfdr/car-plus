@@ -108,6 +108,11 @@ public class Tragitto_CS_info extends Tragitto_CS {
     	} else {
     		costo+=(this.getKm_totali()*abbonamento.getTariffa_min_100km());
     	}
-    	return costo;
+    	return round(costo);
+    }
+    
+    private double round(double num){
+    	num = Math.round(num*100)/100;
+    	return num;
     }
 }
