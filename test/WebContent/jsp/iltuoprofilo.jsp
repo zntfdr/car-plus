@@ -24,6 +24,7 @@ if (user == null) { //Controllo che sia aperta una connessione, altrimenti facci
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
+        <form id="register">
             <ul>
                <fieldset>
                 <legend>Informazioni Personali:</legend>
