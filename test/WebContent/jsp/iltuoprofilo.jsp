@@ -33,7 +33,6 @@ if (user == null) { //Controllo che sia aperta una connessione, altrimenti facci
 	                <li>
                 	    <% if(user.getSesso().compareTo("M") == 0) { %>  <input name="name" type="text" id="name" placeholder="Nome" readonly="readnly" Value="Maschio" maxlength="30"/>
                 	    <% }else { %> <input name="name" type="text" id="name" placeholder="Nome" readonly="readnly" Value="Femmina" maxlength="30"/> <% } %>
-                    </div>
 				    </li>
 	                <li><input name="address" type="text" id="address" placeholder="Indirizzo" readonly="readnly" Value="<%= user.getIndirizzo() %>" maxlength="50"/></li>
 	                <li><input name="provincia" type="text" id="provincia" placeholder="Provincia" readonly="readnly" Value="<%= user.getProvincia() %>" maxlength="50"/></li>
