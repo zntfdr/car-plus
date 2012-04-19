@@ -18,15 +18,11 @@
     
     <div id="content">
         <div class="wrapper">
-        <ul>
-        	
-        	<li>
+         <h1> Benvenuti su Car+ <h1>
         	Car+ apre il nuovo servizio di Car Sharing offre un approccio inedito alle quattro ruote: si compra l'uso effettivo del mezzo anziché il mezzo stesso.
         	Il Car Sharing è la soluzione ideale per spostamenti brevi e frequenti. Un'alternativa per chi percorre pochi chilometri o per chi non intende rinunciare all'auto di proprietà, ma deve fare i conti con esigenze di mobilità che oggi sono risolte con l'acquisto di una seconda o terza macchina.
         	Il Car Sharing è, in Italia, uno dei nuovi strumenti dela mobilità sostenibile.
         	Per informazioni è attivo 24 ore su 24 il numero verde 800.800.800.
-            </li>
-        </ul>
         <div style="clear: both;"></div>
     
         </div>
