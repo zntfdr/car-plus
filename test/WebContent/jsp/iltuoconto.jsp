@@ -28,7 +28,7 @@
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
-         Nothing to see here, yet!
+        <h1> Il tuo conto</h1>
          <% ArrayList<Tragitto_CS_info> listaTragitti = StoreTragitto_CS_info.readTragitto_CS_info_cliente(user.getEmail());
          double costoTotale = 0;%>
          <table id="trip_list">
@@ -47,14 +47,14 @@
 				<%if(T.getCosto()==0){ %>
 				<td>Vettura non ancora riconsegnata</td>
 				<%} else { %>
-				<td><%= T.getCosto() %></td>
+				<td><%= (double) (Math.round(T.getCosto()*100))/100 %></td>
 				<%} %>
 				<td><%= T.getPagato() %></td>
 			</tr>
 		    <% } %>
     	</table>
     	<br></br>
-    	Il tuo debito totale nei nostri confronti è di euro: <%=costoTotale %>
+    	Il tuo debito totale nei nostri confronti è di euro: <b><%=(double) (Math.round(costoTotale*100))/100 %></b>
          <div style="clear: both;"></div>
         </div>
     </div>

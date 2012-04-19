@@ -31,8 +31,8 @@ if (user == null) { //Controllo che sia aperta una connessione, altrimenti facci
 	                <li><input name="surname" type="text" id="surname" placeholder="cognome" readonly="readnly" Value="<%= user.getCognome() %>" maxlength="30"/></li>
 	                <li>
                 	<div id="radio">
-                	    <% if(user.getSesso().compareTo("M") == 0) { %> <input type="radio" id="radio1" name="radio" value="M" checked="checked"/><label for="radio1">Maschio</label> <% } %>
-                	    <% else { %> <input type="radio" id="radio2" name="radio" value="F"checked="checked" /><label for="radio2">Femmina</label> <% } %>
+                	    <% if(user.getSesso().compareTo("M") == 0) { %> <input type="radio" id="radio1" name="radio" value="M" checked="checked"/><label for="radio1">Maschio</label>
+                	    <% }else { %> <input type="radio" id="radio2" name="radio" value="F"checked="checked" /><label for="radio2">Femmina</label> <% } %>
                     </div>
 				    </li>
 	                <li><input name="address" type="text" id="address" placeholder="Indirizzo" readonly="readnly" Value="<%= user.getIndirizzo() %>" maxlength="50"/></li>
