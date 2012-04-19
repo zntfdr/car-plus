@@ -11,6 +11,7 @@
 	if ( user == null || ! ( user.getUserType() == Type.CLIENTE || user.getUserType() == Type.BUSINESS ) ) { //Controllo che sia aperta una connessione con un cliente, altrimenti faccio il redirect a login.jsp
 		response.sendRedirect("login.jsp");
 	} else {
+	String temp;
 %>
 <!DOCTYPE HTML>
 <html>
@@ -37,7 +38,7 @@
 		        <td><b>Tempo prelievo</b></td>
 		        <td><b>Tempo consegna</b></td>
 		        <td><b>Costo</b></td>
-		        <td><b>pagato</b></td>
+		        <td><b>Pagato</b></td>
       		</tr>
   			<% for(Tragitto_CS_info T : listaTragitti){
   				if(!T.getPagato()){
@@ -46,14 +47,34 @@
   			%>
       		<tr>
 				<td><%= T.getNome() %></td>
-				<td><%= T.getTempo_prelievo() %></td>
-				<td><%= T.getTempo_consegna() %></td>
+				<td><% temp = Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo());
+				if (temp.equals("1111/11/11 00:00:00")) {
+            %>
+            	<td>  La data di prelievo effettiva non e' ancora stata inserita</td>
+            <%
+            	} else {
+            %>
+            	<td> <%=temp%></td>
+             	<%
+             		}
+             	%></td>
+				<td><% temp = Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna());
+				if (temp.equals("1111/11/11 00:00:00")) {
+            %>
+            	<td>  La data di prelievo effettiva non e' ancora stata inserita</td>
+            <%
+            	} else {
+            %>
+            	<td> <%=temp%></td>
+             	<%
+             		}
+             	%></td>
 				<%if(T.getCosto()==0){ %>
 				<td>Vettura non ancora riconsegnata</td>
 				<%} else { %>
 				<td><%= (double) (Math.round(T.getCosto()*100))/100 %></td>
 				<%} %>
-				<td><%= T.getPagato() %></td>
+				<td><%	if (T.getPagato()) { %> &#10003;<% 	} else { %> &#10007;<% 	} %></td>
 			</tr>
 		    <% } %>
     	</table>
