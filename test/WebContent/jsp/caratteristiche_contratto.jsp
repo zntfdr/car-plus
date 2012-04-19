@@ -3,9 +3,15 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Contratto"%>
 <%@ page import="Entita.Abbonamento"%>
+<%@ page import="Entita.Contratto" %>
+<%@ page import="Entita.Utente" %>
+<%@ page import="Entita.Utente.Type" %>
 <%@ page import="Store.*" %>
 <%@ page import = "Utils.HTMLManager" %>
-
+<% Utente user = (Utente) session.getAttribute("utente_loggato");
+	if (user == null) { //Controllo che sia aperta una connessione, altrimenti faccio il redirect a login.jsp
+		response.sendRedirect("login.jsp");
+	} else { %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +25,8 @@
 </head>
 <body>
 	<%= HTMLManager.getHeader(session) %>
+	            <div id="content">
+        <div class="wrapper">
 	<% int idc = Integer.parseInt(request.getParameter("contratto"));
 	   Abbonamento a = Store.StoreAbbonamento.readAbbonamento(Store.StoreContratto.readContratto(idc).getNome_abbonamento()); %>
         <h1>Caratteristiche contratto:</h1>
@@ -48,9 +56,10 @@
         		<td><%= a.getNum_max_tessere() %></td>
       		</tr>
     	</table>
-    <div id="footer">
-    	<div class="wrapper">
-        </div>
-    </div>
-</body>
+       	<div style="clear: both;"></div>
+		</div>
+	</div>
+    <div id="footer"></div>
+  </body>
 </html>
+  <% } %>

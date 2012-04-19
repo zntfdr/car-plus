@@ -8,7 +8,7 @@ import Utils.*;
 public class StoreTragitto_CS_info{
 
 	public static ArrayList<Tragitto_CS_info> readTragitto_CS_info_tragitto(int id){
-		String sql = "SELECT MCS.nome_stazione_CS, MCS.citta, MCS.provincia, MM.marca, MM.modello, T.tempo_prelievo, T.tempo_consegna, T.tempo_prelievo_prenotazione, T.tempo_consegna_prenotazione, T.km_totali, T.pagato, T.id_tessera, T.targa_cs FROM tragitto_CS AS T INNER JOIN macchina_CS AS MCS ON T.targa_CS=MCS.targa INNER JOIN modello_macchina AS MM ON MCS.id_modello=MM.id WHERE T.id = '" + id + "'";
+		String sql = "SELECT MCS.nome_stazione_CS, MCS.citta, MCS.provincia, MM.marca, MM.modello, T.tempo_prelievo, T.tempo_consegna, T.tempo_prelievo_prenotazione, T.tempo_consegna_prenotazione, T.km_totali, T.pagato, T.id_tessera, T.targa_cs FROM tragitto_CS AS T INNER JOIN macchina_CS AS MCS ON T.targa_CS=MCS.targa INNER JOIN modello_macchina AS MM ON MCS.id_modello=MM.id WHERE T.id = '" + id + "' ORDER BY T.tempo_prelievo DESC, T.tempo_consegna DESC, T.tempo_prelievo_prenotazione DESC, T.tempo_consegna_prenotazione DESC";
 		ArrayList<Tragitto_CS_info> Tragitto_CS_info_list = new ArrayList<Tragitto_CS_info>();
 		ResultSet rs = Query.doQueryRS(sql);
 		if(rs != null){
@@ -50,7 +50,7 @@ public class StoreTragitto_CS_info{
 	}
 	
 	public static ArrayList<Tragitto_CS_info> readTragitto_CS_info_tessera(int id){
-		String sql = "SELECT MCS.nome_stazione_CS, MCS.citta, MCS.provincia, MM.marca, MM.modello, T.tempo_prelievo, T.tempo_consegna, T.tempo_prelievo_prenotazione, T.tempo_consegna_prenotazione, T.km_totali, T.pagato, T.id, T.targa_cs FROM tragitto_CS AS T INNER JOIN macchina_CS AS MCS ON T.targa_CS=MCS.targa INNER JOIN modello_macchina AS MM ON MCS.id_modello=MM.id WHERE T.id_tessera = '" + id + "'";
+		String sql = "SELECT MCS.nome_stazione_CS, MCS.citta, MCS.provincia, MM.marca, MM.modello, T.tempo_prelievo, T.tempo_consegna, T.tempo_prelievo_prenotazione, T.tempo_consegna_prenotazione, T.km_totali, T.pagato, T.id, T.targa_cs FROM tragitto_CS AS T INNER JOIN macchina_CS AS MCS ON T.targa_CS=MCS.targa INNER JOIN modello_macchina AS MM ON MCS.id_modello=MM.id WHERE T.id_tessera = '" + id + "' ORDER BY T.tempo_prelievo DESC, T.tempo_consegna DESC, T.tempo_prelievo_prenotazione DESC, T.tempo_consegna_prenotazione DESC";
 		ArrayList<Tragitto_CS_info> Tragitto_CS_info_list = new ArrayList<Tragitto_CS_info>();
 		ResultSet rs = Query.doQueryRS(sql);
 		if(rs != null){
@@ -92,7 +92,7 @@ public class StoreTragitto_CS_info{
 	}
 
 	public static ArrayList<Tragitto_CS_info> readTragitto_CS_info_contratto(int id){
-		String sql = "SELECT MCS.nome_stazione_CS, MCS.citta, MCS.provincia, MM.marca, MM.modello, T.tempo_prelievo, T.tempo_consegna, T.tempo_prelievo_prenotazione, T.tempo_consegna_prenotazione, T.km_totali, T.pagato, T.id, T.id_tessera, T.targa_cs FROM tragitto_CS AS T INNER JOIN macchina_CS AS MCS ON T.targa_CS=MCS.targa INNER JOIN modello_macchina AS MM ON MCS.id_modello=MM.id INNER JOIN tessera AS TS ON T.id_tessera=TS.id WHERE TS.id_contratto = '" + id + "'";
+		String sql = "SELECT MCS.nome_stazione_CS, MCS.citta, MCS.provincia, MM.marca, MM.modello, T.tempo_prelievo, T.tempo_consegna, T.tempo_prelievo_prenotazione, T.tempo_consegna_prenotazione, T.km_totali, T.pagato, T.id, T.id_tessera, T.targa_cs FROM tragitto_CS AS T INNER JOIN macchina_CS AS MCS ON T.targa_CS=MCS.targa INNER JOIN modello_macchina AS MM ON MCS.id_modello=MM.id INNER JOIN tessera AS TS ON T.id_tessera=TS.id WHERE TS.id_contratto = '" + id + "' ORDER BY T.tempo_prelievo DESC, T.tempo_consegna DESC, T.tempo_prelievo_prenotazione DESC, T.tempo_consegna_prenotazione DESC";
 		ArrayList<Tragitto_CS_info> Tragitto_CS_info_list = new ArrayList<Tragitto_CS_info>();
 		ResultSet rs = Query.doQueryRS(sql);
 		if(rs != null){
@@ -135,7 +135,7 @@ public class StoreTragitto_CS_info{
 	}
 
 	public static ArrayList<Tragitto_CS_info> readTragitto_CS_info_cliente(String email){
-		String sql = "SELECT MCS.nome_stazione_CS, MCS.citta, MCS.provincia, MM.marca, MM.modello, T.tempo_prelievo, T.tempo_consegna, T.tempo_prelievo_prenotazione, T.tempo_consegna_prenotazione, T.km_totali, T.pagato, T.id, T.id_tessera, TS.id_contratto, T.targa_cs  FROM tragitto_CS AS T INNER JOIN macchina_CS AS MCS ON T.targa_CS=MCS.targa INNER JOIN modello_macchina AS MM ON MCS.id_modello=MM.id INNER JOIN tessera AS TS ON T.id_tessera=TS.id INNER JOIN contratto AS C ON TS.id_contratto=C.id WHERE C.email_cliente = '" + email + "'";
+		String sql = "SELECT MCS.nome_stazione_CS, MCS.citta, MCS.provincia, MM.marca, MM.modello, T.tempo_prelievo, T.tempo_consegna, T.tempo_prelievo_prenotazione, T.tempo_consegna_prenotazione, T.km_totali, T.pagato, T.id, T.id_tessera, TS.id_contratto, T.targa_cs  FROM tragitto_CS AS T INNER JOIN macchina_CS AS MCS ON T.targa_CS=MCS.targa INNER JOIN modello_macchina AS MM ON MCS.id_modello=MM.id INNER JOIN tessera AS TS ON T.id_tessera=TS.id INNER JOIN contratto AS C ON TS.id_contratto=C.id WHERE C.email_cliente = '" + email + "' ORDER BY T.tempo_prelievo DESC, T.tempo_consegna DESC, T.tempo_prelievo_prenotazione DESC, T.tempo_consegna_prenotazione DESC";
 		ArrayList<Tragitto_CS_info> Tragitto_CS_info_list = new ArrayList<Tragitto_CS_info>();
 		ResultSet rs = Query.doQueryRS(sql);
 		if(rs != null){

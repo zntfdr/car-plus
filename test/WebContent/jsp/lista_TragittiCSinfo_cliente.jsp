@@ -43,8 +43,8 @@
        		 <td><b>Stazione</b></td>
        		 <td><b>Localita'</b></td>
        		 <td><b>Veicolo</b></td>
-      	     <td><b>Tempo Prelievo Prenotazione</b></td>
-      		 <td><b>Tempo Consegna Prenotazione</b></td>
+      	     <td><b>Tempo Prelievo Prenot.</b></td>
+      		 <td><b>Tempo Consegna Prenot.</b></td>
       	     <td><b>Tempo Prelievo</b></td>
              <td><b>Tempo Consegna</b></td>
              <td><b>Km effettuati</b></td>

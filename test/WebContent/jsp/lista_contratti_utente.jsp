@@ -7,8 +7,11 @@
 <%@ page import="Servlet.Interrogazione" %>
 <%@ page import="Store.StoreContratto"%>
 <%@ page import = "Utils.HTMLManager" %>
-<% Utente user = (Utente) session.getAttribute("utente_loggato"); 
-   String email_cliente = user.getEmail();%>
+<% Utente user = (Utente) session.getAttribute("utente_loggato");
+	if (user == null) { //Controllo che sia aperta una connessione, altrimenti faccio il redirect a login.jsp
+		response.sendRedirect("login.jsp");
+	} else {
+   String email_cliente = user.getEmail(); %>
    
 <!DOCTYPE html >
 <html>
@@ -23,6 +26,8 @@
 </head>
    <body>
     <%= HTMLManager.getHeader(session) %>
+            <div id="content">
+        <div class="wrapper">
     <h1>Elenco dei tuoi contratti:</h1>
     <table border="1">
       <tr>
@@ -31,10 +36,9 @@
         <td><b>Data Stipula</b></td>
         <td><b>Data Scadenza</b></td>
         <td><b>Tessere Associate</b></td>
-
       </tr>
   <% ArrayList<Contratto> lista = Interrogazione.listaContrattiUtente(email_cliente);
-         for(Contratto C : lista){%> 
+         for(Contratto C : lista){ %> 
       <tr>
         <td ><a href="../jsp/caratteristiche_contratto.jsp?contratto=<%= C.getId() %>">  <%= C.getId() %></a></td>
         <td> <%= C.getNome_abbonamento() %></td>
@@ -44,9 +48,10 @@
       </tr>
     <% } %>
     </table>
-    <div id="footer">
-    <div class="wrapper">
-    </div>
-    </div>
+       	<div style="clear: both;"></div>
+		</div>
+	</div>
+    <div id="footer"></div>
   </body>
 </html>
+  <% } %>

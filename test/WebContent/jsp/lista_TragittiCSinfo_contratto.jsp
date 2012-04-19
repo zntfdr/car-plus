@@ -2,11 +2,15 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Tragitto_CS_info"%>
 <%@ page import="Entita.Contratto"%>
+<%@ page import="Entita.Utente"%>
+<%@ page import="Entita.Utente.Type" %>
 <%@ page import="Store.StoreTragitto_CS_info"%>
 <%@ page import="Store.StoreContratto"%>
 <%@ page import = "Utils.HTMLManager" %>
-
-
+<% Utente user = (Utente) session.getAttribute("utente_loggato");
+	if (user == null) { //Controllo che sia aperta una connessione, altrimenti faccio il redirect a login.jsp
+		response.sendRedirect("login.jsp");
+	} else { %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -20,6 +24,8 @@
 </head>
    <body>
    <%= HTMLManager.getHeader(session) %>
+        <div id="content">
+        <div class="wrapper">
    <% int idc = Integer.parseInt(request.getParameter("contratto"));
    Contratto c = Store.StoreContratto.readContratto(idc); %>
      <%ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_contratto(idc); %>
@@ -28,12 +34,10 @@
 	    <tr>
  		 <td><b>Tessera</b></td>
  		 <td><b>Nome Stazione</b></td>
- 		 <td><b>Citta</b></td>
- 		 <td><b>Provincia</b></td>
-		 <td><b>Marca Veicolo</b></td>
- 		 <td><b>Modello Veicolo</b></td>
-	     <td><b>Tempo Prelievo Prenotazione</b></td>
-		 <td><b>tempo Consegna Prenotazione</b></td>
+ 		 <td><b>Localita'</b></td>
+		 <td><b>Veicolo</b></td>
+	     <td><b>Tempo Prelievo Prenot.</b></td>
+		 <td><b>tempo Consegna Prenot.</b></td>
 	     <td><b>Tempo Prelievo</b></td>
        <td><b>Tempo Consegna</b></td>
        <td><b>Km effettuati</b></td>
@@ -43,10 +47,8 @@
       <tr>
       <td> <a href="../jsp/lista_TragittiCSinfo_tessera.jsp?tessera=<%= T.getId_tessera() %>"> <%= T.getId_tessera() %></a></td>
       <td> <%= T.getNome() %></td>
-      <td> <%= T.getCitta() %></td>
-      <td> <%= T.getProvincia() %></td>
-      <td> <%= T.getMarca() %></td>
-      <td> <%= T.getModello_macchina() %></td>
+      <td> <%= T.getCitta() %> (<%= T.getProvincia() %>)</td>
+      <td> <%= T.getMarca() %> <%= T.getModello_macchina() %></td>
       <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione())%></td>
       <td> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna_prenotazione()) %></td>
       <% String tp = Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo());
@@ -66,5 +68,10 @@
       else { %> &#10007;<% }  %></td>
      </tr> <% } %>
    </table>
+       	<div style="clear: both;"></div>
+		</div>
+	</div>
+    <div id="footer"></div>
   </body>
 </html>
+<% } %>
