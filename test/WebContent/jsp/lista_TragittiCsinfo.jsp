@@ -2,6 +2,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Tragitto_CS_info"%>
 <%@ page import="Entita.Utente"%>
+<%@ page import="Entita.Cliente"%>
 <%@ page import="Entita.Utente.Type" %>
 <%@ page import="Store.StoreTragitto_CS_info"%>
 <%@ page import = "Utils.HTMLManager" %>
@@ -26,11 +27,6 @@
         <div class="wrapper">
 			<%  ArrayList<Tragitto_CS_info> listaCSinfo;
 			    ArrayList<Cliente> listaClienti = Store.StoreCliente.getClienti();
-			    if (listaCSinfo.isEmpty()) {
-			%>
-				Non ci sono tragitti
-			<%
-				} else {
 			%>
 			<h1>Tragitti:</h1>
       	  <table border="1">
@@ -50,10 +46,10 @@
             </tr>
       <%
       	for (Cliente C : listaClienti) {
-      		listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_cliente(C.getEmail_cliente());
+      		listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_cliente(C.getEmail_utente());
             for (Tragitto_CS_info T : listaCSinfo) { %>
             <tr>
-            <td> <%=T.getEmail_utente()%> </td>
+            <td> <%=T.getEmail_cliente() %> </td>
             <td> <a href="../jsp/lista_TragittiCSinfo_tessera.jsp?tessera=<%=T.getId_tessera()%>"> <%=T.getId_tessera()%></a></td>
             <td> <a href="../jsp/lista_TragittiCSinfo_contratto.jsp?contratto=<%=T.getContratto()%>"> <%=T.getContratto()%></a></td>
             <td> <%=T.getNome()%></td>
@@ -99,7 +95,7 @@
  %>
          </table>
       <%
-      	}	}
+      	}
       %>
     	<div style="clear: both;"></div>
 		</div>

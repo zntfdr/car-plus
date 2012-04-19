@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <link href="../css/base.css" type="text/css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="../img/favicon.png" />
-    <title>Car+ | Il nuovo servizio di Car Pooling</title>
+    <title>About | Car+</title>
 </head>
 
 <body>
@@ -18,17 +18,11 @@
     
     <div id="content">
         <div class="wrapper">
-        <li> Co2 Risparmiata:<% ArrayList<Integer> array = Interrogazione.getCo2Saved();%>
-		<%for(Integer I : array){%>
-		<%= I %>
-		<%}%> grammi</li>
+        <h1>Car+</h1>
+        Car+ è un progetto universitario dell'<a href="http://www.unipd.it/">Università di Padova</a>, dipartimento di <a href="http://www.dei.unipd.it">Ingegneria dell'Informazione</a>
         <div id="announce"></div>
-        <div id="actions">
-            <a href="search.jsp"><div id="search"></div></a>
-            <a href="#"><div id="insert"></div></a>
-        </div>
+        
         <div style="clear: both;"></div>
-    
         </div>
     </div>
     <div id="footer">
