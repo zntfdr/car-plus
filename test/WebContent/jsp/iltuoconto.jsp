@@ -34,6 +34,8 @@
          <table id="trip_list">
       		<tr>
 		        <td><b>Stazione tragitto</b></td>
+		        <td><b>Tempo prelievo</b></td>
+		        <td><b>Tempo consegna</b></td>
 		        <td><b>Costo</b></td>
 		        <td><b>pagato</b></td>
       		</tr>
@@ -44,6 +46,8 @@
   			%>
       		<tr>
 				<td><%= T.getNome() %></td>
+				<td><%= T.getTempo_prelievo() %></td>
+				<td><%= T.getTempo_consegna() %></td>
 				<%if(T.getCosto()==0){ %>
 				<td>Vettura non ancora riconsegnata</td>
 				<%} else { %>
