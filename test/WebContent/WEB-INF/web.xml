@@ -193,6 +193,22 @@
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Paga</servlet-name>
+    <servlet-class>Servlet.Paga</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Paga</servlet-name>
+    <url-pattern>/Paga</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Pagamenti</servlet-name>
+    <servlet-class>Servlet.Pagamenti</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Pagamenti</servlet-name>
+    <url-pattern>/Pagamenti</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>RegistrazioneUtente</servlet-name>
     <servlet-class>Servlet.RegistrazioneUtente</servlet-class>
   </servlet>
