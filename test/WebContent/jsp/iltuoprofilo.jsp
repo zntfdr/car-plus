@@ -4,7 +4,10 @@
 <%@ page import = "Utils.HTMLManager" %>
 <%@ page import="Entita.Utente" %>
 <%@ page import="Entita.Utente.Type" %>
-<% Utente user = (Utente) session.getAttribute("utente_loggato"); //utente che modifica il suo profilo
+<% Utente user = (Utente) session.getAttribute("utente_loggato");
+if (user == null) { //Controllo che sia aperta una connessione, altrimenti faccio il redirect a login.jsp
+	response.sendRedirect("login.jsp");
+} else {
 %>
 <!DOCTYPE HTML>
 <html>
@@ -24,13 +27,18 @@
             <ul>
                <fieldset>
                 <legend>Informazioni Personali:</legend>
-	                <li><input name="name" type="text" id="name" placeholder="Nome" Value="<%= user.getNome() %>" maxlength="30"/></li>
-	                <li><input name="surname" type="text" id="surname" placeholder="cognome" Value="<%= user.getCognome() %>" maxlength="30"/></li>
-	                <li><input name="sesso" type="text" id="sesso" placeholder="Sesso" Value="<%= user.getSesso() %>" maxlength="30"/></li> </li>
-	                <li><input name="address" type="text" id="address" placeholder="Indirizzo" Value="<%= user.getIndirizzo() %>" maxlength="50"/></li>
-	                <li><input name="provincia" type="text" id="provincia" placeholder="Provincia" Value="<%= user.getProvincia() %>" maxlength="50"/></li>
-	                <li><input name="citta" type="text" id="citta" placeholder="Città" Value="<%= user.getCitta() %>" maxlength="50"/></li>
-	                <li><input name="phone" type="text" id="phone" placeholder="Telefono" Value="<%= user.getTelefono() %>" maxlength="15"/></li>
+	                <li><input name="name" type="text" id="name" placeholder="Nome" readonly="readnly" Value="<%= user.getNome() %>" maxlength="30"/></li>
+	                <li><input name="surname" type="text" id="surname" placeholder="cognome" readonly="readnly" Value="<%= user.getCognome() %>" maxlength="30"/></li>
+	                <li>
+                	<div id="radio">
+                	    <% if(user.getSesso().compareTo("M") == 0) { %> <input type="radio" id="radio1" name="radio" value="M" checked="checked"/><label for="radio1">Maschio</label> <% } %>
+                	    <% else { %> <input type="radio" id="radio2" name="radio" value="F"checked="checked" /><label for="radio2">Femmina</label> <% } %>
+                    </div>
+				    </li>
+	                <li><input name="address" type="text" id="address" placeholder="Indirizzo" readonly="readnly" Value="<%= user.getIndirizzo() %>" maxlength="50"/></li>
+	                <li><input name="provincia" type="text" id="provincia" placeholder="Provincia" readonly="readnly" Value="<%= user.getProvincia() %>" maxlength="50"/></li>
+	                <li><input name="citta" type="text" id="citta" placeholder="Città" readonly="readnly" Value="<%= user.getCitta() %>" maxlength="50"/></li>
+	                <li><input name="phone" type="text" id="phone" placeholder="Telefono" readonly="readnly" Value="<%= user.getTelefono() %>" maxlength="15"/></li>
                 </fieldset>
             </ul>
         </form>
@@ -43,3 +51,4 @@
     </div>
 </body>
 </html>
+<%}%>
