@@ -162,6 +162,15 @@ div#content div#announce {
 	background-repeat:no-repeat;
 }
 
+div#content div#about {
+	background-image: url("../img/announce.png");
+    background-position: -520px 50%;
+    background-repeat: no-repeat;
+    float: right;
+    height: 330px;
+    width: 437px;
+}
+
 div#content div#actions {
 	width: 100%;
 	margin-top: 35px;
