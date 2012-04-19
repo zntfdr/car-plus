@@ -41,7 +41,7 @@
 		        <ul id="user_navigation">
         			<a href="search.jsp"><li><h1>Ricerca un tragitto</h1><img src="../img/wheel.png"/></li>
 					<a href="new_tragitto.jsp"><li><h1>Inserisci un nuovo tragitto</h1><img src="../img/wheel.png"/></li></a> <!-- inserimento TRAGITTO CP  -->
-					<a href="#"><li><h1>Il tuo Profilo</h1><img src="../img/user.png"/></li></a>
+					<a href="iltuprofilo.jsp"><li><h1>Il tuo Profilo</h1><img src="../img/user.png"/></li></a>
 					<a href="update_account.jsp"><li><h1>Aggiorna il tuo profilo</h1><img src="../img/wrench.png"/></li></a> <!-- modifica utente  -->
         			<% if(user.getUserType() == Type.CLIENTE || user.getUserType() == Type.BUSINESS) { %>
             		<a href="new_tragitto_cs_check.jsp"><li><h1>Prenota una macchina</h1><img src="../img/booking.png"/></li></a> <!--  prenota tragitto car sharing -->
