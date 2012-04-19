@@ -87,6 +87,11 @@
         			<li><a href="../jsp/lista_localita.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
         	</li>
+        	<li><a href="#">Gestione Pagamenti</a>
+        		<ul>
+        			<li><a href="../jsp/pagamenti.jsp" class="inserisci">Registra Pagamento</a></li>
+        		</ul>
+        	</li>
         </ul>
         <div style="clear: both;"></div>
     
