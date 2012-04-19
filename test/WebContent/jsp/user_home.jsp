@@ -36,8 +36,9 @@
 		    
 		    <div id="content">
 		        <div class="wrapper">
+		        <div id="account-type" >Account <%= user.getUserType() %></div>
 		        <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><br/><% session.removeAttribute("descrizione"); } %>
-		        Benvenuto <b><%= user.getNome() + "---" + user.getUserType() %></b>,<br/> scegli l'azione desiderata:
+		        Benvenuto <b><%= user.getNome() %></b>,<br/> scegli l'azione desiderata:
 		        <ul id="user_navigation">
         			<a href="search.jsp"><li><h1>Ricerca un tragitto</h1><img src="../img/wheel.png"/></li>
 					<a href="new_tragitto.jsp"><li><h1>Inserisci un nuovo tragitto</h1><img src="../img/wheel.png"/></li></a> <!-- inserimento TRAGITTO CP  -->

@@ -26,8 +26,7 @@ public class Inserimento_macchina_cs extends HttpServlet {
 		else
 			descrizione = "Inserimento della macchina di car sharing con targa " + mCS.getTarga() + " non avvenuta! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
 		
-		HttpSession session = req.getSession();
-		session.setAttribute("descrizione", descrizione);
+		req.getSession().setAttribute("descrizione", descrizione);
 		res.sendRedirect("jsp/lista_macchine_cs.jsp");
 	}
 }

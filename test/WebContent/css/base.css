@@ -1,4 +1,13 @@
 @charset "UTF-8";
+/* css for account-type in user:home */
+#account-type
+{
+	color: gray;
+    float: right;
+    font-size: 80%;
+    font-style: italic;
+    padding-right: 55px;
+}
 /* css for timepicker */
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
 .ui-timepicker-div dl { text-align: left; }
