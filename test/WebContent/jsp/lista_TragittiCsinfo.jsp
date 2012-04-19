@@ -26,10 +26,6 @@
         <div class="wrapper">
 			<%  ArrayList<Tragitto_CS_info> listaCSinfo;
 			    ArrayList<Cliente> listaClienti = Store.StoreCliente.getClienti();
-			    while (!listaClienti.isEmpty()){ 
-			    	Cliente C : listaClienti;
-			    	listaCSinfo.add(Store.StoreTragitto_CS_info.readTragitto_CS_info_cliente(C.getEmail_cliente()));
-			    	}
 			    if (listaCSinfo.isEmpty()) {
 			%>
 				Non ci sono tragitti
@@ -53,8 +49,9 @@
              <td><b>Pagato</b></td>
             </tr>
       <%
-      	for (Tragitto_CS_info T : listaCSinfo) {
-      %>
+      	for (Cliente C : listaClienti) {
+      		listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_cliente(C.getEmail_cliente());
+            for (Tragitto_CS_info T : listaCSinfo) { %>
             <tr>
             <td> <%=T.getEmail_utente()%> </td>
             <td> <a href="../jsp/lista_TragittiCSinfo_tessera.jsp?tessera=<%=T.getId_tessera()%>"> <%=T.getId_tessera()%></a></td>
@@ -102,7 +99,7 @@
  %>
          </table>
       <%
-      	}
+      	}	}
       %>
     	<div style="clear: both;"></div>
 		</div>
