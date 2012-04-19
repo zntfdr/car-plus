@@ -112,7 +112,7 @@ public class Tragitto_CS_info extends Tragitto_CS {
     }
     
     private double round(double num){
-    	num = Math.round(num*100)/100;
+    	num = Math.rint(num*100)/100;
     	return num;
     }
 }
