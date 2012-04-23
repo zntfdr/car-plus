@@ -24,7 +24,7 @@
     <div id="content">
         <div class="wrapper">
         
-        <ul id="trip_description">
+        <ul id="description">
         	<li><h1>Descrizione Viaggio:</h1></li>
         	<li><span class="label">Citt&agrave; Partenza:</span><%= T.getCitta_partenza() %></li>
         	<li><span class="label">Provincia Partenza:</span><%= T.getProvincia_partenza() %></li>
