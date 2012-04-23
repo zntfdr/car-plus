@@ -31,7 +31,7 @@ public class Inserimento_solo_targa extends HttpServlet {
 		
 		//Inserisco nuova macchina cp
 		Macchina_CP mCP = new Macchina_CP(targa, mod);		
-		mCP =  StoreMacchina_CP.insertMacchina_CP(mCP);
+		StoreMacchina_CP.insertMacchina_CP(mCP);
 
 		//Se tutto va bene, comincio a definire la sessione
 		HttpSession session = req.getSession();
