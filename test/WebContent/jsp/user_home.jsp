@@ -23,7 +23,7 @@
 		    											$(this).find("img").animate({bottom: '+=75'}, 400, 'swing');
 		    										}, 
 		    										 function(e){
-		    											e.preventDefault();
+		    											$(this).stop(true,true);
 		    											$(this).find("img").animate({bottom: '-=75'}, 400, 'swing');
 		    										});
 		    	});
