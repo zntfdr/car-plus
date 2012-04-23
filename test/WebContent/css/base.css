@@ -475,7 +475,7 @@ form textarea {
 	font-size: 14px;
 }
 
-form button[type = submit] {
+form button[type = submit], a.no_button {
 	padding: 15px;
 	font-size: 15px;
 	border-radius: 10px;
@@ -489,13 +489,14 @@ form button[type = submit] {
 	cursor: pointer;
 	color: #FFFFFF;
 	margin: 10px;
+	text-decoration: none;
 }
 
-form button[type = submit]:hover {
+form button[type = submit]:hover, a.no_button:hover {
 	opacity: .85;
 }
 
-form button[type = submit]:active {
+form button[type = submit]:active, , a.no_button:active {
 	box-shadow: 2px 2px 2px #466e00 inset;
 	background-color: #304c00;
 }
