@@ -23,10 +23,35 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.js" ></script>
 <script type="text/javascript" src="../css/jquery-ui-timepicker-addon.js" ></script>
-<script type="text/javascript" src="scriptDropdownCitta.js"></script>
 <script>
     $(document).ready(function(){
 	    $("#tempoPrelievo, #tempoConsegna").datetimepicker({ dateFormat: 'yy-mm-dd' });
+	    $("select#provincia_stazione").change(function(e){
+        	if ($("li#li_citta_stazione")) {
+        		$("li#li_citta_stazione").remove();
+        	}
+        	if ($("li#stations")) {
+        		$("li#stations").remove();
+        	}
+        	var province = $(this).val();
+        	var name = $(this).attr('name');
+        	var url = "../Get_citta?provincia=" + province + "&selectName=" + name;
+        	if (province != "") {
+	        	$.get(url, function(data){
+			        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '<input type="submit" id="get_stations" name="get_stations" /></li>';
+			        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
+			        			$("input#get_stations").click(function(){
+			        				var city = $("select#citta_stazione").val();
+			        				var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
+			        				$.get(url_stations, function(data){
+			        					var li_stations = '<li id="stations">' + data + '</li>';
+			        					$(li_stations).insertAfter("li#li_citta_stazione");
+			        				});
+			        				return false;
+			        			});
+			    });
+        	}
+        });
     });
 </script>
 </head>
@@ -40,24 +65,33 @@
         Benvenuto <b><%= user.getNome() %></b>,<br/>
         Scegli un contratto da utilizzare per la prenotazione e la stazione di partenza:
         <form method="GET" action="../Inserimento_tragitto_cs_check" id="new_tragitto_cs_check">
-        <select name="contratto">
-				<option>Seleziona contratto..</option>
-     			<% for(Contratto C : listaContratti){%> <option value="<%= C.getId() %>"><%= C.getNome_abbonamento() %></option> <% } %>
-        </select><br/>
-          <select name="provincia_stazione" onchange="showCity1(this.value, this.name)">
-				<option>Seleziona provincia stazione..</option>
-     			<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
-        </select><br/>
-        <div id="citta1">
-        	<select name="citta_stazione" disabled="disabled">
-        		<option>Seleziona citta stazione..</option>
-        	</select>
-        </div>
-	    
-	    <input name="tempoPrelievo" type="text" id="tempoPrelievo" placeholder="Tempo Prelievo"/></li>
-	    <input name="tempoConsegna" type="text" id="tempoConsegna" placeholder="Tempo Consegna"/></li>
-
-        <button name="submit" type="submit" id="submit">Prosegui</button>
+	        <ul>
+	        	<li>Prenota una macchina di Car Sharing</li>
+	        	<fieldset>
+	        		<legend>Scegli con quale contratto vuoi effettuare la prenotazione:</legend>
+			        <li>
+						<select name="contratto">
+							<option>Seleziona contratto..</option>
+			     			<% for(Contratto C : listaContratti){%> <option value="<%= C.getId() %>"><%= C.getNome_abbonamento() %></option> <% } %>
+			        	</select>
+			        </li>
+		        </fieldset>
+		        <fieldset>
+		        	<legend>Scegli il parcheggio da cui vuoi partire:</legend>
+			        <li id="li_provincia_stazione">
+			            <select name="provincia_stazione" id="provincia_stazione">
+							<option>Seleziona provincia stazione..</option>
+			  				<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
+			   			</select>
+				    </li>
+			    </fieldset>
+			    <fieldset>
+			    	<legend>Scegli l'orario per la prenotazione:</legend>
+				    <li><input name="tempoPrelievo" type="text" id="tempoPrelievo" placeholder="Tempo Prelievo"/></li>
+				    <li><input name="tempoConsegna" type="text" id="tempoConsegna" placeholder="Tempo Consegna"/></li>
+				</fieldset>
+		        <li><button name="submit" type="submit" id="submit">Prosegui</button></li>
+	        </ul>
         </form>
         <div style="clear: both;"></div>
     	
