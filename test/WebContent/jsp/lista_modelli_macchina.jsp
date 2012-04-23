@@ -29,10 +29,10 @@
 		        <td><b>Id</b></td>
 				<td><b>Marca</b></td>
 				<td><b>Modello</b></td>
-				<td><b>Cilindrata</b></td>
+				<td><b>Motore</b></td>
 				<td><b>Anno</b></td>
 				<td><b>Alimentazione</b></td>
-				<td><b>Emissioni CO2</b></td>
+				<td><b>Emissioni Co2</b></td>
 				<td><b>Numero Posti</b></td>
 				<td><b>Modifica</b></td>
         		<td><b>Cancella</b></td>
@@ -43,10 +43,10 @@
 				<td><%= A.getId() %></td>
 				<td><%= A.getMarca() %></td>
 				<td><%= A.getModello() %></td>
-				<td><%= A.getCilindrata() %></td>
+				<td><%= A.getCilindrata() %> <% if(A.getAlimentazione().equals("Elettrica") ) { %>Kw/h<% } else { %>cc<% } %></td>
 				<td><%= A.getAnno() %></td>
 				<td><%= A.getAlimentazione() %></td>
-				<td><%= A.getEmissioni_co2() %></td>
+				<td><%= A.getEmissioni_co2() %> g/Km</td>
 				<td><%= A.getNum_posti() %></td>
         		<td> <a href="update_car_model.jsp?id=<%= A.getId() %>"><img src="../img/ic_edit.png"></a></td>
         		<td> <a href="../CancellaModelloMacchina?id=<%= A.getId() %>"><img src="../img/ic_cancel.png"></a></td>

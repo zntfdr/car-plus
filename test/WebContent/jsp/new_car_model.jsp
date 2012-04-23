@@ -33,7 +33,7 @@
                 <li><h1>Nuovo Modello Macchina</h1></li>
                 <li><input name="marca" type="text" id="marca" placeholder="Marca" maxlenght="30"/></li>
                 <li><input name="modello" type="text" id="modello" placeholder="Modello" maxlength="50"/></li>
-                <li><input name="cilindrata" type="text" id="cilindrata" placeholder="Cilindrata"/></li>
+                <li><input name="cilindrata" type="text" id="cilindrata" placeholder="Cilindrata o Kw"/></li>
                 <li><input name="anno" type="text" id="anno" placeholder="Anno" maxlenght="4"/></li>
                 <li><select name="alimentazione">
                 	<option value="Benzina">Benzina</option>
@@ -42,7 +42,7 @@
                 	<option value="Metano">Metano</option>
                 	<option value="Elettrica">Elettrica</option>
                 </select></li>
-                <li><input name="emissioni_co2" type="text" id="emissioni_co2" placeholder="Emissioni CO2 [g/km]"/></li>
+                <li><input name="emissioni_co2" type="text" id="emissioni_co2" placeholder="Emissioni Co2 [g/km]"/></li>
                 <li><input name="num_posti" type="text" id="num_posti" placeholder="Numero Posti"/></li>
 
                 <li><button name="submit" type="submit" id="submit">Registra</button></li>
