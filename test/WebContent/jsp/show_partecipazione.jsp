@@ -23,40 +23,28 @@
 	
     <div id="content">
         <div class="wrapper">
-        Benvenuto <b><%= user.getNome() %></b>,<br/>
-        <table id="trip_list">
-            <tr>
-            	<th>Descrizione</th>
-            	<th>Fumatori</th>
-                <th>Citta Partenza</th>
-                <th>Provincia Partenza</th>
-                <th>Citta Arrivo</th>
-                <th>Provincia Arrivo</th>
-                <th>Partenza</th>
-                <th>Posti Liberi</th>
-                <th>Proprietario Auto</th>
-            </tr>
-              <% //Tragitto_CP T = (Tragitto_CP)session.getAttribute("tragitto_scelto");%>
-            <tr>
-            	<td class="to"> <%= T.getNote() %></td>
-            	<td class="to"> <%= T.getFumatori() %></td>
-                <td class="from"> <%= T.getCitta_partenza() %></td>
-                <td class="from"> <%= T.getProvincia_partenza() %></td>                
-                <td class="to"> <%= T.getCitta_arrivo() %></td>
-                <td class="to"> <%= T.getProvincia_arrivo() %></td>
-                <td class="date"> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_partenza()) %></td>
-                <td class="free"> <%= T.getNum_posti() %></td>
-                <td class="to"> <%= T.getEmail_utente() %></td>
-            </tr>
-        </table>
         
-        <form method="get" action="../Inserimento_partecipazione" id="search">
+        <ul id="trip_description">
+        	<li><h1>Descrizione Viaggio:</h1></li>
+        	<li><span class="label">Citt&agrave; Partenza:</span><%= T.getCitta_partenza() %></li>
+        	<li><span class="label">Provincia Partenza:</span><%= T.getProvincia_partenza() %></li>
+        	<li><span class="label">Citt&agrave; Arrivo:</span><%= T.getCitta_arrivo() %></li>
+        	<li><span class="label">Provincia Arrivo:</span><%= T.getProvincia_arrivo() %></li>
+        	<li><span class="label">Partenza:</span><%= Utils.TimeString.dataOraCalendarToString(T.getTempo_partenza()) %></li>
+        	<li><span class="label">Fumatori:</span><%= T.getFumatori() %></li>
+        	<li><span class="label">Posti Liberi:</span><%= T.getNum_posti() %></li>
+        	<li><span class="label">Proprietario:</span><%= T.getEmail_utente() %></li>
+        	<li><span class="label">Descrizione:</span><%= T.getNote() %></li>
+        	
+        </ul>
+ 
+        <form method="get" action="../Inserimento_partecipazione">
             <ul>
-            <li>Confermi?</li>
-                Utente: <input name="user" readonly="readonly" type="text" id="user" value="<%=user.getEmail() %>" />
-                Numero Posti: <input name="num_posti" readonly="readonly" type="text" id="num_posti" value="<%= (Integer)session.getAttribute("num_posti")%>"/>
-                <input name="id" type="hidden" id="id" value="<%=T.getId()%>"/>
- 				<li><button name="submit" type="submit" id="submit">Si</button></li>
+	            <li>Vuoi confermare la prenotazione?</li>
+	            <li><strong>Utente:</strong> <%=user.getEmail() %> <input class="hide" name="user" readonly="readonly" type="text" id="user" value="<%=user.getEmail() %>" /></li>
+	            <li><strong>Numero Posti:</strong> <%= (Integer)session.getAttribute("num_posti") %><input class="hide" name="num_posti" readonly="readonly" type="text" id="num_posti" value="<%= (Integer)session.getAttribute("num_posti")%>"/></li>
+	                <input class="hide" name="id" type="hidden" id="id" value="<%=T.getId()%>"/>
+	 			<li><button name="submit" type="submit" id="submit">S&igrave;</button><button name="submit" type="submit" id="submit_no">No</button></li>
             </ul>
         </form>
         
