@@ -44,7 +44,7 @@
 	            <li><strong>Utente:</strong> <%=user.getEmail() %> <input class="hide" name="user" readonly="readonly" type="text" id="user" value="<%=user.getEmail() %>" /></li>
 	            <li><strong>Numero Posti:</strong> <%= (Integer)session.getAttribute("num_posti") %><input class="hide" name="num_posti" readonly="readonly" type="text" id="num_posti" value="<%= (Integer)session.getAttribute("num_posti")%>"/></li>
 	                <input class="hide" name="id" type="hidden" id="id" value="<%=T.getId()%>"/>
-	 			<li><button name="submit" type="submit" id="submit">S&igrave;</button><button name="submit" type="submit" id="submit_no">No</button></li>
+	 			<li><button name="submit" type="submit" id="submit">S&igrave;</button><a href="javascript:history.go(-1)" class="no_button">No</a></li>
             </ul>
         </form>
         
