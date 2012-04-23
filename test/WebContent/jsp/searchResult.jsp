@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Ricerca un Tragitto | Car+</title>
+    <title>Risultati Ricerca Tragitto CP | Car+</title>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js" ></script>
     <link href="../css/base.css" rel="stylesheet" type="text/css" />
@@ -26,6 +26,7 @@
 	
     <div id="content">
         <div class="wrapper">
+        <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione");} %>
         <table id="trip_list">
             <tr>
                 <th>Citta Partenza</th>
