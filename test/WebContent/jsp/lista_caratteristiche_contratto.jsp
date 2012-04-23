@@ -41,11 +41,11 @@ if (user == null) { //Controllo che sia aperta una connessione, altrimenti facci
 				<td><%= idc %></td>
 				<td><%= a.getNome()  %></td>
 				<td><%= a.getDescrizione() %></td>
-				<td><%= a.getTariffa_min_100km() %></td>
-				<td><%= a.getTariffa_magg_100km() %></td>
-        		<td><%= a.getTariffa_diurna() %></td>
-        		<td><%= a.getTariffa_notturna() %></td>
-        		<td><%= a.getCosto_mensile() %></td>
+				<td><%= a.getTariffa_min_100km() %> &euro;</td>
+				<td><%= a.getTariffa_magg_100km() %> &euro;</td>
+        		<td><%= a.getTariffa_diurna() %> &euro;</td>
+        		<td><%= a.getTariffa_notturna() %> &euro;</td>
+        		<td><%= a.getCosto_mensile() %> &euro;</td>
       		</tr>
     	</table>
     <div id="footer">
