@@ -30,32 +30,22 @@
 	<% int idc = Integer.parseInt(request.getParameter("contratto"));
 	   Abbonamento a = Store.StoreAbbonamento.readAbbonamento(Store.StoreContratto.readContratto(idc).getNome_abbonamento()); %>
         <h1>Caratteristiche contratto:</h1>
-    	<table border="1">
-      		<tr>
-      		    <td><b>Id contratto</b></td>
-		        <td><b>Tipo contratto</b></td>
-		        <td><b>Descrizione</b></td>
-		        <td><b>Tariffa al km per viaggi entro i 100km</b></td>
-		        <td><b>Tariffa al km per viaggi oltre i 100km</b></td>
-		        <td><b>Tariffa oraria diurna</b></td>
-		        <td><b>Tariffa oraria notturna</b></td>
-				<td><b>Costo mensile</b></td>
-				<td><b>Numero minimo tessere</b></td>
-				<td><b>Numero massimo tessere</b></td>
-      		</tr>
-      		<tr>
-				<td><%= idc %></td>
-				<td><%= a.getNome()  %></td>
-				<td><%= a.getDescrizione() %></td>
-				<td><%= a.getTariffa_min_100km() %></td>
-				<td><%= a.getTariffa_magg_100km() %></td>
-        		<td><%= a.getTariffa_diurna() %></td>
-        		<td><%= a.getTariffa_notturna() %></td>
-        		<td><%= a.getCosto_mensile() %></td>
-        		<td><%= a.getNum_min_tessere() %></td>
-        		<td><%= a.getNum_max_tessere() %></td>
-      		</tr>
-    	</table>
+        
+         <ul id="description">
+        	<li><h1>Descrizione Viaggio:</h1></li>
+        	<li><span class="label">ID Contratto:</span><%= idc %></li>
+        	<li><span class="label">Nome Contratto:</span><%= a.getNome() %></li>
+        	<li><span class="label">Descrizione:</span><%= a.getDescrizione() %></li>
+        	<li><span class="label">Tariffa al km per viaggi entro i 100km:</span><%= a.getTariffa_min_100km() %></li>
+        	<li><span class="label">Tariffa al km per viaggi oltre i 100km:</span><%= a.getTariffa_magg_100km() %></li>
+        	<li><span class="label">Tariffa oraria diurna:</span><%= a.getTariffa_diurna() %></li>
+        	<li><span class="label">Tariffa oraria notturna:</span><%= a.getTariffa_notturna() %></li>
+        	<li><span class="label">Costo Mensile:</span><%= a.getCosto_mensile() %></li>
+        	<li><span class="label">Numero minimo tessere:</span><%= a.getNum_min_tessere() %></li>
+        	<li><span class="label">Numero massimo tessere:</span><%= a.getNum_max_tessere() %></li>
+        	
+        </ul>
+        
        	<div style="clear: both;"></div>
 		</div>
 	</div>
