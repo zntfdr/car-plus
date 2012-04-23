@@ -47,9 +47,10 @@
         			<% if(user.getUserType() == Type.CLIENTE || user.getUserType() == Type.BUSINESS) { %>
             		<a href="new_tragitto_cs_check.jsp"><li><h1>Prenota una macchina</h1><img src="../img/booking.png"/></li></a> <!--  prenota tragitto car sharing -->
                     <a href="iltuoconto.jsp"><li><h1>Il tuo Conto</h1><img src="../img/money.png"/></li></a> <!-- Visualizzazione conto -->
-                    <a href="lista_TragittiCSinfo_cliente.jsp"><li><h1>I tuoi viaggi</h1><img src="../img/faq.png"/></li></a> <!-- Visualizzazione lista_TragittiCSinfo_cliente -->
+                    <a href="lista_TragittiCSinfo_cliente.jsp"><li><h1>I tuoi viaggi di Car Sharing</h1><img src="../img/faq.png"/></li></a> <!-- Visualizzazione lista_TragittiCSinfo_cliente -->
+                    <a href="lista_TragittiCP_utente.jsp"><li><h1>I tuoi viaggi di Car Pooling</h1><img src="../img/faq.png"/></li></a> <!-- Visualizzazione lista viaggio car pooling -->
 					<a href="lista_contratti_utente.jsp"><li><h1>I tuoi contratti</h1><img src="../img/faq.png"/></li></a> <!-- Visualizzazione lista_contratti -->
-					<% } %>		
+					<% } else { %><a href="lista_TragittiCP_utente.jsp"><li><h1>I tuoi viaggi di Car Pooling</h1><img src="../img/faq.png"/></li></a> <!-- Visualizzazione lista viaggio car pooling --><% } %>
 				</ul>        
 		        <div style="clear: both;"></div>
 		        </div>
