@@ -29,7 +29,6 @@
 <td><b>provincia partenza</b></td>
 <td><b>citta arrivo</b></td>
 <td><b>provincia arrivo</b></td>
-<td><b>email utente</b></td>
 <td><b>targa CP</b></td>
 <td><b>tempo partenza</b></td>
 <td><b>tempo arrivo</b></td>
@@ -45,7 +44,6 @@
 					<td><%=tcp.getProvincia_partenza()%></td>
 					<td><%=tcp.getCitta_arrivo()%></td>
 					<td><%=tcp.getProvincia_arrivo()%></td>
-					<td><%=tcp.getEmail_utente()%></td>
 					<td><%=tcp.getTarga_CP()%></td>
 					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_partenza())%></td>
 					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_arrivo())%></td>
