@@ -33,7 +33,7 @@
 				<td><b>Anno</b></td>
 				<td><b>Alimentazione</b></td>
 				<td><b>Emissioni Co2</b></td>
-				<td><b>Numero Posti</b></td>
+				<td><b>Posti</b></td>
 				<td><b>Modifica</b></td>
         		<td><b>Cancella</b></td>
       		</tr>
