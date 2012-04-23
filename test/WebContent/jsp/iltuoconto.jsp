@@ -50,7 +50,7 @@
 				<td><%= T.getNome() %></td>
 				<td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo()) %></td>
 				<td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna())%></td>
-				<td><%=T.getCosto()%></td>
+				<td><%=T.getCosto()%> &euro;</td>
 				<td><% if (T.getPagato()) { %> &#10003;<% 	} else { %> &#10007;<% 	} %></td>
 			</tr>
 		    <% } //fine if
