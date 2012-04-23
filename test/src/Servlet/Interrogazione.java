@@ -72,6 +72,38 @@ public class Interrogazione extends HttpServlet {
 		return listaContratti;
 	}
 	
+	public static ArrayList<Tragitto_CP> listaTraggittiUtenteCreatiDaLui(String emailUtente){
+		String sql = "SELECT * FROM tragitto_cp WHERE email_utente = '" + emailUtente +"' ORDER BY tempo_partenza";
+		ArrayList<Tragitto_CP> listaTragitti = new ArrayList<Tragitto_CP>();
+		ResultSet rs = Query.doQueryRS(sql);
+		if(rs != null){
+			try {
+				while(rs.next()){
+					listaTragitti.add(new Tragitto_CP(rs.getInt("id"), rs.getBoolean("fumatori"), rs.getInt("num_posti"), rs.getString("note"), rs.getString("citta_partenza"), rs.getString("provincia_partenza"), rs.getString("citta_arrivo"), rs.getString("provincia_arrivo"), rs.getString("email_utente"), rs.getString("targa_CP"), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_partenza")), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_arrivo"))));
+				}
+				return listaTragitti;
+			}catch (SQLException e){
+			}
+		}
+		return listaTragitti;
+	}
+	
+	public static ArrayList<Tragitto_CP> listaTraggittiUtenteInCuiPartecipa(String emailUtente){
+		String sql = "SELECT id, fumatori, tcp.num_posti, note, citta_partenza, provincia_partenza, citta_arrivo, provincia_arrivo, tcp.email_utente, targa_CP, tempo_partenza, tempo_arrivo FROM tragitto_cp AS tcp JOIN partecipazione AS p ON id = id_tragitto_cp WHERE p.email_utente = '" + emailUtente +"' ORDER BY tempo_partenza";
+		ArrayList<Tragitto_CP> listaTragitti = new ArrayList<Tragitto_CP>();
+		ResultSet rs = Query.doQueryRS(sql);
+		if(rs != null){
+			try {
+				while(rs.next()){
+					listaTragitti.add(new Tragitto_CP(rs.getInt("id"), rs.getBoolean("fumatori"), rs.getInt("num_posti"), rs.getString("note"), rs.getString("citta_partenza"), rs.getString("provincia_partenza"), rs.getString("citta_arrivo"), rs.getString("provincia_arrivo"), rs.getString("email_utente"), rs.getString("targa_CP"), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_partenza")), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_arrivo"))));
+				}
+				return listaTragitti;
+			}catch (SQLException e){
+			}
+		}
+		return listaTragitti;
+	}
+	
 	public static ArrayList<String> ListaUtentiNonClienti(){
 		ArrayList<String> array = new ArrayList<String>();
 		String sql = "SELECT email FROM utente WHERE email NOT IN (SELECT email_utente FROM cliente) ORDER BY email";
