@@ -52,7 +52,7 @@
                 <li><label for="from">Citta Partenza:</label><input name="from" type="text" id="from" /></li>
                 <li><label for="toProv">Provincia Arrivo:</label><input name="toProv" type="text" id="toProv" /></li>
                 <li><label for="to">Citta Arrivo:</label><input name="to" type="text" id="to" /></li>
-                <li><label for="date">Data:</label><input name="date" type="datetime" id="date" /></li>
+                <li><label for="date">Data:</label><input name="date" type="text" id="date" /></li>
                 <li><label for="people">Quante persone:</label><input name="people" type="text" id="people" maxlength="2"/></li>
                 <li><button name="submit" type="submit" id="submit">Cerca</button></li>
             </ul>
