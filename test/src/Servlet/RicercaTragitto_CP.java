@@ -27,9 +27,10 @@ public class RicercaTragitto_CP extends HttpServlet {
 		int num_posti = Integer.parseInt(req.getParameter("people"));
 
 		HttpSession session = req.getSession();
-		String result = "jsp/searchResult.jsp";
+		String page = "jsp/searchResult.jsp";
 
 		String sql ="SELECT id FROM tragitto_CP WHERE provincia_partenza = '" + provinciaPartenza +"' AND citta_partenza = '"+ cittaPartenza +"' AND provincia_arrivo = '"+ provinciaArrivo+ "' AND citta_arrivo = '"+ cittaArrivo + "' AND tempo_partenza >= '" + Utils.TimeString.dataCalendarToString(data)+"' AND num_posti >= '" + num_posti + "'";
+		String descrizione ="";
 		ResultSet rs = Query.doQueryRS(sql);
 
 		if(rs != null){
@@ -41,11 +42,13 @@ public class RicercaTragitto_CP extends HttpServlet {
 				if(!listaIDTragitto.isEmpty()){
 					ArrayList<Tragitto_CP> listaTragitti_CP = Store.StoreTragitto_CP.readTragitto_CP_List(listaIDTragitto);
 					session.setAttribute("listaTragitti_CP", listaTragitti_CP);
-				} else result ="jsp/failure.jsp";
+					descrizione ="Risultati ricerca: ";
+				} else descrizione ="Spiacente! Non ci sono tragitti che soddisfano la tua richiesta <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
 			}catch (SQLException e){
 			}
-		} else result ="jsp/failure.jsp";
+		} else descrizione ="Spiacente! Non ci sono tragitti che soddisfano la tua richiesta <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
 		session.setAttribute("num_posti", num_posti);
-		res.sendRedirect(result);
+		session.setAttribute("descrizione", descrizione);
+		res.sendRedirect(page);
 	}
 }
