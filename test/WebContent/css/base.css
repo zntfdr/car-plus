@@ -864,3 +864,34 @@ ul#trip_description li > span.label {
 ul#trip_description li:first-child {
 	border-bottom: 2px solid #909090; 
 }
+
+/*******************************************/
+/************* CAR MODEL EXISTS ************/
+/*******************************************/
+
+ul#solo_targa_o_anche_modello_navigation {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 20px;
+    list-style: none;
+    
+    width: 100%;
+    padding: 0;
+}
+
+ul#solo_targa_o_anche_modello_navigation li {
+    padding: 10px;
+    display: inline-block;
+}
+
+ul#solo_targa_o_anche_modello_navigation li.selected {
+    background-color: #fefefe;
+}
+
+ul#solo_targa_o_anche_modello_navigation li.random {
+    background-color: #d3fa8b;
+}
+
+ul#solo_targa_o_anche_modello_navigation li:hover {
+    background-color: #7dc500;
+    cursor:pointer;
+}
