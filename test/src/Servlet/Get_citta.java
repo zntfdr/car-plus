@@ -40,7 +40,7 @@ public class Get_citta extends HttpServlet {
 		String provincia = req.getParameter("provincia");
 		String selectName = req.getParameter("selectName");
 		String newSelectName = selectName.replace("provincia", "citta");
-		String sql= "SELECT citta FROM stazione_cs WHERE provincia = '"+provincia+"'";
+		String sql= "SELECT DISTINCT citta FROM stazione_cs WHERE provincia = '"+provincia+"'";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){
 			try {
