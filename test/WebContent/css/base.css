@@ -842,18 +842,18 @@ ul#user_navigation {
 /************* TRIP DESCRIPTION ************/
 /*******************************************/
 
-ul#trip_description {
+ul#description {
 	list-style: none;
 	width: 100%;
 }
 
-ul#trip_description li {
+ul#description li {
 	margin: 15px;
 	padding: 5px;
 	border-bottom: 1px solid #aeaeae; 
 }
 
-ul#trip_description li > span.label {
+ul#description li > span.label {
 	width: 150px;
 	font-weight: bold;
 	margin-right: 5px;
@@ -861,7 +861,7 @@ ul#trip_description li > span.label {
 	font-size: 18px;
 }
 
-ul#trip_description li:first-child {
+ul#description li:first-child {
 	border-bottom: 2px solid #909090; 
 }
 
