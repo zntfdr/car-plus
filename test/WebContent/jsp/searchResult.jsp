@@ -26,7 +26,6 @@
 	
     <div id="content">
         <div class="wrapper">
-        Benvenuto <b><%= user.getNome() %></b>,<br/>
         <table id="trip_list">
             <tr>
                 <th>Citta Partenza</th>
