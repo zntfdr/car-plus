@@ -3,6 +3,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Entita.Contratto"%>
 <%@ page import="Entita.Abbonamento"%>
+<%@ page import="Entita.Utente"%>
 <%@ page import="Store.*" %>
 <%@ page import = "Utils.HTMLManager" %>
 <% Utente user = (Utente) session.getAttribute("utente_loggato");
