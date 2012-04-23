@@ -25,7 +25,7 @@
         <b><a href="mailto:crash.pc89@gmail.com">Agnolazza Francesco</a></b>: Software Developer;<br/>
         <b><a href="mailto:nicola.menon@libero.it">Menon Nicola</a></b>: Software Developer;<br/>
         <b><a href="http://twitter.com/GianJVM">Nalin Gianmarco</a></b>: Web Designer;<br/>
-        <b><a href="https://twitter.com/zntfdr">Zanetello Federico</a></b>: Project Manager;<br/>
+        <b><a href="https://twitter.com/zntfdr">Zanetello Federico</a></b>: Product Manager;<br/>
         <div id="about"></div>
         <div style="clear: both;"></div>
         </div>
