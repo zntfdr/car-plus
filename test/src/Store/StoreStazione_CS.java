@@ -72,7 +72,7 @@ public class StoreStazione_CS{
 	}
 	
 	public static ArrayList<Stazione_CS> getStazione_CS() {
-		String sql_query = "SELECT * FROM stazione_cs";
+		String sql_query = "SELECT * FROM stazione_cs ORDER BY provincia, citta, nome";
 		ResultSet rs = Query.doQueryRS(sql_query);
 		if (rs != null) {
 			try {
