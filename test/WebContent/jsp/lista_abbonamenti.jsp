@@ -42,11 +42,11 @@
 			<tr>
 				<td><%= A.getNome() %></td> 
 				<td><%= A.getDescrizione() %></td> 
-				<td><%= A.getTariffa_magg_100km() %></td> 
-				<td><%= A.getTariffa_min_100km() %></td> 
-				<td><%= A.getTariffa_notturna() %></td> 
-				<td><%= A.getTariffa_diurna() %></td> 
-				<td><%= A.getCosto_mensile() %></td> 
+				<td><%= A.getTariffa_magg_100km() %> &euro;</td> 
+				<td><%= A.getTariffa_min_100km() %> &euro;</td> 
+				<td><%= A.getTariffa_notturna() %> &euro;</td> 
+				<td><%= A.getTariffa_diurna() %> &euro;</td> 
+				<td><%= A.getCosto_mensile() %> &euro;</td> 
 				<td><%= A.getNum_max_tessere() %></td> 
 				<td><%= A.getNum_min_tessere() %></td>
 				<td> <a href="update_subscription.jsp?nome=<%= A.getNome() %>"><img src="../img/ic_edit.png"></a></td>
