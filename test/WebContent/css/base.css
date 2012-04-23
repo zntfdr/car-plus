@@ -475,7 +475,7 @@ form textarea {
 	font-size: 14px;
 }
 
-form button#submit {
+form button[type = submit] {
 	padding: 15px;
 	font-size: 15px;
 	border-radius: 10px;
@@ -488,13 +488,14 @@ form button#submit {
 	text-shadow: 1px 1px 2px #333;
 	cursor: pointer;
 	color: #FFFFFF;
+	margin: 10px;
 }
 
-form button#submit:hover {
+form button[type = submit]:hover {
 	opacity: .85;
 }
 
-form button#submit:active {
+form button[type = submit]:active {
 	box-shadow: 2px 2px 2px #466e00 inset;
 	background-color: #304c00;
 }
@@ -834,3 +835,31 @@ ul#user_navigation {
     		width: 100px;
     		height: 100px;
     	}
+
+    	
+/*******************************************/
+/************* TRIP DESCRIPTION ************/
+/*******************************************/
+
+ul#trip_description {
+	list-style: none;
+	width: 100%;
+}
+
+ul#trip_description li {
+	margin: 15px;
+	padding: 5px;
+	border-bottom: 1px solid #aeaeae; 
+}
+
+ul#trip_description li > span.label {
+	width: 150px;
+	font-weight: bold;
+	margin-right: 5px;
+	height: 100%;
+	font-size: 18px;
+}
+
+ul#trip_description li:first-child {
+	border-bottom: 2px solid #909090; 
+}
