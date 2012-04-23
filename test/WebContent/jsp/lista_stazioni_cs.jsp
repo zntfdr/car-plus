@@ -27,8 +27,8 @@
     	<table id="trip_list">
       		<tr>
 		        <td><b>Nome</b></td>
-				<td><b>Citta</b></td>
 				<td><b>Provincia</b></td>
+				<td><b>Citta</b></td>
 				<td><b>Indirizzo</b></td>
 				<td><b>Numero Posti</b></td>
 				<td><b>Modifica</b></td>
@@ -38,8 +38,8 @@
   			%>
       		<tr>
 				<td><%= A.getNome() %></td>
-				<td><%= A.getCitta() %></td>
 				<td><%= A.getProvincia() %></td>
+				<td><%= A.getCitta() %></td>
 				<td><%= A.getIndirizzo() %></td>
 				<td><%= A.getNum_posti() %></td>
         		<td> <a href="update_cs_station.jsp?nome=<%= A.getNome() %>&provincia=<%= A.getProvincia() %>&citta=<%= A.getCitta() %>"><img src="../img/ic_edit.png"></a></td>
