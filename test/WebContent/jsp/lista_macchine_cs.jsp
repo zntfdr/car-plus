@@ -26,17 +26,17 @@
         <h1>Lista delle Macchine di Car Sharing</h1>
     	<table id="trip_list">
       		<tr>
-		        <td><b>provincia</b></td>
-		        <td><b>citta</b></td>
-		        <td><b>nome stazione CS</b></td>
-		        <td><b>id modello</b></td>
-		        <td><b>targa</b></td>
-				<td><b>anno acquisto</b></td>
-				<td><b>scad bollo</b></td>
-				<td><b>scad assicurazione</b></td>
-				<td><b>scad revisione</b></td>
-				<td><b>km totali</b></td>
-				<td><b>prenotabile</b></td>
+		        <td><b>Provincia</b></td>
+		        <td><b>Citta</b></td>
+		        <td><b>Nome Stazione</b></td>
+		        <td><b>Id modello</b></td>
+		        <td><b>Targa</b></td>
+				<td><b>Anno Acquisto</b></td>
+				<td><b>Scad. Bollo</b></td>
+				<td><b>Scad. Assic.</b></td>
+				<td><b>Scad Revis.</b></td>
+				<td><b>Km Totali</b></td>
+				<td><b>Prenotabile</b></td>
 				<td><b>Modifica</b></td>
         		<td><b>Cancella</b></td>
       		</tr>
@@ -45,14 +45,14 @@
 				<td><%= A.getProvincia() %></td>
 				<td><%= A.getCitta() %></td>
 				<td><%= A.getNome_stazione_CS() %></td>
-				<td><%= A.getId_modello() %></td>
+				<td><a href="lista_modelli_macchina.jsp"><%= A.getId_modello() %></a></td>
 				<td><%= A.getTarga() %></td>
 				<td><%= A.getAnno_acquisto() %></td>
 				<td><%= Utils.TimeString.dataCalendarToString(A.getScad_bollo()) %></td>
 				<td><%= Utils.TimeString.dataCalendarToString(A.getScad_assicurazione()) %></td>
 				<td><%= Utils.TimeString.dataCalendarToString(A.getScad_revisione()) %></td>
 				<td><%= A.getKm_totali() %></td>
-				<td><%= A.getPrenotabile() %></td>
+				<td><% if (A.getPrenotabile()) { %> &#10003;<% 	} else { %> &#10007;<% 	} %></td>
         		<td> <a href="update_cs_car.jsp?targa=<%= A.getTarga() %>"><img src="../img/ic_edit.png"></a></td>
         		<td> <a href="../CancellaMacchinaCS?targa=<%= A.getTarga() %>"><img src="../img/ic_cancel.png"></a></td>
       		</tr>
