@@ -35,7 +35,7 @@
             <%if (listaMacchine.isEmpty()) { %>
             <div id="content">
             <div class="wrapper">
-            Non ci sono macchine disponibili. <a href="../jsp/new_tragitto_cs_check.jsp">Riprova cambiando i campi di ricerca </a>
+            Non ci sono macchine disponibili. <a href="javascript:history.go(-1)">Riprova cambiando i campi di ricerca </a>
             <div style="clear: both;"></div>
             </div>
            </div>
