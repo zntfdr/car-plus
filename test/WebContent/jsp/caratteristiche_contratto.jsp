@@ -29,10 +29,9 @@
         <div class="wrapper">
 	<% int idc = Integer.parseInt(request.getParameter("contratto"));
 	   Abbonamento a = Store.StoreAbbonamento.readAbbonamento(Store.StoreContratto.readContratto(idc).getNome_abbonamento()); %>
-        <h1>Caratteristiche contratto:</h1>
         
          <ul id="description">
-        	<li><h1>Descrizione Viaggio:</h1></li>
+        	<li><h1>Descrizione Contratto:</h1></li>
         	<li><span class="label">ID Contratto:</span><%= idc %></li>
         	<li><span class="label">Nome Contratto:</span><%= a.getNome() %></li>
         	<li><span class="label">Descrizione:</span><%= a.getDescrizione() %></li>
