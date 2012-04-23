@@ -17,7 +17,7 @@
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
-        <h1><%= session.getAttribute("descrizione") %>avvenuta con successo!</h1>
+        <h1><%= session.getAttribute("descrizione") %></h1>
         <table id="trip_list">
             <tr>
                 <th>Nome</th>
@@ -26,7 +26,7 @@
             </tr>
             <% Utente ut = (Utente) session.getAttribute("utente"); %>
             <tr>
-            	<td> <%= ut.getCitta() %></td> 
+            	<td> <%= ut.getNome() %></td> 
             	<td> <%= ut.getCognome() %></td>
            		<td> <%= ut.getEmail() %></td>
 	        </tr>
