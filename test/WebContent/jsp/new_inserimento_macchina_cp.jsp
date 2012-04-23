@@ -55,6 +55,11 @@
         <% if (macchina_inserita!=null && macchina_inserita.compareTo("ok")==0){ %>
         Ora scelgi il modello che hai appena inserito e completa il form inserendo anche la targa.
         <%} %> 
+        <ul id="solo_targa_o_anche_modello_navigation">
+        	<li>C'è il modello che stai cercando?</li>
+            <li id="solo_targa" class="<%= (((solotarga != null) && (!solotarga.booleanValue()))  || (solotarga == null)) ? "selected" : ""%>">Sì</li>
+            <li id="anche_modello" class="<%= ((solotarga != null) && (solotarga.booleanValue())) ? "selected" : ""%>">No</li>
+        </ul>
         <form method="post" action="../Inserimento_solo_targa" id="solo_targa" class="<%= ((solotarga != null) && solotarga.booleanValue()) ? "hide" : ""%>">
             <ul>
                 <li><h1>Inserisci la tua nuova macchina</h1></li>
@@ -89,12 +94,6 @@
                 <li><button name="submit" type="submit" id="submit">Registra</button></li>
             </ul>
         </form>
-        
-        <ul id="solo_targa_o_anche_modello_navigation">
-        C'è il modello che stai cercando?
-            <li id="solo_targa" class="<%= (((solotarga != null) && (!solotarga.booleanValue()))  || (solotarga == null)) ? "selected" : ""%>">Sì</li>
-            <li id="anche_modello" class="<%= ((solotarga != null) && (solotarga.booleanValue())) ? "selected" : ""%>">No</li>
-        </ul>
         <div style="clear: both;"></div>
     	
         </div>
