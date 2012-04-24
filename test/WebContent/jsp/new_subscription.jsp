@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import = "Utils.HTMLManager" %>
+<%@ page import = "java.util.ArrayList" %>
+<%@ page import = "Servlet.Interrogazione" %>
+<%@ page import = "Entita.Modello_Macchina" %>
+
+
 <%	if (session.getAttribute("ADMIN") == null) {
 	response.sendRedirect("login.jsp");
 } else { %>
@@ -36,6 +41,16 @@
                 	<legend>Disponibilit&agrave; Tessere: </legend>
 	                <li><input name="num_min_tessere" type="text" id="num_min_tessere" placeholder="Numero minimo di tessere"/></li>
 	                <li><input name="num_max_tessere" type="text" id="num_max_tessere" placeholder="Numero massimo di tessere"/></li>
+				</fieldset>
+				<fieldset>
+                	<legend>Macchine Disponibili: </legend>
+                	<%ArrayList<Modello_Macchina> modelli = Interrogazione.getModelliCS();
+                	if(modelli == null || modelli.isEmpty()){
+                	%> Attenzione, non ci sono veicoli a disposizione<%
+                	} else {
+                	for(Modello_Macchina M : modelli){%>
+	                <li><input name="model" type="checkbox" id="model" value="<%= M.getId()%>"/> <%=M.getMarca() %> | <%=M.getModello() %></li>
+	                <%}} %>
 				</fieldset>
                 <li><button name="submit" type="submit" id="submit">Inserisci</button></li>
             </ul>
