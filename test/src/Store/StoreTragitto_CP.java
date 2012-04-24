@@ -12,13 +12,24 @@ public class StoreTragitto_CP{
 
 	public static Tragitto_CP readTragitto_CP(int id){
 		String sql = "SELECT * FROM tragitto_CP WHERE id = '" + id + "'";
-		ResultSet rs = Query.doQueryRS(sql);
-		if(rs != null){
-			try {
+		ResultSet rs = null;
+		try {
+			rs = Query.doQueryRS(sql);
+			if(rs != null){
 				while(rs.next()){
 					return new Tragitto_CP(rs.getInt("id"), rs.getBoolean("fumatori"), rs.getInt("num_posti"), rs.getString("note"), rs.getString("citta_partenza"), rs.getString("provincia_partenza"), rs.getString("citta_arrivo"), rs.getString("provincia_arrivo"), rs.getString("email_utente"), rs.getString("targa_CP"), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_partenza")), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_arrivo")));
 				}
-			}catch (SQLException e){
+			}
+		}catch (SQLException e){
+		}
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+			} finally {
+				rs = null;
 			}
 		}
 		return null;
@@ -30,15 +41,26 @@ public class StoreTragitto_CP{
 			sql += "id = '" + idList.get(i)+ "' OR ";
 		}
 		sql+= "id = '" + idList.get(idList.size() - 1)+ "'";
-		ResultSet rs = Query.doQueryRS(sql);
-		if(rs != null){
-			try {
+		ResultSet rs = null;
+		try {
+			rs = Query.doQueryRS(sql);
+			if(rs != null){
 				ArrayList<Tragitto_CP> Tragitto_CP_List = new ArrayList<Tragitto_CP>();
 				while(rs.next()){
 					Tragitto_CP_List.add(new Tragitto_CP(rs.getInt("id"), rs.getBoolean("fumatori"), rs.getInt("num_posti"), rs.getString("note"), rs.getString("citta_partenza"), rs.getString("provincia_partenza"), rs.getString("citta_arrivo"), rs.getString("provincia_arrivo"), rs.getString("email_utente"), rs.getString("targa_cp"), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_partenza")), Utils.TimeString.parseSQLTimestampToCalendar(rs.getString("tempo_arrivo"))));
 				}
 				return Tragitto_CP_List;
-			}catch (SQLException e){
+			}
+		}catch (SQLException e){
+		}
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+			} finally {
+				rs = null;
 			}
 		}
 		return null;

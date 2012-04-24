@@ -15,13 +15,26 @@ public class StoreDisponibilita{
 
 	public static  Disponibilita readDisponibilita(String nome){
 		String sql = "SELECT * FROM disponibilita WHERE nome_abbonamento = '" + nome + "'";
-		ResultSet rs = Query.doQueryRS(sql);
-		if(rs != null){
-			try {
+		ResultSet rs = null;
+		try {
+			rs = Query.doQueryRS(sql);
+			if(rs != null){
 				while(rs.next()){
-					return new Disponibilita(rs.getInt("modello_macchina"), rs.getInt("nome_abbonamento"));
+					Disponibilita disponibilita = new Disponibilita(rs.getInt("modello_macchina"), rs.getString("nome_abbonamento"));
+					rs.close();
+					return disponibilita;
 				}
+			}
 			}catch (SQLException e){
+		}
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+			} finally {
+				rs = null;
 			}
 		}
 		return null;

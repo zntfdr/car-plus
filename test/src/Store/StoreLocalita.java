@@ -12,7 +12,7 @@ public class StoreLocalita{
 		String sql = "DELETE FROM localita WHERE citta = '" + old.getCitta() + "' AND provincia = '" + old.getProvincia() + "'";
 		return Query.doUpdate(sql);
 	}
-	
+
 	public static boolean insertLocalita(Localita loc){
 		String sql = "INSERT INTO localita(provincia, citta) VALUES('" + loc.getProvincia() + "', '" + loc.getCitta() + "')";
 		return Query.doUpdate(sql);
@@ -20,86 +20,140 @@ public class StoreLocalita{
 
 	public static Localita readLocalita(String provincia, String citta){
 		String sql = "SELECT * FROM localita WHERE provincia = '" + provincia + "' AND citta = '" + citta + "'";
-		ResultSet rs = Query.doQueryRS(sql);
-		if(rs != null){
-			try {
+		ResultSet rs = null;
+		try {
+			rs = Query.doQueryRS(sql);
+			if(rs != null){
 				while(rs.next()){
 					return new Localita(rs.getString("citta"),rs.getString("provincia"));
 				}
-			}catch (SQLException e){
-				e.printStackTrace();
+			}
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+			} finally {
+				rs = null;
 			}
 		}
 		return null;
 	}
-	
+
 	public static ArrayList<Localita> readLocalita_List(ArrayList<String> listalocalita){
 		String sql = "SELECT * FROM localita WHERE ";
 		for (int i=0; i<listalocalita.size() - 1; i++){
 			sql += "citta  = '" + listalocalita.get(i)+ "' OR ";
 		}
 		sql+= "citta = '" + listalocalita.get(listalocalita.size() - 1)+ "'";
-		ResultSet rs = Query.doQueryRS(sql);
-		if(rs != null){
-			try {
+		ResultSet rs = null;
+		try {
+			rs = Query.doQueryRS(sql);
+			if(rs != null){
 				ArrayList<Localita> Localita_List = new ArrayList<Localita>();
 				while(rs.next()){
 					Localita_List.add(new Localita(rs.getString("citta"),rs.getString("provincia")));
 				}
 				return Localita_List;
-			}catch (SQLException e){
+			}
+		}catch (SQLException e){
+		}
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+			} finally {
+				rs = null;
 			}
 		}
 		return null;
 	}
-	
+
 	public static ArrayList<Localita> getLocalita() {
 		String sql_query = "SELECT * FROM localita ORDER BY provincia, citta";
-		ResultSet rs = Query.doQueryRS(sql_query);
-		if (rs != null) {
-			try {
+		ResultSet rs = null;
+		try {
+			rs = Query.doQueryRS(sql_query);
+			if (rs != null) {
 				ArrayList<Localita> list = new ArrayList<Localita>();
 				while (rs.next()) {
 					list.add(new Localita (rs.getString("citta"), rs.getString("provincia")));
 				}
 				return list;
+			}
+		} catch (SQLException e) {
+
+		}
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
 			} catch (SQLException e) {
-				
+			} finally {
+				rs = null;
 			}
 		}
-		
 		return null;
 	}
-	
+
 	public static ArrayList<String> getCitta(String Provincia) {
 		String sql_query = "SELECT Citta FROM localita WHERE provincia = '"+Provincia + "' ORDER BY citta";
-		ResultSet rs = Query.doQueryRS(sql_query);
-		if (rs != null) {
-			try {
+		ResultSet rs = null;
+		try {
+			rs = Query.doQueryRS(sql_query);
+			if (rs != null) {
 				ArrayList<String> list = new ArrayList<String>();
 				while (rs.next()) {
 					list.add(rs.getString("citta"));
 				}
 				return list;
+			}
+		} catch (SQLException e) {
+
+		}
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
 			} catch (SQLException e) {
-				
+			} finally {
+				rs = null;
 			}
 		}
 		return null;
 	}
-	
+
 	public static ArrayList<String> getProvincia() {
 		String sql_query = "SELECT DISTINCT provincia FROM localita ORDER BY provincia";
-		ResultSet rs = Query.doQueryRS(sql_query);
-		if (rs != null) {
-			try {
+		ResultSet rs = null;
+		try {
+			rs = Query.doQueryRS(sql_query);
+			if (rs != null) {
 				ArrayList<String> list = new ArrayList<String>();
 				while (rs.next()) {
 					list.add(rs.getString("provincia"));
 				}
 				return list;
+			}
+		} catch (SQLException e) {
+
+		}
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
 			} catch (SQLException e) {
-				
+			} finally {
+				rs = null;
 			}
 		}
 		return null;
