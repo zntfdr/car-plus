@@ -21,11 +21,15 @@ public class Inserimento_abbonamento extends HttpServlet {
 		
 		HttpSession session = req.getSession();
 		Abbonamento abb = new Abbonamento(req.getParameter("nome"),req.getParameter("descrizione"), Double.parseDouble(req.getParameter("tariffa_notturna")), Double.parseDouble(req.getParameter("tariffa_diurna")), Double.parseDouble(req.getParameter("tariffa_magg_100km")), Double.parseDouble(req.getParameter("tariffa_min_100km")), Double.parseDouble(req.getParameter("costo_mensile")), Integer.parseInt(req.getParameter("num_max_tessere")), Integer.parseInt(req.getParameter("num_min_tessere")));
-		
-		if(StoreAbbonamento.insertAbbonamento(abb))	
+		String[] modelli = req.getParameterValues("model");
+		boolean abbOk = StoreAbbonamento.insertAbbonamento(abb);
+		for(int i = 0; i<modelli.length; i++){
+			StoreDisponibilita.insertDisponibilita(new Disponibilita(Integer.parseInt(modelli[i]), abb.getNome()));
+		}
+		if(abbOk)	
 			session.setAttribute("descrizione", "Registrazione nuova abbonamento " + abb.getNome() + " avvenuta con successo!");
 		else 
-			session.setAttribute("descrizione", "Non è stato possibile inserire il nuovo abbonamento " + abb.getNome() + ". (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>");
+			session.setAttribute("descrizione", "Non ï¿½ stato possibile inserire il nuovo abbonamento " + abb.getNome() + ". (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>");
 
 		res.sendRedirect("jsp/lista_abbonamenti.jsp");
 	}
