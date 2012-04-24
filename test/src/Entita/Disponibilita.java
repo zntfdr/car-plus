@@ -2,9 +2,9 @@ package Entita;
 
 public class Disponibilita {
 	private int modello_macchina;
-    private int nome_abbonamento;
+    private String nome_abbonamento;
 
-	public Disponibilita(int newmod, int newna){
+	public Disponibilita(int newmod, String newna){
 		modello_macchina = newmod;
 		nome_abbonamento = newna;
 	}
@@ -13,7 +13,7 @@ public class Disponibilita {
 		modello_macchina = mod;
 	}
 	
-	public void setNome_abb(int na){
+	public void setNome_abb(String na){
 		nome_abbonamento = na;	
 	}
 
@@ -21,7 +21,7 @@ public class Disponibilita {
 		return modello_macchina;
 	}
 	
-	public int getNome_abb() {
+	public String getNome_abb() {
 		return nome_abbonamento;
 	}
 }
