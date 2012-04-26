@@ -45,7 +45,7 @@ public class Get_stazione extends HttpServlet {
 			try {
 				out.println("<label for=\"nome_stazione\">Nome Stazione:</label><select name=\"nome_stazione\">");
 				while(rs.next()){
-					String stazione = "Nome stazione: " + rs.getString("nome") + " indirizzo: "+rs.getString("indirizzo") + " posti: " + rs.getInt("num_posti");
+					String stazione = rs.getString("nome") + " | Indirizzo: "+rs.getString("indirizzo") + " posti: " + rs.getInt("num_posti");
 					out.println("<option value=\""+ rs.getString("nome") + "\">"+stazione+"</option>");
 				}
 				out.println("</section>");
