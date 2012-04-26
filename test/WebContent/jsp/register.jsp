@@ -132,7 +132,7 @@
 	                        <input type="radio" id="radio2" name="radio" value="F"/><label for="radio2">Femmina</label>
 	                    </div>
 					</li>
-	                <li><label for="address">Indirizzo:</label><input name="address" type="text" id="address" placeholder="Indirizzo" maxlength="50"/></li>
+	                <li style="clear:both"><label for="address">Indirizzo:</label><input name="address" type="text" id="address" placeholder="Indirizzo" maxlength="50"/></li>
 	                <li id="li_provincia">
 		                <label for="provincia">Provincia:</label>
 		                <select name="provincia" id="provincia">
