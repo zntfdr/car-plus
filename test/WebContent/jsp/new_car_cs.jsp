@@ -42,20 +42,27 @@ $(document).ready(function(){
         	var url = "../Get_citta?provincia=" + province + "&selectName=" + name;
         	if (province != "") {
 	        	$.get(url, function(data){
-			        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '<input type="submit" id="get_stations" name="get_stations" /></li>';
+			        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '</li>';
 			        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
-			        			$("input#get_stations").click(function(){
-			        				var city = $("select#citta_stazione").val();
+			        			$("select#citta_stazione").change(function(e){
+			        	    		if ($("li#stations")) {
+			        	    			$("li#stations").remove();
+			        	    		}
+			        	    		
+			        				var city = $(this).val();
 			        				var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
 			        				$.get(url_stations, function(data){
 			        					var li_stations = '<li id="stations">' + data + '</li>';
 			        					$(li_stations).insertAfter("li#li_citta_stazione");
 			        				});
-			        				return false;
-			        			});
+			        					
+			        	    	});
 			    });
         	}
         });
+        
+        
+        
 });
 </script>
 </head>
