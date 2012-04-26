@@ -54,11 +54,6 @@
 					missing += 'telefono, ';
 				}
 				
-				if (! (($("input#radio1").attr("checked") != "undefined") && ($("input#radio1").attr("checked") == "checked")) ||
-					 ($("input#radio2").attr("checked") != "undefined") && ($("input#radio2").attr("checked") == "checked")) {
-					error = error || true;
-					missing += 'sesso, ';
-				}
 				if (error) {
 					var modal_box =  '<div class="ui-widget" id="error_modal" ><div class="ui-state-error ui-corner-all"style="padding:30px;"> <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> <strong>Attenzione:</strong>I campi '+ missing + ' non sono stati correttamente impostati! Riempi tutti i campi per completare la registrazione</p></div></div>';
 					
@@ -80,7 +75,6 @@
 				if ( !reg_exp_mail.test(email) ) {
 					var modal_box =  '<div class="ui-widget" id="error_modal" ><div class="ui-state-error ui-corner-all"style="padding:30px;"> <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> <strong>Attenzione:</strong>La mail inserita non Ã¨ una mail valida. Controllala per completare registrazione</p></div></div>';
 					$("div#content > div.wrapper").prepend(modal_box);
-					$(document).scrollTop();
 					return false;
 				}
 				return true;
@@ -114,14 +108,13 @@
 	                <li><input name="surname" type="text" id="surname" placeholder="Cognome" maxlength="30"/></li>
 	                <li>
 	                	<div id="radio">
-	                        <input type="radio" id="radio1" name="radio" value="M"/><label for="radio1">Maschio</label>
+	                        <input type="radio" id="radio1" name="radio" value="M" checked="checked"/><label for="radio1">Maschio</label>
 	                        <input type="radio" id="radio2" name="radio" value="F"/><label for="radio2">Femmina</label>
 	                    </div>
 					</li>
 	                <li><input name="address" type="text" id="address" placeholder="Indirizzo" maxlength="50"/></li>
 	                <li><input name="provincia" type="text" id="provincia" placeholder="Provincia" maxlength="50"/></li>
 	                <li><input name="citta" type="text" id="citta" placeholder="Citta" maxlength="50"/></li>
-	                <!-- QUA VA GENERATO DINAMICAMENTE UNA DROP-DOWN LIST PER LE LOCALITA -->
 	                <li><input name="phone" type="text" id="phone" placeholder="Telefono" maxlength="15"/></li>
                 </fieldset>
                 <li><button name="submit" type="submit" id="submit">Completa la Registrazione</button></li>
