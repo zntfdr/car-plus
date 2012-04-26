@@ -27,7 +27,7 @@ public class Inserimento_tragitto_cs_check extends HttpServlet {
 		session.setAttribute("tempoPrelievo", tempoPrelievo);
 		session.setAttribute("tempoConsegna", tempoConsegna);
 		
-		String sql = "(SELECT MCS.targa FROM macchina_cs AS MCS INNER JOIN disponibilita AS D ON MCS.id_modello = D.modello_macchina WHERE MCS.provincia = '" + req.getParameter("provincia_stazione") + "' AND MCS.citta = '" + req.getParameter("citta_stazione") + "' AND MCS.prenotabile = 'true' AND D.nome_abbonamento = '"+ contratto.getNome_abbonamento()+ "') EXCEPT (SELECT targa_cs FROM tragitto_cs WHERE tempo_consegna_prenotazione > '" + tempoPrelievo +"' AND tempo_prelievo_prenotazione < '" + tempoConsegna +"')";
+		String sql = "(SELECT MCS.targa FROM macchina_cs AS MCS INNER JOIN disponibilita AS D ON MCS.id_modello = D.modello_macchina WHERE MCS.provincia = '" + req.getParameter("provincia_stazione") + "' AND MCS.citta = '" + req.getParameter("citta_stazione") + "' AND MCS.nome_stazione_cs = '" + req.getParameter("nome_stazione") + "' AND MCS.prenotabile = 'true' AND D.nome_abbonamento = '"+ contratto.getNome_abbonamento()+ "') EXCEPT (SELECT targa_cs FROM tragitto_cs WHERE tempo_consegna_prenotazione > '" + tempoPrelievo +"' AND tempo_prelievo_prenotazione < '" + tempoConsegna +"')";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){
 			try {
