@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
- <display-name>Car Plus - Version 4.62</display-name>
+<web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <javaee:display-name>Car Plus - Version 4.62</javaee:display-name>
   <servlet>
     <servlet-name>CancellaAbbonamento</servlet-name>
     <servlet-class>Servlet.CancellaAbbonamento</servlet-class>
@@ -42,7 +42,7 @@
     <url-pattern>/CancellaMacchinaCS</url-pattern>
   </servlet-mapping>
   <servlet>
-  <servlet-name>CancellaModelloMacchina</servlet-name>
+    <servlet-name>CancellaModelloMacchina</servlet-name>
     <servlet-class>Servlet.CancellaModelloMacchina</servlet-class>
   </servlet>
   <servlet-mapping>
@@ -50,14 +50,14 @@
     <url-pattern>/CancellaModelloMacchina</url-pattern>
   </servlet-mapping>
   <servlet>
-  <servlet-name>CancellaStazioneCS</servlet-name>
+    <servlet-name>CancellaStazioneCS</servlet-name>
     <servlet-class>Servlet.CancellaStazioneCS</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CancellaStazioneCS</servlet-name>
     <url-pattern>/CancellaStazioneCS</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>CancellaUtente</servlet-name>
     <servlet-class>Servlet.CancellaUtente</servlet-class>
   </servlet>
@@ -72,6 +72,14 @@
   <servlet-mapping>
     <servlet-name>Get_citta</servlet-name>
     <url-pattern>/Get_citta</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GetCittaAJAX</servlet-name>
+    <servlet-class>Servlet.GetCittaAJAX</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetCittaAJAX</servlet-name>
+    <url-pattern>/GetCittaAJAX</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Get_stazione</servlet-name>
@@ -121,7 +129,7 @@
     <servlet-name>Inserimento_macchina_cs</servlet-name>
     <url-pattern>/Inserimento_macchina_cs</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>Inserimento_modello_macchina</servlet-name>
     <servlet-class>Servlet.Inserimento_modello_macchina</servlet-class>
   </servlet>
@@ -129,7 +137,7 @@
     <servlet-name>Inserimento_modello_macchina</servlet-name>
     <url-pattern>/Inserimento_modello_macchina</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>Inserimento_partecipazione</servlet-name>
     <servlet-class>Servlet.Inserimento_partecipazione</servlet-class>
   </servlet>
@@ -297,7 +305,7 @@
     <servlet-name>Vista_tragitti_cliente</servlet-name>
     <url-pattern>/Vista_tragitti_cliente</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>Vista_tragitti_contratto</servlet-name>
     <servlet-class>Servlet.Vista_tragitti_contratto</servlet-class>
   </servlet>
@@ -305,7 +313,7 @@
     <servlet-name>Vista_tragitti_contratto</servlet-name>
     <url-pattern>/Vista_tragitti_contratto</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>Vista_tragitti_tessera</servlet-name>
     <servlet-class>Servlet.Vista_tragitti_tessera</servlet-class>
   </servlet>
