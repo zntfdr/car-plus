@@ -44,7 +44,7 @@
         <form method="POST" action="../UpdateMacchinaCS" id="register">
             <ul>
                 <li><h1>Aggiorna la Macchina CS con targa <%= macchina.getTarga() %></h1></li>
-                <li><input name="oldcar_plate" type="hidden" id="oldcar_plate" value="<%= macchina.getTarga() %>"/></li>
+                <li class="hide"><input name="oldcar_plate" type="hidden" id="oldcar_plate" value="<%= macchina.getTarga() %>"/></li>
                 <li><input name="car_plate" type="text" id="car_plate" value="<%= macchina.getTarga() %>" placeholder="Targa"/></li>
                 <li>
                 <select name="model"><% for(Modello_Macchina A : lista_mod_mac){%>
