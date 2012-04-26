@@ -18,7 +18,7 @@
     <div id="content">
         <div class="wrapper">
         <h1><%= session.getAttribute("descrizione") %></h1>
-        <table id="trip_list">
+        <table>
             <tr>
                 <th>Nome</th>
                 <th>Cognome</th>

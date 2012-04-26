@@ -25,12 +25,19 @@
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
         <h1>Lista dei clienti</h1>
         <form method="GET" action="../Pagamenti" id="pagamenti">
-        <select name="cliente">
-  			<% for(Cliente C : Store.StoreCliente.getClienti()){ %>
-      		<option value="<%=C.getEmail_utente() %>"> <%=C.getEmail_utente() %></option>
-		    <% } %>
-		</select>
-		<button name="submit" type="submit" id="submit">Visualizza tragitti da pagare</button>
+	        <ul>
+		        <li>
+			        <label for="cliente">Cliente:</label>
+			        <select name="cliente">
+			  			<% for(Cliente C : Store.StoreCliente.getClienti()){ %>
+			      		<option value="<%=C.getEmail_utente() %>"> <%=C.getEmail_utente() %></option>
+					    <% } %>
+					</select>
+				</li>
+				<li>
+					<button name="submit" type="submit" id="submit">Visualizza tragitti da pagare</button>
+				</li>
+			</ul>
 		</form>
       	<div style="clear: both;"></div>
         </div>

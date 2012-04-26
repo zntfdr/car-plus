@@ -39,16 +39,16 @@
 			<h1>I suoi viaggi:</h1>
       	  <table border="1">
       	    <tr>
-       		 <td><b>Tessera</b></td>
-       		 <td><b>Contratto</b></td>
-       		 <td><b>Stazione</b></td>
-       		 <td><b>Localita'</b></td>
-       		 <td><b>Veicolo</b></td>
-      	     <td><b>Tempo Prelievo</b></td>
-             <td><b>Tempo Consegna</b></td>
-             <td><b>Km effettuati</b></td>
-             <td><b>Totale</b></td>
-             <td><b>Pagato</b></td>
+       		 <th>Tessera</th>
+       		 <th>Contratto</th>
+       		 <th>Stazione</th>
+       		 <th>Localit&agrave;</th>
+       		 <th>Veicolo</th>
+      	     <th>Tempo Prelievo</th>
+             <th>Tempo Consegna</th>
+             <th>Km effettuati</th>
+             <th>Totale</th>
+             <th>Pagato</th>
             </tr>
       <%
       	for (Tragitto_CS_info T : listaCSinfo) {
