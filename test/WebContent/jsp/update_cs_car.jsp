@@ -40,23 +40,24 @@
 	        	$.get(url, function(data){
 			        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '<input type="submit" id="get_stations" name="get_stations" /></li>';
 			        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
+			        			$("select#city").change(function(e){
+			        	    		if ($("li#stations")) {
+			        	    			$("li#stations").remove();
+			        	    		}
+			        	    		
+			        				var city = $(this).val();
+			        				var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
+			        				$.get(url_stations, function(data){
+			        					var li_stations = '<li id="stations">' + data + '</li>';
+			        					$(li_stations).insertAfter("li#li_citta_stazione");
+			        				});
+			        					
+			        	    	});
 			    });
         	}
         });
     	
-    	$("select#city").change(function(e){
-    		if ($("li#stations")) {
-    			$("li#stations").remove();
-    		}
-    		
-			var city = $(this).val();
-			var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
-			$.get(url_stations, function(data){
-				var li_stations = '<li id="stations">' + data + '</li>';
-				$(li_stations).insertAfter("li#li_citta_stazione");
-			});
-				
-    	});
+    	
     	
         $("#purchase_year, #tot_km").keypress(function(e){
             if(e.keyCode < 48 || e.keyCode > 57) return false;
