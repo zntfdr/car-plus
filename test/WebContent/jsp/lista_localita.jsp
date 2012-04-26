@@ -26,10 +26,10 @@
         <h1>Lista delle Località</h1>
     	<table id="trip_list">
 			<tr>
-				<td><b>Provincia</b></td> 
-				<td><b>Città</b></td> 
-				<td><b>Modifica</b></td>
-		        <td><b>Cancella</b></td>
+				<th>Provincia</th> 
+				<th>Città</th> 
+				<th>Modifica</th>
+		        <th>Cancella</th>
 			</tr><% 
 			for(Localita A : StoreLocalita.getLocalita()) { %>
 			<tr>
