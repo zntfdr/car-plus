@@ -28,14 +28,14 @@ if (user == null) { //Controllo che sia aperta una connessione, altrimenti facci
         <h1>Caratteristiche contratto:</h1>
     	<table border="1">
       		<tr>
-      		    <td><b>Id contratto</b></td>
-		        <td><b>Tipo contratto</b></td>
-		        <td><b>Descrizione</b></td>
-		        <td><b>Tariffa al km per viaggi entro i 100km</b></td>
-		        <td><b>Tariffa al km per viaggi oltre i 100km</b></td>
-		        <td><b>Tariffa oraria diurna</b></td>
-		        <td><b>Tariffa oraria notturna</b></td>
-				<td><b>Costo mensile</b></td>
+      		    <th>Id contratto</th>
+		        <th>Tipo contratto</th>
+		        <th>Descrizione</th>
+		        <th>Tariffa al km per viaggi entro i 100km</th>
+		        <th>Tariffa al km per viaggi oltre i 100km</th>
+		        <th>Tariffa oraria diurna</th>
+		        <th>Tariffa oraria notturna</th>
+				<th>Costo mensile</th>
       		</tr>
       		<tr>
 				<td><%= idc %></td>
