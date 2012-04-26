@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "Servlet.Interrogazione" %>
 <%@ page import = "Utils.HTMLManager" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Entita.Stazione_CS" %>
+<%@ page import="Entita.Modello_Macchina" %>
+<%@ page import="Store.StoreLocalita" %>
+<% ArrayList<String> listaProvincia = StoreLocalita.getProvincia(); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -84,6 +89,21 @@
                 $("div#error_modal").slideUp('slow', function() {$("div#error_modal").remove();});
 				
             });
+			
+			$("select#provincia").change(function(e){
+	        	if ($("li#li_citta")) {
+	        		$("li#li_citta").remove();
+	        	}
+	        	var province = $(this).val();
+	        	var name = $(this).attr('name');
+	        	var url = "../GetCittaAJAX?provincia=" + province;
+	        	if (province != "") {
+		        	$.get(url, function(data){
+				        			var li_citta = '<li id="li_citta">' + data + '</li>';
+				        			$(li_citta).insertAfter("li#li_provincia");
+				    });
+	        	}
+	        });
         });
     </script>
 </head>
@@ -98,24 +118,29 @@
                 <li><h1><% if (session.getAttribute("ADMIN") != null) { %><%= "Registra un nuovo account" %><% } else { %>Registrati ed entra nel mondo Car+!<%}%></h1></li>
                 <fieldset>
                 	<legend>Informazioni Account:</legend>
-	                <li><input name="mail" type="text" id="mail" placeholder="Mail" maxlength="320"/></li>
-	                <li><input name="password" type="password" id="password" placeholder="Password"/></li>
-	                <li><input name="retype-password" type="password" id="retype-password" placeholder="Ripeti Password"/></li>
+	                <li><label for="mail">Mail:</label><input name="mail" type="text" id="mail" placeholder="Mail" maxlength="320"/></li>
+	                <li><label for="password">Password:</label><input name="password" type="password" id="password" placeholder="Password"/></li>
+	                <li><label for="retype-password">Ripeti Password:</label><input name="retype-password" type="password" id="retype-password" placeholder="Ripeti Password"/></li>
                 </fieldset>
                 <fieldset>
                 <legend>Informazioni Personali:</legend>
-	                <li><input name="name" type="text" id="name" placeholder="Nome" maxlength="30"/></li>
-	                <li><input name="surname" type="text" id="surname" placeholder="Cognome" maxlength="30"/></li>
+	                <li><label for="name">Nome:</label><input name="name" type="text" id="name" placeholder="Nome" maxlength="30"/></li>
+	                <li><label for="surname">Cognome:</label><input name="surname" type="text" id="surname" placeholder="Cognome" maxlength="30"/></li>
 	                <li>
 	                	<div id="radio">
 	                        <input type="radio" id="radio1" name="radio" value="M" checked="checked"/><label for="radio1">Maschio</label>
 	                        <input type="radio" id="radio2" name="radio" value="F"/><label for="radio2">Femmina</label>
 	                    </div>
 					</li>
-	                <li><input name="address" type="text" id="address" placeholder="Indirizzo" maxlength="50"/></li>
-	                <li><input name="provincia" type="text" id="provincia" placeholder="Provincia" maxlength="50"/></li>
-	                <li><input name="citta" type="text" id="citta" placeholder="Citta" maxlength="50"/></li>
-	                <li><input name="phone" type="text" id="phone" placeholder="Telefono" maxlength="15"/></li>
+	                <li><label for="address">Indirizzo:</label><input name="address" type="text" id="address" placeholder="Indirizzo" maxlength="50"/></li>
+	                <li id="li_provincia">
+		                <label for="provincia">Provincia:</label>
+		                <select name="provincia" id="provincia">
+							<option>Seleziona provincia..</option>
+		     				<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
+		      			</select>
+	      			</li>
+	                <li><label for="phone">Telefono:</label><input name="phone" type="text" id="phone" placeholder="Telefono" maxlength="15"/></li>
                 </fieldset>
                 <li><button name="submit" type="submit" id="submit">Completa la Registrazione</button></li>
             </ul>
