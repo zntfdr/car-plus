@@ -26,11 +26,11 @@
         <h1>Lista dei Clienti</h1>
     	<table id="trip_list">
       		<tr>
-		        <td><b>Mail</b></td>
-		        <td><b>Codice Fiscale</b></td>
-		        <td><b>Cliente Business</b></td>
-		        <td><b>Modifica</b></td>
-		        <td><b>Cancella</b></td>
+		        <th>Mail</th>
+		        <th>Codice Fiscale</th>
+		        <th>Cliente Business</th>
+		        <th>Modifica</th>
+		        <th>Cancella</th>
       		</tr>
   			<% ArrayList<Cliente> lista_clienti = StoreCliente.getClienti();
      		for(Cliente c : lista_clienti){ %>
