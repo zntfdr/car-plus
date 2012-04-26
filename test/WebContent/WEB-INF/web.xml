@@ -170,6 +170,14 @@
     <url-pattern>/Inserimento_targa_e_modello</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Inserimento_tessera</servlet-name>
+    <servlet-class>Servlet.Inserimento_tessera</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inserimento_tessera</servlet-name>
+    <url-pattern>/Inserimento_tessera</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Inserimento_tragitto_cp</servlet-name>
     <servlet-class>Servlet.Inserimento_tragitto_cp</servlet-class>
   </servlet>
