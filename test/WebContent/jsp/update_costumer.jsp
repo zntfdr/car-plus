@@ -58,8 +58,8 @@
         <form method="post" action="../UpdateCliente" id="new_customer" class="<%= ((isBusiness != null) && isBusiness.booleanValue()) ? "hide" : ""%>">
             <ul>
                 <li><h1>Aggiorna Cliente</h1></li>
-                <li><input name="email" type="text" id="email" placeholder="Mail" readonly="readnly" value="<%= cliente.getEmail_utente() %>"/></li>
-                <li><input name="codice_fiscale" type="text" id="codice_fiscale" placeholder="Codice Fiscale" value="<%= cliente.getCodice_fiscale() %>" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (!isBusiness.booleanValue())) ? "error" : "" %>"  value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_mail") != null)) ? session.getAttribute("error_cf") : "" %>"/></li>
+                <li><label for="email">Mail:</label><input name="email" type="text" id="email" placeholder="Mail" readonly="readnly" value="<%= cliente.getEmail_utente() %>"/></li>
+                <li><label for="codice_fiscale">Codice Fiscale:</label><input name="codice_fiscale" type="text" id="codice_fiscale" placeholder="Codice Fiscale" value="<%= cliente.getCodice_fiscale() %>" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (!isBusiness.booleanValue())) ? "error" : "" %>"  value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_mail") != null)) ? session.getAttribute("error_cf") : "" %>"/></li>
                 <li><button name="submit" type="submit" id="submit">Aggiorna</button></li>
             </ul>
         </form>
@@ -68,9 +68,9 @@
         <form method="post" action="../UpdateCliente" id="new_business_customer" class="<%= (((isBusiness != null) && !isBusiness.booleanValue()  || (isBusiness == null))) ? "hide" : ""%>">
             <ul>
                 <li><h1>Aggiorna Cliente Business</h1></li>
-                <li><input name="email" type="text" id="email" placeholder="Mail" readonly="readnly" value="<%= clienteB.getEmail_utente() %>"/></li>
-                <li><input name="partita_iva" type="text" id="partita_iva" placeholder="Partita Iva" maxlength="11" value="<%= clienteB.getPartita_iva() %>" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_pi") != null)) ? session.getAttribute("error_bu_pi") : "" %>"/></li>
-                <li><input name="nome_attivita" type="text" id="nome_attivita" placeholder="Nome Attività" maxlength="50" value="<%= clienteB.getNome_attivita() %>" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_na") != null)) ? session.getAttribute("error_bu_na") : "" %>"/></li>
+                <li><label for="email">Mail:</label><input name="email" type="text" id="email" placeholder="Mail" readonly="readnly" value="<%= clienteB.getEmail_utente() %>"/></li>
+                <li><label for="partita_iva">Partita IVA:</label><input name="partita_iva" type="text" id="partita_iva" placeholder="Partita Iva" maxlength="11" value="<%= clienteB.getPartita_iva() %>" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_pi") != null)) ? session.getAttribute("error_bu_pi") : "" %>"/></li>
+                <li><label for="nome_attivita">Nome Attivit&agrave;</label><input name="nome_attivita" type="text" id="nome_attivita" placeholder="Nome Attività" maxlength="50" value="<%= clienteB.getNome_attivita() %>" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_na") != null)) ? session.getAttribute("error_bu_na") : "" %>"/></li>
                 <li><button name="submit_business" type="submit" id="submit_business">Aggiorna</button></li>
             </ul>
         </form><% } %>
