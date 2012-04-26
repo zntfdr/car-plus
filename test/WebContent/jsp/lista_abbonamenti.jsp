@@ -26,17 +26,17 @@
         <h1>Lista degli abbonamenti</h1>
     	<table id="trip_list">
 			<tr>
-				<td><b>Nome</b></td> 
-				<td><b>Descrizione</b></td> 
-				<td><b>Tariffa < 100km</b></td> 
-				<td><b>Tariffa > 100km</b></td> 
-				<td><b>Tariffa diurna</b></td> 
-				<td><b>Tariffa notturna</b></td> 
-				<td><b>Costo mensile</b></td> 
-				<td><b># min tessere</b></td> 
-				<td><b># max tessere</b></td>
-				<td><b>Modifica</b></td>
-		        <td><b>Cancella</b></td>
+				<th>Nome</th> 
+				<th>Descrizione</th> 
+				<th>Tariffa < 100km</th> 
+				<th>Tariffa > 100km</th> 
+				<th>Tariffa diurna</th> 
+				<th>Tariffa notturna</th> 
+				<th>Costo mensile</th> 
+				<th># min tessere</th> 
+				<th># max tessere</th>
+				<th>Modifica</th>
+		        <th>Cancella</th>
 			</tr><% 
 			for(Abbonamento A : StoreAbbonamento.getAbbonamenti()) { %>
 			<tr>
