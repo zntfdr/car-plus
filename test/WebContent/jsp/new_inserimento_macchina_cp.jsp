@@ -63,12 +63,13 @@
         <form method="post" action="../Inserimento_solo_targa" id="solo_targa" class="<%= ((solotarga != null) && solotarga.booleanValue()) ? "hide" : ""%>">
             <ul>
                 <li><h1>Inserisci la tua nuova macchina</h1></li>
-                <li><input name="targa" type="text" id="targa" placeholder="Targa"/></li>
+                <li><label for="targa">Targa:</label><input name="targa" type="text" id="targa" placeholder="Targa"/></li>
                 <li>
-                <select name="model">
-                	<option>Seleziona il modello..</option>
-                	<% for(Modello_Macchina A : lista_mod_mac){%> <option value="<%= A.getId() %>"><%= A.getMarca() %> <%= A.getModello() %> <%= A.getAnno() %> alimentata a <%= A.getAlimentazione() %> <%= A.getCilindrata() %>cc</option> <% } %>
-                </select>
+	                <label for="model">Modello:</label>
+	                <select name="model">
+	                	<option>Seleziona il modello..</option>
+	                	<% for(Modello_Macchina A : lista_mod_mac){%> <option value="<%= A.getId() %>"><%= A.getMarca() %> <%= A.getModello() %> <%= A.getAnno() %> alimentata a <%= A.getAlimentazione() %> <%= A.getCilindrata() %>cc</option> <% } %>
+	                </select>
                 </li>
                 <li><button name="submit" type="submit" id="submit">Registra</button></li>
             </ul>
@@ -77,19 +78,22 @@
         <form method="post" action="../Inserimento_targa_e_modello" id="anche_modello" class="<%= (((solotarga != null) && !solotarga.booleanValue()  || (solotarga == null))) ? "hide" : ""%>">
             <ul>
                 <li><h1>Nuovo Modello Macchina</h1></li>
-                <li><input name="marca" type="text" id="marca" placeholder="Marca" maxlenght="30"/></li>
-                <li><input name="modello" type="text" id="modello" placeholder="Modello" maxlength="50"/></li>
-                <li><input name="cilindrata" type="text" id="cilindrata" placeholder="Cilindrata"/></li>
-                <li><input name="anno" type="text" id="anno" placeholder="Anno" maxlenght="4"/></li>
-                <li><select name="alimentazione">
-                	<option value="Benzina">Benzina</option>
-                	<option value="Diesel">Diesel</option>
-                	<option value="GPL">GPL</option>
-                	<option value="Metano">Metano</option>
-                	<option value="Elettrica">Elettrica</option>
-                </select></li>
-                <li><input name="emissioni_co2" type="text" id="emissioni_co2" placeholder="Emissioni CO2 [g/km]"/></li>
-                <li><input name="num_posti" type="text" id="num_posti" placeholder="Numero Posti"/></li>
+                <li><label for="marca">Marca:</label><input name="marca" type="text" id="marca" placeholder="Marca" maxlenght="30"/></li>
+                <li><label for="modello">Modello:</label><input name="modello" type="text" id="modello" placeholder="Modello" maxlength="50"/></li>
+                <li><label for="cilindrata">Cilindrata:</label><input name="cilindrata" type="text" id="cilindrata" placeholder="Cilindrata"/></li>
+                <li><label for="anno">Anno:</label><input name="anno" type="text" id="anno" placeholder="Anno" maxlenght="4"/></li>
+                <li>
+                	<label for="alimentazione">Alimentazione:</label>
+                	<select name="alimentazione">
+                		<option value="Benzina">Benzina</option>
+	                	<option value="Diesel">Diesel</option>
+	                	<option value="GPL">GPL</option>
+	                	<option value="Metano">Metano</option>
+	                	<option value="Elettrica">Elettrica</option>
+	                </select>
+	            </li>
+                <li><label for="emissioni_co2">Emissioni CO<small><sup>2</sup></small>:</label><input name="emissioni_co2" type="text" id="emissioni_co2" placeholder="Emissioni CO2 [g/km]"/></li>
+                <li><label for="num_posti">Numero Posti:</label><input name="num_posti" type="text" id="num_posti" placeholder="Numero Posti"/></li>
 
                 <li><button name="submit" type="submit" id="submit">Registra</button></li>
             </ul>

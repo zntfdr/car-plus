@@ -20,19 +20,20 @@
 	
     <div id="content">
 <div class="wrapper">
-    <table id="trip_list">
+    <table>
       <tr>
-        <td><b>fumatori</b></td>
-<td><b>num posti</b></td>
-<td><b>note</b></td>
-<td><b>citta partenza</b></td>
-<td><b>provincia partenza</b></td>
-<td><b>citta arrivo</b></td>
-<td><b>provincia arrivo</b></td>
-<td><b>targa CP</b></td>
-<td><b>tempo partenza</b></td>
-<td><b>tempo arrivo</b></td>
-</tr><%
+        <th>Fumatori</th>
+		<th># Posti</th>
+		<th>Note</th>
+		<th>Citt&agrave; Partenza</th>
+		<th>Provincia Partenza</th>
+		<th>Citt&agrave; Arrivo</th>
+		<th>Provincia Arrivo</th>
+		<th>Targa CP</th>
+		<th>Tempo Partenza</th>
+		<th>Tempo Arrivo</th>
+	</tr>
+<%
 	ArrayList<Tragitto_CP> listatCP = new ArrayList<Tragitto_CP>();
 	listatCP = (ArrayList<Tragitto_CP>) session.getAttribute("lista_tragitti");
 	for (Tragitto_CP tcp : listatCP) {%>

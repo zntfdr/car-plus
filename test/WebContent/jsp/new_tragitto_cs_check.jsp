@@ -70,6 +70,7 @@
 	        	<fieldset>
 	        		<legend>Scegli con quale contratto vuoi effettuare la prenotazione:</legend>
 			        <li>
+			        	<label for="contratto">Contratto:</label>
 						<select name="contratto">
 							<option>Seleziona contratto..</option>
 			     			<% for(Contratto C : listaContratti){%> <option value="<%= C.getId() %>"><%= C.getNome_abbonamento() %></option> <% } %>
@@ -79,6 +80,7 @@
 		        <fieldset>
 		        	<legend>Scegli il parcheggio da cui vuoi partire:</legend>
 			        <li id="li_provincia_stazione">
+			            <label for="provincia_stazione">Provincia:</label>
 			            <select name="provincia_stazione" id="provincia_stazione">
 							<option>Seleziona provincia stazione..</option>
 			  				<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
@@ -87,8 +89,8 @@
 			    </fieldset>
 			    <fieldset>
 			    	<legend>Scegli l'orario per la prenotazione:</legend>
-				    <li><input name="tempoPrelievo" type="text" id="tempoPrelievo" placeholder="Tempo Prelievo"/></li>
-				    <li><input name="tempoConsegna" type="text" id="tempoConsegna" placeholder="Tempo Consegna"/></li>
+				    <li><label for="tempoPrelievo">Tempo di Prelievo:</label><input name="tempoPrelievo" type="text" id="tempoPrelievo" placeholder="Tempo Prelievo"/></li>
+				    <li><label for="tempoConsegna">Tempo di Consegna:</label><input name="tempoConsegna" type="text" id="tempoConsegna" placeholder="Tempo Consegna"/></li>
 				</fieldset>
 		        <li><button name="submit" type="submit" id="submit">Prosegui</button></li>
 	        </ul>

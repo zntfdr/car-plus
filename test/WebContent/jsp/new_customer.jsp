@@ -106,12 +106,13 @@
             <ul>
                 <li><h1>Nuovo Cliente</h1></li>
                 <li>
+                	<label for="email">Mail:</label>
                 	<select name="email">
 	                	<option>Seleziona email utente..</option>
 	                	<% for(String A : Interrogazione.ListaUtentiNonClienti()){%> <option value="<%= A %>"><%= A %></option> <% } %>
 	                </select>
 	            </li>
-                <li><input name="codice_fiscale" type="text" id="codice_fiscale" placeholder="Codice Fiscale" maxlenght="16" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (!isBusiness.booleanValue())) ? "error" : "" %>"  value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_mail") != null)) ? session.getAttribute("error_cf") : "" %>"/></li>
+                <li><label for="codice_fiscale">Codice Fiscale:</label><input name="codice_fiscale" type="text" id="codice_fiscale" placeholder="Codice Fiscale" maxlenght="16" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (!isBusiness.booleanValue())) ? "error" : "" %>"  value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_mail") != null)) ? session.getAttribute("error_cf") : "" %>"/></li>
 
                 <li><button name="submit" type="submit" id="submit">Registra Cliente</button></li>
             </ul>
@@ -121,13 +122,14 @@
             <ul>
                 <li><h1>Nuovo Cliente Business</h1></li>
                 <li>
+                	<label for="email">Mail:</label>
                 	<select name="email">
 	                	<option>Seleziona email utente..</option>
 	                	<% for(String A : Interrogazione.ListaClientiNonClientiBusiness()){%> <option value="<%= A %>"><%= A %></option> <% } %>
 	                </select>
 	            </li>
-                <li><input name="partita_iva" type="text" id="partita_iva" placeholder="Partita Iva" maxlength="11" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_pi") != null)) ? session.getAttribute("error_bu_pi") : "" %>"/></li>
-                <li><input name="nome_attivita" type="text" id="nome_attivita" placeholder="Nome Attività" maxlength="50" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_na") != null)) ? session.getAttribute("error_bu_na") : "" %>"/></li>
+                <li><label for="partita_iva">Partita IVA:</label><input name="partita_iva" type="text" id="partita_iva" placeholder="Partita Iva" maxlength="11" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_pi") != null)) ? session.getAttribute("error_bu_pi") : "" %>"/></li>
+                <li><label for="nome_attivita">Nome Attivit&agrave;:</label><input name="nome_attivita" type="text" id="nome_attivita" placeholder="Nome Attività" maxlength="50" class="<%= ((error_exist != null) && (error_exist.booleanValue()) && (isBusiness.booleanValue())) ? "error" : "" %>"   value="<%=((error_exist != null) && error_exist.booleanValue() && (session.getAttribute("error_bu_na") != null)) ? session.getAttribute("error_bu_na") : "" %>"/></li>
 
                 <li><button name="submit_business" type="submit" id="submit">Registra Cliente Business</button></li>
             </ul>

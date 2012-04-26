@@ -1,9 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import = "Utils.HTMLManager" %>
+<%@ page import="Store.StoreLocalita" %>
 <%	if (session.getAttribute("ADMIN") == null) {
 	response.sendRedirect("login.jsp");
-} else { %>
+} else {
+	ArrayList<String> listaProvincia = StoreLocalita.getProvincia();
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -18,6 +21,21 @@
             if(e.keyCode < 48 || e.keyCode > 57) return false;
             return true;
         });
+        
+        $("select#provincia").change(function(e){
+        	if ($("li#li_citta")) {
+        		$("li#li_citta").remove();
+        	}
+        	var province = $(this).val();
+        	var name = $(this).attr('name');
+        	var url = "../GetCittaAJAX?provincia=" + province;
+        	if (province != "") {
+	        	$.get(url, function(data){
+			        			var li_citta = '<li id="li_citta">' + data + '</li>';
+			        			$(li_citta).insertAfter("li#li_provincia");
+			    });
+        	}
+        });
     });
 </script>
 </head>
@@ -29,11 +47,16 @@
         <form method="GET" action="../Inserimento_stazione_cs" id="Inserimento_stazione_cs">
             <ul>
                 <li><h1>Nuova Stazione di Car Sharing</h1></li>
-                <li><input name="name" type="text" id="name" placeholder="Nome"/></li>
-                <li><input name="city" type="text" id="city" placeholder="Città"/></li>
-                <li><input name="province" type="text" id="province" placeholder="Provincia"/></li>
-                <li><input name="address" type="text" id="address" placeholder="Indirizzo"/></li>
-                <li><input name="num_places" type="text" id="num_places" placeholder="Numero posti"/></li>
+                <li><label for="nome">Nome Stazione:</label><input name="nome" type="text" id="nome" placeholder="Nome Stazione"/></li>
+                <li id="li_provincia">
+	                <label for="provincia">Provincia:</label>
+	                <select name="provincia" id="provincia">
+						<option>Seleziona provincia..</option>
+	     				<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
+	      			</select>
+	      		</li>
+                <li><label for="address">Indirizzo:</label><input name="address" type="text" id="address" placeholder="Indirizzo"/></li>
+                <li><label for="num_place">Numero Posti:</label><input name="num_places" type="text" id="num_places" placeholder="Numero posti"/></li>
                 <li><button name="submit" type="submit" id="submit">Inserisci</button></li>
             </ul>
         </form>

@@ -71,9 +71,9 @@ $(document).ready(function(){
                 <li><h1>Inserimento nuova macchina di Car sharing</h1></li>
                 <fieldset>
                 	<legend>Informazioni Automobile (1):</legend>
-	                <li><input name="car_plate" type="text" id="car_plate" placeholder="Targa"/></li>
+	                <li><label for="car_plate">Targa:</label><input name="car_plate" type="text" id="car_plate" placeholder="Targa"/></li>
 	                <li>
-		                <select name="model">
+		                <label for="model">Modello:</label><select name="model">
 			                <option>Nuovo modello..</option>
 			                <% for(Modello_Macchina A : lista_mod_mac){%> <option value="<%= A.getId() %>"><%= A.getMarca() %> <%= A.getModello() %> <%= A.getAnno() %> alimentata a <%= A.getAlimentazione() %> <%= A.getCilindrata() %>cc</option> <% } %>
 		                </select>
@@ -82,6 +82,7 @@ $(document).ready(function(){
 	            <fieldset>
 	            	<legend>Locazione Automobile:</legend>
 	                <li id="li_provincia_stazione">
+		                <label for="provincia_stazione">Provincia:</label>
 		                <select name="provincia_stazione" id="provincia_stazione">
 							<option>Seleziona provincia stazione..</option>
 		     				<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
@@ -90,12 +91,12 @@ $(document).ready(function(){
                 </fieldset>
                 <fieldset>
                 	<legend>Informazioni Automobile (2):</legend>
-	                <li><input name="purchase_year" type="text" id="purchase_year" placeholder="Anno di Acquisto"/></li>
-	                <li><input name="scadenza_bollo" type="text" id="scadenza_bollo" placeholder="Data di Scadenza Bollo"/></li>
-	                <li><input name="scadenza_assicurazione" type="text" id="scadenza_assicurazione" placeholder="Data di Scadenza Assicurazione"/></li>
-	                <li><input name="scadenza_revisione" type="text" id="scadenza_revisione" placeholder="Data di Scadenza Revisione"/></li>
+	                <li><label for="purchase_year">Anno di Acquisto:</label><input name="purchase_year" type="text" id="purchase_year" placeholder="Anno di Acquisto"/></li>
+	                <li><label for="scadenza_bollo">Scadenza Bollo:</label><input name="scadenza_bollo" type="text" id="scadenza_bollo" placeholder="Data di Scadenza Bollo"/></li>
+	                <li><label for="scadenza_assicurazione">Scadenza Assicurazione:</label><input name="scadenza_assicurazione" type="text" id="scadenza_assicurazione" placeholder="Data di Scadenza Assicurazione"/></li>
+	                <li><label for="scadenza_revisione">Scadenza Revisione:</label><input name="scadenza_revisione" type="text" id="scadenza_revisione" placeholder="Data di Scadenza Revisione"/></li>
 	
-	                <li><input name="tot_km" type="text" id="tot_km" placeholder="Km Totali"/></li>
+	                <li><label for="tot_km">Km Totali:</label><input name="tot_km" type="text" id="tot_km" placeholder="Km Totali"/></li>
 				</fieldset>
                 <li><button name="submit" type="submit" id="submit">Inserisci</button></li>
             </ul>
