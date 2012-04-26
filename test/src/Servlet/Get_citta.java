@@ -45,7 +45,7 @@ public class Get_citta extends HttpServlet {
 		if(rs != null){
 			try {
 				out.println("<label for=\"" + newSelectName + "\">Citt&agrave;:</label><select name=\""+newSelectName+"\" id=\""+newSelectName+"\" > ");
-				out.println("<option>Seleziona una cittˆ..</option>");
+				out.println("<option>Seleziona una citt&agrave;..</option>");
 				while(rs.next()){
 					String citta = rs.getString("citta");
 					out.println("<option value=\""+ citta + "\">"+citta+"</option>");
