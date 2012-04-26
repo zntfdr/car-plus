@@ -24,18 +24,18 @@
         <div class="wrapper">
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
         <h1>Lista dei modelli di macchina</h1>
-    	<table id="trip_list">
+    	<table>
       		<tr>
-		        <td><b>Id</b></td>
-				<td><b>Marca</b></td>
-				<td><b>Modello</b></td>
-				<td><b>Motore</b></td>
-				<td><b>Anno</b></td>
-				<td><b>Alimentazione</b></td>
-				<td><b>Emissioni Co2</b></td>
-				<td><b>Posti</b></td>
-				<td><b>Modifica</b></td>
-        		<td><b>Cancella</b></td>
+		        <th>Id</th>
+				<th>Marca</th>
+				<th>Modello</th>
+				<th>Motore</th>
+				<th>Anno</th>
+				<th>Alimentazione</th>
+				<th>Emissioni Co2</th>
+				<th>Posti</th>
+				<th>Modifica</th>
+        		<th>Cancella</th>
       		</tr>
   			<% for(Modello_Macchina A : Store.StoreModello_Macchina.getModello_Macchina()){
   			%>

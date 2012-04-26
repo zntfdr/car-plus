@@ -36,19 +36,19 @@
 				} else {
 			%>
 			<h1>I tuoi viaggi:</h1>
-      	  <table border="1">
+      	  <table>
       	    <tr>
-       		 <td><b>Tessera</b></td>
-       		 <td><b>Contratto</b></td>
-       		 <td><b>Stazione</b></td>
-       		 <td><b>Localita'</b></td>
-       		 <td><b>Veicolo</b></td>
-      	     <td><b>Tempo Prelievo Prenot.</b></td>
-      		 <td><b>Tempo Consegna Prenot.</b></td>
-      	     <td><b>Tempo Prelievo</b></td>
-             <td><b>Tempo Consegna</b></td>
-             <td><b>Km effettuati</b></td>
-             <td><b>Pagato</b></td>
+       		 <th>Tessera</th>
+       		 <th>Contratto</th>
+       		 <th>Stazione</th>
+       		 <th>Localit&agrave;</th>
+       		 <th>Veicolo</th>
+      	     <th>Tempo Prelievo Prenot.</th>
+      		 <th>Tempo Consegna Prenot.</th>
+      	     <th>Tempo Prelievo</th>
+             <th>Tempo Consegna</th>
+             <th>Km effettuati</th>
+             <th>Pagato</th>
             </tr>
       <%
       	for (Tragitto_CS_info T : listaCSinfo) {

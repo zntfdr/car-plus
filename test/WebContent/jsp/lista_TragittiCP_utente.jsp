@@ -38,18 +38,18 @@
 				} else {
 			%>
 			<h1>I tuoi viaggi:</h1>
-      	  <table border="1">
+      	  <table>
       	    <tr>
-        <td><b>fumatori</b></td>
-<td><b>num posti</b></td>
-<td><b>note</b></td>
-<td><b>citta partenza</b></td>
-<td><b>provincia partenza</b></td>
-<td><b>citta arrivo</b></td>
-<td><b>provincia arrivo</b></td>
-<td><b>targa CP</b></td>
-<td><b>tempo partenza</b></td>
-<td><b>tempo arrivo</b></td>
+		        <th>Fumatori</th>
+				<th># posti</th>
+				<th>Note</th>
+				<th>Citt&agrave; partenza</th>
+				<th>Provincia partenza</th>
+				<th>Citt&agrave; arrivo</th>
+				<th>Provincia arrivo</th>
+				<th>Targa CP</th>
+				<th>Tempo partenza</th>
+				<th>Tempo arrivo</th>
             </tr>
       <%
       	for (Tragitto_CP tcp : listaCreatiDaUtente) {
@@ -72,18 +72,18 @@
     </table>
     
     <h1>I viaggi in cui partecipi:</h1>
-      	  <table border="1">
+      	  <table>
       	    <tr>
-        <td><b>fumatori</b></td>
-<td><b>num posti</b></td>
-<td><b>note</b></td>
-<td><b>citta partenza</b></td>
-<td><b>provincia partenza</b></td>
-<td><b>citta arrivo</b></td>
-<td><b>provincia arrivo</b></td>
-<td><b>targa CP</b></td>
-<td><b>tempo partenza</b></td>
-<td><b>tempo arrivo</b></td>
+       			<th>Fumatori</th>
+				<th># posti</th>
+				<th>Note</th>
+				<th>Citt&agrave; partenza</th>
+				<th>Provincia partenza</th>
+				<th>Citt&agrave; arrivo</th>
+				<th>Provincia arrivo</th>
+				<th>Targa CP</th>
+				<th>Tempo partenza</th>
+				<th>Tempo arrivo</th>
             </tr>
       <%
       	for (Tragitto_CP tcp : listaInCuiPartecipa) {

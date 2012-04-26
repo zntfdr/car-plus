@@ -24,14 +24,14 @@
         <div class="wrapper">
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
         <h1>Lista degli utenti</h1>
-    	<table id="trip_list">
+    	<table>
       		<tr>
-		        <td><b>Mail</b></td>
-		        <td><b>Nome</b></td>
-		        <td><b>Cognome</b></td>
-		        <td><b>Cliente</b></td>
-		        <td><b>Modifica</b></td>
-		        <td><b>Cancella</b></td>
+		        <th>Mail</th>
+		        <th>Nome</th>
+		        <th>Cognome</th>
+		        <th>Cliente</th>
+		        <th>Modifica</th>
+		        <th>Cancella</th>
       		</tr>
   			<% ArrayList<Utente> lista_utenti = StoreUtente.getUtenti();
      		for(Utente c : lista_utenti){ %>

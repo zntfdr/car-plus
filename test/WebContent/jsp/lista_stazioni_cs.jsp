@@ -24,15 +24,15 @@
         <div class="wrapper">
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
         <h1>Lista delle Stazioni Car Sharing</h1>
-    	<table id="trip_list">
+    	<table>
       		<tr>
-		        <td><b>Nome</b></td>
-				<td><b>Provincia</b></td>
-				<td><b>Citta</b></td>
-				<td><b>Indirizzo</b></td>
-				<td><b>Numero Posti</b></td>
-				<td><b>Modifica</b></td>
-        		<td><b>Cancella</b></td>
+		        <th>Nome</th>
+				<th>Provincia</th>
+				<th>Citt&agrave;</th>
+				<th>Indirizzo</th>
+				<th>Numero Posti</th>
+				<th>Modifica</th>
+        		<th>Cancella</th>
       		</tr>
   			<% for(Stazione_CS A : Store.StoreStazione_CS.getStazione_CS()){
   			%>

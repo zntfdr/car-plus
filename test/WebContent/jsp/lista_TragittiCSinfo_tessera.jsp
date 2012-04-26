@@ -33,17 +33,17 @@
       ArrayList<Tragitto_CS_info> listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_tessera(idt); %>
       <% Contratto c = Store.StoreContratto.readContratto(Store.StoreTessera.readTessera(idt).getId_contratto());%>
       <h1>Elenco dei tragitti effettuati con la tessera <%=idt %> associata al contratto <%= c.getId() %> di tipo <%= c.getNome_abbonamento() %>:</h1>
-      <table border="1">
+      <table>
 	    <tr>
- 		 <td><b>Stazione</b></td>
- 		 <td><b>Localita'</b></td>
-		 <td><b>Veicolo</b></td>
-	     <td><b>Tempo Prelievo Prenot.</b></td>
-		 <td><b>tempo Consegna Prenot.</b></td>
-	     <td><b>Tempo Prelievo</b></td>
-         <td><b>Tempo Consegna</b></td>
-         <td><b>Km effettuati</b></td>
-         <td><b>Pagato</b></td>
+ 		 <th>Stazione</th>
+ 		 <th>Localit&agrave;</th>
+		 <th>Veicolo</th>
+	     <th>Tempo Prelievo Prenot.</th>
+		 <th>tempo Consegna Prenot.</th>
+	     <th>Tempo Prelievo</th>
+         <th>Tempo Consegna</th>
+         <th>Km effettuati</th>
+         <th>Pagato</th>
       </tr>
 <% for(Tragitto_CS_info T : listaCSinfo){%>
       <tr>
