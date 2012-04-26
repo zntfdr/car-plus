@@ -81,6 +81,11 @@
         			<li><a href="../jsp/lista_contratti.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
         	</li>
+        	<li><a href="#">Gestione Tessere</a>
+        		<ul>
+        			<li><a href="../jsp/associaTesseraStep1.jsp" class="inserisci">Inserisci</a></li>
+        		</ul>
+        	</li>
         	<li><a href="#">Gestione Località</a>
         		<ul>
         			<li><a href="../jsp/new_place.jsp" class="inserisci">Inserisci</a></li>
