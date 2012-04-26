@@ -428,9 +428,9 @@ form input[type = text], form input[type = password] {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 20px;
 	padding: 10px;
-	width: 95%;
+	width: 680px;
 	height: auto;
-	margin: 0;
+	margin: 0px 0px 0px 10px;
 	border-radius: 10px;
 	background: rgb(234,234,234); /* Old browsers */
 	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -443,6 +443,16 @@ form input[type = text], form input[type = password] {
 	background: linear-gradient(top,  rgba(234,234,234,1) 0%,rgba(242,242,242,1) 49%,rgba(255,255,255,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
 	border: 1px solid #919191;
+}
+
+form label {
+	margin-left: 10px;
+	font-weight: bold;
+	text-align: right;
+	width: 200px;
+	display: block;
+	float: left;
+	line-height: 45px;
 }
 
 form input.error {
@@ -506,6 +516,11 @@ form button[type = submit]:active, , a.no_button:active {
 	background-color: #304c00;
 }
 
+form select {
+	margin-top: 13px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
 
 form fieldset {
 	border: 1px solid #d1d1d1;
@@ -519,6 +534,14 @@ form fieldset:not(:first-child) {
 form fieldset > legend {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	margin-left: 15px;
+}
+
+/*******************************************/
+/***************** FORM LIST ***************/
+/*******************************************/
+
+form#login input {
+	width: 90%;
 }
 
 /*******************************************/
