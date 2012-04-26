@@ -32,13 +32,13 @@
         <h1> Il tuo conto</h1>
          <% ArrayList<Tragitto_CS_info> listaTragitti = StoreTragitto_CS_info.readTragitto_CS_info_cliente(user.getEmail());
          double costoTotale = 0;%>
-         <table id="trip_list">
+         <table>
       		<tr>
-		        <td><b>Stazione tragitto</b></td>
-		        <td><b>Tempo prelievo</b></td>
-		        <td><b>Tempo consegna</b></td>
-		        <td><b>Costo</b></td>
-		        <td><b>Pagato</b></td>
+		        <th>Stazione tragitto</th>
+		        <th>Tempo prelievo</th>
+		        <th>Tempo consegna</th>
+		        <th>Costo</th>
+		        <th>Pagato</th>
       		</tr>
   			<% for(Tragitto_CS_info T : listaTragitti){
   				if(!T.getPagato()){
@@ -57,7 +57,7 @@
 		    } //fine for %>
     	</table>
     	<br>
-    	Il tuo debito totale nei nostri confronti è di euro: <b><%= costoTotale %></b>
+    	Il tuo debito totale nei nostri confronti è di euro: <strong><%= costoTotale %></strong>
          <div style="clear: both;"></div>
         </div>
     </div>
