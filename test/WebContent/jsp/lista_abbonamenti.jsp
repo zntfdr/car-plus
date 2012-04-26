@@ -24,7 +24,7 @@
         <div class="wrapper">
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
         <h1>Lista degli abbonamenti</h1>
-    	<table id="trip_list">
+    	<table>
 			<tr>
 				<th>Nome</th> 
 				<th>Descrizione</th> 
