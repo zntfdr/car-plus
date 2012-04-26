@@ -35,20 +35,23 @@
         <form method="POST" action="../UpdateModelloMacchina" id="register">
             <ul>
                 <li><h1>Aggiorna il Modello Macchina  #<%= modello.getId() %></h1></li>
-                <li><input name="id" type="hidden" id="id" value="<%= modello.getId() %>"/></li>
-                <li><input name="marca" type="text" id="marca" value="<%= modello.getMarca() %>" placeholder="Marca" maxlenght="30"/></li>
-                <li><input name="modello" type="text" id="modello" value="<%= modello.getModello() %>" placeholder="Modello" maxlength="50"/></li>
-                <li><input name="cilindrata" type="text" id="cilindrata" value="<%= modello.getCilindrata() %>" placeholder="Cilindrata"/></li>
-                <li><input name="anno" type="text" id="anno" value="<%= modello.getAnno() %>" placeholder="Anno" maxlenght="4"/></li>
-                <li><select name="alimentazione">
-                	<option value="Benzina" <% if(modello.getAlimentazione().compareTo("Benzina") == 0) { %> selected="selected" <% } %>>Benzina</option>
-                	<option value="Diesel" <% if(modello.getAlimentazione().compareTo("Diesel") == 0) { %> selected="selected" <% } %>>Diesel</option>
-                	<option value="GPL" <% if(modello.getAlimentazione().compareTo("GPL") == 0) { %> selected="selected" <% } %>>GPL</option>
-                	<option value="Metano" <% if(modello.getAlimentazione().compareTo("Metano") == 0) { %> selected="selected" <% } %>>Metano</option>
-                	<option value="Elettrica" <% if(modello.getAlimentazione().compareTo("Elettrica") == 0) { %> selected="selected" <% } %>>Elettrica</option>
-                </select></li>
-                <li><input name="emissioni_co2" type="text" id="emissioni_co2" value="<%= modello.getEmissioni_co2() %>" placeholder="Emissioni CO2 [g/km]"/></li>
-                <li><input name="num_posti" type="text" id="num_posti" value="<%= modello.getNum_posti() %>" placeholder="Numero Posti"/></li>
+                <li class="hide"><input name="id" type="hidden" id="id" value="<%= modello.getId() %>"/></li>
+                <li><label for="marca">Marca:</label><input name="marca" type="text" id="marca" value="<%= modello.getMarca() %>" placeholder="Marca" maxlenght="30"/></li>
+                <li><label for="modello">Modello:</label><input name="modello" type="text" id="modello" value="<%= modello.getModello() %>" placeholder="Modello" maxlength="50"/></li>
+                <li><label for="cilindrata">Cilindrata:</label><input name="cilindrata" type="text" id="cilindrata" value="<%= modello.getCilindrata() %>" placeholder="Cilindrata"/></li>
+                <li><label for="anno">Anno:</label><input name="anno" type="text" id="anno" value="<%= modello.getAnno() %>" placeholder="Anno" maxlenght="4"/></li>
+                <li>
+                	<label for="alimentazione">Alimentazione:</label>
+	                <select name="alimentazione">
+	                	<option value="Benzina" <% if(modello.getAlimentazione().compareTo("Benzina") == 0) { %> selected="selected" <% } %>>Benzina</option>
+	                	<option value="Diesel" <% if(modello.getAlimentazione().compareTo("Diesel") == 0) { %> selected="selected" <% } %>>Diesel</option>
+	                	<option value="GPL" <% if(modello.getAlimentazione().compareTo("GPL") == 0) { %> selected="selected" <% } %>>GPL</option>
+	                	<option value="Metano" <% if(modello.getAlimentazione().compareTo("Metano") == 0) { %> selected="selected" <% } %>>Metano</option>
+	                	<option value="Elettrica" <% if(modello.getAlimentazione().compareTo("Elettrica") == 0) { %> selected="selected" <% } %>>Elettrica</option>
+	                </select>
+                </li>
+                <li><label for="emissioni_co2">Emissioni CO<small><sup>2</sup></small>:</label><input name="emissioni_co2" type="text" id="emissioni_co2" value="<%= modello.getEmissioni_co2() %>" placeholder="Emissioni CO2 [g/km]"/></li>
+                <li><label for="num_posti"># Posti:</label><input name="num_posti" type="text" id="num_posti" value="<%= modello.getNum_posti() %>" placeholder="Numero Posti"/></li>
 
                 <li><button name="submit" type="submit" id="submit">Aggiorna</button></li>
             </ul>
