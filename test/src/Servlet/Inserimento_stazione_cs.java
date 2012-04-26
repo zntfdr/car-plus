@@ -15,7 +15,7 @@ public class Inserimento_stazione_cs extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		Stazione_CS sCS = new Stazione_CS(req.getParameter("citta_stazione"),req.getParameter("provincia_stazione"),req.getParameter("nome_stazione"),req.getParameter("address"), Integer.parseInt(req.getParameter("num_places")));
+		Stazione_CS sCS = new Stazione_CS(req.getParameter("citta"),req.getParameter("provincia"),req.getParameter("nome"),req.getParameter("address"), Integer.parseInt(req.getParameter("num_places")));
 		String descrizione = "";
 		
 		if(StoreStazione_CS.insertStazione_CS(sCS))
