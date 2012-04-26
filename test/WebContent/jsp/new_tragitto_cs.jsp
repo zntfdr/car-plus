@@ -45,22 +45,28 @@
                 <li><h1>Inserimento prenotazione Car Sharing</h1></li>
                 <fieldset>
                 <legend>Informazioni Cliente:</legend>
-	                <li><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
-	                <li><input name="contrattoCliente" type="text" readonly="readnly" id="contrattoCliente" value="<%= contratto.getId() +"-"+ contratto.getNome_abbonamento()%>"/></li>
-	                <li><select name="idTessera">
-	                <option>Seleziona la tessera..</option>
-	                <% for(Tessera T : listaTessere){%> <option value="<%= T.getId() %>"><%= T.getId() %></option> <% } %>
-	                </select></li>
+	                <li><label for="email_utente">Mail:</label><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
+	                <li><label for="contrattoCliente">Contratto Cliente:</label><input name="contrattoCliente" type="text" readonly="readnly" id="contrattoCliente" value="<%= contratto.getId() +"-"+ contratto.getNome_abbonamento()%>"/></li>
+	                <li>
+	                	<label for="isTessera">Tessera:</label>
+		                <select name="idTessera">
+		                <option>Seleziona la tessera..</option>
+		                <% for(Tessera T : listaTessere){%> <option value="<%= T.getId() %>"><%= T.getId() %></option> <% } %>
+		                </select>
+	                </li>
 	               
                 </fieldset>
                 <fieldset>
                 	<legend>Informazioni Vettura:</legend>
-	                <li><select name="carplate">
-	                <option>Seleziona la macchina che utilizzerai..</option>
-	                <% for(Macchina_CS A : listaMacchine){%> <option value="<%= A.getTarga() %>">
-	                <% modello = Interrogazione.ModelloMacchinaCS(A.getTarga());%>
-	                Stazione: <%=A.getNome_stazione_CS() %> -- Modello macchina: <%= modello.getMarca() %> <%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
-	                </select></li>
+	                <li>
+		                <label for="carplate">Targa:</label>
+		                <select name="carplate">
+		                <option>Seleziona la macchina che utilizzerai..</option>
+		                <% for(Macchina_CS A : listaMacchine){%> <option value="<%= A.getTarga() %>">
+		                <% modello = Interrogazione.ModelloMacchinaCS(A.getTarga());%>
+		                Stazione: <%=A.getNome_stazione_CS() %> -- Modello macchina: <%= modello.getMarca() %> <%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
+		                </select>
+	                </li>
 	            </fieldset>
                 <li><button name="submit" type="submit" id="submit">Prenota</button></li>
             </ul>
