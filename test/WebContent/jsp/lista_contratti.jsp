@@ -24,14 +24,14 @@
         <div class="wrapper">
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
         <h1>Lista dei contratti</h1>
-    	<table id="trip_list">
+    	<table>
       		<tr>
-		        <td><b>data stipula</b></td>
-		        <td><b>data scadenza</b></td>
-		        <td><b>email cliente</b></td>
-		        <td><b>nome abbonamento</b></td>
-				<td><b>Modifica</b></td>
-        		<td><b>Cancella</b></td>
+		        <th>Data stipula</th>
+		        <th>Data scadenza</th>
+		        <th>email cliente</th>
+		        <th>Tipo abbonamento</th>
+				<th>Modifica</th>
+        		<th>Cancella</th>
       		</tr>
   			<% for(Contratto A : Store.StoreContratto.getContratto()){ %>
       		<tr>
