@@ -31,10 +31,11 @@
         <form method="GET" action="../UpdateContratto" id="new_subscription">
             <ul>
                 <li><h1>Aggiorna Contratto</h1></li>
-                <li><input name="id" type="hidden" id="id" value="<%= cntr.getId() %>"/></li>
-                <li><input name="data_stipula" type="text" id="data_stipula" value="<%= Utils.TimeString.dataCalendarToString(cntr.getData_stipula()) %>" placeholder="Data Stipula"/></li>
-                <li><input name="data_scadenza" type="text" id="data_scadenza" value="<%= Utils.TimeString.dataCalendarToString(cntr.getData_scadenza()) %>" placeholder="Data Scadenza"/></li>
+                <li class="hide"><input name="id" type="hidden" id="id" value="<%= cntr.getId() %>"/></li>
+                <li><label for="data_stipula">Data di Stipula:</label><input name="data_stipula" type="text" id="data_stipula" value="<%= Utils.TimeString.dataCalendarToString(cntr.getData_stipula()) %>" placeholder="Data Stipula"/></li>
+                <li><label for="data_scadenza">Data di Scadenza:</label><input name="data_scadenza" type="text" id="data_scadenza" value="<%= Utils.TimeString.dataCalendarToString(cntr.getData_scadenza()) %>" placeholder="Data Scadenza"/></li>
                 <li>
+                	<label for="email_cliente">Mail Cliente:</label>
                 	<select name="email_cliente">
 	                	<option>Seleziona email utente..</option>
 	                	<% for(String A : Interrogazione.ListaUtenti()){%>
@@ -42,6 +43,7 @@
 	                </select>
 	            </li>
 	            <li>
+	            	<label for="nome_abbonamento">Tipo Abbonamento:</label>
                 	<select name="nome_abbonamento">
 	                	<option>Seleziona abbonamento..</option>
 	                	<% for(String A : Interrogazione.ListaAbbonamenti()){%>
