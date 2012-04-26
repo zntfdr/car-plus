@@ -18,9 +18,10 @@
 <title>Inserimento nuovo tragitto di Car pooling | Car+</title>
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <link rel="icon" type="image/png" href="../img/favicon.png" />
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js" ></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.js" ></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../css/jquery-ui-timepicker-addon.js" ></script>
 <script>
     $(document).ready(function(){
@@ -85,25 +86,31 @@
                 <legend>Informazioni Vettura:</legend>
 	                <li class="hide"><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
 	                <% if (macchina_creata == null || macchina_creata.booleanValue() ==false){ %>
-	                <li><label for="carplate">Targa:</label><select name="carplate">
-	                <option>Seleziona la macchina che utilizzerai..</option>
-	                <% for(Macchina_CP A : lista_targhe){%> <option value="<%= A.getTarga() %>">
-	                <% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
+	                <li>
+	                	<label for="carplate">Targa:</label>
+	                		<select name="carplate">
+	               			<option>Seleziona la macchina che utilizzerai..</option>
+	                		<% for(Macchina_CP A : lista_targhe){ %> 
+	                			<option value="<%= A.getTarga() %>">
+	                		<% modello = Interrogazione.ModelloMacchina(A.getTarga());%>
 	                <%= modello.getMarca() %><%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= A.getTarga() %></option> <% } %>
 	                </select></li>
 	                <%} else{ modello = (Modello_Macchina)session.getAttribute("modello_macchina_cp"); %>
-	                <li><label for="carplate">Targa:</label><input name="carplate" type="hidden" id="carplate" value="<%= targa %>"/></li>
-	                <li><label for="info">Informazioni:</label><input name="info" type="text" readonly ="readonly" id="info"/><%= modello.getMarca() %> <%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= targa %></li>
+	                <li><input name="carplate" type="hidden" id="carplate" value="<%= targa %>"/></li>
+	                <li><label for="info">Informazioni:</label><input name="info" type="text" readonly ="readonly" id="info" value="<%= modello.getMarca() %> <%= modello.getModello() %> <%= modello.getCilindrata() %>cc, anno <%= modello.getAnno() %>, Targa: <%= targa %>" /></li>
 	                <%} %></li>
 	                <li>Oppure <a href="../jsp/new_inserimento_macchina_cp.jsp">inserisci un nuova macchina</a>!</li>
 	                
 	                <li>
 	                	<div id="radio">
-	                        <input type="radio" id="radio1" name="smokers" value="true"/><label for="radio1">Fumatore</label>
-	                        <input type="radio" id="radio2" name="smokers" value="false"/><label for="radio2">Non Fumatore</label>
+	                        <input type="radio" id="radio1" name="smokers" /><label for="radio1">Fumatore</label>
+	                        <input type="radio" id="radio2" name="smokers" checked="checked" /><label for="radio2">Non Fumatore</label>
 	                    </div> 
 	                </li>
-	                <li><label for="numero_posti"># Posti:</label><input name="numero_posti" type="text" id="numero_posti" placeholder="Numero di posti disponibili"/></li>
+	                <li style="clear:both">
+	                	<label for="numero_posti"># Posti:</label>
+	                	<input name="numero_posti" type="text" id="numero_posti" placeholder="Numero di posti disponibili"/>
+	               	</li>
 	                <li><label for="commento">Commento:</label><textarea name="commento" id="commento" rows="10" cols="60" placeholder="commento"></textarea>
 	                </li>
                 </fieldset>
