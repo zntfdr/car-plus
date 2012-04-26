@@ -25,6 +25,39 @@
     <link rel="icon" type="image/png" href="../img/favicon.png" />
     <script>
     $(document).ready(function(){
+    	
+    	$("select#province").change(function(e){
+        	if ($("li#li_citta_stazione")) {
+        		$("li#li_citta_stazione").remove();
+        	}
+        	if ($("li#stations")) {
+        		$("li#stations").remove();
+        	}
+        	var province = $(this).val();
+        	var name = $(this).attr('name');
+        	var url = "../Get_citta?provincia=" + province + "&selectName=" + name;
+        	if (province != "") {
+	        	$.get(url, function(data){
+			        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '<input type="submit" id="get_stations" name="get_stations" /></li>';
+			        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
+			    });
+        	}
+        });
+    	
+    	$("select#city").change(function(e){
+    		if ($("li#stations")) {
+    			$("li#stations").remove();
+    		}
+    		
+			var city = $(this).val();
+			var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
+			$.get(url_stations, function(data){
+				var li_stations = '<li id="stations">' + data + '</li>';
+				$(li_stations).insertAfter("li#li_citta_stazione");
+			});
+				
+    	});
+    	
         $("#purchase_year, #tot_km").keypress(function(e){
             if(e.keyCode < 48 || e.keyCode > 57) return false;
             return true;
@@ -32,6 +65,7 @@
 
         $("#scadenza_bollo, #scadenza_assicurazione, #scadenza_revisione").datepicker({ dateFormat: 'yy/mm/dd' });
         $("#scadenza_bollo, #scadenza_assicurazione, #scadenza_revisione").datepicker("option", $.datepicker.regional[ "it" ] );
+        
     });
     </script>
 </head>
@@ -52,22 +86,20 @@
                 	<option value="<%= A.getId() %>" <%if (A.getId() == macchina.getId_modello()) { %>selected="selected" <% } %>><%= A.getMarca() %> <%= A.getModello() %> <%= A.getAnno() %> alimentata a <%= A.getAlimentazione() %> <%= A.getCilindrata() %>cc</option> <% } %>
                 </select>
                 </li>
-                <li>
+                <li id="li_provincia_stazione">
 	                <label for="province">Provincia:</label>
 	                <select name="province"><% for(Stazione_CS A : lista_stazioni){%>
 	     				<option value="<%= A.getProvincia() %>" <% if (A.getProvincia().equals(macchina.getProvincia())) { %>selected="selected" <% } %>><%= A.getProvincia() %></option> <% } %>
 	                </select>
                 </li>
-                <li>
+                <li id="li_citta_stazione">
 	               <label for="city">Citt&agrave;</label>
 	               <select name="city"><% for(Stazione_CS A : lista_stazioni){%>
 	               	<option value="<%= A.getCitta() %>" <% if (A.getCitta().equals(macchina.getCitta())) { %>selected="selected" <% } %>><%= A.getCitta() %></option> <% } %>
 	               </select>
                 </li>
-                
-                
-                <li>
-	                <label for="name_cs">Stazione di Appartenenza:</label>
+                <li id="stations">
+	                <label for="name_cs">Nome Stazione:</label>
 	                <select name="name_cs"><% for(Stazione_CS A : lista_stazioni){%>
 	                	<option value="<%= A.getNome() %>" <% if(A.getNome().equals(macchina.getNome_stazione_CS())) { %>selected="selected" <% } %>><%= A.getNome() %></option> <% } %>
 	                </select>
