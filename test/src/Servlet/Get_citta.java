@@ -44,7 +44,7 @@ public class Get_citta extends HttpServlet {
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){
 			try {
-				out.println("<select name=\""+newSelectName+"\" id=\""+newSelectName+"\" > ");
+				out.println("<label for=\"" + newSelectName + "\">Citt&agrave;</label><select name=\""+newSelectName+"\" id=\""+newSelectName+"\" > ");
 				while(rs.next()){
 					String citta = rs.getString("citta");
 					out.println("<option value=\""+ citta + "\">"+citta+"</option>");
