@@ -488,6 +488,7 @@ form textarea {
 	border: 1px solid #919191;
 	padding: 10px;
 	font-size: 14px;
+	margin-left: 10px;
 }
 
 form button[type = submit], a.no_button {
@@ -534,6 +535,12 @@ form fieldset:not(:first-child) {
 form fieldset > legend {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	margin-left: 15px;
+}
+div#radio {
+	margin-left: 220px;
+}
+div#radio label {
+	width: auto;
 }
 
 /*******************************************/
