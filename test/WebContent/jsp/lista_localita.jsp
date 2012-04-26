@@ -28,16 +28,20 @@
 			<tr>
 				<th>Provincia</th> 
 				<th>Città</th> 
-				<th>Modifica</th>
-		        <th>Cancella</th>
+				<th id="th_tools"></th>
 			</tr><% 
 			for(Localita A : StoreLocalita.getLocalita()) { %>
-			<tr>
-				<td><%= A.getProvincia() %></td> 
-				<td><%= A.getCitta() %></td> 
-				<td> <a href="update_place.jsp?citta=<%= A.getCitta() %>&provincia=<%= A.getProvincia() %>"><img src="../img/ic_edit.png"></a></td>
-        		<td> <a href="../CancellaLocalita?citta=<%= A.getCitta() %>&provincia=<%= A.getProvincia() %>"><img src="../img/ic_cancel.png"></a></td>
-      		</tr><% } %>
+				<tr>
+					<td><%= A.getProvincia() %></td> 
+					<td><%= A.getCitta() %></td>				
+					<td>
+						<ul id="tools">
+							<li><a href="update_place.jsp?citta=<%= A.getCitta() %>&provincia=<%= A.getProvincia() %>"><img src="../img/ic_edit.png"></a></li>
+							<li><a href="../CancellaLocalita?citta=<%= A.getCitta() %>&provincia=<%= A.getProvincia() %>"><img src="../img/ic_cancel.png"></a></li>
+						</ul>
+					</td>
+	      		</tr>
+      		<% } %>
     	</table>
        <div style="clear: both;"></div>
     	

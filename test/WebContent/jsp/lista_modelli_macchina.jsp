@@ -32,25 +32,28 @@
 				<th>Motore</th>
 				<th>Anno</th>
 				<th>Alimentazione</th>
-				<th>Emissioni Co2</th>
+				<th>Emissioni CO2</th>
 				<th>Posti</th>
-				<th>Modifica</th>
-        		<th>Cancella</th>
+				<th id="th_tools"></th>
       		</tr>
   			<% for(Modello_Macchina A : Store.StoreModello_Macchina.getModello_Macchina()){
   			%>
-      		<tr>
-				<td><%= A.getId() %></td>
-				<td><%= A.getMarca() %></td>
-				<td><%= A.getModello() %></td>
-				<td><%= A.getCilindrata() %> <% if(A.getAlimentazione().equals("Elettrica") ) { %>Kw/h<% } else { %>cc<% } %></td>
-				<td><%= A.getAnno() %></td>
-				<td><%= A.getAlimentazione() %></td>
-				<td><%= A.getEmissioni_co2() %> g/Km</td>
-				<td><%= A.getNum_posti() %></td>
-        		<td> <a href="update_car_model.jsp?id=<%= A.getId() %>"><img src="../img/ic_edit.png"></a></td>
-        		<td> <a href="../CancellaModelloMacchina?id=<%= A.getId() %>"><img src="../img/ic_cancel.png"></a></td>
-      		</tr>
+	      		<tr>
+					<td><%= A.getId() %></td>
+					<td><%= A.getMarca() %></td>
+					<td><%= A.getModello() %></td>
+					<td><%= A.getCilindrata() %> <% if(A.getAlimentazione().equals("Elettrica") ) { %>Kw/h<% } else { %>cc<% } %></td>
+					<td><%= A.getAnno() %></td>
+					<td><%= A.getAlimentazione() %></td>
+					<td><%= A.getEmissioni_co2() %> g/Km</td>
+					<td><%= A.getNum_posti() %></td>
+					<td>
+						<ul id="tools">
+							<li><a href="update_car_model.jsp?id=<%= A.getId() %>"><img src="../img/ic_edit.png"></a></li>
+							<li><a href="../CancellaModelloMacchina?id=<%= A.getId() %>"><img src="../img/ic_cancel.png"></a></li>
+						</ul>
+					</td>
+	      		</tr>
 		    <% } %>
     	</table>
       	<div style="clear: both;"></div>

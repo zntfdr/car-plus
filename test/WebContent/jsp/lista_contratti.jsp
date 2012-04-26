@@ -30,8 +30,7 @@
 		        <th>Data scadenza</th>
 		        <th>email cliente</th>
 		        <th>Tipo abbonamento</th>
-				<th>Modifica</th>
-        		<th>Cancella</th>
+				<th id="th_tools"></th>
       		</tr>
   			<% for(Contratto A : Store.StoreContratto.getContratto()){ %>
       		<tr>
@@ -39,8 +38,12 @@
 				<td><%= Utils.TimeString.dataCalendarToString(A.getData_scadenza()) %></td>
 				<td><%= A.getEmail_cliente() %></td>
 				<td><%= A.getNome_abbonamento() %></td>
-        		<td> <a href="update_contract.jsp?id=<%= A.getId() %>"><img src="../img/ic_edit.png"></a></td>
-        		<td> <a href="../CancellaContratto?id=<%= A.getId() %>"><img src="../img/ic_cancel.png"></a></td>
+				<td>
+					<ul id="tools">
+						<li><a href="update_contract.jsp?id=<%= A.getId() %>"><img src="../img/ic_edit.png"></a></li>
+						<li><a href="../CancellaContratto?id=<%= A.getId() %>"><img src="../img/ic_cancel.png"></a></li>
+					</ul>
+				</td>
       		</tr>
 		    <% } %>
     	</table>

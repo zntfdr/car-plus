@@ -31,20 +31,22 @@
 				<th>Citt&agrave;</th>
 				<th>Indirizzo</th>
 				<th>Numero Posti</th>
-				<th>Modifica</th>
-        		<th>Cancella</th>
+				<th id="th_tools"></th>
       		</tr>
-  			<% for(Stazione_CS A : Store.StoreStazione_CS.getStazione_CS()){
-  			%>
-      		<tr>
-				<td><%= A.getNome() %></td>
-				<td><%= A.getProvincia() %></td>
-				<td><%= A.getCitta() %></td>
-				<td><%= A.getIndirizzo() %></td>
-				<td><%= A.getNum_posti() %></td>
-        		<td> <a href="update_cs_station.jsp?nome=<%= A.getNome() %>&provincia=<%= A.getProvincia() %>&citta=<%= A.getCitta() %>"><img src="../img/ic_edit.png"></a></td>
-        		<td> <a href="../CancellaStazioneCS?nome=<%= A.getNome() %>&provincia=<%= A.getProvincia() %>&citta=<%= A.getCitta() %>"><img src="../img/ic_cancel.png"></a></td>
-      		</tr>
+  			<% for(Stazione_CS A : Store.StoreStazione_CS.getStazione_CS()){ %>
+	      		<tr>
+					<td><%= A.getNome() %></td>
+					<td><%= A.getProvincia() %></td>
+					<td><%= A.getCitta() %></td>
+					<td><%= A.getIndirizzo() %></td>
+					<td><%= A.getNum_posti() %></td>
+					<td>
+						<ul id="tools">
+							<li><a href="update_cs_station.jsp?nome=<%= A.getNome() %>&provincia=<%= A.getProvincia() %>&citta=<%= A.getCitta() %>"><img src="../img/ic_edit.png"></a></li>
+							<li><a href="../CancellaStazioneCS?nome=<%= A.getNome() %>&provincia=<%= A.getProvincia() %>&citta=<%= A.getCitta() %>"><img src="../img/ic_cancel.png"></a></li>
+						</ul>
+					</td>
+	      		</tr>
 		    <% } %>
     	</table>
       	<div style="clear: both;"></div>

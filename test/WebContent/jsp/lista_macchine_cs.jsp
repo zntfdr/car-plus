@@ -37,25 +37,28 @@
 				<th>Scad Revis.</th>
 				<th>Km Totali</th>
 				<th>Prenotabile</th>
-				<th>Modifica</th>
-        		<th>Cancella</th>
+				<th id="th_tools"></th>
       		</tr>
   			<% for(Macchina_CS A : Store.StoreMacchina_CS.getMacchina_CS()){ %>
-      		<tr>
-				<td><%= A.getProvincia() %></td>
-				<td><%= A.getCitta() %></td>
-				<td><%= A.getNome_stazione_CS() %></td>
-				<td><a href="lista_modelli_macchina.jsp"><%= A.getId_modello() %></a></td>
-				<td><%= A.getTarga() %></td>
-				<td><%= A.getAnno_acquisto() %></td>
-				<td><%= Utils.TimeString.dataCalendarToString(A.getScad_bollo()) %></td>
-				<td><%= Utils.TimeString.dataCalendarToString(A.getScad_assicurazione()) %></td>
-				<td><%= Utils.TimeString.dataCalendarToString(A.getScad_revisione()) %></td>
-				<td><%= A.getKm_totali() %></td>
-				<td><% if (A.getPrenotabile()) { %> &#10003;<% 	} else { %> &#10007;<% 	} %></td>
-        		<td> <a href="update_cs_car.jsp?targa=<%= A.getTarga() %>"><img src="../img/ic_edit.png"></a></td>
-        		<td> <a href="../CancellaMacchinaCS?targa=<%= A.getTarga() %>"><img src="../img/ic_cancel.png"></a></td>
-      		</tr>
+	      		<tr>
+					<td><%= A.getProvincia() %></td>
+					<td><%= A.getCitta() %></td>
+					<td><%= A.getNome_stazione_CS() %></td>
+					<td><a href="lista_modelli_macchina.jsp"><%= A.getId_modello() %></a></td>
+					<td><%= A.getTarga() %></td>
+					<td><%= A.getAnno_acquisto() %></td>
+					<td><%= Utils.TimeString.dataCalendarToString(A.getScad_bollo()) %></td>
+					<td><%= Utils.TimeString.dataCalendarToString(A.getScad_assicurazione()) %></td>
+					<td><%= Utils.TimeString.dataCalendarToString(A.getScad_revisione()) %></td>
+					<td><%= A.getKm_totali() %></td>
+					<td><% if (A.getPrenotabile()) { %> &#10003;<% 	} else { %> &#10007;<% 	} %></td>
+					<td>
+						<ul id="tools">
+							<li><a href="update_cs_car.jsp?targa=<%= A.getTarga() %>"><img src="../img/ic_edit.png"></a></li>
+							<li><a href="../CancellaMacchinaCS?targa=<%= A.getTarga() %>"><img src="../img/ic_cancel.png"></a></li>
+						</ul>
+					</td>
+	      		</tr>
 		    <% } %>
     	</table>
       	<div style="clear: both;"></div>

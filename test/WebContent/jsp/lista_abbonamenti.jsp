@@ -17,6 +17,9 @@
     <link href="../css/base.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/png" href="../img/favicon.png" />
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <style>
+    	
+    </style>
 </head>
 <body>
 	<%= HTMLManager.getHeader(session) %>	
@@ -35,23 +38,27 @@
 				<th>Costo mensile</th> 
 				<th># min tessere</th> 
 				<th># max tessere</th>
-				<th>Modifica</th>
-		        <th>Cancella</th>
-			</tr><% 
-			for(Abbonamento A : StoreAbbonamento.getAbbonamenti()) { %>
-			<tr>
-				<td><%= A.getNome() %></td> 
-				<td><%= A.getDescrizione() %></td>  
-				<td><%= A.getTariffa_min_100km() %> &euro;</td>
-				<td><%= A.getTariffa_magg_100km() %> &euro;</td> 
-				<td><%= A.getTariffa_diurna() %> &euro;</td>
-				<td><%= A.getTariffa_notturna() %> &euro;</td> 
-				<td><%= A.getCosto_mensile() %> &euro;</td> 
-				<td><%= A.getNum_min_tessere() %></td>
-				<td><%= A.getNum_max_tessere() %></td>
-				<td> <a href="update_subscription.jsp?nome=<%= A.getNome() %>"><img src="../img/ic_edit.png"></a></td>
-        		<td> <a href="../CancellaAbbonamento?nome=<%= A.getNome() %>"><img src="../img/ic_cancel.png"></a></td>
-      		</tr><% } %>
+				<th id="th_tools"></th>
+			</tr>
+			<% for(Abbonamento A : StoreAbbonamento.getAbbonamenti()) { %>
+				<tr>
+					<td><%= A.getNome() %></td> 
+					<td><%= A.getDescrizione() %></td>  
+					<td><%= A.getTariffa_min_100km() %> &euro;</td>
+					<td><%= A.getTariffa_magg_100km() %> &euro;</td> 
+					<td><%= A.getTariffa_diurna() %> &euro;</td>
+					<td><%= A.getTariffa_notturna() %> &euro;</td> 
+					<td><%= A.getCosto_mensile() %> &euro;</td> 
+					<td><%= A.getNum_min_tessere() %></td>
+					<td><%= A.getNum_max_tessere() %></td>
+					<td>
+						<ul id="tools">
+							<li><a href="update_subscription.jsp?nome=<%= A.getNome() %>"><img src="../img/ic_edit.png"></a></li>
+							<li><a href="../CancellaAbbonamento?nome=<%= A.getNome() %>"><img src="../img/ic_cancel.png"></a></li>
+						</ul>
+					</td>
+	      		</tr>
+      		<% } %>
     	</table>
        <div style="clear: both;"></div>
     	

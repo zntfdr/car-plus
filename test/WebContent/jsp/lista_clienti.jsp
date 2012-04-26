@@ -29,8 +29,7 @@
 		        <th>Mail</th>
 		        <th>Codice Fiscale</th>
 		        <th>Cliente Business</th>
-		        <th>Modifica</th>
-		        <th>Cancella</th>
+		        <th id="th_tools"></th>
       		</tr>
   			<% ArrayList<Cliente> lista_clienti = StoreCliente.getClienti();
      		for(Cliente c : lista_clienti){ %>
@@ -38,8 +37,12 @@
         		<td> <%= c.getEmail_utente() %></td>
         		<td> <%= c.getCodice_fiscale() %></td>
         		<td> <% if (StoreCliente_business.readCliente_business(c.getEmail_utente()) != null){ %> &#10003;<% } %></td>
-        		<td> <a href="update_costumer.jsp?email=<%= c.getEmail_utente() %>"><img src="../img/ic_edit.png"></a></td>
-        		<td> <a href="../CancellaCliente?email=<%= c.getEmail_utente() %>"><img src="../img/ic_cancel.png"></a></td>
+        		<td>
+					<ul id="tools">
+						<li><a href="update_costumer.jsp?email=<%= c.getEmail_utente() %>"><img src="../img/ic_edit.png"></a></li>
+						<li><a href="../CancellaCliente?email=<%= c.getEmail_utente() %>"><img src="../img/ic_cancel.png"></a></li>
+					</ul>
+				</td>
       		</tr>
 		    <% } %>
     	</table>

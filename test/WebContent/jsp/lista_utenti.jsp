@@ -30,19 +30,22 @@
 		        <th>Nome</th>
 		        <th>Cognome</th>
 		        <th>Cliente</th>
-		        <th>Modifica</th>
-		        <th>Cancella</th>
+		        <th id="th_tools"></th>
       		</tr>
   			<% ArrayList<Utente> lista_utenti = StoreUtente.getUtenti();
-     		for(Utente c : lista_utenti){ %>
-      		<tr>
-        		<td> <%= c.getEmail() %></td>
-        		<td> <%= c.getNome() %></td>
-        		<td> <%= c.getCognome() %></td>
-        		<td> <% if (StoreCliente.readCliente(c.getEmail()) != null){ %> &#10003;<% } %></td>
-        		<td> <a href="update_account.jsp?email=<%= c.getEmail() %>"><img src="../img/ic_edit.png"></a></td>
-        		<td> <a href="../CancellaUtente?email=<%= c.getEmail() %>"><img src="../img/ic_cancel.png"></a></td>
-      		</tr>
+     			for(Utente c : lista_utenti){ %>
+		      		<tr>
+		        		<td> <%= c.getEmail() %></td>
+		        		<td> <%= c.getNome() %></td>
+		        		<td> <%= c.getCognome() %></td>
+		        		<td> <% if (StoreCliente.readCliente(c.getEmail()) != null){ %> &#10003;<% } %></td>
+		        		<td>
+							<ul id="tools">
+								<li><a href="update_account.jsp?email=<%= c.getEmail() %>"><img src="../img/ic_edit.png"></a></li>
+								<li><a href="../CancellaUtente?email=<%= c.getEmail() %>"><img src="../img/ic_cancel.png"></a></li>
+							</ul>
+						</td>
+		      		</tr>
 		    <% } %>
     	</table>
       	<div style="clear: both;"></div>
