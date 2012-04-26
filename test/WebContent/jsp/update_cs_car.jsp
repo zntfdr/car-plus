@@ -11,14 +11,14 @@
 		response.sendRedirect("login.jsp");
 	} else {
 	Macchina_CS macchina = Store.StoreMacchina_CS.readMacchina_CS(request.getParameter("targa"));
-	ArrayList<Stazione_CS> lista_stazioni = StoreStazione_CS.getStazione_CS();
+	ArrayList<String> lista_province_per_stazioni =StoreStazione_CS.getProvincia();
 	ArrayList<Modello_Macchina> lista_mod_mac = StoreModello_Macchina.getModello_Macchina(); %>
 <!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Aggiorna la Macchina CS con targa <%= macchina.getTarga() %> | Car+</title>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js" ></script>
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="../css/base.css" rel="stylesheet" type="text/css" />
@@ -34,33 +34,30 @@
         		$("li#stations").remove();
         	}
         	var province = $(this).val();
-        	var name = $(this).attr('name');
-        	var url = "../Get_citta?provincia=" + province + "&selectName=" + name;
-        	if (province != "") {
-	        	$.get(url, function(data){
-			        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '<input type="submit" id="get_stations" name="get_stations" /></li>';
-			        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
-			        			$("select#city").change(function(e){
-			        	    		if ($("li#stations")) {
-			        	    			$("li#stations").remove();
-			        	    		}
-			        	    		
-			        				var city = $(this).val();
-			        				var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
-			        				$.get(url_stations, function(data){
-			        					var li_stations = '<li id="stations">' + data + '</li>';
-			        					$(li_stations).insertAfter("li#li_citta_stazione");
-			        				});
-			        					
-			        	    	});
-			    });
-        	}
+        	var url = "../Get_citta?provincia=" + province + "&selectName=city";
+        	$.get(url, function(data){
+		        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '</li>';
+		        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
+		        			$("select#city").change(function(e){
+		        	    		if ($("li#stations")) {
+		        	    			$("li#stations").remove();
+		        	    		}
+		        	    		
+		        				var city = $(this).val();
+		        				var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
+		        				$.get(url_stations, function(data){
+		        					var li_stations = '<li id="stations">' + data + '</li>';
+		        					$(li_stations).insertAfter("li#li_citta_stazione");
+		        				});
+		        					
+		        	    	});
+		    });
         });
     	
     	
     	
         $("#purchase_year, #tot_km").keypress(function(e){
-            if(e.keyCode < 48 || e.keyCode > 57) return false;
+            if(e.which < 48 || e.which > 57) return false;
             return true;
         });
 
@@ -89,19 +86,28 @@
                 </li>
                 <li id="li_provincia_stazione">
 	                <label for="province">Provincia:</label>
-	                <select name="province"><% for(Stazione_CS A : lista_stazioni){%>
-	     				<option value="<%= A.getProvincia() %>" <% if (A.getProvincia().equals(macchina.getProvincia())) { %>selected="selected" <% } %>><%= A.getProvincia() %></option> <% } %>
+	                <select name="province" id="province">
+	                	<% for(String P : lista_province_per_stazioni) { %>
+	     					<option value="<%= P %>" <% if (P.equals(macchina.getProvincia())) { %>selected="selected" <% } %>><%= P %></option> 
+	     				<% } %>
 	                </select>
                 </li>
                 <li id="li_citta_stazione">
 	               <label for="city">Citt&agrave;</label>
-	               <select name="city"><% for(Stazione_CS A : lista_stazioni){%>
-	               	<option value="<%= A.getCitta() %>" <% if (A.getCitta().equals(macchina.getCitta())) { %>selected="selected" <% } %>><%= A.getCitta() %></option> <% } %>
+	               <select name="city" id="city">
+	               <% 
+	               	 ArrayList<String> lista_citta = StoreStazione_CS.getCittaStazioniCS(macchina.getProvincia());
+	               	 for (String C : lista_citta) { %>
+	               		<option value="<%= C %>" <% if (C.equals(macchina.getCitta())) { %>selected="selected" <% } %>><%= C %></option> 
+	               <% } %>
 	               </select>
                 </li>
                 <li id="stations">
-	                <label for="name_cs">Nome Stazione:</label>
-	                <select name="name_cs"><% for(Stazione_CS A : lista_stazioni){%>
+	                <label for="nome_stazione">Nome Stazione:</label>
+	                <select name="nome_stazione" id="nome_stazione">
+	                <% 
+	                	ArrayList<Stazione_CS> lista_stazioni = StoreStazione_CS.getStazioniCSPerCittaEProvincia(macchina.getProvincia(), macchina.getCitta());
+	                	for(Stazione_CS A : lista_stazioni) { %>
 	                	<option value="<%= A.getNome() %>" <% if(A.getNome().equals(macchina.getNome_stazione_CS())) { %>selected="selected" <% } %>><%= A.getNome() %></option> <% } %>
 	                </select>
                 </li>
