@@ -26,7 +26,7 @@ if (user == null) { //Controllo che sia aperta una connessione, altrimenti facci
 	<% int idc = Integer.parseInt(request.getParameter("contratto"));
 	   Abbonamento a = Store.StoreAbbonamento.readAbbonamento(Store.StoreContratto.readContratto(idc).getNome_abbonamento()); %>
         <h1>Caratteristiche contratto:</h1>
-    	<table border="1">
+    	<table>
       		<tr>
       		    <th>Id contratto</th>
 		        <th>Tipo contratto</th>

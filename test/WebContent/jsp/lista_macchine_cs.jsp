@@ -24,21 +24,21 @@
         <div class="wrapper">
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
         <h1>Lista delle Macchine di Car Sharing</h1>
-    	<table id="trip_list">
+    	<table>
       		<tr>
-		        <td><b>Provincia</b></td>
-		        <td><b>Citta</b></td>
-		        <td><b>Nome Stazione</b></td>
-		        <td><b>Id modello</b></td>
-		        <td><b>Targa</b></td>
-				<td><b>Anno Acquisto</b></td>
-				<td><b>Scad. Bollo</b></td>
-				<td><b>Scad. Assic.</b></td>
-				<td><b>Scad Revis.</b></td>
-				<td><b>Km Totali</b></td>
-				<td><b>Prenotabile</b></td>
-				<td><b>Modifica</b></td>
-        		<td><b>Cancella</b></td>
+		        <th>Provincia</th>
+		        <th>Citta</th>
+		        <th>Nome Stazione</th>
+		        <th>Id modello</th>
+		        <th>Targa</th>
+				<th>Anno Acquisto</th>
+				<th>Scad. Bollo</th>
+				<th>Scad. Assic.</th>
+				<th>Scad Revis.</th>
+				<th>Km Totali</th>
+				<th>Prenotabile</th>
+				<th>Modifica</th>
+        		<th>Cancella</th>
       		</tr>
   			<% for(Macchina_CS A : Store.StoreMacchina_CS.getMacchina_CS()){ %>
       		<tr>

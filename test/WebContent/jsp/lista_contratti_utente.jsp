@@ -29,7 +29,7 @@
             <div id="content">
         <div class="wrapper">
     <h1>Elenco dei tuoi contratti:</h1>
-    <table border="1">
+    <table>
       <tr>
         <th>Id Contratto</th>
         <th>Tipo Contratto</th>
