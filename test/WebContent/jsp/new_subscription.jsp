@@ -43,7 +43,7 @@
 	                <li><label for="num_max_tessere"># Massimo Tessere:</label><input name="num_max_tessere" type="text" id="num_max_tessere" placeholder="Numero massimo di tessere"/></li>
 				</fieldset>
 				<fieldset>
-                	<legend>Macchine Disponibili: </legend>
+                	<legend>Modelli Prenotabili: </legend>
                 	<%ArrayList<Modello_Macchina> modelli = Interrogazione.getModelliCS();
                 	if(modelli == null || modelli.isEmpty()){
                 	%> Attenzione, non ci sono veicoli a disposizione<%

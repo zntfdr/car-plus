@@ -3,10 +3,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "Servlet.Interrogazione" %>
 <%@ page import = "Utils.HTMLManager" %>
+<%@ page import = "Entita.Modello_Macchina" %>
+<%@ page import = "Entita.Disponibilita" %>
 <%	if (session.getAttribute("ADMIN") == null) {
 		response.sendRedirect("login.jsp");
 	} else {
-	Abbonamento abb = Store.StoreAbbonamento.readAbbonamento(request.getParameter("nome"));  %>
+	Abbonamento abb = Store.StoreAbbonamento.readAbbonamento(request.getParameter("nome"));
+	session.setAttribute("oldNome", abb.getNome());
+	ArrayList<Disponibilita> listaDisponibilita = Store.StoreDisponibilita.readDisponibilita(abb.getNome());
+	ArrayList<Integer> idModelli = new ArrayList<Integer>();
+	ArrayList<Integer> oldMod = new ArrayList<Integer>();
+	if(!listaDisponibilita.isEmpty()){
+		for(Disponibilita D : listaDisponibilita){
+			idModelli.add(D.getModello());
+		}
+	}%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -44,7 +55,24 @@
 	            	<legend>Disponibilità Tessere:</legend>
 	                <li><label for="num_min_tessere"># Minimo Tessere:</label><input name="num_min_tessere" type="text" id="num_min_tessere" value="<%= abb.getNum_min_tessere() %>" placeholder="Numero minimo di tessere"/></li>
 	                <li><label for="num_max_tessere"># Massimo Tessere:</label><input name="num_max_tessere" type="text" id="num_max_tessere" value="<%= abb.getNum_max_tessere() %>" placeholder="Numero massimo di tessere"/></li>
-	            </fieldset>                
+	            </fieldset>
+	            <fieldset>
+                	<legend>Modelli Prenotabili: </legend>
+                	<%ArrayList<Modello_Macchina> modelli = Interrogazione.getModelliCS();
+                	if(modelli == null || modelli.isEmpty()){
+                	%> Attenzione, non ci sono veicoli a disposizione<%
+                	} else {
+                			for(Modello_Macchina M : modelli){
+                				String check="";
+                				if(idModelli.contains(M.getId())){
+                					check="checked=\"checked\"";
+                					oldMod.add(M.getId());
+                				}		
+                	%>
+	                <li><input name="model" type="checkbox" id="model" <%=check%> value="<%= M.getId()%>"/> <%=M.getMarca() %> | <%=M.getModello() %></li>
+	                <%}}
+                	session.setAttribute("oldMod",oldMod); %>
+				</fieldset>            
                 <li><button name="submit" type="submit" id="submit">Aggiorna</button></li>
             </ul>
         </form>
