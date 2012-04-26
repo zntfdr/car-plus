@@ -56,8 +56,8 @@
 		    <% } //fine if
 		    } //fine for %>
     	</table>
-    	<br>
-    	Il tuo debito totale nei nostri confronti è di euro: <strong><%= costoTotale %></strong>
+    	
+    	<p>Il tuo debito totale nei nostri confronti è di euro: <strong><%= costoTotale %></strong></p>
          <div style="clear: both;"></div>
         </div>
     </div>
