@@ -31,11 +31,11 @@
     <h1>Elenco dei tuoi contratti:</h1>
     <table border="1">
       <tr>
-        <td><b>Id Contratto</b></td>
-        <td><b>Tipo Contratto</b></td>
-        <td><b>Data Stipula</b></td>
-        <td><b>Data Scadenza</b></td>
-        <td><b>Tessere Associate</b></td>
+        <th>Id Contratto</th>
+        <th>Tipo Contratto</th>
+        <th>Data Stipula</th>
+        <th>Data Scadenza</th>
+        <th>Tessere Associate</th>
       </tr>
   <% ArrayList<Contratto> lista = Interrogazione.listaContrattiUtente(email_cliente);
          for(Contratto C : lista){ %> 
