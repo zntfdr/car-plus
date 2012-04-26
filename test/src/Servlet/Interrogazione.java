@@ -120,6 +120,33 @@ public class Interrogazione extends HttpServlet {
 		}
 		return listaContratti;
 	}
+	
+	public static Abbonamento abbonamentoFromContratto(int idContratto){
+		String sql = "SELECT * FROM contratto as C INNER JOIN abbonamento AS A ON C.nome_abbonamento = A.nome WHERE C.id = '" + idContratto +"'";
+		Abbonamento abb = null;
+		ResultSet rs = null;
+		try {
+			rs = Query.doQueryRS(sql);
+			if(rs != null){
+				while(rs.next()){
+					abb = new Abbonamento(rs.getString("nome"), rs.getString("descrizione"), rs.getDouble("tariffa_notturna"), rs.getDouble("tariffa_diurna"), rs.getDouble("tariffa_magg_100km"), rs.getDouble("tariffa_min_100km"), rs.getDouble("costo_mensile"), rs.getInt("num_max_tessere"), rs.getInt("num_min_tessere"));
+				}
+				return abb;
+			}
+		}catch (SQLException e){
+		}
+		finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+			} catch (SQLException e) {
+			} finally {
+				rs = null;
+			}
+		}
+		return null;
+	}
 
 	public static ArrayList<Tragitto_CP> listaTraggittiUtenteCreatiDaLui(String emailUtente){
 		String sql = "SELECT * FROM tragitto_cp WHERE email_utente = '" + emailUtente +"' ORDER BY tempo_partenza";
