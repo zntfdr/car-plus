@@ -394,9 +394,10 @@ table td {
 }
 
 table th {
-	font-size: 16px;
-	padding: 10px;
+	font-size: 12px;
+	padding: 5px;
 	font-weight:bold;
+	text-align: center;
 }
 
 table tr > th:first-child,  table tr > td:first-child{
