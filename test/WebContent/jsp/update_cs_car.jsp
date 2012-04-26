@@ -45,33 +45,39 @@
             <ul>
                 <li><h1>Aggiorna la Macchina CS con targa <%= macchina.getTarga() %></h1></li>
                 <li class="hide"><input name="oldcar_plate" type="hidden" id="oldcar_plate" value="<%= macchina.getTarga() %>"/></li>
-                <li><input name="car_plate" type="text" id="car_plate" value="<%= macchina.getTarga() %>" placeholder="Targa"/></li>
+                <li><label for="car_plate">Targa:</label><input name="car_plate" type="text" id="car_plate" value="<%= macchina.getTarga() %>" placeholder="Targa"/></li>
                 <li>
+                <label for="model">Modello:</label>
                 <select name="model"><% for(Modello_Macchina A : lista_mod_mac){%>
                 	<option value="<%= A.getId() %>" <%if (A.getId() == macchina.getId_modello()) { %>selected="selected" <% } %>><%= A.getMarca() %> <%= A.getModello() %> <%= A.getAnno() %> alimentata a <%= A.getAlimentazione() %> <%= A.getCilindrata() %>cc</option> <% } %>
                 </select>
                 </li>
                 <li>
-                <select name="name_cs"><% for(Stazione_CS A : lista_stazioni){%>
-                	<option value="<%= A.getNome() %>" <% if(A.getNome().equals(macchina.getNome_stazione_CS())) { %>selected="selected" <% } %>><%= A.getNome() %></option> <% } %>
-                </select>
+	                <label for="province">Provincia:</label>
+	                <select name="province"><% for(Stazione_CS A : lista_stazioni){%>
+	     				<option value="<%= A.getProvincia() %>" <% if (A.getProvincia().equals(macchina.getProvincia())) { %>selected="selected" <% } %>><%= A.getProvincia() %></option> <% } %>
+	                </select>
                 </li>
                 <li>
-                <select name="city"><% for(Stazione_CS A : lista_stazioni){%>
-                	<option value="<%= A.getCitta() %>" <% if (A.getCitta().equals(macchina.getCitta())) { %>selected="selected" <% } %>><%= A.getCitta() %></option> <% } %>
-                </select>
+	               <label for="city">Citt&agrave;</label>
+	               <select name="city"><% for(Stazione_CS A : lista_stazioni){%>
+	               	<option value="<%= A.getCitta() %>" <% if (A.getCitta().equals(macchina.getCitta())) { %>selected="selected" <% } %>><%= A.getCitta() %></option> <% } %>
+	               </select>
                 </li>
+                
+                
                 <li>
-                <select name="province"><% for(Stazione_CS A : lista_stazioni){%>
-     				<option value="<%= A.getProvincia() %>" <% if (A.getProvincia().equals(macchina.getProvincia())) { %>selected="selected" <% } %>><%= A.getProvincia() %></option> <% } %>
-                </select>
+	                <label for="name_cs">Stazione di Appartenenza:</label>
+	                <select name="name_cs"><% for(Stazione_CS A : lista_stazioni){%>
+	                	<option value="<%= A.getNome() %>" <% if(A.getNome().equals(macchina.getNome_stazione_CS())) { %>selected="selected" <% } %>><%= A.getNome() %></option> <% } %>
+	                </select>
                 </li>
-                <li><input name="purchase_year" type="text" id="purchase_year" value="<%= macchina.getAnno_acquisto() %>" placeholder="Anno di Acquisto"/></li>
-                <li><input name="scadenza_bollo" type="text" id="scadenza_bollo" value="<%= Utils.TimeString.dataCalendarToString(macchina.getScad_bollo()) %>" placeholder="Data di Scadenza Bollo"/></li>
-                <li><input name="scadenza_assicurazione" type="text" id="scadenza_assicurazione" value="<%= Utils.TimeString.dataCalendarToString(macchina.getScad_assicurazione()) %>" placeholder="Data di Scadenza Assicurazione"/></li>
-                <li><input name="scadenza_revisione" type="text" id="scadenza_revisione" value="<%= Utils.TimeString.dataCalendarToString(macchina.getScad_revisione()) %>" placeholder="Data di Scadenza Revisione"/></li>
+                <li><label for="purchase_year">Anno di Acquisto:</label><input name="purchase_year" type="text" id="purchase_year" value="<%= macchina.getAnno_acquisto() %>" placeholder="Anno di Acquisto"/></li>
+                <li><label for="scadenza_bollo">Scadenza Bollo:</label><input name="scadenza_bollo" type="text" id="scadenza_bollo" value="<%= Utils.TimeString.dataCalendarToString(macchina.getScad_bollo()) %>" placeholder="Data di Scadenza Bollo"/></li>
+                <li><label for="scadenza_assicurazione">Scadenza Assicurazione:</label><input name="scadenza_assicurazione" type="text" id="scadenza_assicurazione" value="<%= Utils.TimeString.dataCalendarToString(macchina.getScad_assicurazione()) %>" placeholder="Data di Scadenza Assicurazione"/></li>
+                <li><label for="scadenza_revisione">Scadenza Revisione:</label><input name="scadenza_revisione" type="text" id="scadenza_revisione" value="<%= Utils.TimeString.dataCalendarToString(macchina.getScad_revisione()) %>" placeholder="Data di Scadenza Revisione"/></li>
 
-                <li><input name="tot_km" type="text" id="tot_km" value="<%= macchina.getKm_totali() %>" placeholder="Km Totali"/></li>
+                <li><label for="tot_km">Totale Km:</label><input name="tot_km" type="text" id="tot_km" value="<%= macchina.getKm_totali() %>" placeholder="Km Totali"/></li>
 
                 <li><button name="submit" type="submit" id="submit">Aggiorna</button></li>
             </ul>
