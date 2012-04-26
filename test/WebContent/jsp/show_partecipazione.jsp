@@ -3,8 +3,11 @@
 <%@ page import="Entita.Tragitto_CP" %>
 <%@ page import="Entita.Utente" %>    
 <%@ page import = "Utils.HTMLManager" %>
-<% Tragitto_CP T = (Tragitto_CP)session.getAttribute(request.getParameter("tragittoscelto")); %>
-<% Utente user = (Utente) session.getAttribute("utente_loggato"); %>
+<% 	Tragitto_CP T = (Tragitto_CP)session.getAttribute(request.getParameter("tragittoscelto"));
+	Utente user = (Utente) session.getAttribute("utente_loggato"); 
+	if (user == null) { //Controllo che sia aperta una connessione, altrimenti faccio il redirect a login.jsp
+		response.sendRedirect("login.jsp");
+	} else { %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -58,3 +61,4 @@
     </div>
 </body>
 </html>
+<% } %>
