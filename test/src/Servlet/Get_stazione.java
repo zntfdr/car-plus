@@ -41,10 +41,9 @@ public class Get_stazione extends HttpServlet {
 		String citta = req.getParameter("citta");
 		String sql = "SELECT * FROM stazione_cs WHERE provincia = '"+provincia+"' AND citta='"+citta+"'";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
-		out.println("Risultati Ricerca:");
 		if(rs != null){
 			try {
-				out.println("<select name=\"nome_stazione\">");
+				out.println("<label for=\"nome_stazione\">Nome Stazione:</label><select name=\"nome_stazione\">");
 				while(rs.next()){
 					String stazione = "Nome stazione: " + rs.getString("nome") + " indirizzo: "+rs.getString("indirizzo") + " posti: " + rs.getInt("num_posti");
 					out.println("<option value=\""+ rs.getString("nome") + "\">"+stazione+"</option>");
