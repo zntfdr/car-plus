@@ -22,7 +22,7 @@
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
-        <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %>avvenuta con successo!<% session.removeAttribute("descrizione");} %>
+        <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione");} %>
         <h1>Lista dei Clienti</h1>
     	<table>
       		<tr>
