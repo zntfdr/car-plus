@@ -8,8 +8,9 @@
 <%@ page import = "Utils.HTMLManager" %>
 <%	if (session.getAttribute("ADMIN") == null) {
 	response.sendRedirect("login.jsp");
-} else {  %>
-   
+} else {
+	String PatternRegExVisualizzazioneEmail = "(.*)@(.*)";
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -28,7 +29,8 @@
 			<%  ArrayList<Tragitto_CS_info> listaCSinfo;
 			    ArrayList<Cliente> listaClienti = Store.StoreCliente.getClienti();
 			%>
-			<h1>Tragitti:</h1>
+			<% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
+			<h1>Tutti i tragitti di Car Sharing:</h1>
       	  <table>
       	    <tr>
       	     <th>E-mail utente</th>
@@ -37,11 +39,10 @@
        		 <th>Stazione</th>
        		 <th>Localit&agrave;</th>
        		 <th>Veicolo</th>
-      	     <th>Tempo Prelievo Prenot.</th>
-      		 <th>Tempo Consegna Prenot.</th>
-      	     <th>Tempo Prelievo</th>
-             <th>Tempo Consegna</th>
-             <th>Km effettuati</th>
+      	     <th>Tempo <br/> Prelievo <br/> Prenotazione <br/> / <br/> Effettivo</th>
+      		 <th>Tempo <br/> Consegna <br/> Prenotazione <br/> / <br/> Effettivo</th>
+             <th>Strada effettuata</th>
+             <th></th>
              <th>Pagato</th>
             </tr>
       <%
@@ -49,54 +50,40 @@
       		listaCSinfo = Store.StoreTragitto_CS_info.readTragitto_CS_info_cliente(C.getEmail_utente());
             for (Tragitto_CS_info T : listaCSinfo) { %>
             <tr>
-            <td> <%=T.getEmail_cliente() %> </td>
+            <td> <%=T.getEmail_cliente().replaceAll(PatternRegExVisualizzazioneEmail, "$1<br/>@<br/>$2") %> </td>
             <td> <a href="../jsp/lista_TragittiCSinfo_tessera.jsp?tessera=<%=T.getId_tessera()%>"> <%=T.getId_tessera()%></a></td>
             <td> <a href="../jsp/lista_TragittiCSinfo_contratto.jsp?contratto=<%=T.getContratto()%>"> <%=T.getContratto()%></a></td>
             <td> <%=T.getNome()%></td>
             <td> <%=T.getCitta()%> (<%=T.getProvincia()%>)</td>
             <td> <%=T.getMarca()%> <%=T.getModello_macchina()%></td>
-            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione())%></td>
-            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna_prenotazione())%></td>
+            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione())%><br/>/<br/>
             <%
             	String tp = Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo());
-            			if (tp.equals("1111/11/11 00:00:00")) {
-            %>
-            	<td>  La data di prelievo effettiva non e' ancora stata inserita</td>
-            <%
-            	} else {
-            %>
-            	<td> <%=tp%></td>
-             	<%
-             		}
-             	%>
+            	
+            	if (tp.equals("1111/11/11 00:00:00"))
+            		tp = "Tragitto non effetuato"; %><%=tp %></td>
+            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna_prenotazione())%><br/>/<br/>
               <%
-              	String tc = Utils.TimeString.dataOraCalendarToString(T
-              					.getTempo_consegna());
-              			if (tc.equals("1111/11/11 00:00:00")) {
-              %>
-            	<td>  La data di consegna effettiva non e' ancora stata inserita</td>
-            <%
-            	} else {
-            %>
-            	<td> <%=tc%></td>
-             	<%
-             		}
-             	%>
-            <td> <%=T.getKm_totali()%></td>
+              	String tc = Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna());
+              	
+              	if (tc.equals("1111/11/11 00:00:00"))
+              		tp = "Tragitto non effetuato"; %> <%=tp%></td>
+            <td> <% if(tp.equals("Tragitto non effetuato")) {%><%=tp%><%} else {%><%=T.getKm_totali() + " km"%><%} %></td>
+            <td>
+            	<% if(tp.equals("Tragitto non effetuato")) { %>
+            	<ul id="tools">
+            		<li><a href="update_cs_trip.jsp?id=<%=T.getId() %>"><img src="../img/ic_edit.png"></a></li></a></li>
+            	</ul>
+            	<% } %>
+            </td>
             <td> <%
  	if (T.getPagato()) {
  %> &#10003;<%
  	} else {
  %> &#10007;<%
  	}
- %></td>
-           </tr> <%
- 	}
- %>
-         </table>
-      <%
-      	}
-      %>
+ %></td></tr><%	}	}  %>
+ 		</table>
     	<div style="clear: both;"></div>
 		</div>
 	</div>

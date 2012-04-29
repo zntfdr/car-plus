@@ -8,7 +8,7 @@
 <%@ page import="Store.StoreContratto"%>
 <%@ page import = "Utils.HTMLManager" %>
 <% Utente user = (Utente) session.getAttribute("utente_loggato");
-	if (user == null) { //Controllo che sia aperta una connessione, altrimenti faccio il redirect a login.jsp
+	if ((user == null)&&((session.getAttribute("ADMIN") == null))) { //Controllo che sia aperta una connessione, altrimenti faccio il redirect a login.jsp
 		response.sendRedirect("login.jsp");
 	} else { %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">

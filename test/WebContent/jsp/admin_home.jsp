@@ -94,12 +94,12 @@
         	</li>
         	<li><a href="#">Gestione Pagamenti</a>
         		<ul>
-        			<li><a href="../jsp/pagamenti.jsp" class="inserisci">Registra Pagamento</a></li>
+        			<li><a href="../jsp/pagamenti.jsp" class="visualizza">Registra Pagamento</a></li>
         		</ul>
         	</li>
         	<li><a href="#">Gestione Tragitti Car Sharing</a>
         		<ul>
-        			<li><a href="../jsp/lista_TragittiCsinfo.jsp" class="inserisci">Visualizza</a></li>
+        			<li><a href="../jsp/lista_TragittiCsinfo.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
         	</li>
         </ul>

@@ -25,7 +25,7 @@
         <div id="announce"></div>
         <div id="actions">
             <a href="search.jsp"><div id="search"></div></a>
-            <a href="#"><div id="insert"></div></a>
+            <a href="login.jsp"><div id="insert"></div></a>
         </div>
         <div style="clear: both;"></div>
     

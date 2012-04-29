@@ -66,6 +66,14 @@
     <url-pattern>/CancellaUtente</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>ComputerDiBordo</servlet-name>
+    <servlet-class>Servlet.ComputerDiBordo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ComputerDiBordo</servlet-name>
+    <url-pattern>/ComputerDiBordo</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Get_citta</servlet-name>
     <servlet-class>Servlet.Get_citta</servlet-class>
   </servlet>
