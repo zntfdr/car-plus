@@ -37,12 +37,12 @@
  		 <th>Localit&agrave;</th>
 		 <th>Veicolo</th>
 	     <th>Tempo Prelievo Prenot.</th>
-		 <th>tempo Consegna Prenot.</th>
+		 <th>Tempo Consegna Prenot.</th>
 	     <th>Tempo Prelievo</th>
-       <th>Tempo Consegna</th>
-       <th>Km effettuati</th>
-       <th>Pagato</th>
-      </tr>
+         <th>Tempo Consegna</th>
+         <th>Km effettuati</th>
+         <th>Pagato</th>
+        </tr>
 <% for(Tragitto_CS_info T : listaCSinfo){%>
       <tr>
       <td> <a href="../jsp/lista_TragittiCSinfo_tessera.jsp?tessera=<%= T.getId_tessera() %>"> <%= T.getId_tessera() %></a></td>
