@@ -39,7 +39,7 @@
  		 <th>Localit&agrave;</th>
 		 <th>Veicolo</th>
 	     <th>Tempo Prelievo Prenot.</th>
-		 <th>tempo Consegna Prenot.</th>
+		 <th>Tempo Consegna Prenot.</th>
 	     <th>Tempo Prelievo</th>
          <th>Tempo Consegna</th>
          <th>Km effettuati</th>
