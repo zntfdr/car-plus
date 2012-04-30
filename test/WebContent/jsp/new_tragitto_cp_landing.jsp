@@ -38,7 +38,8 @@
 	listatCP = (ArrayList<Tragitto_CP>) session.getAttribute("lista_tragitti");
 	for (Tragitto_CP tcp : listatCP) {%>
 				<tr>
-					<td><%=tcp.getFumatori()%></td>
+					<td> <% if (tcp.getFumatori()){ %> &#10003;<% } 
+                    else { %> &#10007;<% }  %></td>
 					<td><%=tcp.getNum_posti()%></td>
 					<td><%=tcp.getNote()%></td>
 					<td><%=tcp.getCitta_partenza()%></td>
