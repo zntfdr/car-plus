@@ -40,6 +40,9 @@ public class Get_citta extends HttpServlet {
 		String provincia = req.getParameter("provincia");
 		String selectName = req.getParameter("selectName");
 		String newSelectName = selectName.replace("provincia", "citta");
+		if(provincia.contains("'")){
+			provincia = provincia.replace("'", "''");
+		}
 		String sql= "SELECT DISTINCT citta FROM stazione_cs WHERE provincia = '"+provincia+"'";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){

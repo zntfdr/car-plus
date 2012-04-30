@@ -38,6 +38,9 @@ public class GetCittaAJAX extends HttpServlet {
 		// ottiene un flusso di uscita per scrivere la risposta
 		PrintWriter out = res.getWriter();
 		String provincia = req.getParameter("provincia");
+		if(provincia.contains("'")){
+			provincia = provincia.replace("'", "''");
+		}
 		String sql= "SELECT DISTINCT citta FROM localita WHERE provincia = '"+provincia+"'";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){

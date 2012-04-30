@@ -38,7 +38,13 @@ public class Get_stazione extends HttpServlet {
 		// ottiene un flusso di uscita per scrivere la risposta
 		PrintWriter out = res.getWriter();
 		String provincia = req.getParameter("provincia");
+		if(provincia.contains("'")){
+			provincia = provincia.replace("'", "''");
+		}
 		String citta = req.getParameter("citta");
+		if(citta.contains("'")){
+			citta = citta.replace("'", "''");
+		}
 		String sql = "SELECT * FROM stazione_cs WHERE provincia = '"+provincia+"' AND citta='"+citta+"'";
 		ResultSet rs = Utils.Query.doQueryRS(sql);
 		if(rs != null){
