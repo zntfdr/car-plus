@@ -34,7 +34,7 @@
         	<li><span class="label">Citt&agrave; Arrivo:</span><%= T.getCitta_arrivo() %></li>
         	<li><span class="label">Provincia Arrivo:</span><%= T.getProvincia_arrivo() %></li>
         	<li><span class="label">Partenza:</span><%= Utils.TimeString.dataOraCalendarToString(T.getTempo_partenza()) %></li>
-        	<li><span class="label">Fumatori:</span><%= T.getFumatori() %></li>
+        	<li><span class="label">Fumatori:</span><% if (T.getFumatori()){ %> &#10003;<% } else { %> &#10007;<% }  %></li>
         	<li><span class="label">Posti Liberi:</span><%= T.getNum_posti() %></li>
         	<li><span class="label">Proprietario:</span><%= T.getEmail_utente() %></li>
         	<li><span class="label">Descrizione:</span><%= T.getNote() %></li>
