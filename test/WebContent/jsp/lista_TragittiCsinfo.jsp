@@ -42,7 +42,7 @@
       	     <th>Tempo <br/> Prelievo <br/> Prenotazione <br/> / <br/> Effettivo</th>
       		 <th>Tempo <br/> Consegna <br/> Prenotazione <br/> / <br/> Effettivo</th>
              <th>Strada effettuata</th>
-             <th></th>
+             <th style="width:48px"></th>
              <th>Pagato</th>
             </tr>
       <%
