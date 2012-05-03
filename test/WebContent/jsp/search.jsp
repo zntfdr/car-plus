@@ -105,32 +105,6 @@
             </ul>
         </form>
         
-        <table id="trip_list">
-            <tr>
-                <th>Citta Partenza</th>
-                <th>Citta Arrivo</th>
-                <th>Partenza</th>
-                <th class="free">Posti Liberi</th>
-                <th>Proprietario Auto</th>
-                <th>+</th>
-            </tr>
-              <% ArrayList<Tragitto_CP> listaCP= Store.StoreTragitto_CP.getAllTragittiCP();
-                if(listaCP == null || listaCP.isEmpty()){
-                	//non fare nulla
-                }else {
-                	for(Tragitto_CP T : listaCP){
-               %>
-            <tr>
-                <td class="from"> <%= T.getCitta_partenza() %></td>
-                <td class="to"> <%= T.getCitta_arrivo() %></td>
-                <td class="date"> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_partenza()) %></td>
-                <td class="free"> <%= T.getNum_posti() %></td>
-                <td class="to"> <%= T.getEmail_utente() %></td>
-                <td><a href="show_partecipazione.jsp?tragittoscelto=tragitto<%=T.getId() %>" ><img src="../img/lens.png" width="18" height="18"/></a></td>
-            </tr>
-            <% }} %>
-        </table>
-        
         <div style="clear: both;"></div>
     	
         </div>
