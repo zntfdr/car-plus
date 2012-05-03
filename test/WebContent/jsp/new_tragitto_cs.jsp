@@ -45,7 +45,7 @@
                 <li><h1>Inserimento prenotazione Car Sharing</h1></li>
                 <fieldset>
                 <legend>Informazioni Cliente:</legend>
-	                <li><label for="email_utente">Mail:</label><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
+	                <li class="hide"><input name="email_utente" type="hidden" id="email_utente" value="<%= user.getEmail() %>"/></li>
 	                <li><label for="contrattoCliente">Contratto Cliente:</label><input name="contrattoCliente" type="text" readonly="readnly" id="contrattoCliente" value="<%= contratto.getId() +"-"+ contratto.getNome_abbonamento()%>"/></li>
 	                <li>
 	                	<label for="isTessera">Tessera:</label>
