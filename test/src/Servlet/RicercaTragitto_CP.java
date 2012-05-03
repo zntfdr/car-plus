@@ -43,10 +43,10 @@ public class RicercaTragitto_CP extends HttpServlet {
 					ArrayList<Tragitto_CP> listaTragitti_CP = Store.StoreTragitto_CP.readTragitto_CP_List(listaIDTragitto);
 					session.setAttribute("listaTragitti_CP", listaTragitti_CP);
 					descrizione ="Risultati ricerca: ";
-				} else descrizione ="Spiacente! Non ci sono tragitti che soddisfano la tua richiesta <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
+				} else descrizione ="<p>Spiacente! Non ci sono tragitti che soddisfano la tua richiesta!</p> <p><a href=\"javascript:history.go(-1)\">Torna indietro</a></p>";
 			}catch (SQLException e){
 			}
-		} else descrizione ="Spiacente! Non ci sono tragitti che soddisfano la tua richiesta <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
+		} else descrizione ="<p>Spiacente! Non ci sono tragitti che soddisfano la tua richiesta!</p> <p><a href=\"javascript:history.go(-1)\">Torna indietro</a></p>";
 		session.setAttribute("num_posti", num_posti);
 		session.setAttribute("descrizione", descrizione);
 		res.sendRedirect(page);
