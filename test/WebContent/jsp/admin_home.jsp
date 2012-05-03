@@ -86,12 +86,12 @@
         			<li><a href="../jsp/associaTesseraStep1.jsp" class="inserisci">Inserisci</a></li>
         		</ul>
         	</li>
-        	<li><a href="#">Gestione Località</a>
+     <!--   <li><a href="#">Gestione Località</a> ### Non serve più in quanto abbiamo tutte le citta/provincie Italiane corrette nel database 
         		<ul>
         			<li><a href="../jsp/new_place.jsp" class="inserisci">Inserisci</a></li>
         			<li><a href="../jsp/lista_localita.jsp" class="visualizza">Visualizza</a></li>
         		</ul>
-        	</li>
+        	</li>  -->
         	<li><a href="#">Gestione Pagamenti</a>
         		<ul>
         			<li><a href="../jsp/pagamenti.jsp" class="visualizza">Registra Pagamento</a></li>
