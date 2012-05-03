@@ -65,4 +65,24 @@ public class StoreTragitto_CP{
 		}
 		return null;
 	}
+	
+	public static ArrayList<Tragitto_CP> getAllTragittiCP() {
+		String sql = "SELECT id FROM tragitto_CP";
+		ResultSet rs = Query.doQueryRS(sql);
+
+		if(rs != null){
+			try {
+				ArrayList<Integer> listaIDTragitto = new ArrayList<Integer>();
+				while(rs.next()){
+					listaIDTragitto.add(rs.getInt("id"));
+				}
+				if(!listaIDTragitto.isEmpty()){
+					ArrayList<Tragitto_CP> listaTragitti_CP = Store.StoreTragitto_CP.readTragitto_CP_List(listaIDTragitto);
+					return listaTragitti_CP;
+				}
+			}catch (SQLException e){
+			}
+		}
+		return null;
+	}
 }
