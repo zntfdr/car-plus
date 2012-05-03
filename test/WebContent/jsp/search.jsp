@@ -1,7 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ page import="Entita.Utente" %>    
 <%@ page import = "Utils.HTMLManager" %>
-
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Store.StoreLocalita" %>
+<%@ page import="Entita.Tragitto_CP" %>
+<% ArrayList<String> listaProvincia = StoreLocalita.getProvincia(); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -14,11 +17,36 @@
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
     <script>
         $(document).ready(function() {
-            $("img#change_button").click(function(e) {
-                var temp_from = $("input#from").val();
-                $("input#from").val($("input#to").val());
-                $("input#to").val(temp_from);
+        	$("select#fromProv").change(function(e){
+            	if ($("li#li_citta_from")) {
+            		$("li#li_citta_from").remove();
+            	}
+            	var province = $(this).val();
+            	var url = "../GetCittaAJAX?provincia=" + province;
+            	if (province != "") {
+    	        	$.get(url, function(data){
+    			        			var li_citta = '<li id="li_citta_from">' + data + '</li>';
+    			        			$(li_citta).insertAfter("li#li_provincia_from");
+    			        			$("li#li_citta_from > select").attr("name", "from");
+    			        			$("li#li_citta_from > select").attr("id", "from");
+    			    });
+            	}
             });
+        	$("select#toProv").change(function(e){
+        	if ($("li#li_citta_to")) {
+        		$("li#li_citta_to").remove();
+        	}
+        	var province = $(this).val();
+        	var url = "../GetCittaAJAX?provincia=" + province;
+        	if (province != "") {
+            	$.get(url, function(data){
+    		        			var li_citta = '<li id="li_citta_to">' + data + '</li>';
+    		        			$(li_citta).insertAfter("li#li_provincia_to");
+    		        			$("li#li_citta_to > select").attr("name", "to");
+    		        			$("li#li_citta_to > select").attr("id", "to");
+    		    });
+        	}
+        });
             
             $("button#submit").click(function(e) {
                 if ( ($("input#from").val() == "") && ($("input#to").val() == "") ) {
@@ -45,18 +73,63 @@
 	
     <div id="content">
         <div class="wrapper">
-        <form method="get" action="../RicercaTragitto_CP" id="search">
+        <form method="get" action="../RicercaTragitto_CP">
             <ul>
                 <li><h1>Ricerca il tragitto perfetto per te!</h1></li>
-                <li><label for="fromProv">Provincia Partenza:</label><input name="fromProv" type="text" id="fromProv" /></li>
-                <li><label for="from">Citta Partenza:</label><input name="from" type="text" id="from" /></li>
-                <li><label for="toProv">Provincia Arrivo:</label><input name="toProv" type="text" id="toProv" /></li>
-                <li><label for="to">Citta Arrivo:</label><input name="to" type="text" id="to" /></li>
-                <li><label for="date">Data:</label><input name="date" type="text" id="date" /></li>
-                <li><label for="people">Quante persone:</label><input name="people" type="text" id="people" maxlength="2"/></li>
+                <fieldset>
+                	<legend>Partenza:</legend>
+	                <li id="li_provincia_from">
+	                	<label for="fromProv">Provincia Partenza:</label>
+		                <select name="fromProv" id="fromProv">
+							<option>Seleziona provincia di partenza..</option>
+		     				<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
+		      			</select>
+	      			</li>
+	      		</fieldset>
+	      		<fieldset>
+	      			<legend>Arrivo:</legend>
+	      			 <li id="li_provincia_to">
+	                	<label for="toProv">Provincia Arrivo:</label>
+		                <select name="toProv" id="toProv">
+							<option>Seleziona provincia di arrivo..</option>
+		     				<% for(String P : listaProvincia){%> <option value="<%= P %>"><%= P %></option> <% } %>
+		      			</select>
+	      			</li>
+      			</fieldset>
+      			<fieldset>
+      				<legend>Altre informazioni:</legend>
+	                <li><label for="date">Data:</label><input name="date" type="text" id="date" /></li>
+	                <li><label for="people">Quante persone:</label><input name="people" type="text" id="people" maxlength="2"/></li>
+                </fieldset>
                 <li><button name="submit" type="submit" id="submit">Cerca</button></li>
             </ul>
         </form>
+        
+        <table id="trip_list">
+            <tr>
+                <th>Citta Partenza</th>
+                <th>Citta Arrivo</th>
+                <th>Partenza</th>
+                <th class="free">Posti Liberi</th>
+                <th>Proprietario Auto</th>
+                <th>+</th>
+            </tr>
+              <% ArrayList<Tragitto_CP> listaCP= Store.StoreTragitto_CP.getAllTragittiCP();
+                if(listaCP == null || listaCP.isEmpty()){
+                	//non fare nulla
+                }else {
+                	for(Tragitto_CP T : listaCP){
+               %>
+            <tr>
+                <td class="from"> <%= T.getCitta_partenza() %></td>
+                <td class="to"> <%= T.getCitta_arrivo() %></td>
+                <td class="date"> <%= Utils.TimeString.dataOraCalendarToString(T.getTempo_partenza()) %></td>
+                <td class="free"> <%= T.getNum_posti() %></td>
+                <td class="to"> <%= T.getEmail_utente() %></td>
+                <td><a href="show_partecipazione.jsp?tragittoscelto=tragitto<%=T.getId() %>" ><img src="../img/lens.png" width="18" height="18"/></a></td>
+            </tr>
+            <% }} %>
+        </table>
         
         <div style="clear: both;"></div>
     	
