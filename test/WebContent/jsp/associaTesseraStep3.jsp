@@ -34,22 +34,30 @@
             int y = abbonamento.getNum_max_tessere() - num_tessere; %>
             Il contratto <%=idContratto %> ora ha <%=num_tessere %> tessere.<br>  
             <% if (y!=0) { %>
-            <form method="GET" action="../Inserimento_tessera" id="step3">
-            <li class="hide"><input name="idContratto" value="<%=idContratto %>" readonly="readonly"></input></li>
-            Inserisci il numero di tessere da aggiungere, fino ad un massimo di <%=abbonamento.getNum_max_tessere()- num_tessere %>
-             <select name="numTessere">
-      			<% for(int i = 1; i<=y; i++){ %>
-          		<option value="<%=i %>"> <%=i%></option>
-    		    <% } %>
-    		</select>
-    		<button name="submit" type="submit" id="submit">Associa le Tessere</button>
-    		</form>
-    		<%}
-            else {%>
-            Non puoi associare altre tessere a questo contratto
-            <%}%>
-          	<div style="clear: both;"></div>
-            </div>
+               <form method="GET" action="../Inserimento_tessera" id="step3">
+          	   <li class="hide"><input name="idContratto" value="<%=idContratto %>" readonly="readonly"></input></li>
+          	   <% if (num_tessere==0){%>
+         		   Primo inserimento, scegliere il numero di tessere da associare al contratto <%=idContratto %>
+        		   <select name="numTessere">
+      		     	<% for(int i = abbonamento.getNum_min_tessere(); i<=abbonamento.getNum_max_tessere(); i++){ %>
+          	    	<option value="<%=i %>"> <%=i%></option>
+    		        <% } %>
+    	       	   </select>
+               <% }else{%>
+                   Inserire il numero di tessere da aggiungere, fino ad un massimo di <%=abbonamento.getNum_max_tessere()- num_tessere %>
+                   <select name="numTessere">
+      		     	<% for(int i = 1; i<=y; i++){ %>
+          	    	<option value="<%=i %>"> <%=i%></option>
+    		        <% } %>
+    		       </select>
+    		   <% } %>
+    		   <button name="submit" type="submit" id="submit">Associa le Tessere</button>
+    		   </form>
+    	   <%} else {%>
+           Non puoi associare altre tessere a questo contratto
+           <%}%>
+           <div style="clear: both;"></div>
+           </div>
         </div>
         <div id="footer">
         	<div class="wrapper">
