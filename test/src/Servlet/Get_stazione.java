@@ -33,7 +33,7 @@ public class Get_stazione extends HttpServlet {
 			throws ServletException, IOException {
 		
 		// imposta il tipo MIME della risposta
-		res.setContentType("text/html");
+		res.setContentType("text/html;charset=UTF-8");
 
 		// ottiene un flusso di uscita per scrivere la risposta
 		PrintWriter out = res.getWriter();
