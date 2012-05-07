@@ -59,34 +59,25 @@
             <td> <%=T.getNome()%></td>
             <td> <%=T.getCitta()%> (<%=T.getProvincia()%>)</td>
             <td> <%=T.getMarca()%> <%=T.getModello_macchina()%></td>
-            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione())%></td>
-            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna_prenotazione())%></td>
-            <%
-            	String tp = Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo());
-            			if (tp.equals("1111/11/11 00:00:00")) {
-            %>
-            	<td>  La data di prelievo effettiva non e' ancora stata inserita</td>
-            <%
-            	} else {
-            %>
-            	<td> <%=tp%></td>
-             	<%
-             		}
+            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione()).replaceAll("(.*):00", "$1")%></td>
+            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna_prenotazione()).replaceAll("(.*):00", "$1")%></td>
+            <td><%
+            		String tp = Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo());
+            		if (tp.equals("1111/11/11 00:00:00")) { 
+            	%>Tragitto non effetuato
+            	<%
+            		} else { %><%=tp.replaceAll("(.*):00", "$1")%><% }
+            	%>
+            </td>
+            <td><%
+              		String tc = Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna());
+              		if (tc.equals("1111/11/11 00:00:00")) {
+              	%>Tragitto non effetuato
+              	<%
+            		} else { %><%=tc.replaceAll("(.*):00", "$1")%><% }
              	%>
-              <%
-              	String tc = Utils.TimeString.dataOraCalendarToString(T
-              					.getTempo_consegna());
-              			if (tc.equals("1111/11/11 00:00:00")) {
-              %>
-            	<td>  La data di consegna effettiva non e' ancora stata inserita</td>
-            <%
-            	} else {
-            %>
-            	<td> <%=tc%></td>
-             	<%
-             		}
-             	%>
-            <td> <%=T.getKm_totali()%></td>
+             </td>
+            <td> <% if(T.getKm_totali() == 0) {%> Tragitto non effetuato <% } else { %><%=T.getKm_totali() %><%}%></td>
             <td> <%
  	if (T.getPagato()) {
  %> &#10003;<%

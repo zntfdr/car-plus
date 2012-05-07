@@ -14,7 +14,7 @@ public class StoreContratto{
 	}
 
 	public static ArrayList<Contratto> getContratto() {
-		String sql_query = "SELECT * FROM contratto ORDER BY email_cliente";
+		String sql_query = "SELECT * FROM contratto ORDER BY email_cliente, nome_abbonamento";
 		ResultSet rs = null;
 		try {
 			rs = Query.doQueryRS(sql_query);

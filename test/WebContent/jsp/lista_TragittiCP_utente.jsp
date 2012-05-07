@@ -38,16 +38,14 @@
 				} else {
 			%>
 			<h1>I tuoi viaggi:</h1>
-      	  <table>
+      	  <table style="margin-top: 0px">
       	    <tr>
 		        <th>Fumatori</th>
-				<th># posti</th>
-				<th>Note</th>
-				<th>Citt&agrave; partenza</th>
-				<th>Provincia partenza</th>
-				<th>Citt&agrave; arrivo</th>
-				<th>Provincia arrivo</th>
-				<th>Targa CP</th>
+				<th># posti liberi</th>
+				<th style="width:200px">Note</th>
+				<th>Localit&agrave; partenza</th>
+				<th>Localit&agrave; arrivo</th>
+				<th>Targa</th>
 				<th>Tempo partenza</th>
 				<th>Tempo arrivo</th>
             </tr>
@@ -59,30 +57,25 @@
                     else { %> &#10007;<% }  %></td>
 					<td><%=tcp.getNum_posti()%></td>
 					<td><%=tcp.getNote()%></td>
-					<td><%=tcp.getCitta_partenza()%></td>
-					<td><%=tcp.getProvincia_partenza()%></td>
-					<td><%=tcp.getCitta_arrivo()%></td>
-					<td><%=tcp.getProvincia_arrivo()%></td>
+					<td><%=tcp.getCitta_partenza() + "<br>(" + tcp.getProvincia_partenza()%>)</td>
+					<td><%=tcp.getCitta_arrivo() + "<br>(" + tcp.getProvincia_arrivo()%>)</td>
 					<td><%=tcp.getTarga_CP()%></td>
-					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_partenza())%></td>
-					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_arrivo())%></td>
+					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_partenza()).replaceAll(" ", "<br>").replaceAll("(.*):00", "$1") %></td>
+					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_arrivo()).replaceAll(" ", "<br>").replaceAll("(.*):00", "$1") %></td>
 				</tr>
 				<%
 					}
 				%>
     </table>
-    
+    <br/>
     <h1>I viaggi in cui partecipi:</h1>
-      	  <table>
+      	  <table style="margin-top: 0px">
       	    <tr>
        			<th>Fumatori</th>
-				<th># posti</th>
-				<th>Note</th>
-				<th>Citt&agrave; partenza</th>
-				<th>Provincia partenza</th>
-				<th>Citt&agrave; arrivo</th>
-				<th>Provincia arrivo</th>
-				<th>Targa CP</th>
+				<th># posti liberi</th>
+				<th style="width:200px">Note</th>
+				<th>Localit&agrave; partenza</th>
+				<th>Localit&agrave; arrivo</th>
 				<th>Tempo partenza</th>
 				<th>Tempo arrivo</th>
             </tr>
@@ -94,13 +87,10 @@
                     else { %> &#10007;<% }  %></td>
 					<td><%=tcp.getNum_posti()%></td>
 					<td><%=tcp.getNote()%></td>
-					<td><%=tcp.getCitta_partenza()%></td>
-					<td><%=tcp.getProvincia_partenza()%></td>
-					<td><%=tcp.getCitta_arrivo()%></td>
-					<td><%=tcp.getProvincia_arrivo()%></td>
-					<td><%=tcp.getTarga_CP()%></td>
-					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_partenza())%></td>
-					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_arrivo())%></td>
+					<td><%=tcp.getCitta_partenza() + "<br>(" + tcp.getProvincia_partenza()%>)</td>
+					<td><%=tcp.getCitta_arrivo() + "<br>(" + tcp.getProvincia_arrivo()%>)</td>
+					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_partenza()).replaceAll(" ", "<br>").replaceAll("(.*):00", "$1") %></td>
+					<td><%=TimeString.dataOraCalendarToString(tcp.getTempo_arrivo()).replaceAll(" ", "<br>").replaceAll("(.*):00", "$1") %></td>
 				</tr>
 				<%
 					}

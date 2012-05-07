@@ -23,7 +23,7 @@
 	<%= HTMLManager.getHeader(session) %>	
     <div id="content">
         <div class="wrapper">
-        <% ArrayList<Tessera> listaTessere = (ArrayList<Tessera>)session.getAttribute("listaTessere"); %>
+        <% ArrayList<Tessera> listaTessere = (ArrayList<Tessera>)session.getAttribute("listaTessere"); session.removeAttribute("listaTessere"); %>
         <h1>Lista Tessere Utente</h1>
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
     	<table>

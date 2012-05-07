@@ -27,7 +27,7 @@
         <%int idContratto = Integer.parseInt(request.getParameter("contratto"));
         Abbonamento abbonamento = Interrogazione.abbonamentoFromContratto(idContratto); %>
         <form method="GET" action="../Inserimento_tessera" id="step3">
-        <input name="idContratto" value="<%=idContratto %>" readonly="readonly"> </input> 
+        <li class="hide"><input name="idContratto" value="<%=idContratto %>" readonly="readonly"></input></li>
          Inserisci il numero di tessere desiderato compreso tra: <%=abbonamento.getNum_min_tessere() %> e <%=abbonamento.getNum_max_tessere() %>
          <select name="numTessere">
   			<%

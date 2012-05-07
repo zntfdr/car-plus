@@ -23,16 +23,18 @@ public class StoreCliente {
 		sql = "delete from cliente where email_utente = '" + email + "'";
 		return Query.doUpdate(sql);
 	}
-
-	public static Cliente readCliente(String email){
-		String sql_query = "SELECT * FROM cliente WHERE email_utente = '" + email + "'";
+	
+	public static ArrayList<Cliente> getClienti() {
+		String sql_query = "SELECT * FROM cliente ORDER BY email_utente";
 		ResultSet rs = null;
 		try {
 			rs = Query.doQueryRS(sql_query);
 			if (rs != null) {
+				ArrayList<Cliente> list = new ArrayList<Cliente>();
 				while (rs.next()) {
-					return new Cliente (rs.getString("email_utente"), rs.getString("cf"));
+					list.add(new Cliente (rs.getString("email_utente"), rs.getString("cf")));
 				}
+				return list;
 			}
 		} catch (SQLException e) {
 
@@ -50,17 +52,15 @@ public class StoreCliente {
 		return null;
 	}
 
-	public static ArrayList<Cliente> getClienti() {
-		String sql_query = "SELECT * FROM cliente";
+	public static Cliente readCliente(String email){
+		String sql_query = "SELECT * FROM cliente WHERE email_utente = '" + email + "'";
 		ResultSet rs = null;
 		try {
 			rs = Query.doQueryRS(sql_query);
 			if (rs != null) {
-				ArrayList<Cliente> list = new ArrayList<Cliente>();
 				while (rs.next()) {
-					list.add(new Cliente (rs.getString("email_utente"), rs.getString("cf")));
+					return new Cliente (rs.getString("email_utente"), rs.getString("cf"));
 				}
-				return list;
 			}
 		} catch (SQLException e) {
 
