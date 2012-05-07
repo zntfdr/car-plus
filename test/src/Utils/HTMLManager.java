@@ -12,7 +12,7 @@ public class HTMLManager {
 				"<li><a href=\".\"><img src=\"../img/logo.png\" alt=\"Logo\"/></a></li>" +
 				"<li><a href=\".\">Home</a></li>" +
 				"<li><a href=\"../jsp/azienda.jsp\">Azienda</a></li>" +
-				"<li> <a href=\"../jsp/about.jsp\">Contattaci</a></li>" + 
+				"<li> <a href=\"../jsp/contattaci.jsp\">Contattaci</a></li>" + 
 				"<li> <a href=\"../jsp/about.jsp\">Chi siamo</a></li>";
 
 		if(session.getAttribute("ADMIN") != null) {
