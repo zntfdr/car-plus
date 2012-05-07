@@ -18,9 +18,9 @@
     
     <div id="content">
         <div class="wrapper">
-        <h1> Co2 Risparmiata:<% ArrayList<Integer> array = Interrogazione.getCo2Saved();%>
+        <h1 style="text-align:center; width: 100%; margin:0 0 20px 0;"> Co2 Risparmiata:<% ArrayList<Integer> array = Interrogazione.getCo2Saved();%>
 		<%for(Integer I : array){%>
-		<%= I %>
+		<img src="../img/numbers/<%= I %>.png">
 		<%}%> grammi</h1>
         <div id="announce"></div>
         <div id="actions">
