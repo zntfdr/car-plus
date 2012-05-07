@@ -22,14 +22,14 @@
         <p>Car+ è un progetto universitario per il corso di <a href="http://www.ing.unipd.it/index.php?page=Attivita&corso=IN0521&curr=000ZZ&attfor=1053277&ord=2009">Basi di Dati</a> presieduto dal Prof. <a href="http://ims.dei.unipd.it/websites/archive/ims2009/members/ferro/">Ferro Nicola</a>, docente dell'<a href="http://www.unipd.it/">Università di Padova</a> (dipartimento di <a href="http://www.dei.unipd.it">Ingegneria dell'Informazione</a>).<br>
         Il progetto è stato sviluppato e finalizzato da un team di studenti di tale corso.</p>
         <h2>Team</h2>
-        <ul>
+        <ul style="list-style-position: inside; padding-left: 5px;">
         	<li><a href="mailto:crash.pc89@gmail.com">Agnolazza Francesco</a></b>: Software Developer;</li>
         	<li><a href="mailto:nicola.menon@libero.it">Menon Nicola</a></b>: Software Developer;</li>
         	<li><a href="http://twitter.com/GianJVM">Nalin Gianmarco</a></b>: Web Designer;</li>
         	<li><a href="https://twitter.com/zntfdr">Zanetello Federico</a></b>: Product Manager;</li>
         </ul>
         <h2>Presentazione del Progetto</h2>
-        <ul style="list-style: none; margin-top: 20px;">
+        <ul style="list-style: none; margin-top: 10px;">
         	<li style=" display: inline-block;">
         		<object width="320" height="330"><param name="movie" value="https://video.google.com/get_player?docid=0B5BoSGcZv8seYXNGbjJxWlI4SGM&ps=docs&partnerid=30&cc_load_policy=1"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="https://video.google.com/get_player?docid=0B5BoSGcZv8seYXNGbjJxWlI4SGM&ps=docs&partnerid=30&cc_load_policy=1" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="460" height="330"></object>
         	</li>
