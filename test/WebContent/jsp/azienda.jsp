@@ -19,11 +19,11 @@
     <div id="content">
         <div class="wrapper">
          <h1> Benvenuti su Car+ </h1>
-        	Car+, con l'innovativo servizio di Car Sharing, offre un'inedito approccio alle quattro ruote: si "compra" l'uso effettivo del mezzo anziché il mezzo stesso! </br>
-        	Il Car Sharing è la soluzione ideale chi necessita di spostamenti brevi e frequenti: risulta essere un'alternativa vincente per chi percorre pochi chilometri o per chi non intende rinunciare all'auto di proprietà, ma deve fare i conti con esigenze di mobilità che richiederebbero l'acquisto di una seconda o terza macchina. </br>
-        	Il Car Sharing è uno dei nuovi strumenti dela mobilità sostenibile e Car+ vuole diventarne uno dei leader in Italia.</br>
+        	<p>Car+, con l'innovativo servizio di Car Sharing, offre un'inedito approccio alle quattro ruote: si "compra" l'uso effettivo del mezzo anziché il mezzo stesso!</p>
+        	<p>Il Car Sharing è la soluzione ideale chi necessita di spostamenti brevi e frequenti: risulta essere un'alternativa vincente per chi percorre pochi chilometri o per chi non intende rinunciare all'auto di proprietà, ma deve fare i conti con esigenze di mobilità che richiederebbero l'acquisto di una seconda o terza macchina.</p>
+        	<p>Il Car Sharing è uno dei nuovi strumenti dela mobilità sostenibile e Car+ vuole diventarne uno dei leader in Italia.</p>
         	</br>
-        	Per informazioni sul team di sviluppo del progetto, clicca <a href="about.jsp">qui</a>.
+        	<p>Per informazioni sul team di sviluppo del progetto, clicca <a href="about.jsp">qui</a>.</p>
         <div id="about"></div>
          <div style="clear: both;"></div>
         </div>

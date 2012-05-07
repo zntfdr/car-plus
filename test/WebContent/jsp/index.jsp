@@ -16,12 +16,14 @@
     
     <%= HTMLManager.getHeader(session) %>
     
-    <div id="content" style="text-align: center;">
+    <div id="content">
         <div class="wrapper">
-        <img src="../img/c02_risparmiata.png"><% ArrayList<Integer> array = Interrogazione.getCo2Saved();%>
-		<%for(Integer I : array){%>
-		<img src="../img/numbers/<%= I %>.png">
-		<%}%><img src="../img/grammi.png">
+        	<div style="text-align: center;">
+        		<img src="../img/c02_risparmiata.png"><% ArrayList<Integer> array = Interrogazione.getCo2Saved();%>
+				<%for(Integer I : array){%>
+					<img src="../img/numbers/<%= I %>.png">
+				<%}%><img src="../img/grammi.png">
+			</div>
         <div id="announce"></div>
         <div id="actions">
             <a href="search.jsp"><div id="search"></div></a>
