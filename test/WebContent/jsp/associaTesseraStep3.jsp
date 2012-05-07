@@ -26,7 +26,7 @@
             <div class="wrapper">
             <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
             <h1>Associa Tessere a Cliente</h1>
-            <%int idContratto = Integer.parseInt(request.getParameter("contratto"));
+            <% int idContratto = Integer.parseInt(request.getParameter("contratto"));
             Abbonamento abbonamento = Interrogazione.abbonamentoFromContratto(idContratto); 
             ArrayList<Tessera>lista_tessere=StoreTessera.getTesseraFromContratto(idContratto);
             int num_tessere=0;
