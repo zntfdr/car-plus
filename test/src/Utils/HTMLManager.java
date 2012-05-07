@@ -13,7 +13,7 @@ public class HTMLManager {
 				"<li><a href=\".\">Home</a></li>" +
 				"<li><a href=\"../jsp/azienda.jsp\">Azienda</a></li>" +
 				"<li> <a href=\"../jsp/about.jsp\">Contattaci</a></li>" + 
-				"<li> <a href=\"../jsp/azienda.jsp\">Chi siamo</a></li>";
+				"<li> <a href=\"../jsp/about.jsp\">Chi siamo</a></li>";
 
 		if(session.getAttribute("ADMIN") != null) {
 			header += "<li><a href=\"admin_home.jsp\">Admin+</a></li><li><a href=\"logout.jsp\">Logout</a></li>";
