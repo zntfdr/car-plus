@@ -18,10 +18,10 @@
     
     <div id="content">
         <div class="wrapper">
-        <li> Co2 Risparmiata:<% ArrayList<Integer> array = Interrogazione.getCo2Saved();%>
+        <h1> Co2 Risparmiata:<% ArrayList<Integer> array = Interrogazione.getCo2Saved();%>
 		<%for(Integer I : array){%>
 		<%= I %>
-		<%}%> grammi</li>
+		<%}%> grammi</h1>
         <div id="announce"></div>
         <div id="actions">
             <a href="search.jsp"><div id="search"></div></a>
