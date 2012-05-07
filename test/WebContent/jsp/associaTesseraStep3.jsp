@@ -38,7 +38,7 @@
             <li class="hide"><input name="idContratto" value="<%=idContratto %>" readonly="readonly"></input></li>
             Inserisci il numero di tessere da aggiungere, fino ad un massimo di <%=abbonamento.getNum_max_tessere()- num_tessere %>
              <select name="numTessere">
-      			<% for(int i = 0; i<=y; i++){ %>
+      			<% for(int i = 1; i<=y; i++){ %>
           		<option value="<%=i %>"> <%=i%></option>
     		    <% } %>
     		</select>
