@@ -63,7 +63,7 @@
             	String tp = Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo());
             			if (tp.equals("1111/11/11 00:00:00")) {
             %>
-            	<td>  La data di prelievo effettiva non e' ancora stata inserita</td>
+            	<td>  Tragitto non effettuato</td>
             <%
             	} else {
             %>
@@ -76,7 +76,7 @@
               					.getTempo_consegna());
               			if (tc.equals("1111/11/11 00:00:00")) {
               %>
-            	<td>  La data di consegna effettiva non e' ancora stata inserita</td>
+            	<td> Tragitto non effettuato</td>
             <%
             	} else {
             %>
