@@ -32,7 +32,7 @@
             int num_tessere=0;
             if (lista_tessere!=null) num_tessere= lista_tessere.size();
             int y = abbonamento.getNum_max_tessere() - num_tessere; %>
-            Il contratto <%=idContratto %> ora ha <%=num_tessere %> tessere  
+            Il contratto <%=idContratto %> ora ha <%=num_tessere %> tessere.<br>  
             <% if (y!=0) { %>
             <form method="GET" action="../Inserimento_tessera" id="step3">
             <li class="hide"><input name="idContratto" value="<%=idContratto %>" readonly="readonly"></input></li>
