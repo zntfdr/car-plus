@@ -31,11 +31,12 @@
             ArrayList<Tessera>lista_tessere=StoreTessera.getTesseraFromContratto(idContratto);
             int num_tessere=0;
             if (lista_tessere!=null) num_tessere= lista_tessere.size();
-            int y = abbonamento.getNum_max_tessere() - num_tessere;
-            if (y!=0) { %>
+            int y = abbonamento.getNum_max_tessere() - num_tessere; %>
+            Il contratto <%=idContratto %> ora ha <%=num_tessere %> tessere  
+            <% if (y!=0) { %>
             <form method="GET" action="../Inserimento_tessera" id="step3">
             <li class="hide"><input name="idContratto" value="<%=idContratto %>" readonly="readonly"></input></li>
-             Inserisci il numero di tessere da aggiungere, fino ad un massimo di <%=abbonamento.getNum_max_tessere()- num_tessere %>
+            Inserisci il numero di tessere da aggiungere, fino ad un massimo di <%=abbonamento.getNum_max_tessere()- num_tessere %>
              <select name="numTessere">
       			<% for(int i = 0; i<=y; i++){ %>
           		<option value="<%=i %>"> <%=i%></option>
