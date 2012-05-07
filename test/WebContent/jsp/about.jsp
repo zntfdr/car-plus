@@ -29,8 +29,13 @@
         <b><a href="https://twitter.com/zntfdr">Zanetello Federico</a></b>: Product Manager;<br/>
         </br>
         <h2>Presentazione del Progetto</h2>
-        <object width="640" height="385"><param name="movie" value="https://video.google.com/get_player?docid=0B5BoSGcZv8seYXNGbjJxWlI4SGM&ps=docs&partnerid=30&cc_load_policy=1"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="https://video.google.com/get_player?docid=0B5BoSGcZv8seYXNGbjJxWlI4SGM&ps=docs&partnerid=30&cc_load_policy=1" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="385"></embed></object>
-        <div id="about"></div>
+        <ul style="list-style: none; margin-top: 20px;">
+        	<li style=" display: inline-block;">
+        		<object width="320" height="330"><param name="movie" value="https://video.google.com/get_player?docid=0B5BoSGcZv8seYXNGbjJxWlI4SGM&ps=docs&partnerid=30&cc_load_policy=1"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="https://video.google.com/get_player?docid=0B5BoSGcZv8seYXNGbjJxWlI4SGM&ps=docs&partnerid=30&cc_load_policy=1" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="460" height="330"></object>
+        	</li>
+        	<li style="display: inline-block; margin-left: 20px;"><div id="about"></div>
+        	</li>
+        </ul>
         <div style="clear: both;"></div>
         </div>
     </div>
