@@ -11,6 +11,8 @@ public class UpdateUtente extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String descrizione, page, email = req.getParameter("mail");
 		boolean EsitoAggiornamento;
 		Utente ut = new Utente(req.getParameter("name"), req.getParameter("surname"), req.getParameter("radio"), req.getParameter("address"), req.getParameter("citta"), req.getParameter("provincia"), MD5.encrypt(req.getParameter("password")), email, req.getParameter("phone"), false, false);

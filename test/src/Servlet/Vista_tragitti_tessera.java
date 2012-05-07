@@ -31,6 +31,8 @@ public class Vista_tragitti_tessera extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String page = "";
 		int tessera_ID = Integer.parseInt(req.getParameter("id"));
 		ArrayList<Tragitto_CS_info> lista = Store.StoreTragitto_CS_info.readTragitto_CS_info_tessera(tessera_ID);

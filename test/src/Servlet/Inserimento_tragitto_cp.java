@@ -15,7 +15,8 @@ public class Inserimento_tragitto_cp extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		Localita partenza = new Localita(req.getParameter("fromcity"), req.getParameter("fromprovince"));
 		Localita arrivo = new Localita(req.getParameter("tocity"), req.getParameter("toprovince"));
 		

@@ -23,6 +23,8 @@ public class Inserimento_targa_e_modello extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		//Inserisco nuovo modello macchina  marca,modello,cilindrata,anno,alimentazione)
 		Modello_Macchina mm = new Modello_Macchina(0, req.getParameter("marca"), req.getParameter("modello"), Integer.parseInt(req.getParameter("cilindrata")),Integer.parseInt(req.getParameter("anno")), req.getParameter("alimentazione"), Integer.parseInt(req.getParameter("emissioni_co2")), Integer.parseInt(req.getParameter("num_posti")));		
 		StoreModello_Macchina.insertModello_Macchina(mm);

@@ -16,6 +16,8 @@ public class Inserimento_tragitto_cs_check extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		Contratto contratto = StoreContratto.readContratto(Integer.parseInt(req.getParameter("contratto")));
 		ArrayList<Tessera> listaTessere = StoreTessera.getTesseraFromContratto(Integer.parseInt(req.getParameter("contratto")));
 		String tempoPrelievo = req.getParameter("tempoPrelievo");

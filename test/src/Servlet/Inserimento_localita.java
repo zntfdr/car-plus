@@ -10,6 +10,9 @@ public class Inserimento_localita extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		Localita loc = new Localita(req.getParameter("city"),req.getParameter("province"));
 		String descrizione;
 		

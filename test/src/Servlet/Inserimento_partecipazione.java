@@ -30,6 +30,8 @@ public class Inserimento_partecipazione extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String page = "";
 		Partecipazione partecipazione = new Partecipazione(req.getParameter("user"),Integer.parseInt(req.getParameter("num_posti")),Integer.parseInt(req.getParameter("id")));
 		Store.StorePartecipazione.insertPartecipazione(partecipazione);

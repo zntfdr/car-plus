@@ -13,6 +13,9 @@ import Store.*;
 public class Inserimento_cliente extends HttpServlet {
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		boolean mail_exists_yet = false;
 		String descrizione = "";
 		

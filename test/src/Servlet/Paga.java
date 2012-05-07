@@ -22,7 +22,8 @@ public class Paga extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String page = "";
 		String sql = "";
 		String descrizione ="";

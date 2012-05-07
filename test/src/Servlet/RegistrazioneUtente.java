@@ -14,7 +14,9 @@ public class RegistrazioneUtente extends HttpServlet {
 			throws ServletException, IOException {
 		String descrizione, page;
 		
-		//Inserisco la località
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
+		//Inserisco la localitÃ 
 		Localita loc = new Localita(req.getParameter("citta"),req.getParameter("provincia"));
 		StoreLocalita.insertLocalita(loc);
 		
@@ -34,7 +36,7 @@ public class RegistrazioneUtente extends HttpServlet {
 			page = "jsp/lista_utenti.jsp";
 		else
 		{
-			session.setAttribute("utente", ut); //visualizzerò tali informazioni nella landing page
+			session.setAttribute("utente", ut); //visualizzerï¿½ tali informazioni nella landing page
 			page ="jsp/new_user_landing.jsp";
 		}
 		

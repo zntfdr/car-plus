@@ -12,6 +12,8 @@ public class UpdateMacchinaCS extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String descrizione, targaold = req.getParameter("oldcar_plate");
 		
 		//gestione delle date

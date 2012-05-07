@@ -30,6 +30,8 @@ public class Vista_partecipazione extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String page = "";
 		int tragitto_ID = Integer.parseInt(req.getParameter("id"));
 		Tragitto_CP tragitto = Store.StoreTragitto_CP.readTragitto_CP(tragitto_ID);

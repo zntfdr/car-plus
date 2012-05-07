@@ -25,7 +25,8 @@ public class Inserimento_solo_targa extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String targa = req.getParameter("targa");
 		int mod = Integer.parseInt(req.getParameter("model"));
 		

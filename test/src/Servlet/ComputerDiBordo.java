@@ -11,7 +11,8 @@ public class ComputerDiBordo extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String descrizione;
 		int id = Integer.parseInt((String)req.getParameter("id")), km_totali = Integer.parseInt((String)req.getParameter("km_totali"));
 		

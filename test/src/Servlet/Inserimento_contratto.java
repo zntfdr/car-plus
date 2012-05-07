@@ -14,6 +14,8 @@ public class Inserimento_contratto extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		Contratto cntr = new Contratto(0,Utils.TimeString.dataStringToCalendar(req.getParameter("data_stipula")),Utils.TimeString.dataStringToCalendar(req.getParameter("data_scadenza")),req.getParameter("email_cliente"),req.getParameter("nome_abbonamento"));
 		String descrizione;
 		

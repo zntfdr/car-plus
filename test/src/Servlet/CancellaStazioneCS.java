@@ -15,7 +15,8 @@ import Store.*;
 public class CancellaStazioneCS extends HttpServlet {
        
 	public void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-			
+		response.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");	
 		String descrizione, nome = req.getParameter("nome");			
 		
 		if(StoreStazione_CS.deleteStazioneCS(req.getParameter("citta"),req.getParameter("provincia"),nome))

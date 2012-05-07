@@ -9,7 +9,8 @@ import Store.*;
 public class CancellaCliente extends HttpServlet {
        
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");	
 		String descrizione, email = request.getParameter("email");			
 		
 		if(StoreCliente.deleteCliente(email))

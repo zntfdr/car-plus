@@ -16,7 +16,8 @@ public class Inserimento_tragitto_cs extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-		
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		HttpSession session = req.getSession();
 		
 		Calendar tempoPrelievoPrenotazione = Utils.TimeString.parseSQLTimestampToCalendar((String)session.getAttribute("tempoPrelievo"));

@@ -12,6 +12,8 @@ public class Inserimento_tessera extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String descrizione ="C'è stato qualche problema";
 		int numTessere = Integer.parseInt(req.getParameter("numTessere"));
 		int idContratto = Integer.parseInt(req.getParameter("idContratto"));

@@ -15,6 +15,8 @@ import Store.*;
 public class CancellaLocalita extends HttpServlet {
        
 	public void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");	
 		String descrizione;
 		Localita old = new Localita (req.getParameter("citta"), req.getParameter("provincia"));			
 		

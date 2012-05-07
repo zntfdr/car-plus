@@ -22,7 +22,8 @@ public class Login extends HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 
-
+		res.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String email = req.getParameter("username");
 		String password = MD5.encrypt(req.getParameter("password"));
 		String page = "";
