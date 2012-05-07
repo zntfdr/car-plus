@@ -30,19 +30,23 @@
             Abbonamento abbonamento = Interrogazione.abbonamentoFromContratto(idContratto); 
             ArrayList<Tessera>lista_tessere=StoreTessera.getTesseraFromContratto(idContratto);
             int num_tessere=0;
-            if (lista_tessere!=null) num_tessere= lista_tessere.size();%>
+            if (lista_tessere!=null) num_tessere= lista_tessere.size();
+            int y = abbonamento.getNum_max_tessere() - num_tessere;
+            if (y!=0) { %>
             <form method="GET" action="../Inserimento_tessera" id="step3">
             <li class="hide"><input name="idContratto" value="<%=idContratto %>" readonly="readonly"></input></li>
              Inserisci il numero di tessere da aggiungere, fino ad un massimo di <%=abbonamento.getNum_max_tessere()- num_tessere %>
              <select name="numTessere">
-      			<%
-      			int y = abbonamento.getNum_max_tessere() - num_tessere;
-      			for(int i = 0; i<=y; i++){ %>
+      			<% for(int i = 0; i<=y; i++){ %>
           		<option value="<%=i %>"> <%=i%></option>
     		    <% } %>
     		</select>
     		<button name="submit" type="submit" id="submit">Associa le Tessere</button>
     		</form>
+    		<%}
+            else {%>
+            Non puoi associare altre tessere a questo contratto
+            <%}%>
           	<div style="clear: both;"></div>
             </div>
         </div>
