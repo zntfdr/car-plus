@@ -9,6 +9,7 @@
 	ArrayList<Tessera> listaTessere = (ArrayList<Tessera>) session.getAttribute("listaTessere");
 	Contratto contratto = (Contratto)session.getAttribute("contratto");
 	String tempoConsegna = (String)session.getAttribute("tempoConsegna");
+	String tempoPrelievo = (String)session.getAttribute("tempoPrelievo");
 	Modello_Macchina modello;
 	Utente user = (Utente) session.getAttribute("utente_loggato");
 	if ( user == null || ! ( user.getUserType() == Type.CLIENTE || user.getUserType() == Type.BUSINESS ) ) { //Controllo che sia aperta una connessione con un cliente, altrimenti faccio il redirect a login.jsp
@@ -34,7 +35,14 @@
     <div id="content">
         <div class="wrapper">
         <form method="GET" action="../Inserimento_tragitto_cs" id="Inserimento_tragitto_cs">
-             <%if (contratto.getData_scadenza().compareTo(TimeString.parseSQLTimestampToCalendar(tempoConsegna))<0) { %>
+            <% if (TimeString.parseSQLTimestampToCalendar(tempoPrelievo).compareTo(TimeString.parseSQLTimestampToCalendar(tempoConsegna))>=0) { %>
+            <div id="content">
+            <div class="wrapper">
+            Il tempo di prelievo deve essere precedente al tempo di consegna. <a href="javascript:history.go(-1)">Riprova cambiando i campi di ricerca </a>
+            <div style="clear: both;"></div>
+            </div>
+            </div>
+            <%} else if (contratto.getData_scadenza().compareTo(TimeString.parseSQLTimestampToCalendar(tempoConsegna))<0) { %>
             <div id="content">
             <div class="wrapper">
             Hai prenotato oltre la scadenza del contratto. <a href="javascript:history.go(-1)">Riprova cambiando i campi di ricerca </a>
