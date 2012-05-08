@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" %>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.Calendar"%>
 <%@ page import="Utils.TimeString"%>
 <%@ page import="Entita.Contratto" %>
 <%@ page import="Entita.Utente" %>
@@ -73,7 +74,9 @@
 			        	<label for="contratto">Contratto:</label>
 						<select name="contratto">
 							<option>Seleziona contratto..</option>
-			     			<% for(Contratto C : listaContratti){%> <option value="<%= C.getId() %>"><%= C.getNome_abbonamento() %></option> <% } %>
+			     			<% for(Contratto C : listaContratti){
+			     			   Calendar now = Calendar.getInstance();
+			     			   if (C.getData_scadenza().compareTo(now)>0){%> <option value="<%= C.getId() %>"><%= C.getNome_abbonamento() %></option> <% }} %>
 			        	</select>
 			        </li>
 		        </fieldset>
