@@ -79,7 +79,7 @@
 	
     <div id="content">
         <div class="wrapper">
-        <form method="GET" action="../Inserimento_tragitto_cp" id="Inserimento_tragitto_cp">
+        <form method="POST" action="../Inserimento_tragitto_cp" id="Inserimento_tragitto_cp">
             <ul>
                 <li><h1>Inserimento nuova tragitto di Car Pooling</h1></li>
                 <fieldset>
