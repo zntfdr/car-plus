@@ -31,7 +31,7 @@ public class Inserimento_abbonamento extends HttpServlet {
 		if(abbOk)	
 			session.setAttribute("descrizione", "Registrazione nuova abbonamento " + abb.getNome() + " avvenuta con successo!");
 		else 
-			session.setAttribute("descrizione", "Non � stato possibile inserire il nuovo abbonamento " + abb.getNome() + ". (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>");
+			session.setAttribute("descrizione", "Non è stato possibile inserire il nuovo abbonamento " + abb.getNome() + ". (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>");
 
 		res.sendRedirect("jsp/lista_abbonamenti.jsp");
 	}

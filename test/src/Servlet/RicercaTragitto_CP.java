@@ -30,7 +30,7 @@ public class RicercaTragitto_CP extends HttpServlet {
 		HttpSession session = req.getSession();
 		String page = "jsp/searchResult.jsp";
 
-		String sql ="SELECT id FROM tragitto_CP WHERE provincia_partenza = '" + provinciaPartenza +"' AND citta_partenza = '"+ cittaPartenza +"' AND provincia_arrivo = '"+ provinciaArrivo+ "' AND citta_arrivo = '"+ cittaArrivo + "' AND tempo_partenza >= '" + Utils.TimeString.dataCalendarToString(data)+"' AND num_posti >= '" + num_posti + "'";
+		String sql ="SELECT id FROM tragitto_CP WHERE provincia_partenza = '" + provinciaPartenza.replace("'", "''") +"' AND citta_partenza = '"+ cittaPartenza.replace("'", "''") +"' AND provincia_arrivo = '"+ provinciaArrivo.replace("'", "''") + "' AND citta_arrivo = '"+ cittaArrivo.replace("'", "''") + "' AND tempo_partenza >= '" + Utils.TimeString.dataCalendarToString(data)+"' AND num_posti >= '" + num_posti + "'";
 		String descrizione ="";
 		ResultSet rs = Query.doQueryRS(sql);
 
