@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="Entita.*" %>
 <%@ page import="Store.StoreModello_Macchina" %>
 <%@ page import="java.util.ArrayList" %>
