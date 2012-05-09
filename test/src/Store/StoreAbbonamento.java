@@ -10,12 +10,12 @@ import Utils.*;
 
 public class StoreAbbonamento{
 	public static boolean deleteAbbonamento(String nome) {
-		String sql = "DELETE FROM abbonamento WHERE nome = '" + nome + "'";
+		String sql = "DELETE FROM abbonamento WHERE nome = '" + nome.replace("'", "''") + "'";
 		return Query.doUpdate(sql);
 	}
 
 	public static boolean insertAbbonamento(Abbonamento abb){
-		String sql = "INSERT INTO abbonamento(nome, descrizione, tariffa_magg_100km, tariffa_min_100km, tariffa_notturna, tariffa_diurna, costo_mensile, num_max_tessere, num_min_tessere) VALUES('" + abb.getNome() + "', '" + abb.getDescrizione() + "', " + abb.getTariffa_magg_100km() + ", " + abb.getTariffa_min_100km()  + ", " + abb.getTariffa_notturna()  + ", " + abb.getTariffa_diurna() +  ", " + abb.getCosto_mensile()  + ", " + abb.getNum_max_tessere()  + ", " + abb.getNum_min_tessere() +")";	    
+		String sql = "INSERT INTO abbonamento(nome, descrizione, tariffa_magg_100km, tariffa_min_100km, tariffa_notturna, tariffa_diurna, costo_mensile, num_max_tessere, num_min_tessere) VALUES('" + abb.getNome().replace("'", "''") + "', '" + abb.getDescrizione().replace("'", "''") + "', " + abb.getTariffa_magg_100km() + ", " + abb.getTariffa_min_100km()  + ", " + abb.getTariffa_notturna()  + ", " + abb.getTariffa_diurna() +  ", " + abb.getCosto_mensile()  + ", " + abb.getNum_max_tessere()  + ", " + abb.getNum_min_tessere() +")";	    
 		return Query.doUpdate(sql);
 	}
 
@@ -48,7 +48,7 @@ public class StoreAbbonamento{
 	}
 
 	public static Abbonamento readAbbonamento(String nome){
-		String sql = "SELECT * FROM abbonamento WHERE nome = '" + nome + "'";
+		String sql = "SELECT * FROM abbonamento WHERE nome = '" + nome.replace("'", "''") + "'";
 		ResultSet rs = null;
 		try {
 			rs = Query.doQueryRS(sql);
@@ -75,9 +75,9 @@ public class StoreAbbonamento{
 	public static ArrayList<Abbonamento> readAbbonamento_List(ArrayList<String> listaAbbonamenti){
 		String sql = "SELECT * FROM abbonamento WHERE ";
 		for (int i=0; i<listaAbbonamenti.size() - 1; i++){
-			sql += "nome = '" + listaAbbonamenti.get(i)+ "' OR ";
+			sql += "nome = '" + listaAbbonamenti.get(i).replace("'", "''") + "' OR ";
 		}
-		sql+= "nome = '" + listaAbbonamenti.get(listaAbbonamenti.size() - 1)+ "'";
+		sql+= "nome = '" + listaAbbonamenti.get(listaAbbonamenti.size() - 1).replace("'", "''")+ "'";
 		ResultSet rs = null;
 		try {
 			rs = Query.doQueryRS(sql);
@@ -104,7 +104,7 @@ public class StoreAbbonamento{
 	}
 
 	public static boolean UpdateAbbonamento(Abbonamento abb){
-		String sql = "UPDATE abbonamento SET descrizione = '" + abb.getDescrizione() + "',  tariffa_magg_100km = " + abb.getTariffa_magg_100km() + ",  tariffa_min_100km = " + abb.getTariffa_min_100km() + ",  tariffa_notturna = " + abb.getTariffa_notturna() + ",  tariffa_diurna = " + abb.getTariffa_diurna() + ",  costo_mensile = " + abb.getCosto_mensile() + ",  num_max_tessere = " + abb.getNum_max_tessere() + ",  num_min_tessere = " + abb.getNum_min_tessere() + "  WHERE nome = '"+ abb.getNome() + "'";
+		String sql = "UPDATE abbonamento SET descrizione = '" + abb.getDescrizione().replace("'", "''") + "',  tariffa_magg_100km = " + abb.getTariffa_magg_100km() + ",  tariffa_min_100km = " + abb.getTariffa_min_100km() + ",  tariffa_notturna = " + abb.getTariffa_notturna() + ",  tariffa_diurna = " + abb.getTariffa_diurna() + ",  costo_mensile = " + abb.getCosto_mensile() + ",  num_max_tessere = " + abb.getNum_max_tessere() + ",  num_min_tessere = " + abb.getNum_min_tessere() + "  WHERE nome = '"+ abb.getNome().replace("'", "''") + "'";
 		return Query.doUpdate(sql);
 	}
 }

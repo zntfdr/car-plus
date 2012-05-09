@@ -6,7 +6,7 @@ import Utils.*;
 
 public class StoreMessaggio_privato{
 	public static boolean insertMessaggio_privato(Messaggio_privato Value){
-		String sql = "INSERT INTO messaggio_privato(email_mittente,email_destinatario,data,titolo,testo) VALUES('" + Value.getEmail_mittente() + "', '" + Value.getEmail_destinatario() + "', '" + Utils.TimeString.dataCalendarToString(Value.getData()) + "', '" + Value.getTitolo() +"', '" + Value.getTesto() + "')";
+		String sql = "INSERT INTO messaggio_privato(email_mittente,email_destinatario,data,titolo,testo) VALUES('" + Value.getEmail_mittente() + "', '" + Value.getEmail_destinatario() + "', '" + Utils.TimeString.dataCalendarToString(Value.getData()) + "', '" + Value.getTitolo().replace("'", "''") +"', '" + Value.getTesto().replace("'", "''") + "')";
 
 		return Query.doUpdate(sql);
 	}

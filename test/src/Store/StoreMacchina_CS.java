@@ -43,7 +43,7 @@ public class StoreMacchina_CS{
 	}
 
 	public static boolean insertMacchina_CS(Macchina_CS Value){
-		String sql = "INSERT INTO macchina_CS(targa,id_modello,citta,provincia,nome_stazione_CS,anno_acquisto,scad_bollo,scad_assicurazione,scad_revisione,km_totali,prenotabile) VALUES('" + Value.getTarga() + "', '" + Value.getId_modello() + "', '" + Value.getCitta() + "', '" + Value.getProvincia() + "', '" + Value.getNome_stazione_CS() + "', '" + Value.getAnno_acquisto() + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_bollo()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_assicurazione()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_revisione()) + "', '" + Value.getKm_totali() + "', TRUE)";
+		String sql = "INSERT INTO macchina_CS(targa,id_modello,citta,provincia,nome_stazione_CS,anno_acquisto,scad_bollo,scad_assicurazione,scad_revisione,km_totali,prenotabile) VALUES('" + Value.getTarga() + "', '" + Value.getId_modello() + "', '" + Value.getCitta().replace("'", "''") + "', '" + Value.getProvincia().replace("'", "''") + "', '" + Value.getNome_stazione_CS().replace("'", "''") + "', '" + Value.getAnno_acquisto() + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_bollo()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_assicurazione()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getScad_revisione()) + "', '" + Value.getKm_totali() + "', TRUE)";
 		return Query.doUpdate(sql);
 	}
 
@@ -104,7 +104,7 @@ public class StoreMacchina_CS{
 	}
 
 	public static boolean UpdateMacchinaCS(Macchina_CS mCS, String targa){
-		String sql = "UPDATE macchina_cs SET targa = '" + mCS.getTarga() + "', id_modello = " + mCS.getId_modello() + ", citta = '" + mCS.getCitta() + "', provincia = '" + mCS.getProvincia() + "', nome_stazione_CS = '" + mCS.getNome_stazione_CS() + "', anno_acquisto = " + mCS.getAnno_acquisto() + ", scad_bollo = '" + Utils.TimeString.dataCalendarToString(mCS.getScad_bollo()) + "', scad_assicurazione = '" + Utils.TimeString.dataCalendarToString(mCS.getScad_assicurazione()) + "', scad_revisione = '" + Utils.TimeString.dataCalendarToString(mCS.getScad_revisione()) + "', km_totali = " + mCS.getKm_totali() + ", prenotabile = " + mCS.getPrenotabile() + " WHERE targa = '" + targa + "'";
+		String sql = "UPDATE macchina_cs SET targa = '" + mCS.getTarga() + "', id_modello = " + mCS.getId_modello() + ", citta = '" + mCS.getCitta().replace("'", "''") + "', provincia = '" + mCS.getProvincia().replace("'", "''") + "', nome_stazione_CS = '" + mCS.getNome_stazione_CS().replace("'", "''") + "', anno_acquisto = " + mCS.getAnno_acquisto() + ", scad_bollo = '" + Utils.TimeString.dataCalendarToString(mCS.getScad_bollo()) + "', scad_assicurazione = '" + Utils.TimeString.dataCalendarToString(mCS.getScad_assicurazione()) + "', scad_revisione = '" + Utils.TimeString.dataCalendarToString(mCS.getScad_revisione()) + "', km_totali = " + mCS.getKm_totali() + ", prenotabile = " + mCS.getPrenotabile() + " WHERE targa = '" + targa + "'";
 		return Query.doUpdate(sql);
 	}
 }

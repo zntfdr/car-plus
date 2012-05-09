@@ -42,7 +42,7 @@ public class StoreContratto{
 	}
 
 	public static boolean insertContratto(Contratto Value){
-		String sql = "INSERT INTO contratto(data_stipula,data_scadenza,email_cliente,nome_abbonamento) VALUES('" + Utils.TimeString.dataCalendarToString(Value.getData_stipula()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getData_scadenza()) + "', '" + Value.getEmail_cliente() + "', '" + Value.getNome_abbonamento() + "')";
+		String sql = "INSERT INTO contratto(data_stipula,data_scadenza,email_cliente,nome_abbonamento) VALUES('" + Utils.TimeString.dataCalendarToString(Value.getData_stipula()) + "', '" + Utils.TimeString.dataCalendarToString(Value.getData_scadenza()) + "', '" + Value.getEmail_cliente() + "', '" + Value.getNome_abbonamento().replace("'", "''") + "')";
 		return Query.doUpdate(sql);
 	}
 
@@ -73,7 +73,7 @@ public class StoreContratto{
 
 
 	public static boolean updateContratto(Contratto Value){
-		String sql = "UPDATE contratto SET data_stipula = '" + Utils.TimeString.dataCalendarToString(Value.getData_stipula()) + "', data_scadenza = '" + Utils.TimeString.dataCalendarToString(Value.getData_scadenza()) + "', email_cliente = '" + Value.getEmail_cliente() + "', nome_abbonamento = '" + Value.getNome_abbonamento() + "' WHERE id = " + Value.getId();
+		String sql = "UPDATE contratto SET data_stipula = '" + Utils.TimeString.dataCalendarToString(Value.getData_stipula()) + "', data_scadenza = '" + Utils.TimeString.dataCalendarToString(Value.getData_scadenza()) + "', email_cliente = '" + Value.getEmail_cliente() + "', nome_abbonamento = '" + Value.getNome_abbonamento().replace("'", "''") + "' WHERE id = " + Value.getId();
 		return Query.doUpdate(sql);
 	}
 }

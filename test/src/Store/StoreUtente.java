@@ -13,17 +13,17 @@ public class StoreUtente{
 	}
 
 	public static boolean insertUtente(Utente ut){
-		String sql = "INSERT INTO utente(nome, cognome, sesso, indirizzo, citta, provincia, telefono, email, password, account_sospeso, account_verificato) VALUES('" + ut.getNome() + "','" + ut.getCognome() + "','" + ut.getSesso() + "','" + ut.getIndirizzo() + "','" + ut.getCitta() + "','" + ut.getProvincia() + "','" + ut.getTelefono() + "','" + ut.getEmail() + "','" + Password.checkpsw(ut.getPassword()) + "','" + ut.getAccount_sospeso() + "','" + ut.getAccount_verificato() + "')";
+		String sql = "INSERT INTO utente(nome, cognome, sesso, indirizzo, citta, provincia, telefono, email, password, account_sospeso, account_verificato) VALUES('" + ut.getNome().replace("'", "''") + "','" + ut.getCognome().replace("'", "''") + "','" + ut.getSesso() + "','" + ut.getIndirizzo().replace("'", "''") + "','" + ut.getCitta().replace("'", "''") + "','" + ut.getProvincia().replace("'", "''") + "','" + ut.getTelefono().replace("'", "''") + "','" + ut.getEmail() + "','" + Password.checkpsw(ut.getPassword()) + "','" + ut.getAccount_sospeso() + "','" + ut.getAccount_verificato() + "')";
 		return Query.doUpdate(sql);
 	}
 
 	public static boolean UpdateUtente(Utente ut){
-		String sql = "UPDATE utente SET nome = '" + ut.getNome() + "', cognome = '" + ut.getCognome() + "', sesso = '" + ut.getSesso() + "', indirizzo = '" + ut.getIndirizzo() + "', citta = '" + ut.getCitta() + "', provincia = '" + ut.getProvincia() + "', telefono = '" + ut.getTelefono() + "', password = '" + Password.checkpsw(ut.getPassword()) + "' WHERE email = '" + ut.getEmail() + "'";
+		String sql = "UPDATE utente SET nome = '" + ut.getNome().replace("'", "''") + "', cognome = '" + ut.getCognome().replace("'", "''") + "', sesso = '" + ut.getSesso() + "', indirizzo = '" + ut.getIndirizzo().replace("'", "''") + "', citta = '" + ut.getCitta().replace("'", "''") + "', provincia = '" + ut.getProvincia().replace("'", "''") + "', telefono = '" + ut.getTelefono() + "', password = '" + Password.checkpsw(ut.getPassword()) + "' WHERE email = '" + ut.getEmail() + "'";
 		return Query.doUpdate(sql);
 	}
 
 	public static boolean UpdateUtenteWithoutPassword(Utente ut){
-		String sql = "UPDATE utente SET nome = '" + ut.getNome() + "', cognome = '" + ut.getCognome() + "', sesso = '" + ut.getSesso() + "', indirizzo = '" + ut.getIndirizzo() + "', citta = '" + ut.getCitta() + "', provincia = '" + ut.getProvincia() + "', telefono = '" + ut.getTelefono() + "' WHERE email = '" + ut.getEmail() + "'";
+		String sql = "UPDATE utente SET nome = '" + ut.getNome().replace("'", "''") + "', cognome = '" + ut.getCognome().replace("'", "''") + "', sesso = '" + ut.getSesso() + "', indirizzo = '" + ut.getIndirizzo().replace("'", "''") + "', citta = '" + ut.getCitta().replace("'", "''") + "', provincia = '" + ut.getProvincia().replace("'", "''") + "', telefono = '" + ut.getTelefono() + "' WHERE email = '" + ut.getEmail() + "'";
 		return Query.doUpdate(sql);
 	}
 

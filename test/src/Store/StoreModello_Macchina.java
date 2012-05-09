@@ -16,7 +16,7 @@ public class StoreModello_Macchina{
 	}
 
 	public static boolean insertModello_Macchina(Modello_Macchina Value){
-		String sql = "INSERT INTO modello_macchina(marca,modello,cilindrata,anno,alimentazione,emissioni_co2,num_posti) VALUES('" + Value.getMarca() + "','" + Value.getModello() + "', " + Value.getCilindrata() +","+ Value.getAnno() + ",'" + Value.getAlimentazione() + "'," + Value.getEmissioni_co2() + "," + Value.getNum_posti() + ")";
+		String sql = "INSERT INTO modello_macchina(marca,modello,cilindrata,anno,alimentazione,emissioni_co2,num_posti) VALUES('" + Value.getMarca().replace("'", "''") + "','" + Value.getModello().replace("'", "''") + "', " + Value.getCilindrata() +","+ Value.getAnno() + ",'" + Value.getAlimentazione() + "'," + Value.getEmissioni_co2() + "," + Value.getNum_posti() + ")";
 		return Query.doUpdate(sql);
 	}
 
@@ -105,7 +105,7 @@ public class StoreModello_Macchina{
 	}
 
 	public static boolean UpdateModelloMacchina(Modello_Macchina mm){
-		String sql = "UPDATE modello_macchina SET marca = '" + mm.getMarca() + "', modello = '" + mm.getModello() + "', cilindrata = " + mm.getCilindrata() + ", anno = " + mm.getAnno() + ", alimentazione  = '" + mm.getAlimentazione() + "', emissioni_co2 = " + mm.getEmissioni_co2() + ", num_posti = " + mm.getNum_posti() + " WHERE id = " + mm.getId();
+		String sql = "UPDATE modello_macchina SET marca = '" + mm.getMarca().replace("'", "''") + "', modello = '" + mm.getModello().replace("'", "''") + "', cilindrata = " + mm.getCilindrata() + ", anno = " + mm.getAnno() + ", alimentazione  = '" + mm.getAlimentazione() + "', emissioni_co2 = " + mm.getEmissioni_co2() + ", num_posti = " + mm.getNum_posti() + " WHERE id = " + mm.getId();
 		return Query.doUpdate(sql);
 	}
 }

@@ -6,7 +6,7 @@ import Utils.*;
 
 public class StoreFeedback_tragitto{
 	public static boolean insertFeedback_tragitto(Feedback_tragitto Value){
-		String sql = "INSERT INTO feedback_tragitto(email_valutante,email_valutato,data,titolo,commento,valutazione) VALUES('" + Value.getEmail_valutante() + "', '" + Value.getEmail_valutato() + "', '" + Utils.TimeString.dataCalendarToString(Value.getData()) + "', '" + Value.getTitolo() + "', '" + Value.getCommento() + "', '" + Value.getValutazione() + "')";
+		String sql = "INSERT INTO feedback_tragitto(email_valutante,email_valutato,data,titolo,commento,valutazione) VALUES('" + Value.getEmail_valutante() + "', '" + Value.getEmail_valutato() + "', '" + Utils.TimeString.dataCalendarToString(Value.getData()) + "', '" + Value.getTitolo().replace("'", "''") + "', '" + Value.getCommento().replace("'", "''") + "', '" + Value.getValutazione() + "')";
 
 		return Query.doUpdate(sql);
 	}

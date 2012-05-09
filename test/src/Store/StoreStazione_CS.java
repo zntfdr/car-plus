@@ -11,7 +11,7 @@ import Utils.*;
 public class StoreStazione_CS{
 
 	public static boolean deleteStazioneCS(String citta, String provincia, String nome) {
-		String sql_query = "delete from stazione_cs where citta = '" + citta + "' AND provincia = '" + provincia + "' AND nome = '" + nome + "'";
+		String sql_query = "delete from stazione_cs where citta = '" + citta.replace("'", "''") + "' AND provincia = '" + provincia.replace("'", "''") + "' AND nome = '" + nome.replace("'", "''") + "'";
 		return Query.doUpdate(sql_query);
 	}
 
@@ -44,12 +44,12 @@ public class StoreStazione_CS{
 	}
 
 	public static boolean insertStazione_CS(Stazione_CS Value){
-		String sql = "INSERT INTO stazione_CS(citta, provincia, nome, indirizzo, num_posti) VALUES('" + Value.getCitta() + "', '" + Value.getProvincia() + "', '" + Value.getNome() + "', '" + Value.getIndirizzo() + "', " + Value.getNum_posti()+ ")";
+		String sql = "INSERT INTO stazione_CS(citta, provincia, nome, indirizzo, num_posti) VALUES('" + Value.getCitta().replace("'", "''") + "', '" + Value.getProvincia().replace("'", "''") + "', '" + Value.getNome().replace("'", "''") + "', '" + Value.getIndirizzo().replace("'", "''") + "', " + Value.getNum_posti()+ ")";
 		return Query.doUpdate(sql);
 	}
 
 	public static Stazione_CS readStazione_CS(String citta, String provincia, String nome){
-		String sql = "SELECT * FROM stazione_CS WHERE citta = '" + citta + "' AND provincia = '" + provincia + "' AND nome = '" + nome +"'";
+		String sql = "SELECT * FROM stazione_CS WHERE citta = '" + citta.replace("'", "''") + "' AND provincia = '" + provincia.replace("'", "''") + "' AND nome = '" + nome.replace("'", "''") +"'";
 		ResultSet rs = null;
 		try {
 			rs = Query.doQueryRS(sql);
@@ -74,7 +74,7 @@ public class StoreStazione_CS{
 	}
 	
 	public static ArrayList<String> getCittaStazioniCS(String provincia){
-		String sql = "SELECT DISTINCT citta FROM stazione_CS WHERE provincia = '" + provincia + "'";
+		String sql = "SELECT DISTINCT citta FROM stazione_CS WHERE provincia = '" + provincia.replace("'", "''") + "'";
 		ResultSet rs = null;
 		try {
 			rs = Query.doQueryRS(sql);
@@ -103,9 +103,9 @@ public class StoreStazione_CS{
 	public static ArrayList<Stazione_CS> readStazione_CS_List(ArrayList<String> listaStazioni){
 		String sql = "SELECT * FROM stazione_cs WHERE ";
 		for (int i=0; i<listaStazioni.size() - 1; i++){
-			sql += "nome = '" + listaStazioni.get(i)+ "' OR ";
+			sql += "nome = '" + listaStazioni.get(i).replace("'", "''") + "' OR ";
 		}
-		sql+= "nome = '" + listaStazioni.get(listaStazioni.size() - 1)+ "'";
+		sql+= "nome = '" + listaStazioni.get(listaStazioni.size() - 1).replace("'", "''") + "'";
 		ResultSet rs = null;
 		try {
 			rs = Query.doQueryRS(sql);
@@ -132,7 +132,7 @@ public class StoreStazione_CS{
 	}
 	
 	public static ArrayList<Stazione_CS> getStazioniCSPerCittaEProvincia(String provincia, String citta){
-		String sql = "SELECT * FROM stazione_cs WHERE provincia = '" + provincia + "' AND citta = '" + citta + "'";
+		String sql = "SELECT * FROM stazione_cs WHERE provincia = '" + provincia.replace("'", "''") + "' AND citta = '" + citta.replace("'", "''") + "'";
 		ResultSet rs = null;
 		try {
 			rs = Query.doQueryRS(sql);
@@ -187,7 +187,7 @@ public class StoreStazione_CS{
 	}
 
 	public static boolean UpdateStazioneCS(Stazione_CS scs, String citta, String provincia, String nome){
-		String sql = "UPDATE stazione_cs SET citta = '" + scs.getCitta() + "', provincia = '" + scs.getProvincia() + "', nome = '" + scs.getNome() + "', indirizzo = '" + scs.getIndirizzo() + "', num_posti  = " + scs.getNum_posti() + " WHERE citta = '" + citta + "' AND provincia = '" + provincia + "' AND nome = '" + nome + "'";
+		String sql = "UPDATE stazione_cs SET citta = '" + scs.getCitta().replace("'", "''") + "', provincia = '" + scs.getProvincia().replace("'", "''") + "', nome = '" + scs.getNome().replace("'", "''") + "', indirizzo = '" + scs.getIndirizzo().replace("'", "''") + "', num_posti  = " + scs.getNum_posti() + " WHERE citta = '" + citta.replace("'", "''") + "' AND provincia = '" + provincia.replace("'", "''") + "' AND nome = '" + nome.replace("'", "''") + "'";
 		return Query.doUpdate(sql);
 	}
 }

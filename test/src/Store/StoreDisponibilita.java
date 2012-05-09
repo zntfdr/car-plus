@@ -10,12 +10,12 @@ import Utils.*;
 
 public class StoreDisponibilita{	
 	public static boolean insertDisponibilita(Disponibilita dis){
-		String sql = "INSERT INTO disponibilita(modello_macchina, nome_abbonamento) VALUES('" + dis.getModello() + "', '" + dis.getNome_abb() +"')";
+		String sql = "INSERT INTO disponibilita(modello_macchina, nome_abbonamento) VALUES('" + dis.getModello() + "', '" + dis.getNome_abb().replace("'", "''") +"')";
 		return Query.doUpdate(sql);
 	}
 
 	public static  ArrayList<Disponibilita> readDisponibilita(String nome){
-		String sql = "SELECT * FROM disponibilita WHERE nome_abbonamento = '" + nome + "'";
+		String sql = "SELECT * FROM disponibilita WHERE nome_abbonamento = '" + nome.replace("'", "''") + "'";
 		ArrayList<Disponibilita> listaModelli = new ArrayList<Disponibilita>();
 		ResultSet rs = null;
 		try {
@@ -43,12 +43,12 @@ public class StoreDisponibilita{
 	}
 	
 	public static boolean updateDisponibilita(Disponibilita disp, Disponibilita oldDisp){
-		String sql = "UPDATE disponibilita SET modello_macchina = '" + disp.getModello() + "', nome_abbonamento = '" + disp.getNome_abb() + "' WHERE modello_macchina='" + oldDisp.getModello() +"' AND nome_abbonamento='" + oldDisp.getNome_abb() + "'";
+		String sql = "UPDATE disponibilita SET modello_macchina = '" + disp.getModello() + "', nome_abbonamento = '" + disp.getNome_abb().replace("'", "''") + "' WHERE modello_macchina='" + oldDisp.getModello() +"' AND nome_abbonamento='" + oldDisp.getNome_abb() + "'";
 		return Query.doUpdate(sql);
 	}
 	
 	public static boolean deleteDisponibilita(Disponibilita disp) {
-		String sql_query = "DELETE FROM disponibilita WHERE modello_macchina = '" + disp.getModello() + "' AND nome_abbonamento='" + disp.getNome_abb() +"'";
+		String sql_query = "DELETE FROM disponibilita WHERE modello_macchina = '" + disp.getModello() + "' AND nome_abbonamento='" + disp.getNome_abb().replace("'", "''") +"'";
 		return Query.doUpdate(sql_query);
 	}
 
