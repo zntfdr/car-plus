@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-  <display-name>Car Plus - Version 5.96</display-name>
+  <display-name>Car Plus - Version 6.09</display-name>
   <servlet>
     <servlet-name>CancellaAbbonamento</servlet-name>
     <servlet-class>Servlet.CancellaAbbonamento</servlet-class>
