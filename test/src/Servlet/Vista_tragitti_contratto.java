@@ -16,19 +16,6 @@ import Store.*;
  */
 public class Vista_tragitti_contratto extends HttpServlet {
 
-	/**
-	 * Gestisce le richieste HTTP GETT
-	 * 
-	 * @param req
-	 *            la richiesta ricevuta dal client.
-	 * @param res
-	 *            la rispota fornita dal server.
-	 * 
-	 * @throws ServletException
-	 *             se ci sono problemi nell'esecuzione della servlet.
-	 * @throws IOException
-	 *             se ci sono problemi nella comunicazione client-server.
-	 */
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		res.setContentType("text/html;charset=UTF-8");

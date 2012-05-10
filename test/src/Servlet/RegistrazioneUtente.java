@@ -10,7 +10,7 @@ import Store.*;
 
 public class RegistrazioneUtente extends HttpServlet {
 
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		String descrizione, page;
 		

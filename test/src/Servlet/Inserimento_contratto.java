@@ -12,7 +12,7 @@ import Store.*;
 
 public class Inserimento_contratto extends HttpServlet {
 
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		res.setContentType("text/html;charset=UTF-8");
 		req.setCharacterEncoding("UTF-8");
