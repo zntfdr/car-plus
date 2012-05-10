@@ -73,7 +73,7 @@
 	
     <div id="content">
         <div class="wrapper">
-        <form method="get" action="../RicercaTragitto_CP">
+        <form method="POST" action="../RicercaTragitto_CP">
             <ul>
                 <li><h1>Ricerca il tragitto perfetto per te!</h1></li>
                 <fieldset>
