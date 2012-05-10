@@ -48,16 +48,16 @@
   			%>
       		<tr>
 				<td><%= T.getNome() %></td>
-				<td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo()) %></td>
-				<td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna())%></td>
+				<td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo()).replaceAll("(.*):00", "$1") %></td>
+				<td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna()).replaceAll("(.*):00", "$1")%></td>
 				<td><%=T.getCosto()%> &euro;</td>
 				<td><% if (T.getPagato()) { %> &#10003;<% 	} else { %> &#10007;<% 	} %></td>
 			</tr>
 		    <% } //fine if
 		    } //fine for %>
     	</table>
-    	
-    	<p>Il tuo debito totale nei nostri confronti è di euro: <strong><%= costoTotale %></strong></p>
+
+    	<p style="margin-top: 20px;">Il tuo debito totale nei nostri confronti è di: <span style="font-size:1.5em; font-weight:bold;"><%= costoTotale %> &euro;</span></p>
          <div style="clear: both;"></div>
         </div>
     </div>

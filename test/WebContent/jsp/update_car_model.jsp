@@ -21,7 +21,7 @@
     <script>
     $(document).ready(function(){
         $("#cilindrata, #emissioni_co2, #num_posti").click(function(e){
-        	if(e.keyCode < 48 || e.keyCode > 57) return false;
+        	if(e.which < 48 || e.which > 57) return false;
             return true;
         });
     });    </script>

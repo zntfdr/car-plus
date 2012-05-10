@@ -56,18 +56,18 @@
             <td> <%=T.getNome()%></td>
             <td> <%=T.getCitta()%> (<%=T.getProvincia()%>)</td>
             <td> <%=T.getMarca()%> <%=T.getModello_macchina()%></td>
-            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione())%><br/>/<br/>
+            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo_prenotazione()).replaceAll("(.*):00", "$1")%><br/>/<br/>
             <%
             	String tp = Utils.TimeString.dataOraCalendarToString(T.getTempo_prelievo());
             	
             	if (tp.equals("1111/11/11 00:00:00"))
-            		tp = "Tragitto non effetuato"; %><%=tp %></td>
-            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna_prenotazione())%><br/>/<br/>
+            		tp = "Tragitto non effetuato"; %><%=tp.replaceAll("(.*):00", "$1") %></td>
+            <td> <%=Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna_prenotazione()).replaceAll("(.*):00", "$1")%><br/>/<br/>
               <%
               	String tc = Utils.TimeString.dataOraCalendarToString(T.getTempo_consegna());
               	
               	if (tc.equals("1111/11/11 00:00:00"))
-              		tp = "Tragitto non effetuato"; %> <%=tp%></td>
+              		tc = "Tragitto non effetuato"; %> <%=tc.replaceAll("(.*):00", "$1")%></td>
             <td> <% if(tp.equals("Tragitto non effetuato")) {%><%=tp%><%} else {%><%=T.getKm_totali() + " km"%><%} %></td>
             <td>
             	<% if(tp.equals("Tragitto non effetuato")) { %>

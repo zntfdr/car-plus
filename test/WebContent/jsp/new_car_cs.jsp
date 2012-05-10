@@ -23,7 +23,7 @@
 <script>
 $(document).ready(function(){
         $("#purchase_year, #tot_km").keypress(function(e){
-            if(e.keyCode < 48 || e.keyCode > 57) return false;
+            if(e.which < 48 || e.which > 57) return false;
             return true;
         });
 
@@ -41,7 +41,7 @@ $(document).ready(function(){
         	var name = $(this).attr('name');
         	var url = "../Get_citta?provincia=" + province + "&selectName=" + name;
         	if (province != "") {
-	        	$.get(url, function(data){
+	        	$.post(url, function(data){
 			        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '</li>';
 			        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
 			        			$("select#citta_stazione").change(function(e){
@@ -51,7 +51,7 @@ $(document).ready(function(){
 			        	    		
 			        				var city = $(this).val();
 			        				var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
-			        				$.get(url_stations, function(data){
+			        				$.post(url_stations, function(data){
 			        					var li_stations = '<li id="stations">' + data + '</li>';
 			        					$(li_stations).insertAfter("li#li_citta_stazione");
 			        				});
@@ -73,7 +73,7 @@ $(document).ready(function(){
 	
     <div id="content">
         <div class="wrapper">
-        <form method="GET" action="../Inserimento_macchina_cs" id="Inserimento_macchina_cs">
+        <form method="POST" action="../Inserimento_macchina_cs" id="Inserimento_macchina_cs">
             <ul>
                 <li><h1>Inserimento nuova macchina di Car sharing</h1></li>
                 <fieldset>

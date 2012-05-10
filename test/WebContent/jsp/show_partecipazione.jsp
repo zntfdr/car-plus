@@ -41,7 +41,7 @@
         	
         </ul>
  
-        <form method="get" action="../Inserimento_partecipazione">
+        <form method="POST" action="../Inserimento_partecipazione">
             <ul>
 	            <li>Vuoi confermare la prenotazione?</li>
 	            <li><strong>Utente:</strong> <%=user.getEmail() %> <input class="hide" name="user" readonly="readonly" type="text" id="user" value="<%=user.getEmail() %>" /></li>

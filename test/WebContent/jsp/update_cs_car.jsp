@@ -35,7 +35,7 @@
         	}
         	var province = $(this).val();
         	var url = "../Get_citta?provincia=" + province + "&selectName=city";
-        	$.get(url, function(data){
+        	$.post(url, function(data){
 		        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '</li>';
 		        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
 		        			$("select#city").change(function(e){
@@ -45,7 +45,7 @@
 		        	    		
 		        				var city = $(this).val();
 		        				var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
-		        				$.get(url_stations, function(data){
+		        				$.post(url_stations, function(data){
 		        					var li_stations = '<li id="stations">' + data + '</li>';
 		        					$(li_stations).insertAfter("li#li_citta_stazione");
 		        				});

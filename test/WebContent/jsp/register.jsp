@@ -98,7 +98,7 @@
 	        	var name = $(this).attr('name');
 	        	var url = "../GetCittaAJAX?provincia=" + province;
 	        	if (province != "") {
-		        	$.get(url, function(data){
+		        	$.post(url, function(data){
 				        			var li_citta = '<li id="li_citta">' + data + '</li>';
 				        			$(li_citta).insertAfter("li#li_provincia");
 				    });
@@ -113,7 +113,7 @@
     <div id="content">
         <div class="wrapper">
        
-        <form method="GET" action="../RegistrazioneUtente" id="register">
+        <form method="POST" action="../RegistrazioneUtente" id="register">
             <ul>
                 <li><h1><% if (session.getAttribute("ADMIN") != null) { %><%= "Registra un nuovo account" %><% } else { %>Registrati ed entra nel mondo Car+!<%}%></h1></li>
                 <fieldset>

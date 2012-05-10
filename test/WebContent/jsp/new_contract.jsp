@@ -25,7 +25,7 @@
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
-        <form method="GET" action="../Inserimento_contratto" id="new_subscription">
+        <form method="POST" action="../Inserimento_contratto" id="new_subscription">
             <ul>
                 <li><h1>Nuovo Contratto</h1></li>
                 <li><label for="data_stipula">Data Stipula:</label><input name="data_stipula" type="text" id="data_stipula" placeholder="Data Stipula"/></li>

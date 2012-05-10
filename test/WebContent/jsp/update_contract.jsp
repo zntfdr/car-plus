@@ -28,7 +28,7 @@
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
-        <form method="GET" action="../UpdateContratto" id="new_subscription">
+        <form method="POST" action="../UpdateContratto" id="new_subscription">
             <ul>
                 <li><h1>Aggiorna Contratto</h1></li>
                 <li class="hide"><input name="id" type="hidden" id="id" value="<%= cntr.getId() %>"/></li>

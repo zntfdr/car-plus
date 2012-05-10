@@ -18,7 +18,7 @@
 <script>
     $(document).ready(function(){
         $("#num_places").keypress(function(e){
-            if(e.keyCode < 48 || e.keyCode > 57) return false;
+            if(e.which < 48 || e.which > 57) return false;
             return true;
         });
         
@@ -30,7 +30,7 @@
         	var name = $(this).attr('name');
         	var url = "../GetCittaAJAX?provincia=" + province;
         	if (province != "") {
-	        	$.get(url, function(data){
+	        	$.post(url, function(data){
 			        			var li_citta = '<li id="li_citta">' + data + '</li>';
 			        			$(li_citta).insertAfter("li#li_provincia");
 			    });
@@ -44,7 +44,7 @@
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
-        <form method="GET" action="../Inserimento_stazione_cs" id="Inserimento_stazione_cs">
+        <form method="POST" action="../Inserimento_stazione_cs" id="Inserimento_stazione_cs">
             <ul>
                 <li><h1>Nuova Stazione di Car Sharing</h1></li>
                 <li><label for="nome">Nome Stazione:</label><input name="nome" type="text" id="nome" placeholder="Nome Stazione"/></li>

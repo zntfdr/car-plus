@@ -24,7 +24,7 @@
         <div class="wrapper">
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
         <h1>Lista dei clienti</h1>
-        <form method="GET" action="../Pagamenti" id="pagamenti">
+        <form method="POST" action="../Pagamenti" id="pagamenti">
 	        <ul>
 		        <li>
 			        <label for="cliente">Cliente:</label>

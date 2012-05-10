@@ -21,7 +21,7 @@
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
-        <form method="GET" action="../Inserimento_abbonamento" id="new_subscription">
+        <form method="POST" action="../Inserimento_abbonamento" id="new_subscription">
             <ul>
                 <li><h1>Nuovo Abbonamento</h1></li>
                 <fieldset>

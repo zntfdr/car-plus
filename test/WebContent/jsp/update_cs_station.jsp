@@ -23,7 +23,7 @@
     <script>
 	    $(document).ready(function(){
 	        $("#num_places").keypress(function(e){
-	            if(e.keyCode < 48 || e.keyCode > 57) return false;
+	            if(e.which < 48 || e.which > 57) return false;
 	            return true;
 	        });
 	        $("select#province").change(function(e){
@@ -34,7 +34,7 @@
 	        	var name = $(this).attr('name');
 	        	var url = "../GetCittaAJAX?provincia=" + province;
 	        	if (province != "") {
-		        	$.get(url, function(data){
+		        	$.post(url, function(data){
 				        			var li_citta = '<li id="li_citta">' + data + '</li>';
 				        			$(li_citta).insertAfter("li#li_provincia");
 				    });

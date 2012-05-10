@@ -86,7 +86,7 @@
 	        	var name = $(this).attr('name');
 	        	var url = "../GetCittaAJAX?provincia=" + province;
 	        	if (province != "") {
-		        	$.get(url, function(data){
+		        	$.post(url, function(data){
 				        			var li_citta = '<li id="li_citta">' + data + '</li>';
 				        			$(li_citta).insertAfter("li#li_provincia");
 				    });

@@ -26,7 +26,7 @@
         <div class="wrapper">
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
         <h1>Lista contratti cliente</h1>
-        <form method="GET" action="associaTesseraStep3.jsp" id="step2">
+        <form method="POST" action="associaTesseraStep3.jsp" id="step2">
         <select name="contratto">
   			<% String cliente = request.getParameter("cliente"); 
   			for(Contratto C : Interrogazione.listaContrattiUtente(cliente)){ %>

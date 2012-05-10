@@ -34,7 +34,7 @@
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
-        <form method="GET" action="../Inserimento_tragitto_cs" id="Inserimento_tragitto_cs">
+        <form method="POST" action="../Inserimento_tragitto_cs" id="Inserimento_tragitto_cs">
             <% if (TimeString.parseSQLTimestampToCalendar(tempoPrelievo).compareTo(TimeString.parseSQLTimestampToCalendar(tempoConsegna))>=0) { %>
             <div id="content">
             <div class="wrapper">

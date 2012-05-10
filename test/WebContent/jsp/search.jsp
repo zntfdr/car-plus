@@ -24,7 +24,7 @@
             	var province = $(this).val();
             	var url = "../GetCittaAJAX?provincia=" + province;
             	if (province != "") {
-    	        	$.get(url, function(data){
+    	        	$.post(url, function(data){
     			        			var li_citta = '<li id="li_citta_from">' + data + '</li>';
     			        			$(li_citta).insertAfter("li#li_provincia_from");
     			        			$("li#li_citta_from > select").attr("name", "from");
@@ -39,7 +39,7 @@
         	var province = $(this).val();
         	var url = "../GetCittaAJAX?provincia=" + province;
         	if (province != "") {
-            	$.get(url, function(data){
+            	$.post(url, function(data){
     		        			var li_citta = '<li id="li_citta_to">' + data + '</li>';
     		        			$(li_citta).insertAfter("li#li_provincia_to");
     		        			$("li#li_citta_to > select").attr("name", "to");

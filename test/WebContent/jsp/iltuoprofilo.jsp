@@ -28,16 +28,34 @@ if (user == null) { //Controllo che sia aperta una connessione, altrimenti facci
             <ul>
                <fieldset>
                 <legend>Informazioni Personali:</legend>
-	                <li><input name="name" type="text" id="name" placeholder="Nome" readonly="readnly" Value="<%= user.getNome() %>" maxlength="30"/></li>
-	                <li><input name="surname" type="text" id="surname" placeholder="cognome" readonly="readnly" Value="<%= user.getCognome() %>" maxlength="30"/></li>
 	                <li>
-                	    <% if(user.getSesso().compareTo("M") == 0) { %>  <input name="name" type="text" id="name" placeholder="Nome" readonly="readnly" Value="Maschio" maxlength="30"/>
-                	    <% }else { %> <input name="name" type="text" id="name" placeholder="Nome" readonly="readnly" Value="Femmina" maxlength="30"/> <% } %>
+	                	<label for="name">Nome:</label>
+	                	<input name="name" type="text" id="name" placeholder="Nome" readonly="readnly" Value="<%= user.getNome() %>" maxlength="30"/>
+	                </li>
+	                <li>
+	                	<label for="surname">Cognome:</label>
+	                	<input name="surname" type="text" id="surname" placeholder="cognome" readonly="readnly" Value="<%= user.getCognome() %>" maxlength="30"/>
+	                </li>
+	                <li>
+	                	<label for="gender">Sesso:</label>
+	                	<input name="gender" type="text" placeholder="Sesso" readonly="readonly" value="<%= user.getSesso().compareTo("M") == 0 ? "Maschio" : "Femmina" %>" />
 				    </li>
-	                <li><input name="address" type="text" id="address" placeholder="Indirizzo" readonly="readnly" Value="<%= user.getIndirizzo() %>" maxlength="50"/></li>
-	                <li><input name="provincia" type="text" id="provincia" placeholder="Provincia" readonly="readnly" Value="<%= user.getProvincia() %>" maxlength="50"/></li>
-	                <li><input name="citta" type="text" id="citta" placeholder="Città" readonly="readnly" Value="<%= user.getCitta() %>" maxlength="50"/></li>
-	                <li><input name="phone" type="text" id="phone" placeholder="Telefono" readonly="readnly" Value="<%= user.getTelefono() %>" maxlength="15"/></li>
+	                <li>
+	                	<label for="address">Indirizzo:</label>
+	                	<input name="address" type="text" id="address" placeholder="Indirizzo" readonly="readnly" Value="<%= user.getIndirizzo() %>" maxlength="50"/>
+	                </li>
+	                <li>
+		                <label for="citta">Citt&agrave;:</label>
+		                <input name="citta" type="text" id="citta" placeholder="Città" readonly="readnly" Value="<%= user.getCitta() %>" maxlength="50"/>
+		            </li>
+		            <li>
+		                <label for="provincia">Provincia:</label>
+		                <input name="provincia" type="text" id="provincia" placeholder="Provincia" readonly="readnly" Value="<%= user.getProvincia() %>" maxlength="50"/>
+		            </li>
+	                <li>
+	                	<label for="phone">Telefono:</label>
+	                	<input name="phone" type="text" id="phone" placeholder="Telefono" readonly="readnly" Value="<%= user.getTelefono() %>" maxlength="15"/>
+	                </li>
                 </fieldset>
             </ul>
         </form>

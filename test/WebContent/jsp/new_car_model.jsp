@@ -17,7 +17,7 @@
 <script>
     $(document).ready(function(){
         $("#cilindrata, #emissioni_co2, #num_posti").click(function(e){
-        	if(e.keyCode < 48 || e.keyCode > 57) return false;
+        	if(e.which < 48 || e.which > 57) return false;
             return true;
         });
     });
@@ -28,7 +28,7 @@
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
-        <form method="get" action="../Inserimento_modello_macchina" id="new_car_model">
+        <form method="POST" action="../Inserimento_modello_macchina" id="new_car_model">
             <ul>
                 <li><h1>Nuovo Modello Macchina</h1></li>
                 <li><label for="marca">Marca:</label><input name="marca" type="text" id="marca" placeholder="Marca" maxlenght="30"/></li>

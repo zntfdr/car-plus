@@ -20,7 +20,7 @@
 	<%= HTMLManager.getHeader(session) %>
     <div id="content">
         <div class="wrapper">
-        <form method="GET" action="../Inserimento_localita" id="Inserimento_localita">
+        <form method="POST" action="../Inserimento_localita" id="Inserimento_localita">
             <ul>
                 <li><h1>Nuova Localit&agrave;</h1></li>
                 <li><label for="city">Citt&agrave;</label><input name="city" type="text" id="city" placeholder="Citta"/></li>

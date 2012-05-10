@@ -24,7 +24,7 @@
         <div class="wrapper">
         <% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); } %>
         <h1>Lista dei clienti</h1>
-        <form method="GET" action="associaTesseraStep2.jsp" id="step1">
+        <form method="POST" action="associaTesseraStep2.jsp" id="step1">
         <select name="cliente">
   			<% for(Cliente C : Store.StoreCliente.getClienti()){ %>
       		<option value="<%=C.getEmail_utente() %>"> <%=C.getEmail_utente() %></option>

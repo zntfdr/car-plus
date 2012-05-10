@@ -38,13 +38,13 @@
         	var name = $(this).attr('name');
         	var url = "../Get_citta?provincia=" + province + "&selectName=" + name;
         	if (province != "") {
-	        	$.get(url, function(data){
+	        	$.post(url, function(data){
 			        			var li_citta_stazione = '<li id="li_citta_stazione">' + data + '</li>';
 			        			$(li_citta_stazione).insertAfter("li#li_provincia_stazione");
 			        			$("select#citta_stazione").change(function(e){
 			        				var city = $(this).val();
 			        				var url_stations = "../Get_stazione?provincia="+province+"&citta="+city;
-			        				$.get(url_stations, function(data){
+			        				$.post(url_stations, function(data){
 			        					var li_stations = '<li id="stations">' + data + '</li>';
 			        					$(li_stations).insertAfter("li#li_citta_stazione");
 			        				});
@@ -65,7 +65,7 @@
         <div class="wrapper">
         Benvenuto <b><%= user.getNome() %></b>,<br/>
         Scegli un contratto da utilizzare per la prenotazione e la stazione di partenza:
-        <form method="GET" action="../Inserimento_tragitto_cs_check" id="new_tragitto_cs_check">
+        <form method="POST" action="../Inserimento_tragitto_cs_check" id="new_tragitto_cs_check">
 	        <ul>
 	        	<li>Prenota una macchina di Car Sharing</li>
 	        	<fieldset>
