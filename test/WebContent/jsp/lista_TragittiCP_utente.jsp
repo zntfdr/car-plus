@@ -28,7 +28,8 @@
 	<%=HTMLManager.getHeader(session)%>
     <div id="content">
         <div class="wrapper">
-			<%
+			<% if(session.getAttribute("descrizione") != null) { %><%= session.getAttribute("descrizione") %><% session.removeAttribute("descrizione"); }
+
 				ArrayList<Tragitto_CP> listaCreatiDaUtente = Interrogazione.listaTraggittiUtenteCreatiDaLui(email_cliente);
 				ArrayList<Tragitto_CP> listaInCuiPartecipa = Interrogazione.listaTraggittiUtenteInCuiPartecipa(email_cliente);
 				if (listaCreatiDaUtente.isEmpty() && listaInCuiPartecipa.isEmpty()) {

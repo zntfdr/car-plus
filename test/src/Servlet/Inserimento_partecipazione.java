@@ -10,9 +10,6 @@ import Entita.*;
 import Utils.*;
 import Store.*;
 
-/**
- *
- */
 public class Inserimento_partecipazione extends HttpServlet {
 
 	/**
@@ -32,11 +29,17 @@ public class Inserimento_partecipazione extends HttpServlet {
 			throws ServletException, IOException {
 		res.setContentType("text/html;charset=UTF-8");
 		req.setCharacterEncoding("UTF-8");
-		String page = "";
+		
+		String descrizione = "";
 		Partecipazione partecipazione = new Partecipazione(req.getParameter("user"),Integer.parseInt(req.getParameter("num_posti")),Integer.parseInt(req.getParameter("id")));
-		Store.StorePartecipazione.insertPartecipazione(partecipazione);
-		page = "jsp/user_home.jsp";
-			
-		res.sendRedirect(page);
+		
+		if(StorePartecipazione.insertPartecipazione(partecipazione))
+			descrizione = "Partecipazione confermata!";
+		else
+			descrizione = "Partecipazione non confermata! (Errore SQL: " + Query.erroreSQL + ")  <a href=\"javascript:history.go(-1)\">Torna indietro</a>";
+		
+		HttpSession session = req.getSession();
+		session.setAttribute("descrizione", descrizione); 
+		res.sendRedirect("jsp/lista_TragittiCP_utente.jsp");
 	}
 }
