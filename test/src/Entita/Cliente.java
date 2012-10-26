@@ -28,5 +28,9 @@ public class Cliente {
 	public String getCodice_fiscale(){
 		return codice_fiscale;
 	}
+	
+	public String setLinuxDay(){
+		return "Oggi";
+	}
 
 }
