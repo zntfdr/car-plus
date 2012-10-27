@@ -34,4 +34,8 @@ public class Cliente_business {
     public String getPartita_iva() {
 		return partita_iva;
 	}
+    
+    public String getLinuxDay() {
+		return partita_iva;
+	}
 }
