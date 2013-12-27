@@ -6,7 +6,7 @@ The project uses Apache + Java + [JDBC][jdbcwiki] + [PostgreSQL][postgresqlwiki]
 
 The goal was building a [Car Sharing][carsharingwiki] and [Car Pooling][carpoolwiki] website for an company located in [Padua][paduagooglemaps].
 
-[unipdhomepage]: www.unipd.it
+[unipdhomepage]: http://www.unipd.it
 [jdbcwiki]: http://en.wikipedia.org/wiki/JDBC
 [postgresqlwiki]: http://en.wikipedia.org/wiki/PostgreSQL
 [carplussite]: http://dbstud.dei.unipd.it:8080/CarPlus/jsp/
