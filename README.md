@@ -1,10 +1,11 @@
 # Car+
+<img src="https://raw.github.com/zntfdr/car-plus/master/test/WebContent/img/announce.png">
 
-Car+ is a 2011/12 Database Systems course project built in over six months by four students of [University of Padua][unipdhomepage].
+Car+ is a 2011/12 Database Systems course project built in over six months by a team of four students from [University of Padua][unipdhomepage].
 
-The project uses Apache + Java + [JDBC][jdbcwiki] + [PostgreSQL][postgresqlwiki]. You can see it on action [here][carplussite]. 
+The project uses Apache + Java + [JDBC][jdbcwiki] + [PostgreSQL][postgresqlwiki]. You can give it a spin [here][carplussite]. 
 
-The goal was building a [Car Sharing][carsharingwiki] and [Car Pooling][carpoolwiki] website for an company located in [Padua][paduagooglemaps].
+The project's goal is to develop a [Car Sharing][carsharingwiki] and [Car Pooling][carpoolwiki] platform for a start-up located in [Padua][paduagooglemaps].
 
 [unipdhomepage]: http://www.unipd.it
 [jdbcwiki]: http://en.wikipedia.org/wiki/JDBC
